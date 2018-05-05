@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Music," />
+  <meta name="keywords" content="LeetCode," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Header1Header2">
-<meta name="keywords" content="Music">
+<meta name="description" content="LeetCode 95. Unique Binary Search Trees IIThe problem can be solved by dynamic programming.  SubproblemsIf we find an int x among 1 and n and set x as the value of  root, the current root’s left subtr">
+<meta name="keywords" content="LeetCode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Test blog">
-<meta property="og:url" content="https://transformerh.github.io/2014/01/29/test1/index.html">
+<meta property="og:title" content="LeetCode 95. Unique Binary Search Trees II">
+<meta property="og:url" content="https://transformerh.github.io/2018/05/05/LeetCode-95-Unique-Binary-Search-Trees-II/index.html">
 <meta property="og:site_name" content="Shell Han&#39;s Blog">
-<meta property="og:description" content="Header1Header2">
+<meta property="og:description" content="LeetCode 95. Unique Binary Search Trees IIThe problem can be solved by dynamic programming.  SubproblemsIf we find an int x among 1 and n and set x as the value of  root, the current root’s left subtr">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-05-01T13:25:19.467Z">
+<meta property="og:updated_time" content="2018-05-05T02:45:08.413Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Test blog">
-<meta name="twitter:description" content="Header1Header2">
+<meta name="twitter:title" content="LeetCode 95. Unique Binary Search Trees II">
+<meta name="twitter:description" content="LeetCode 95. Unique Binary Search Trees IIThe problem can be solved by dynamic programming.  SubproblemsIf we find an int x among 1 and n and set x as the value of  root, the current root’s left subtr">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://transformerh.github.io/2014/01/29/test1/"/>
+  <link rel="canonical" href="https://transformerh.github.io/2018/05/05/LeetCode-95-Unique-Binary-Search-Trees-II/"/>
 
 
 
 
 
-  <title>Test blog | Shell Han's Blog</title>
+  <title>LeetCode 95. Unique Binary Search Trees II | Shell Han's Blog</title>
   
 
 
@@ -273,7 +273,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/hexo-theme-huxblog/2014/01/29/test1/">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/hexo-theme-huxblog/2018/05/05/LeetCode-95-Unique-Binary-Search-Trees-II/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xueying Han">
@@ -290,7 +290,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Test blog</h1>
+          <h1 class="post-title" itemprop="name headline">LeetCode 95. Unique Binary Search Trees II</h1>
         
 
         <div class="post-meta">
@@ -302,8 +302,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2014-01-29T12:00:00+08:00">
-                2014-01-29
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-05T10:03:38+08:00">
+                2018-05-05
               </time>
             
 
@@ -312,6 +312,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hexo-theme-huxblog/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -340,7 +362,15 @@
       
 
       
-        <h2 id="Header1"><a href="#Header1" class="headerlink" title="Header1"></a>Header1</h2><h2 id="Header2"><a href="#Header2" class="headerlink" title="Header2"></a>Header2</h2>
+        <h2 id="LeetCode-95-Unique-Binary-Search-Trees-II"><a href="#LeetCode-95-Unique-Binary-Search-Trees-II" class="headerlink" title="LeetCode 95. Unique Binary Search Trees II"></a>LeetCode 95. Unique Binary Search Trees II</h2><p>The problem can be solved by dynamic programming.</p>
+<ul>
+<li><p>Subproblems<br>If we find an int x among 1 and n and set x as the value of  root, the current root’s left subtree can be one of trees generated by 1…x-1, and the right subtree can be one of trees generated by x+1…n.<br>curRoot-&gt;left = newSubtree(1…x-1)<br>curRoot-&gt;right = newSubtree(x+1…n)<br>The above method can be converted to<br>func addDiff(TreeNode* root, int diff) {<br>node-&gt;value += diff<br>}<br>then<br>curRoot-&gt; right = addDiff(newSubtree(1…n-x), x)</p>
+</li>
+<li><p>Complete problem-solving idea<br>If we want to use the result of subproblems , the bst generated by 1…x-1 and the bst generated by 1…n-x, we should solve these subproblems first.<br>And we also know that 1…k can generate heterogeneous trees.</p>
+</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* Definition for a binary tree node.</span></span><br><span class="line"><span class="comment">* struct TreeNode &#123;</span></span><br><span class="line"><span class="comment">*     int val;</span></span><br><span class="line"><span class="comment">*     TreeNode *left;</span></span><br><span class="line"><span class="comment">*     TreeNode *right;</span></span><br><span class="line"><span class="comment">*     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment">* &#125;;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="function">TreeNode* <span class="title">addDiff</span><span class="params">(TreeNode* subTree, <span class="keyword">int</span> diff)</span></span>&#123;</span><br><span class="line"><span class="keyword">if</span>(subTree == <span class="literal">NULL</span>)</span><br><span class="line"><span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">TreeNode* newSub = <span class="keyword">new</span> TreeNode(subTree-&gt;val + diff);</span><br><span class="line">newSub-&gt;left = addDiff(subTree-&gt;left, diff);</span><br><span class="line">newSub-&gt;right = addDiff(subTree-&gt;right, diff);</span><br><span class="line"><span class="keyword">return</span> newSub;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// dynamic prgramming 的最小问题</span></span><br><span class="line"><span class="built_in">vector</span>&lt;TreeNode*&gt; generateTrees(<span class="keyword">int</span> n) &#123;</span><br><span class="line"><span class="keyword">if</span>(n == <span class="number">0</span>)</span><br><span class="line"><span class="keyword">return</span> <span class="built_in">vector</span>&lt;TreeNode*&gt;();</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;TreeNode*&gt;&gt; result;</span><br><span class="line">result.push_back(<span class="built_in">vector</span>&lt;TreeNode*&gt;());</span><br><span class="line">result[<span class="number">0</span>].push_back(<span class="literal">NULL</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n; i++)&#123;</span><br><span class="line">result.push_back(<span class="built_in">vector</span>&lt;TreeNode*&gt;());</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= i; j++)&#123;</span><br><span class="line"><span class="comment">// l: 1...j-1</span></span><br><span class="line"><span class="comment">// r: j+1...n   =&gt;  1...n-j</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> l = <span class="number">0</span>; l &lt; result[j<span class="number">-1</span>].size(); l++)&#123;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> r = <span class="number">0</span>; r &lt; result[i-j].size(); r++)&#123;</span><br><span class="line">TreeNode* newSub = <span class="keyword">new</span> TreeNode(j);</span><br><span class="line">newSub-&gt;left = addDiff(result[j<span class="number">-1</span>][l], <span class="number">0</span>);</span><br><span class="line">newSub-&gt;right = addDiff(result[i-j][r], j);</span><br><span class="line">result[i].push_back(newSub);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> result[n];</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -357,7 +387,7 @@
       
         <div class="post-tags">
           
-            <a href="/hexo-theme-huxblog/tags/Music/" rel="tag"># Music</a>
+            <a href="/hexo-theme-huxblog/tags/LeetCode/" rel="tag"># LeetCode</a>
           
         </div>
       
@@ -366,22 +396,6 @@
       
       
 
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/hexo-theme-huxblog/2018/05/01/new-blog/" rel="prev" title="new blog">
-                new blog <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
       
 
       
@@ -455,12 +469,21 @@
               
                 <a href="/hexo-theme-huxblog/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">1</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
 
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
             
 
             
@@ -501,7 +524,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Header1"><span class="nav-number">1.</span> <span class="nav-text">Header1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Header2"><span class="nav-number">2.</span> <span class="nav-text">Header2</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#LeetCode-95-Unique-Binary-Search-Trees-II"><span class="nav-number">1.</span> <span class="nav-text">LeetCode 95. Unique Binary Search Trees II</span></a></li></ol></div>
             
 
           </div>
