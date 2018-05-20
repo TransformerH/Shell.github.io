@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="Hey, this is Kaijun.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="About">
-<meta property="og:url" content="https://transformerh.github.io/about/index.html">
+<meta name="description" content="splitList: fast/slow pointer method  -&amp;gt; ⚠️ fast = head-&amp;gt;next   solve the odd/even sum of the list. sortedMerge: the end of the recursion.  123456789101112131415161718192021222324252627282930313">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Merge sort for Linked Lists">
+<meta property="og:url" content="https://transformerh.github.io/2018/05/20/Merge-sort-for-Linked-Lists/index.html">
 <meta property="og:site_name" content="Shell Han&#39;s Blog">
-<meta property="og:description" content="Hey, this is Kaijun.">
+<meta property="og:description" content="splitList: fast/slow pointer method  -&amp;gt; ⚠️ fast = head-&amp;gt;next   solve the odd/even sum of the list. sortedMerge: the end of the recursion.  123456789101112131415161718192021222324252627282930313">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-05-01T09:36:13.482Z">
+<meta property="og:updated_time" content="2018-05-20T06:53:29.194Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="About">
-<meta name="twitter:description" content="Hey, this is Kaijun.">
+<meta name="twitter:title" content="Merge sort for Linked Lists">
+<meta name="twitter:description" content="splitList: fast/slow pointer method  -&amp;gt; ⚠️ fast = head-&amp;gt;next   solve the odd/even sum of the list. sortedMerge: the end of the recursion.  123456789101112131415161718192021222324252627282930313">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="https://transformerh.github.io/about/"/>
+  <link rel="canonical" href="https://transformerh.github.io/2018/05/20/Merge-sort-for-Linked-Lists/"/>
 
 
 
 
 
-  <title>About | Shell Han's Blog</title>
+  <title>Merge sort for Linked Lists | Shell Han's Blog</title>
   
 
 
@@ -260,41 +260,142 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/hexo-theme-huxblog/2018/05/20/Merge-sort-for-Linked-Lists/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xueying Han">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/hexo-theme-huxblog/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shell Han's Blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">About</h1>
-
-
-	<div class="post-meta">
-		<div class="post-description">Hey, this is Kaijun.</div>
-	</div>
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <blockquote>
-<p>写写代码，做做设计，看看产品。<br>世界那么大，多玩玩看看。</p>
-</blockquote>
-<p>9月21日上午，阳光明媚，鲜花斗艳。帕洛阿尔托苹果店里欢声笑语，人头攒动。苹果公司首席执行官蒂姆·库克先生在店长欧阳猛南陪同下，不远千米，深入到一线店面，为那里的员工带去节曰的问候和良好的祝愿。<br><br>“果粉们，你们辛苦了，我代表某果公司，祝你们身体健康，生活幸福，工作成功！”库克亲切慰问广大员工和顾客，并就iOS7、iPhone 5S和iPhone 5C的销售状况进行调研。 <br><br>“您现在每月工资有多少？肾5S拿到了吗？”在店里，库克关切地向果粉们问起这一问题。当听说果粉们排到了5S，库克满意地连连点头。接着他指出，近年来苹果事业发展取得巨大成就，特别是iPhone影响剧增，老百姓对iOS满意度逐步提高，在这个转变过程中，果粉的辛勤工作功不可没。<br><br>库克看到一个中国小朋友在排队买iPhone 5S，亲切的问：“5288元一台能承受不？”小朋友回答到：“能！”当得知这位小朋友卖了一个肾来买iPhone 5S时，库克叮嘱道：“在支持苹果的同时，也要爱护身体。”<br><br>库克与购买苹果手机的果粉们兴致勃勃地参观了苹果专卖店，和员工们拉了拉家常，并饶有兴趣地玩了四盘切西瓜游戏，与普通员工同乐。<br><br>在交谈中，库克多次关心地强调：“有了iPhone 5C，就不卖iPhone 5了。”并对顾客说：“好好休息，身体是革命的本钱嘛！”会谈始终在亲切友好的气氛中进行。<br><br>顾客们就库克的讲话达成了广泛的共识，并承认世界上只有iOS最流畅，要紧紧的团结在以库克先生为首席执行官的苹果公司集体周围，一心一意抓学习，聚精会神谋发展。<br><br><br>帕洛阿尔托苹果专卖店当日原则通过《蒂姆·库克首席执行官在加州新苹果店的讲话纪要》，并下发各分店认真学习、研讨。</p>
-<p style="text-align:right;"><br>    —— <a href="http://www.zhihu.com/question/19687065" target="_blank" rel="noopener">李书航 － 什么是「共产中文腔调」？ </a><br></p>
+          <h1 class="post-title" itemprop="name headline">Merge sort for Linked Lists</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-20T13:20:06+08:00">
+                2018-05-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <ul>
+<li>splitList: fast/slow pointer method  -&gt; ⚠️ fast = head-&gt;next   solve the odd/even sum of the list.</li>
+<li>sortedMerge: the end of the recursion.</li>
+</ul>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">struct <span class="keyword">Node</span><span class="title">&#123;</span></span><br><span class="line"><span class="title">    int</span> val;</span><br><span class="line">    <span class="keyword">Node</span><span class="title">* next</span>;</span><br><span class="line">    <span class="keyword">Node</span><span class="title">(int</span> x):val(x),next(NULL)&#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">void splitList(<span class="keyword">Node</span><span class="title">* head</span>, <span class="keyword">Node</span><span class="title">** front</span>, <span class="keyword">Node</span><span class="title">** back</span>)&#123;</span><br><span class="line">    <span class="keyword">Node</span> <span class="title">*fast</span>, *slow;</span><br><span class="line">    slow = head;</span><br><span class="line">    fast = head-&gt;next;</span><br><span class="line">    </span><br><span class="line">    while(fast != NULL)&#123;</span><br><span class="line">        fast = fast-&gt;next;</span><br><span class="line">        if(fast != NULL)&#123;</span><br><span class="line">            fast = fast-&gt;next;</span><br><span class="line">            slow = slow-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    *front = head;</span><br><span class="line">    *back = slow-&gt;next;</span><br><span class="line">    slow-&gt;next = NULL;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">Node</span><span class="title">* sortedMerge</span>(<span class="keyword">Node</span><span class="title">* a</span>, <span class="keyword">Node</span><span class="title">* b</span>)&#123;</span><br><span class="line">    if(a == NULL)</span><br><span class="line">        return b;</span><br><span class="line">    if(b == NULL)</span><br><span class="line">        return a;</span><br><span class="line">    <span class="keyword">Node</span><span class="title">* mergedNode</span>;</span><br><span class="line">    if(a-&gt;val <span class="tag">&lt;= b-&gt;</span>val)&#123;</span><br><span class="line">        mergedNode = new <span class="keyword">Node</span><span class="title">(a-</span>&gt;val);</span><br><span class="line">        mergedNode-&gt;next = sortedMerge(a-&gt;next, b);</span><br><span class="line">    &#125;else &#123;</span><br><span class="line">        mergedNode = new <span class="keyword">Node</span><span class="title">(b-</span>&gt;val);</span><br><span class="line">        mergedNode-&gt;next = sortedMerge(a, b-&gt;next);</span><br><span class="line">    &#125;</span><br><span class="line">    return mergedNode;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void mergeSort(<span class="keyword">Node</span><span class="title">** headRef</span>)&#123;</span><br><span class="line">    <span class="keyword">Node</span><span class="title">* head</span> = *headRef;</span><br><span class="line">    <span class="keyword">Node</span><span class="title">* a</span>;</span><br><span class="line">    <span class="keyword">Node</span><span class="title">* b</span>;</span><br><span class="line">    </span><br><span class="line">    if(head == NULL || head-&gt;next == NULL)</span><br><span class="line">        return;</span><br><span class="line">    </span><br><span class="line">    splitList(head, &amp;a, &amp;b);</span><br><span class="line">    mergeSort(&amp;a);</span><br><span class="line">    mergeSort(&amp;b);</span><br><span class="line">    </span><br><span class="line">    *headRef = sortedMerge(a, b);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/hexo-theme-huxblog/2018/05/20/Blogs need to be read/" rel="next" title="Blogs need to be read.">
+                <i class="fa fa-chevron-left"></i> Blogs need to be read.
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
