@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="title: LeetCode338. Counting Bitsdate: 2018-05-05 20:18:24tags: LeetCodecategory: LeetCode  338. Counting Bits method 1 Bit operator     &amp;lt;&amp;lt;, &amp;gt;&amp;gt;  x &amp;lt;&amp;lt;  y : shift bits in the literal">
+<meta name="description" content="[Find whether an array is subset of another array][GG][GG]: https://www.geeksforgeeks.org/find-whether-an-array-is-subset-of-another-array-set-1/">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Shell Han&#39;s Blog">
-<meta property="og:url" content="https://transformerh.github.io/2018/05/05/LeetCode338-Counting-Bits/index.html">
+<meta property="og:title" content="Blogs need to be read.">
+<meta property="og:url" content="https://transformerh.github.io/2018/05/20/Blogs need to be read/index.html">
 <meta property="og:site_name" content="Shell Han&#39;s Blog">
-<meta property="og:description" content="title: LeetCode338. Counting Bitsdate: 2018-05-05 20:18:24tags: LeetCodecategory: LeetCode  338. Counting Bits method 1 Bit operator     &amp;lt;&amp;lt;, &amp;gt;&amp;gt;  x &amp;lt;&amp;lt;  y : shift bits in the literal">
+<meta property="og:description" content="[Find whether an array is subset of another array][GG][GG]: https://www.geeksforgeeks.org/find-whether-an-array-is-subset-of-another-array-set-1/">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-05-05T12:28:22.679Z">
+<meta property="og:updated_time" content="2018-05-20T04:28:37.209Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Shell Han&#39;s Blog">
-<meta name="twitter:description" content="title: LeetCode338. Counting Bitsdate: 2018-05-05 20:18:24tags: LeetCodecategory: LeetCode  338. Counting Bits method 1 Bit operator     &amp;lt;&amp;lt;, &amp;gt;&amp;gt;  x &amp;lt;&amp;lt;  y : shift bits in the literal">
+<meta name="twitter:title" content="Blogs need to be read.">
+<meta name="twitter:description" content="[Find whether an array is subset of another array][GG][GG]: https://www.geeksforgeeks.org/find-whether-an-array-is-subset-of-another-array-set-1/">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="https://transformerh.github.io/2018/05/05/LeetCode338-Counting-Bits/"/>
+  <link rel="canonical" href="https://transformerh.github.io/2018/05/20/Blogs need to be read/"/>
 
 
 
 
 
-  <title> | Shell Han's Blog</title>
+  <title>Blogs need to be read. | Shell Han's Blog</title>
   
 
 
@@ -272,7 +272,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/hexo-theme-huxblog/2018/05/05/LeetCode338-Counting-Bits/">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/hexo-theme-huxblog/2018/05/20/Blogs need to be read/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xueying Han">
@@ -289,7 +289,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">Blogs need to be read.</h1>
         
 
         <div class="post-meta">
@@ -301,8 +301,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-05T18:52:29+08:00">
-                2018-05-05
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-20T12:12:26+08:00">
+                2018-05-20
               </time>
             
 
@@ -339,37 +339,7 @@
       
 
       
-        <hr>
-<p>title: LeetCode338. Counting Bits<br>date: 2018-05-05 20:18:24<br>tags: LeetCode<br>category: LeetCode</p>
-<hr>
-<h2 id="338-Counting-Bits"><a href="#338-Counting-Bits" class="headerlink" title="338. Counting Bits"></a>338. Counting Bits</h2><ul>
-<li>method 1<blockquote>
-<p>Bit operator  </p>
-</blockquote>
-</li>
-<li><p>&lt;&lt;, &gt;&gt;</p>
-<ul>
-<li>x &lt;&lt;  y : shift bits in the literal  left by 3<ul>
-<li>3 = 0011,  3 &lt;&lt; 2 = 0110 = 6, 3 &lt;&lt; 3 =  1000</li>
-</ul>
-</li>
-<li>x &gt;&gt; y: shift bits in the literal x  right by y<ul>
-<li>12 = 1100, 12 &gt;&gt; 3 = 0001</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>^</p>
-<ul>
-<li>0 ^  arbitrary number = arbitrary number</li>
-<li>1 ^ 0 = 1  1 ^ 1  = 0  usually used to calculate the number of 1 in a number</li>
-</ul>
-</li>
-</ul>
-<p>calculate every number in the range<br><figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> calculate(<span class="keyword">int</span> n)&#123;</span><br><span class="line">    <span class="keyword">int</span> <span class="keyword">count</span> = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">32</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> origin = n;</span><br><span class="line">        <span class="keyword">int</span> comp = origin ^ <span class="number">1</span>; <span class="comment">// judge the last one is 1 or not</span></span><br><span class="line">        <span class="keyword">if</span>(origin &gt; comp)</span><br><span class="line">            <span class="keyword">count</span>++;</span><br><span class="line">        n &gt;&gt;= <span class="number">1</span>; <span class="comment">// shift a bit in the literal n right by 1</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">count</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>method 2-dp<br>find the pattern :)</li>
-</ul>
+        <p>[Find whether an array is subset of another array][GG]<br>[GG]: <a href="https://www.geeksforgeeks.org/find-whether-an-array-is-subset-of-another-array-set-1/" target="_blank" rel="noopener">https://www.geeksforgeeks.org/find-whether-an-array-is-subset-of-another-array-set-1/</a></p>
 
       
     </div>
@@ -394,8 +364,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/hexo-theme-huxblog/2018/05/05/LeetCode-95-Unique-Binary-Search-Trees-II/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/hexo-theme-huxblog/2018/05/12/Greedy-Problems-Max-Single-Sell-Profit/" rel="next" title="Greedy Problems - Max Single-Sell Profit">
+                <i class="fa fa-chevron-left"></i> Greedy Problems - Max Single-Sell Profit
               </a>
             
           </div>
@@ -403,10 +373,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/hexo-theme-huxblog/2018/05/12/Greedy-Problems-Max-Single-Sell-Profit/" rel="prev" title="Greedy Problems - Max Single-Sell Profit">
-                Greedy Problems - Max Single-Sell Profit <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -458,17 +424,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -510,22 +467,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#338-Counting-Bits"><span class="nav-number">1.</span> <span class="nav-text">338. Counting Bits</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
