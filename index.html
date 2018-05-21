@@ -269,6 +269,127 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/hexo-theme-huxblog/2018/05/21/find-the-number-of-1-bits-Hamming-weight/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xueying Han">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/hexo-theme-huxblog/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shell Han's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hexo-theme-huxblog/2018/05/21/find-the-number-of-1-bits-Hamming-weight/" itemprop="url">find the number of 1 bits - Hamming weight</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-21T15:32:50+08:00">
+                2018-05-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://leetcode.com/problems/number-of-1-bits/description/" target="_blank" rel="noopener">LeetCode 191</a><br><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">int hammingWeight(uint32_t n) &#123;</span><br><span class="line">    int <span class="built_in">count</span> = <span class="number">0</span><span class="comment">;</span></span><br><span class="line">    for(int i = <span class="number">0</span><span class="comment">; i &lt; 32; i++)&#123;</span></span><br><span class="line">        int <span class="keyword">origin </span>= n<span class="comment">;</span></span><br><span class="line">        int comp = <span class="keyword">origin^1;</span></span><br><span class="line"><span class="keyword"> </span>       if(<span class="keyword">origin </span>&gt; comp)</span><br><span class="line">            <span class="built_in">count</span>++<span class="comment">;</span></span><br><span class="line">        n &gt;&gt;= <span class="number">1</span><span class="comment">;</span></span><br><span class="line">    &#125;</span><br><span class="line">    return <span class="built_in">count</span><span class="comment">;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><a href="https://leetcode.com/problems/contiguous-array/description/" target="_blank" rel="noopener">LeetCode 525</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/hexo-theme-huxblog/2018/05/21/Binary-search-range/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -731,7 +852,7 @@
       
         
           
-            <p><a href="https://www.geeksforgeeks.org/find-whether-an-array-is-subset-of-another-array-set-1/" target="_blank" rel="noopener">Find whether an array is subset of another array</a></p>
+            <p><a href="https://www.geeksforgeeks.org/find-whether-an-array-is-subset-of-another-array-set-1/" target="_blank" rel="noopener">Find whether an array is subset of another array</a><br><a href="https://www.geeksforgeeks.org/difference-set-multiset-unordered_set-unordered_multiset/" target="_blank" rel="noopener">C++ set, multiset. unordered_set, unordered_multiset</a></p>
 
           
         
@@ -1250,7 +1371,7 @@
               
                 <a href="/hexo-theme-huxblog/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
