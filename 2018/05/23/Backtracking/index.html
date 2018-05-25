@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="binary search range methodwhen the array is unordered. but we can get the min and max elements of the array.  算法语言描述：  用元素的数值范围而不是元素的下标值范围对目标值进行逼近。数组中的元素值范围为lowest…highest，数组中的所有元素的值都在lowest…mid 和 mid">
+<meta name="description" content="Include:  DFS 12345for  push(element)  recursion  pop(element)end for  permutation 12345for  swap(current_element, fixed_element)  recursion  swap(current_element, fixed_element)end for">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Binary search - range">
-<meta property="og:url" content="https://transformerh.github.io/2018/05/21/Binary-search-range/index.html">
+<meta property="og:title" content="Backtracking">
+<meta property="og:url" content="https://transformerh.github.io/2018/05/23/Backtracking/index.html">
 <meta property="og:site_name" content="Shell Han&#39;s Blog">
-<meta property="og:description" content="binary search range methodwhen the array is unordered. but we can get the min and max elements of the array.  算法语言描述：  用元素的数值范围而不是元素的下标值范围对目标值进行逼近。数组中的元素值范围为lowest…highest，数组中的所有元素的值都在lowest…mid 和 mid">
+<meta property="og:description" content="Include:  DFS 12345for  push(element)  recursion  pop(element)end for  permutation 12345for  swap(current_element, fixed_element)  recursion  swap(current_element, fixed_element)end for">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-05-21T05:51:50.470Z">
+<meta property="og:updated_time" content="2018-05-23T07:14:58.234Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Binary search - range">
-<meta name="twitter:description" content="binary search range methodwhen the array is unordered. but we can get the min and max elements of the array.  算法语言描述：  用元素的数值范围而不是元素的下标值范围对目标值进行逼近。数组中的元素值范围为lowest…highest，数组中的所有元素的值都在lowest…mid 和 mid">
+<meta name="twitter:title" content="Backtracking">
+<meta name="twitter:description" content="Include:  DFS 12345for  push(element)  recursion  pop(element)end for  permutation 12345for  swap(current_element, fixed_element)  recursion  swap(current_element, fixed_element)end for">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="https://transformerh.github.io/2018/05/21/Binary-search-range/"/>
+  <link rel="canonical" href="https://transformerh.github.io/2018/05/23/Backtracking/"/>
 
 
 
 
 
-  <title>Binary search - range | Shell Han's Blog</title>
+  <title>Backtracking | Shell Han's Blog</title>
   
 
 
@@ -272,7 +272,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/hexo-theme-huxblog/2018/05/21/Binary-search-range/">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/hexo-theme-huxblog/2018/05/23/Backtracking/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xueying Han">
@@ -289,7 +289,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Binary search - range</h1>
+          <h1 class="post-title" itemprop="name headline">Backtracking</h1>
         
 
         <div class="post-meta">
@@ -301,8 +301,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-21T13:44:43+08:00">
-                2018-05-21
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-23T15:08:51+08:00">
+                2018-05-23
               </time>
             
 
@@ -339,20 +339,18 @@
       
 
       
-        <p>binary search range method<br>when the array is unordered. but we can get the min and max elements of the array.</p>
+        <ul>
+<li><p>Include:</p>
 <ul>
-<li><p>算法语言描述：</p>
-<blockquote>
-<p>用元素的数值范围而不是元素的下标值范围对目标值进行逼近。<br>数组中的元素值范围为lowest…highest，<br>数组中的所有元素的值都在lowest…mid 和 mid+1… highest两个区间内，<br>mid不一定是在数组中，可能只是一个参考值，</p>
-</blockquote>
+<li><p>DFS</p>
+<figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span></span><br><span class="line">  <span class="keyword">push</span>(element)</span><br><span class="line">  recursion</span><br><span class="line">  <span class="keyword">pop</span>(element)</span><br><span class="line"><span class="keyword">end</span> <span class="keyword">for</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>使用方法：</p>
+<li><p>permutation</p>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span></span><br><span class="line">  <span class="built_in">swap</span>(current_element, fixed_element)</span><br><span class="line">  recursion</span><br><span class="line">  <span class="built_in">swap</span>(current_element, fixed_element)</span><br><span class="line"><span class="keyword">end</span> <span class="keyword">for</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<ol>
-<li>寻找xth的元素(<a href="https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/discuss/85173/Share-my-thoughts-and-Clean-Java-Code" target="_blank" rel="noopener">LeetCode378</a>)：<br>如果数组中处于lowest…mid的元素的个数小于x，则xth在mid+1…highest区间内，<br>所以将lowest = mid + 1，查找的数值范围减小为原先的一半。</li>
-<li>寻找重复的元素(<a href="https://leetcode.com/problems/find-the-duplicate-number/description/" target="_blank" rel="noopener">LeetCode287</a>):<br>如果数组中小于mid的元素的总个数小于范围值的一半，则证明大于mid的元素中有元素值重复。</li>
-</ol>
+</li>
+</ul>
 
       
     </div>
@@ -377,8 +375,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/hexo-theme-huxblog/2018/05/20/hash-map-in-C-unordered-map/" rel="next" title="hash map in C++: unordered_map">
-                <i class="fa fa-chevron-left"></i> hash map in C++: unordered_map
+              <a href="/hexo-theme-huxblog/2018/05/21/Permutation-backtracking/" rel="next" title="Permutation-backtracking">
+                <i class="fa fa-chevron-left"></i> Permutation-backtracking
               </a>
             
           </div>
@@ -387,8 +385,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/hexo-theme-huxblog/2018/05/21/find-the-number-of-1-bits-Hamming-weight/" rel="prev" title="find the number of 1 bits - Hamming weight">
-                find the number of 1 bits - Hamming weight <i class="fa fa-chevron-right"></i>
+              <a href="/hexo-theme-huxblog/2018/05/24/sliding-Window-algorithm/" rel="prev" title="sliding Window algorithm">
+                sliding Window algorithm <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

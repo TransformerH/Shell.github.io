@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="binary search range methodwhen the array is unordered. but we can get the min and max elements of the array.  算法语言描述：  用元素的数值范围而不是元素的下标值范围对目标值进行逼近。数组中的元素值范围为lowest…highest，数组中的所有元素的值都在lowest…mid 和 mid">
+<meta name="description" content="12345678910void permute(vector&amp;lt;int&amp;gt;&amp;amp; nums, int start, int end, set&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt;&amp;amp; setRes)&amp;#123;    if(start == end)&amp;#123;        setRes.insert(nums);    &amp;#125;    for(int i =">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Binary search - range">
-<meta property="og:url" content="https://transformerh.github.io/2018/05/21/Binary-search-range/index.html">
+<meta property="og:title" content="Permutation-backtracking">
+<meta property="og:url" content="https://transformerh.github.io/2018/05/21/Permutation-backtracking/index.html">
 <meta property="og:site_name" content="Shell Han&#39;s Blog">
-<meta property="og:description" content="binary search range methodwhen the array is unordered. but we can get the min and max elements of the array.  算法语言描述：  用元素的数值范围而不是元素的下标值范围对目标值进行逼近。数组中的元素值范围为lowest…highest，数组中的所有元素的值都在lowest…mid 和 mid">
+<meta property="og:description" content="12345678910void permute(vector&amp;lt;int&amp;gt;&amp;amp; nums, int start, int end, set&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt;&amp;amp; setRes)&amp;#123;    if(start == end)&amp;#123;        setRes.insert(nums);    &amp;#125;    for(int i =">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-05-21T05:51:50.470Z">
+<meta property="og:updated_time" content="2018-05-21T11:09:32.939Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Binary search - range">
-<meta name="twitter:description" content="binary search range methodwhen the array is unordered. but we can get the min and max elements of the array.  算法语言描述：  用元素的数值范围而不是元素的下标值范围对目标值进行逼近。数组中的元素值范围为lowest…highest，数组中的所有元素的值都在lowest…mid 和 mid">
+<meta name="twitter:title" content="Permutation-backtracking">
+<meta name="twitter:description" content="12345678910void permute(vector&amp;lt;int&amp;gt;&amp;amp; nums, int start, int end, set&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt;&amp;amp; setRes)&amp;#123;    if(start == end)&amp;#123;        setRes.insert(nums);    &amp;#125;    for(int i =">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="https://transformerh.github.io/2018/05/21/Binary-search-range/"/>
+  <link rel="canonical" href="https://transformerh.github.io/2018/05/21/Permutation-backtracking/"/>
 
 
 
 
 
-  <title>Binary search - range | Shell Han's Blog</title>
+  <title>Permutation-backtracking | Shell Han's Blog</title>
   
 
 
@@ -272,7 +272,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/hexo-theme-huxblog/2018/05/21/Binary-search-range/">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/hexo-theme-huxblog/2018/05/21/Permutation-backtracking/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xueying Han">
@@ -289,7 +289,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Binary search - range</h1>
+          <h1 class="post-title" itemprop="name headline">Permutation-backtracking</h1>
         
 
         <div class="post-meta">
@@ -301,7 +301,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-21T13:44:43+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-21T19:01:34+08:00">
                 2018-05-21
               </time>
             
@@ -339,20 +339,16 @@
       
 
       
-        <p>binary search range method<br>when the array is unordered. but we can get the min and max elements of the array.</p>
+        <figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">void</span> permute(vector&lt;<span class="built_in">int</span>&gt;&amp; nums, <span class="built_in">int</span> start, <span class="built_in">int</span> <span class="keyword">end</span>, <span class="built_in">set</span>&lt;vector&lt;<span class="built_in">int</span>&gt;&gt;&amp; setRes)&#123;</span><br><span class="line">    <span class="keyword">if</span>(start == <span class="keyword">end</span>)&#123;</span><br><span class="line">        setRes.insert(nums);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="built_in">int</span> i = start; i &lt;= <span class="keyword">end</span>; i++)&#123;</span><br><span class="line">        swap(nums[start], nums[i]);</span><br><span class="line">        permute(nums, start + <span class="number">1</span>, <span class="keyword">end</span>, setRes);</span><br><span class="line">        swap(nums[start] , nums[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>算法语言描述：</p>
-<blockquote>
-<p>用元素的数值范围而不是元素的下标值范围对目标值进行逼近。<br>数组中的元素值范围为lowest…highest，<br>数组中的所有元素的值都在lowest…mid 和 mid+1… highest两个区间内，<br>mid不一定是在数组中，可能只是一个参考值，</p>
-</blockquote>
-</li>
-<li><p>使用方法：</p>
+<li><p>The details of this code  </p>
+<ul>
+<li>the start is fixed in each recursion, it changes when calls permute function</li>
+<li>the elements following the start change in each recursion and exchange their positions with the start.</li>
+</ul>
 </li>
 </ul>
-<ol>
-<li>寻找xth的元素(<a href="https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/discuss/85173/Share-my-thoughts-and-Clean-Java-Code" target="_blank" rel="noopener">LeetCode378</a>)：<br>如果数组中处于lowest…mid的元素的个数小于x，则xth在mid+1…highest区间内，<br>所以将lowest = mid + 1，查找的数值范围减小为原先的一半。</li>
-<li>寻找重复的元素(<a href="https://leetcode.com/problems/find-the-duplicate-number/description/" target="_blank" rel="noopener">LeetCode287</a>):<br>如果数组中小于mid的元素的总个数小于范围值的一半，则证明大于mid的元素中有元素值重复。</li>
-</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">permute(nums, <span class="keyword">start</span> + <span class="number">1</span>, <span class="keyword">end</span>, setRes);</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -377,8 +373,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/hexo-theme-huxblog/2018/05/20/hash-map-in-C-unordered-map/" rel="next" title="hash map in C++: unordered_map">
-                <i class="fa fa-chevron-left"></i> hash map in C++: unordered_map
+              <a href="/hexo-theme-huxblog/2018/05/21/find-the-number-of-1-bits-Hamming-weight/" rel="next" title="find the number of 1 bits - Hamming weight">
+                <i class="fa fa-chevron-left"></i> find the number of 1 bits - Hamming weight
               </a>
             
           </div>
@@ -387,8 +383,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/hexo-theme-huxblog/2018/05/21/find-the-number-of-1-bits-Hamming-weight/" rel="prev" title="find the number of 1 bits - Hamming weight">
-                find the number of 1 bits - Hamming weight <i class="fa fa-chevron-right"></i>
+              <a href="/hexo-theme-huxblog/2018/05/23/Backtracking/" rel="prev" title="Backtracking">
+                Backtracking <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

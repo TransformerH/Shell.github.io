@@ -79,17 +79,13 @@
 
 
 
-<meta name="description" content="binary search range methodwhen the array is unordered. but we can get the min and max elements of the array.  算法语言描述：  用元素的数值范围而不是元素的下标值范围对目标值进行逼近。数组中的元素值范围为lowest…highest，数组中的所有元素的值都在lowest…mid 和 mid">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Binary search - range">
-<meta property="og:url" content="https://transformerh.github.io/2018/05/21/Binary-search-range/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Shell Han&#39;s Blog">
+<meta property="og:url" content="https://transformerh.github.io/tags/LeetCode-Patterns/index.html">
 <meta property="og:site_name" content="Shell Han&#39;s Blog">
-<meta property="og:description" content="binary search range methodwhen the array is unordered. but we can get the min and max elements of the array.  算法语言描述：  用元素的数值范围而不是元素的下标值范围对目标值进行逼近。数组中的元素值范围为lowest…highest，数组中的所有元素的值都在lowest…mid 和 mid">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-05-21T05:51:50.470Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Binary search - range">
-<meta name="twitter:description" content="binary search range methodwhen the array is unordered. but we can get the min and max elements of the array.  算法语言描述：  用元素的数值范围而不是元素的下标值范围对目标值进行逼近。数组中的元素值范围为lowest…highest，数组中的所有元素的值都在lowest…mid 和 mid">
+<meta name="twitter:title" content="Shell Han&#39;s Blog">
 
 
 
@@ -119,13 +115,13 @@
 
 
 
-  <link rel="canonical" href="https://transformerh.github.io/2018/05/21/Binary-search-range/"/>
+  <link rel="canonical" href="https://transformerh.github.io/tags/LeetCode-Patterns/"/>
 
 
 
 
 
-  <title>Binary search - range | Shell Han's Blog</title>
+  <title>Tag: LeetCode_Patterns | Shell Han's Blog</title>
   
 
 
@@ -144,7 +140,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -258,158 +254,54 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
+  
+  
+  
+  <div class="post-block tag">
 
-  
+    <div id="posts" class="posts-collapse">
+      <div class="collection-title">
+        <h1>LeetCode_Patterns<small>Tag</small>
+        </h1>
+      </div>
 
-  
-  
-  
+      
+        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/hexo-theme-huxblog/2018/05/21/Binary-search-range/">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xueying Han">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/hexo-theme-huxblog/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Shell Han's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h2 class="post-title">
         
-        
-          <h1 class="post-title" itemprop="name headline">Binary search - range</h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
+            <a class="post-title-link" href="/hexo-theme-huxblog/2018/05/24/sliding-Window-algorithm/" itemprop="url">
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span itemprop="name">sliding Window algorithm</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-21T13:44:43+08:00">
-                2018-05-21
-              </time>
-            
+            </a>
+        
+      </h2>
 
-            
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2018-05-24T15:33:17+08:00"
+              content="2018-05-24" >
+          05-24
+        </time>
+      </div>
 
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p>binary search range method<br>when the array is unordered. but we can get the min and max elements of the array.</p>
-<ul>
-<li><p>算法语言描述：</p>
-<blockquote>
-<p>用元素的数值范围而不是元素的下标值范围对目标值进行逼近。<br>数组中的元素值范围为lowest…highest，<br>数组中的所有元素的值都在lowest…mid 和 mid+1… highest两个区间内，<br>mid不一定是在数组中，可能只是一个参考值，</p>
-</blockquote>
-</li>
-<li><p>使用方法：</p>
-</li>
-</ul>
-<ol>
-<li>寻找xth的元素(<a href="https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/discuss/85173/Share-my-thoughts-and-Clean-Java-Code" target="_blank" rel="noopener">LeetCode378</a>)：<br>如果数组中处于lowest…mid的元素的个数小于x，则xth在mid+1…highest区间内，<br>所以将lowest = mid + 1，查找的数值范围减小为原先的一半。</li>
-<li>寻找重复的元素(<a href="https://leetcode.com/problems/find-the-duplicate-number/description/" target="_blank" rel="noopener">LeetCode287</a>):<br>如果数组中小于mid的元素的总个数小于范围值的一半，则证明大于mid的元素中有元素值重复。</li>
-</ol>
-
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/hexo-theme-huxblog/2018/05/20/hash-map-in-C-unordered-map/" rel="next" title="hash map in C++: unordered_map">
-                <i class="fa fa-chevron-left"></i> hash map in C++: unordered_map
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/hexo-theme-huxblog/2018/05/21/find-the-number-of-1-bits-Hamming-weight/" rel="prev" title="find the number of 1 bits - Hamming weight">
-                find the number of 1 bits - Hamming weight <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
+    </header>
   </article>
 
 
-
-    <div class="post-spread">
       
     </div>
+
   </div>
+  
+  
+  
+
+  
 
 
           </div>
@@ -417,10 +309,6 @@
 
 
           
-
-  
-
-
 
         </div>
         
@@ -642,10 +530,6 @@
 
 
   
-  <script type="text/javascript" src="/hexo-theme-huxblog/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/hexo-theme-huxblog/js/src/post-details.js?v=5.1.4"></script>
-
-
 
   
 
