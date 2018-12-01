@@ -269,6 +269,131 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/12/01/Bit-Manipulation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xueying Han">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Serena Han's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/01/Bit-Manipulation/" itemprop="url">Bit Manipulation</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-01T13:33:35-05:00">
+                2018-12-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Leetcode 190. Reverse Bits : <a href="https://leetcode.com/problems/reverse-bits/" target="_blank" rel="noopener">https://leetcode.com/problems/reverse-bits/</a></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">uint32_t</span> reverseBits(<span class="keyword">uint32_t</span> n) &#123;</span><br><span class="line"><span class="keyword">uint32_t</span> res = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span>(i++ &lt; <span class="number">32</span>)&#123;</span><br><span class="line"></span><br><span class="line">res += n &amp; <span class="number">1</span>;</span><br><span class="line">n &gt;&gt;= <span class="number">1</span>;</span><br><span class="line"><span class="keyword">if</span>(i &lt; <span class="number">32</span>)</span><br><span class="line">res &lt;&lt;= <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><ol>
+<li>Get the bit at the lowest position of a number n =&gt; n &amp; 1 .</li>
+<li>add to the end of the new number, new number should left shift 1, and the original number should right shift 1.</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/11/14/Prime-number/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1565,139 +1690,6 @@ if s == 0 the gcd is b
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/05/21/Binary-search-range/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xueying Han">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Serena Han's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/21/Binary-search-range/" itemprop="url">Binary search - range</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-21T13:44:43-04:00">
-                2018-05-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>binary search range method<br>when the array is unordered. but we can get the min and max elements of the array.</p>
-<ul>
-<li><p>算法语言描述：</p>
-<blockquote>
-<p>用元素的数值范围而不是元素的下标值范围对目标值进行逼近。<br>数组中的元素值范围为lowest…highest，<br>数组中的所有元素的值都在lowest…mid 和 mid+1… highest两个区间内，<br>mid不一定是在数组中，可能只是一个参考值，</p>
-</blockquote>
-</li>
-<li><p>使用方法：</p>
-</li>
-</ul>
-<ol>
-<li>寻找xth的元素(<a href="https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/discuss/85173/Share-my-thoughts-and-Clean-Java-Code" target="_blank" rel="noopener">LeetCode378</a>)：<br>如果数组中处于lowest…mid的元素的个数小于x，则xth在mid+1…highest区间内，<br>所以将lowest = mid + 1，查找的数值范围减小为原先的一半。</li>
-<li>寻找重复的元素(<a href="https://leetcode.com/problems/find-the-duplicate-number/description/" target="_blank" rel="noopener">LeetCode287</a>):<br>如果数组中小于mid的元素的总个数小于范围值的一半，则证明大于mid的元素中有元素值重复。</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1748,7 +1740,7 @@ if s == 0 the gcd is b
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="LeetCode_Patterns," />
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="Hey, this is Tags.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Tags">
-<meta property="og:url" content="https://transformerh.github.io/tags/index.html">
+<meta name="description" content="Leetcode 190. Reverse Bits : https://leetcode.com/problems/reverse-bits/ 123456789101112uint32_t reverseBits(uint32_t n) &amp;#123;uint32_t res = 0;int i = 0;while(i++ &amp;lt; 32)&amp;#123;res += n &amp;amp; 1;n &amp;gt">
+<meta name="keywords" content="LeetCode_Patterns">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bit Manipulation">
+<meta property="og:url" content="https://transformerh.github.io/2018/12/01/Bit-Manipulation/index.html">
 <meta property="og:site_name" content="Serena Han&#39;s Blog">
-<meta property="og:description" content="Hey, this is Tags.">
+<meta property="og:description" content="Leetcode 190. Reverse Bits : https://leetcode.com/problems/reverse-bits/ 123456789101112uint32_t reverseBits(uint32_t n) &amp;#123;uint32_t res = 0;int i = 0;while(i++ &amp;lt; 32)&amp;#123;res += n &amp;amp; 1;n &amp;gt">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-05-01T09:36:13.496Z">
+<meta property="og:updated_time" content="2018-12-01T18:38:59.225Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tags">
-<meta name="twitter:description" content="Hey, this is Tags.">
+<meta name="twitter:title" content="Bit Manipulation">
+<meta name="twitter:description" content="Leetcode 190. Reverse Bits : https://leetcode.com/problems/reverse-bits/ 123456789101112uint32_t reverseBits(uint32_t n) &amp;#123;uint32_t res = 0;int i = 0;while(i++ &amp;lt; 32)&amp;#123;res += n &amp;amp; 1;n &amp;gt">
 
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://transformerh.github.io/tags/"/>
+  <link rel="canonical" href="https://transformerh.github.io/2018/12/01/Bit-Manipulation/"/>
 
 
 
 
 
-  <title>Tags | Serena Han's Blog</title>
+  <title>Bit Manipulation | Serena Han's Blog</title>
   
 
 
@@ -260,37 +261,149 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/12/01/Bit-Manipulation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xueying Han">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Serena Han's Blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">Tags</h1>
-
-
-	<div class="post-meta">
-		<div class="post-description">Hey, this is Tags.</div>
-	</div>
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
+          <h1 class="post-title" itemprop="name headline">Bit Manipulation</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-01T13:33:35-05:00">
+                2018-12-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-      </div>
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>Leetcode 190. Reverse Bits : <a href="https://leetcode.com/problems/reverse-bits/" target="_blank" rel="noopener">https://leetcode.com/problems/reverse-bits/</a></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">uint32_t</span> reverseBits(<span class="keyword">uint32_t</span> n) &#123;</span><br><span class="line"><span class="keyword">uint32_t</span> res = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span>(i++ &lt; <span class="number">32</span>)&#123;</span><br><span class="line"></span><br><span class="line">res += n &amp; <span class="number">1</span>;</span><br><span class="line">n &gt;&gt;= <span class="number">1</span>;</span><br><span class="line"><span class="keyword">if</span>(i &lt; <span class="number">32</span>)</span><br><span class="line">res &lt;&lt;= <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><ol>
+<li>Get the bit at the lowest position of a number n =&gt; n &amp; 1 .</li>
+<li>add to the end of the new number, new number should left shift 1, and the original number should right shift 1.</li>
+</ol>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/LeetCode-Patterns/" rel="tag"># LeetCode_Patterns</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/14/Prime-number/" rel="next" title="Prime number">
+                <i class="fa fa-chevron-left"></i> Prime number
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -323,8 +436,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -384,6 +506,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Tips"><span class="nav-number">1.</span> <span class="nav-text">Tips</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
