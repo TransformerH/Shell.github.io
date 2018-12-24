@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="LeetCode_Patterns," />
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="binary search range methodwhen the array is unordered. but we can get the min and max elements of the array.  算法语言描述：  用元素的数值范围而不是元素的下标值范围对目标值进行逼近。数组中的元素值范围为lowest…highest，数组中的所有元素的值都在lowest…mid 和 mid">
+<meta name="description" content="We are given an array A of N lowercase letter strings, all of the same length. Now, we may choose any set of deletion indices, and for each string, we delete all the characters in those indices. For e">
+<meta name="keywords" content="LeetCode_Patterns">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Binary search - range">
-<meta property="og:url" content="https://transformerh.github.io/2018/05/21/Binary-search-range/index.html">
+<meta property="og:title" content="DP-960">
+<meta property="og:url" content="https://transformerh.github.io/2018/12/24/DP-960/index.html">
 <meta property="og:site_name" content="Serena Han&#39;s Blog">
-<meta property="og:description" content="binary search range methodwhen the array is unordered. but we can get the min and max elements of the array.  算法语言描述：  用元素的数值范围而不是元素的下标值范围对目标值进行逼近。数组中的元素值范围为lowest…highest，数组中的所有元素的值都在lowest…mid 和 mid">
+<meta property="og:description" content="We are given an array A of N lowercase letter strings, all of the same length. Now, we may choose any set of deletion indices, and for each string, we delete all the characters in those indices. For e">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-05-21T05:51:50.470Z">
+<meta property="og:updated_time" content="2018-12-24T20:46:19.639Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Binary search - range">
-<meta name="twitter:description" content="binary search range methodwhen the array is unordered. but we can get the min and max elements of the array.  算法语言描述：  用元素的数值范围而不是元素的下标值范围对目标值进行逼近。数组中的元素值范围为lowest…highest，数组中的所有元素的值都在lowest…mid 和 mid">
+<meta name="twitter:title" content="DP-960">
+<meta name="twitter:description" content="We are given an array A of N lowercase letter strings, all of the same length. Now, we may choose any set of deletion indices, and for each string, we delete all the characters in those indices. For e">
 
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://transformerh.github.io/2018/05/21/Binary-search-range/"/>
+  <link rel="canonical" href="https://transformerh.github.io/2018/12/24/DP-960/"/>
 
 
 
 
 
-  <title>Binary search - range | Serena Han's Blog</title>
+  <title>DP-960 | Serena Han's Blog</title>
   
 
 
@@ -272,7 +273,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/05/21/Binary-search-range/">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/12/24/DP-960/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xueying Han">
@@ -289,7 +290,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Binary search - range</h1>
+          <h1 class="post-title" itemprop="name headline">DP-960</h1>
         
 
         <div class="post-meta">
@@ -301,8 +302,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-21T13:44:43-04:00">
-                2018-05-21
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-24T15:14:27-05:00">
+                2018-12-24
               </time>
             
 
@@ -339,20 +340,27 @@
       
 
       
-        <p>binary search range method<br>when the array is unordered. but we can get the min and max elements of the array.</p>
+        <p>We are given an array A of N lowercase letter strings, all of the same length.</p>
+<p>Now, we may choose any set of deletion indices, and for each string, we delete all the characters in those indices.</p>
+<p>For example, if we have an array A = [“babca”,”bbazb”] and deletion indices {0, 1, 4}, then the final array after deletions is [“bc”,”az”].</p>
+<p>Suppose we chose a set of deletion indices D such that after deletions, the final array has every element (row) in lexicographic order.</p>
+<p>For clarity, A[0] is in lexicographic order (ie. A[0][0] &lt;= A[0][1] &lt;= … &lt;= A[0][A[0].length - 1]), A[1] is in lexicographic order (ie. A[1][0] &lt;= A[1][1] &lt;= … &lt;= A[1][A[1].length - 1]), and so on.</p>
+<p>Return the minimum possible value of D.length.</p>
+<p>Input: [“babca”,”bbazb”]<br>Output: 3<br>Explanation: After deleting columns 0, 1, and 4, the final array is A = [“bc”, “az”].<br>Both these rows are individually in lexicographic order (ie. A[0][0] &lt;= A[0][1] and A[1][0] &lt;= A[1][1]).<br>Note that A[0] &gt; A[1] - the array A isn’t necessarily in lexicographic order.</p>
 <ul>
-<li><p>算法语言描述：</p>
-<blockquote>
-<p>用元素的数值范围而不是元素的下标值范围对目标值进行逼近。<br>数组中的元素值范围为lowest…highest，<br>数组中的所有元素的值都在lowest…mid 和 mid+1… highest两个区间内，<br>mid不一定是在数组中，可能只是一个参考值，</p>
-</blockquote>
+<li>The subproblem can be converted to find the length of maximum increasing subsequence.<ul>
+<li>So A[k][i] &gt; A[k][j]</li>
+</ul>
 </li>
-<li><p>使用方法：</p>
+<li>The result is that each string should be increasing by deleting some characters.<ul>
+<li>every string must be increasing by deleting the character on i  =&gt;</li>
+<li>we need to delete a character when A[k][i] &lt; A[k][j] (i &gt; j) =&gt;</li>
+<li>so we need to find whether all strings can satisfy A[x][i] &lt; A[x][j] (x &gt;=0 &amp;&amp; x &lt; rows) =&gt;</li>
+<li>if one string can not satisfy this, then we can’t plus one; otherwise, the length of subsequence should be added one.</li>
+</ul>
 </li>
 </ul>
-<ol>
-<li>寻找xth的元素(<a href="https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/discuss/85173/Share-my-thoughts-and-Clean-Java-Code" target="_blank" rel="noopener">LeetCode378</a>)：<br>如果数组中处于lowest…mid的元素的个数小于x，则xth在mid+1…highest区间内，<br>所以将lowest = mid + 1，查找的数值范围减小为原先的一半。</li>
-<li>寻找重复的元素(<a href="https://leetcode.com/problems/find-the-duplicate-number/description/" target="_blank" rel="noopener">LeetCode287</a>):<br>如果数组中小于mid的元素的总个数小于范围值的一半，则证明大于mid的元素中有元素值重复。</li>
-</ol>
+<figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> minDeletionSize(<span class="keyword">vector</span>&lt;<span class="keyword">string</span>&gt;&amp; A) &#123;</span><br><span class="line">        <span class="keyword">int</span> row = A.<span class="keyword">size</span>();</span><br><span class="line">        <span class="keyword">int</span> col = A[<span class="number">0</span>].<span class="keyword">size</span>();</span><br><span class="line">        <span class="keyword">vector</span>&lt;<span class="keyword">int</span>&gt; dp(col, <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">int</span> res = INT_MAX;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; col; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; i; j++)&#123;</span><br><span class="line">                <span class="keyword">int</span> k = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">for</span>(; k &lt; row; k++)&#123;</span><br><span class="line">                    <span class="keyword">if</span>(A[k][j] &gt; A[k][i])</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(k == row &amp;&amp; dp[j] + <span class="number">1</span> &gt; dp[i])</span><br><span class="line">                    dp[i] = dp[j] + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            res = <span class="keyword">min</span>(res, col - dp[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -368,6 +376,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/LeetCode-Patterns/" rel="tag"># LeetCode_Patterns</a>
+          
+        </div>
+      
 
       
       
@@ -377,8 +391,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/20/hash-map-in-C-unordered-map/" rel="next" title="hash map in C++: unordered_map">
-                <i class="fa fa-chevron-left"></i> hash map in C++: unordered_map
+              <a href="/2018/12/01/Bit-Manipulation/" rel="next" title="Bit Manipulation">
+                <i class="fa fa-chevron-left"></i> Bit Manipulation
               </a>
             
           </div>
@@ -386,10 +400,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/21/find-the-number-of-1-bits-Hamming-weight/" rel="prev" title="find the number of 1 bits - Hamming weight">
-                find the number of 1 bits - Hamming weight <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
