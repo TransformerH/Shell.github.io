@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="LeetCode_Patterns," />
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="splitList: fast/slow pointer method  -&amp;gt; ⚠️ fast = head-&amp;gt;next   solve the odd/even sum of the list. sortedMerge: the end of the recursion.  123456789101112131415161718192021222324252627282930313">
+<meta name="description" content="Given an array with n objects colored red, white or blue, sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white and blue. Here, we will use the int">
+<meta name="keywords" content="LeetCode_Patterns">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Merge sort for Linked Lists">
-<meta property="og:url" content="https://transformerh.github.io/2018/05/20/Merge-sort-for-Linked-Lists/index.html">
+<meta property="og:title" content="75-sort colors">
+<meta property="og:url" content="https://transformerh.github.io/2018/12/24/75-sort-colors/index.html">
 <meta property="og:site_name" content="Serena Han&#39;s Blog">
-<meta property="og:description" content="splitList: fast/slow pointer method  -&amp;gt; ⚠️ fast = head-&amp;gt;next   solve the odd/even sum of the list. sortedMerge: the end of the recursion.  123456789101112131415161718192021222324252627282930313">
+<meta property="og:description" content="Given an array with n objects colored red, white or blue, sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white and blue. Here, we will use the int">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-05-20T06:53:29.194Z">
+<meta property="og:updated_time" content="2018-12-25T16:07:09.926Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Merge sort for Linked Lists">
-<meta name="twitter:description" content="splitList: fast/slow pointer method  -&amp;gt; ⚠️ fast = head-&amp;gt;next   solve the odd/even sum of the list. sortedMerge: the end of the recursion.  123456789101112131415161718192021222324252627282930313">
+<meta name="twitter:title" content="75-sort colors">
+<meta name="twitter:description" content="Given an array with n objects colored red, white or blue, sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white and blue. Here, we will use the int">
 
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://transformerh.github.io/2018/05/20/Merge-sort-for-Linked-Lists/"/>
+  <link rel="canonical" href="https://transformerh.github.io/2018/12/24/75-sort-colors/"/>
 
 
 
 
 
-  <title>Merge sort for Linked Lists | Serena Han's Blog</title>
+  <title>75-sort colors | Serena Han's Blog</title>
   
 
 
@@ -272,7 +273,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/05/20/Merge-sort-for-Linked-Lists/">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/12/24/75-sort-colors/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xueying Han">
@@ -289,7 +290,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Merge sort for Linked Lists</h1>
+          <h1 class="post-title" itemprop="name headline">75-sort colors</h1>
         
 
         <div class="post-meta">
@@ -301,8 +302,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-20T13:20:06-04:00">
-                2018-05-20
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-24T16:59:56-05:00">
+                2018-12-24
               </time>
             
 
@@ -339,11 +340,18 @@
       
 
       
-        <ul>
-<li>splitList: fast/slow pointer method  -&gt; ⚠️ fast = head-&gt;next   solve the odd/even sum of the list.</li>
-<li>sortedMerge: the end of the recursion.</li>
+        <p>Given an array with n objects colored red, white or blue, sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white and blue.</p>
+<p>Here, we will use the integers 0, 1, and 2 to represent the color red, white, and blue respectively.</p>
+<p>Input: [2,0,2,1,1,0]<br>Output: [0,0,1,1,2,2]</p>
+<ul>
+<li>O(1) space , one pass<ul>
+<li>first assign all element to 2, =&gt;</li>
+<li>then we check if the current element is smaller than 2, if it is, it could be 1 or 0, then assign the element to 1,  =&gt;</li>
+<li>then we check if the current element is 0, if it is, then assign the element to 0;</li>
 </ul>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">struct <span class="keyword">Node</span><span class="title">&#123;</span></span><br><span class="line"><span class="title">    int</span> val;</span><br><span class="line">    <span class="keyword">Node</span><span class="title">* next</span>;</span><br><span class="line">    <span class="keyword">Node</span><span class="title">(int</span> x):val(x),next(NULL)&#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">void splitList(<span class="keyword">Node</span><span class="title">* head</span>, <span class="keyword">Node</span><span class="title">** front</span>, <span class="keyword">Node</span><span class="title">** back</span>)&#123;</span><br><span class="line">    <span class="keyword">Node</span> <span class="title">*fast</span>, *slow;</span><br><span class="line">    slow = head;</span><br><span class="line">    fast = head-&gt;next;</span><br><span class="line">    </span><br><span class="line">    while(fast != NULL)&#123;</span><br><span class="line">        fast = fast-&gt;next;</span><br><span class="line">        if(fast != NULL)&#123;</span><br><span class="line">            fast = fast-&gt;next;</span><br><span class="line">            slow = slow-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    *front = head;</span><br><span class="line">    *back = slow-&gt;next;</span><br><span class="line">    slow-&gt;next = NULL;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">Node</span><span class="title">* sortedMerge</span>(<span class="keyword">Node</span><span class="title">* a</span>, <span class="keyword">Node</span><span class="title">* b</span>)&#123;</span><br><span class="line">    if(a == NULL)</span><br><span class="line">        return b;</span><br><span class="line">    if(b == NULL)</span><br><span class="line">        return a;</span><br><span class="line">    <span class="keyword">Node</span><span class="title">* mergedNode</span>;</span><br><span class="line">    if(a-&gt;val <span class="tag">&lt;= b-&gt;</span>val)&#123;</span><br><span class="line">        mergedNode = new <span class="keyword">Node</span><span class="title">(a-</span>&gt;val);</span><br><span class="line">        mergedNode-&gt;next = sortedMerge(a-&gt;next, b);</span><br><span class="line">    &#125;else &#123;</span><br><span class="line">        mergedNode = new <span class="keyword">Node</span><span class="title">(b-</span>&gt;val);</span><br><span class="line">        mergedNode-&gt;next = sortedMerge(a, b-&gt;next);</span><br><span class="line">    &#125;</span><br><span class="line">    return mergedNode;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void mergeSort(<span class="keyword">Node</span><span class="title">** headRef</span>)&#123;</span><br><span class="line">    <span class="keyword">Node</span><span class="title">* head</span> = *headRef;</span><br><span class="line">    <span class="keyword">Node</span><span class="title">* a</span>;</span><br><span class="line">    <span class="keyword">Node</span><span class="title">* b</span>;</span><br><span class="line">    </span><br><span class="line">    if(head == NULL || head-&gt;next == NULL)</span><br><span class="line">        return;</span><br><span class="line">    </span><br><span class="line">    splitList(head, &amp;a, &amp;b);</span><br><span class="line">    mergeSort(&amp;a);</span><br><span class="line">    mergeSort(&amp;b);</span><br><span class="line">    </span><br><span class="line">    *headRef = sortedMerge(a, b);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sortColors</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>, k = <span class="number">0</span>; k &lt; nums.size(); k++)&#123;</span><br><span class="line">        <span class="keyword">int</span> temp = nums[k];</span><br><span class="line">        nums[k] = <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(temp &lt; <span class="number">2</span>)&#123;</span><br><span class="line">            nums[j] = <span class="number">1</span>;</span><br><span class="line">            j++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(temp &lt; <span class="number">1</span>)&#123;</span><br><span class="line">            nums[i]  = <span class="number">0</span>;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -359,6 +367,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/LeetCode-Patterns/" rel="tag"># LeetCode_Patterns</a>
+          
+        </div>
+      
 
       
       
@@ -368,8 +382,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/20/Blogs need to be read/" rel="next" title="Blogs need to be read.">
-                <i class="fa fa-chevron-left"></i> Blogs need to be read.
+              <a href="/2018/12/24/DP-960/" rel="next" title="DP-960">
+                <i class="fa fa-chevron-left"></i> DP-960
               </a>
             
           </div>
@@ -377,10 +391,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/20/hash-map-in-C-unordered-map/" rel="prev" title="hash map in C++: unordered_map">
-                hash map in C++: unordered_map <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
