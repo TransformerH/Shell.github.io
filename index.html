@@ -269,6 +269,140 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/12/25/PG-longest-common-subsequence/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xueying Han">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Serena Han's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/25/PG-longest-common-subsequence/" itemprop="url">PG-longest common subsequence</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-25T21:39:02-05:00">
+                2018-12-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="Original-question"><a href="#Original-question" class="headerlink" title="Original question"></a>Original question</h3><p>Example:<br>input: strings “AGGTAB” and “GXTXAYB”<br>output: 4</p>
+<hr>
+<p>Two cases:<br>string S and T,  m = S.length + 1, n = T.length + 1<br>dp[i][j] records the length of longest common subsequence between S[0..i] and T[0..j]</p>
+<ol>
+<li>S[i] == T[j] then dp[i][j] = dp[i-1][j-1] + 1</li>
+<li>S[i] != T[j] then dp[i][j] = max(dp[i-1][j], dp[i][j-1])</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">largestCommonSubsequence</span><span class="params">(<span class="built_in">string</span> S, <span class="built_in">string</span> T)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> slen = (<span class="keyword">int</span>)S.length();</span><br><span class="line">    <span class="keyword">int</span> tlen = (<span class="keyword">int</span>)T.length();</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; dp(slen+<span class="number">1</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(tlen+<span class="number">1</span>, <span class="number">0</span>));</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; slen; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; tlen; j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(S[i] == T[j])</span><br><span class="line">                dp[i+<span class="number">1</span>][j+<span class="number">1</span>] = dp[i][j] + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                dp[i+<span class="number">1</span>][j+<span class="number">1</span>] = max(dp[i][j+<span class="number">1</span>], dp[i+<span class="number">1</span>][j]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dp[slen][tlen];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="LC-583-Delete-Operation-for-Two-Strings"><a href="#LC-583-Delete-Operation-for-Two-Strings" class="headerlink" title="LC 583. Delete Operation for Two Strings"></a>LC 583. Delete Operation for Two Strings</h3><p>Given two words word1 and word2, find the minimum number of steps required to make word1 and word2 the same, where in each step you can delete one character in either string.</p>
+<p>Input: “sea”, “eat”<br>Output: 2<br>Explanation: You need one step to make “sea” to “ea” and another step to make “eat” to “ea”.</p>
+<blockquote>
+<p>The question can be inverted to find the longest common subsequence.</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">minDistance</span><span class="params">(<span class="built_in">string</span> word1, <span class="built_in">string</span> word2)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">int</span> len1 = word1.length();</span><br><span class="line">       <span class="keyword">int</span> len2 = word2.length();</span><br><span class="line">       <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; dp(len1+<span class="number">1</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(len2+<span class="number">1</span>, <span class="number">0</span>));</span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len1; i++)&#123;</span><br><span class="line">           <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; len2; j++)&#123;</span><br><span class="line">               <span class="keyword">if</span>(word1[i] == word2[j])</span><br><span class="line">                   dp[i+<span class="number">1</span>][j+<span class="number">1</span>] = dp[i][j] + <span class="number">1</span>;</span><br><span class="line">               <span class="keyword">else</span></span><br><span class="line">                   dp[i+<span class="number">1</span>][j+<span class="number">1</span>] = max(dp[i][j+<span class="number">1</span>], dp[i+<span class="number">1</span>][j]);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> len1 + len2 - <span class="number">2</span>*dp[len1][len2];</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/12/25/41-First-Missing-Positive/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1461,175 +1595,6 @@ if s == 0 the gcd is b
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/05/25/DFS-BFS/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xueying Han">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Serena Han's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/25/DFS-BFS/" itemprop="url">DFS && BFS</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-25T12:55:25-04:00">
-                2018-05-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ul>
-<li>DFS<blockquote>
-<p>using stack, the vertical data structure.</p>
-</blockquote>
-</li>
-</ul>
-<ul>
-<li><p>“Intuition”</p>
-<blockquote>
-<p>We need to find all subtrees of the current node first, and then find nodes which have the same parent with the current node.</p>
-</blockquote>
-</li>
-<li><p>Basic : Binary Tree preorder, inorder, postorder</p>
-</li>
-<li><p>Using DFS solves graphs(matrixes)</p>
-</li>
-</ul>
-<p>323.Number of Connected Components in an Undirected Graph</p>
-<p>Given n nodes labeled from 0 to n - 1 and a list of undirected edges (each edge is a pair of nodes), write a function to find the number of connected components in an undirected graph.</p>
-<p>Example 1:</p>
-<pre><code>0          3
-|          |
-1 --- 2    4
-</code></pre><p>Given n = 5 and edges = [[0, 1], [1, 2], [3, 4]], return 2.</p>
-<p>Example 2:</p>
-<pre><code>0           4
-|           |
-1 --- 2 --- 3
-</code></pre><p>Given n = 5 and edges = [[0, 1], [1, 2], [2, 3], [3, 4]], return 1.</p>
-<p>Note:<br>You can assume that no duplicate edges will appear in edges. Since all edges are undirected, [0, 1] is the same as [1, 0] and thus will not appear together in edges.</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">countComponents</span><span class="params">(<span class="keyword">int</span> n, <span class="built_in">vector</span>&lt;pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt;&amp; edges)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(edges.size() == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> n;</span><br><span class="line">    <span class="keyword">int</span> comNum = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; ajustList(n, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(<span class="number">0</span>));</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt; visited(n, <span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; nodeStack;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; edges.size(); i++)&#123;</span><br><span class="line">        ajustList[edges[i].first].push_back(edges[i].second);</span><br><span class="line">        ajustList[edges[i].second].push_back(edges[i].first);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!visited[i])&#123;</span><br><span class="line">            comNum++;</span><br><span class="line">            nodeStack.push(i);</span><br><span class="line">            <span class="keyword">while</span>(!nodeStack.empty())&#123;</span><br><span class="line">                <span class="keyword">int</span> top = nodeStack.top();</span><br><span class="line">                nodeStack.pop();</span><br><span class="line">                visited[top] = <span class="literal">true</span>;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> ajNode : ajustList[top])&#123;</span><br><span class="line">                    <span class="keyword">if</span>(!visited[ajNode])</span><br><span class="line">                        nodeStack.push(ajNode);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> comNum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><a href="https://leetcode.com/problems/number-of-islands/description/" target="_blank" rel="noopener">200. Number of Islands</a></p>
-<figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> numIslands(<span class="keyword">vector</span>&lt;<span class="keyword">vector</span>&lt;char&gt;&gt;&amp; <span class="keyword">grid</span>) &#123;</span><br><span class="line">    <span class="keyword">int</span> num = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">grid</span>.<span class="keyword">size</span>() == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> num;</span><br><span class="line">    <span class="keyword">vector</span>&lt;<span class="keyword">vector</span>&lt;bool&gt;&gt; visited(<span class="keyword">grid</span>.<span class="keyword">size</span>(), <span class="keyword">vector</span>&lt;bool&gt;(<span class="keyword">grid</span>[<span class="number">0</span>].<span class="keyword">size</span>(), false));</span><br><span class="line">    stack&lt;pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt; gridStack;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">grid</span>.<span class="keyword">size</span>(); i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="keyword">grid</span>[i].<span class="keyword">size</span>(); j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(!visited[i][j] &amp;&amp; <span class="keyword">grid</span>[i][j] == <span class="string">'1'</span>)&#123;</span><br><span class="line">                num++;</span><br><span class="line">                gridStack.push(make_pair(i, j));</span><br><span class="line">                <span class="keyword">while</span>(!gridStack.empty())&#123;</span><br><span class="line">                    auto node = gridStack.top();</span><br><span class="line">                    gridStack.pop();</span><br><span class="line">                    <span class="keyword">int</span> curi = node.first;</span><br><span class="line">                    <span class="keyword">int</span> curj = node.second;</span><br><span class="line">                    visited[curi][curj] = true;</span><br><span class="line">                    <span class="keyword">if</span>(curi + <span class="number">1</span> &lt; <span class="keyword">grid</span>.<span class="keyword">size</span>() &amp;&amp; <span class="keyword">grid</span>[curi + <span class="number">1</span>][curj] == <span class="string">'1'</span> &amp;&amp; !visited[curi+<span class="number">1</span>][curj]) gridStack.push(make_pair(curi + <span class="number">1</span>, curj));</span><br><span class="line">                    <span class="keyword">if</span>(curj + <span class="number">1</span> &lt; <span class="keyword">grid</span>[<span class="number">0</span>].<span class="keyword">size</span>() &amp;&amp; <span class="keyword">grid</span>[curi][curj + <span class="number">1</span>] == <span class="string">'1'</span> &amp;&amp; !visited[curi][curj + <span class="number">1</span>])gridStack.push(make_pair(curi, curj + <span class="number">1</span>));</span><br><span class="line">                    <span class="keyword">if</span>(curi - <span class="number">1</span> &gt;= <span class="number">0</span> &amp;&amp; <span class="keyword">grid</span>[curi - <span class="number">1</span>][curj] == <span class="string">'1'</span> &amp;&amp; !visited[curi - <span class="number">1</span>][curj])gridStack.push(make_pair(curi - <span class="number">1</span>, curj));</span><br><span class="line">                    <span class="keyword">if</span>(curj - <span class="number">1</span> &gt;= <span class="number">0</span> &amp;&amp; <span class="keyword">grid</span>[curi][curj - <span class="number">1</span>] == <span class="string">'1'</span> &amp;&amp; !visited[curi][curj - <span class="number">1</span>])gridStack.push(make_pair(curi, curj - <span class="number">1</span>));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> num;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>BFS<blockquote>
-<p>using queue, the horizontal data structure</p>
-</blockquote>
-</li>
-</ul>
-<ul>
-<li><p>“Intuition”</p>
-<blockquote>
-<p>We need to get all nodes having the same parent first, and then get a node’s subtrees.</p>
-</blockquote>
-</li>
-<li><p>Basic : Binary Tree level order traversal</p>
-</li>
-<li>Using BFS solves graphs(matrixes)<br><a href="https://leetcode.com/problems/01-matrix/description/" target="_blank" rel="noopener">542. 01 Matrix</a><figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">vector</span>&lt;<span class="keyword">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; updateMatrix(<span class="keyword">vector</span>&lt;<span class="keyword">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; <span class="keyword">matrix</span>) &#123;</span><br><span class="line">    queue&lt;pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt; mq;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">matrix</span>.<span class="keyword">size</span>(); i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="keyword">matrix</span>[i].<span class="keyword">size</span>(); j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(<span class="keyword">matrix</span>[i][j] == <span class="number">0</span>)</span><br><span class="line">                mq.push(make_pair(i, j));</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="keyword">matrix</span>[i][j] = INT_MAX;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">vector</span>&lt;pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt; directions;</span><br><span class="line">    directions.push_back(make_pair(<span class="number">1</span>, <span class="number">0</span>));</span><br><span class="line">    directions.push_back(make_pair(<span class="number">-1</span>, <span class="number">0</span>));</span><br><span class="line">    directions.push_back(make_pair(<span class="number">0</span>, <span class="number">1</span>));</span><br><span class="line">    directions.push_back(make_pair(<span class="number">0</span>, <span class="number">-1</span>));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(!mq.empty())&#123;</span><br><span class="line">        auto top = mq.front();</span><br><span class="line">        mq.pop();</span><br><span class="line">        <span class="keyword">for</span>(auto dire : directions)&#123;</span><br><span class="line">            <span class="keyword">int</span> curi = top.first + dire.first;</span><br><span class="line">            <span class="keyword">int</span> curj = top.second + dire.second;</span><br><span class="line">            <span class="keyword">if</span>(curi &lt; <span class="number">0</span> || curi &gt;= <span class="keyword">matrix</span>.<span class="keyword">size</span>() || curj &lt; <span class="number">0</span> || curj &gt;= <span class="keyword">matrix</span>[<span class="number">0</span>].<span class="keyword">size</span>() || <span class="keyword">matrix</span>[curi][curj] &lt; <span class="keyword">matrix</span>[top.first][top.second] + <span class="number">1</span>)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">matrix</span>[curi][curj] = <span class="keyword">matrix</span>[top.first][top.second] + <span class="number">1</span>;</span><br><span class="line">            mq.push(make_pair(curi, curj));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">matrix</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1680,7 +1645,7 @@ if s == 0 the gcd is b
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1702,7 +1667,7 @@ if s == 0 the gcd is b
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
