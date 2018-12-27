@@ -269,6 +269,134 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/12/27/PG-LC-209-Minimum-Size-Subarray-Sum/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xueying Han">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Serena Han's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/27/PG-LC-209-Minimum-Size-Subarray-Sum/" itemprop="url">PG-LC 209. Minimum Size Subarray Sum</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-27T16:23:18-05:00">
+                2018-12-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Given an array of n positive integers and a positive integer s, find the minimal length of a contiguous subarray of which the sum ≥ s. If there isn’t one, return 0 instead.</p>
+<p>Input: s = 7, nums = [2,3,1,2,4,3]<br>Output: 2<br>Explanation: the subarray [4,3] has the minimal length under the problem constraint.</p>
+<hr>
+<p>The idea is clear and simple:</p>
+<ul>
+<li>Adding new numbers from right side.</li>
+<li>When the current sum is larger than s, delete numbers from left side and update the result at the same time.</li>
+</ul>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> minSubArrayLen(<span class="built_in">int</span> s, vector&lt;<span class="built_in">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        <span class="built_in">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">int</span> j = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">int</span> <span class="built_in">sum</span> = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">int</span> res = INT_MAX;</span><br><span class="line">        <span class="keyword">while</span>(j &lt; nums.<span class="built_in">size</span>())&#123;</span><br><span class="line">            <span class="built_in">sum</span> += nums[j++];</span><br><span class="line">            <span class="keyword">while</span>(<span class="built_in">sum</span> &gt;= s)&#123;</span><br><span class="line">                res = <span class="built_in">min</span>(res, j-i);</span><br><span class="line">                <span class="built_in">sum</span> -= nums[i++];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res == INT_MAX ? <span class="number">0</span> : res;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/12/27/PG-LC-239-Sliding-window-Maximum/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1432,146 +1560,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/12/24/DP-960/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xueying Han">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Serena Han's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/24/DP-960/" itemprop="url">DP-960</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-24T15:14:27-05:00">
-                2018-12-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>We are given an array A of N lowercase letter strings, all of the same length.</p>
-<p>Now, we may choose any set of deletion indices, and for each string, we delete all the characters in those indices.</p>
-<p>For example, if we have an array A = [“babca”,”bbazb”] and deletion indices {0, 1, 4}, then the final array after deletions is [“bc”,”az”].</p>
-<p>Suppose we chose a set of deletion indices D such that after deletions, the final array has every element (row) in lexicographic order.</p>
-<p>For clarity, A[0] is in lexicographic order (ie. A[0][0] &lt;= A[0][1] &lt;= … &lt;= A[0][A[0].length - 1]), A[1] is in lexicographic order (ie. A[1][0] &lt;= A[1][1] &lt;= … &lt;= A[1][A[1].length - 1]), and so on.</p>
-<p>Return the minimum possible value of D.length.</p>
-<p>Input: [“babca”,”bbazb”]<br>Output: 3<br>Explanation: After deleting columns 0, 1, and 4, the final array is A = [“bc”, “az”].<br>Both these rows are individually in lexicographic order (ie. A[0][0] &lt;= A[0][1] and A[1][0] &lt;= A[1][1]).<br>Note that A[0] &gt; A[1] - the array A isn’t necessarily in lexicographic order.</p>
-<ul>
-<li>The subproblem can be converted to find the length of maximum increasing subsequence.<ul>
-<li>So A[k][i] &gt; A[k][j]</li>
-</ul>
-</li>
-<li>The result is that each string should be increasing by deleting some characters.<ul>
-<li>every string must be increasing by deleting the character on i  =&gt;</li>
-<li>we need to delete a character when A[k][i] &lt; A[k][j] (i &gt; j) =&gt;</li>
-<li>so we need to find whether all strings can satisfy A[x][i] &lt; A[x][j] (x &gt;=0 &amp;&amp; x &lt; rows) =&gt;</li>
-<li>if one string can not satisfy this, then we can’t plus one; otherwise, the length of subsequence should be added one.</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> minDeletionSize(<span class="keyword">vector</span>&lt;<span class="keyword">string</span>&gt;&amp; A) &#123;</span><br><span class="line">        <span class="keyword">int</span> row = A.<span class="keyword">size</span>();</span><br><span class="line">        <span class="keyword">int</span> col = A[<span class="number">0</span>].<span class="keyword">size</span>();</span><br><span class="line">        <span class="keyword">vector</span>&lt;<span class="keyword">int</span>&gt; dp(col, <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">int</span> res = INT_MAX;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; col; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; i; j++)&#123;</span><br><span class="line">                <span class="keyword">int</span> k = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">for</span>(; k &lt; row; k++)&#123;</span><br><span class="line">                    <span class="keyword">if</span>(A[k][j] &gt; A[k][i])</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(k == row &amp;&amp; dp[j] + <span class="number">1</span> &gt; dp[i])</span><br><span class="line">                    dp[i] = dp[j] + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            res = <span class="keyword">min</span>(res, col - dp[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1622,7 +1610,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
