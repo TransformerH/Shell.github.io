@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="LeetCode_Patterns," />
+  <meta name="keywords" content="PG," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="LeetCode  19. Remove Nth Node From End of List">
-<meta name="keywords" content="LeetCode_Patterns">
+<meta name="description" content="PG-LC 439. Ternary Expression ParserGiven a string representing arbitrarily nested ternary expressions, calculate the result of the expression. You can always assume that the given expression is valid">
+<meta name="keywords" content="PG">
 <meta property="og:type" content="article">
-<meta property="og:title" content="fast slow pointers">
-<meta property="og:url" content="https://transformerh.github.io/2018/05/27/fast-slow-pointers/index.html">
+<meta property="og:title" content="PG-439. Ternary Expression Parser">
+<meta property="og:url" content="https://transformerh.github.io/2018/12/26/PG-439-Ternary-Expression-Parser/index.html">
 <meta property="og:site_name" content="Serena Han&#39;s Blog">
-<meta property="og:description" content="LeetCode  19. Remove Nth Node From End of List">
+<meta property="og:description" content="PG-LC 439. Ternary Expression ParserGiven a string representing arbitrarily nested ternary expressions, calculate the result of the expression. You can always assume that the given expression is valid">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-05-27T09:18:38.237Z">
+<meta property="og:updated_time" content="2018-12-26T22:00:09.913Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="fast slow pointers">
-<meta name="twitter:description" content="LeetCode  19. Remove Nth Node From End of List">
+<meta name="twitter:title" content="PG-439. Ternary Expression Parser">
+<meta name="twitter:description" content="PG-LC 439. Ternary Expression ParserGiven a string representing arbitrarily nested ternary expressions, calculate the result of the expression. You can always assume that the given expression is valid">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://transformerh.github.io/2018/05/27/fast-slow-pointers/"/>
+  <link rel="canonical" href="https://transformerh.github.io/2018/12/26/PG-439-Ternary-Expression-Parser/"/>
 
 
 
 
 
-  <title>fast slow pointers | Serena Han's Blog</title>
+  <title>PG-439. Ternary Expression Parser | Serena Han's Blog</title>
   
 
 
@@ -273,7 +273,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/05/27/fast-slow-pointers/">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/12/26/PG-439-Ternary-Expression-Parser/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xueying Han">
@@ -290,7 +290,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">fast slow pointers</h1>
+          <h1 class="post-title" itemprop="name headline">PG-439. Ternary Expression Parser</h1>
         
 
         <div class="post-meta">
@@ -302,8 +302,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-27T17:16:11-04:00">
-                2018-05-27
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-26T16:58:07-05:00">
+                2018-12-26
               </time>
             
 
@@ -340,13 +340,10 @@
       
 
       
-        <ul>
-<li><p>LeetCode</p>
-<ul>
-<li><a href="https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/" target="_blank" rel="noopener">19. Remove Nth Node From End of List</a></li>
-</ul>
-</li>
-</ul>
+        <h3 id="PG-LC-439-Ternary-Expression-Parser"><a href="#PG-LC-439-Ternary-Expression-Parser" class="headerlink" title="PG-LC 439. Ternary Expression Parser"></a>PG-LC 439. Ternary Expression Parser</h3><p>Given a string representing arbitrarily nested ternary expressions, calculate the result of the expression. You can always assume that the given expression is valid and only consists of digits 0-9, ?, :, T and F (T and F represent True and False respectively).</p>
+<p>Input: “T?T?F:5:3”<br>Output: “F”</p>
+<hr>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">string parseTernary(string expression) &#123;</span><br><span class="line">      <span class="keyword">if</span>(expression == <span class="keyword">NULL</span> || expression.length() == <span class="number">0</span>)</span><br><span class="line">          <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">      stack&lt;<span class="keyword">char</span>&gt; cstack;</span><br><span class="line">      <span class="keyword">int</span> len = (<span class="keyword">int</span>)expression.length();</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">int</span> i = len-<span class="number">1</span>; i &gt;= <span class="number">0</span>; i--)&#123;</span><br><span class="line">          <span class="keyword">if</span>(!cstack.empty() &amp;&amp; cstack.top() == <span class="string">'?'</span>)&#123;</span><br><span class="line">              cstack.<span class="keyword">pop</span>();</span><br><span class="line">              <span class="keyword">char</span> first = cstack.top(); cstack.<span class="keyword">pop</span>();</span><br><span class="line">              cstack.<span class="keyword">pop</span>();</span><br><span class="line">              <span class="keyword">char</span> second = cstack.top(); cstack.<span class="keyword">pop</span>();</span><br><span class="line">              <span class="keyword">if</span>(expression[i] == <span class="string">'T'</span>)</span><br><span class="line">                  cstack.<span class="keyword">push</span>(first);</span><br><span class="line">              <span class="keyword">else</span></span><br><span class="line">                  cstack.<span class="keyword">push</span>(second);</span><br><span class="line">          &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">              cstack.<span class="keyword">push</span>(expression[i]);</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">       <span class="keyword">return</span> string(<span class="number">1</span>, cstack.top());</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -364,7 +361,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/LeetCode-Patterns/" rel="tag"># LeetCode_Patterns</a>
+            <a href="/tags/PG/" rel="tag"># PG</a>
           
         </div>
       
@@ -377,8 +374,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/25/DFS-BFS/" rel="next" title="DFS && BFS">
-                <i class="fa fa-chevron-left"></i> DFS && BFS
+              <a href="/2018/12/26/PG-LC-220-Contains-Duplicate/" rel="next" title="PG-LC 220 Contains Duplicate">
+                <i class="fa fa-chevron-left"></i> PG-LC 220 Contains Duplicate
               </a>
             
           </div>
@@ -387,8 +384,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/30/Dynamic-Programming/" rel="prev" title="Dynamic Programming">
-                Dynamic Programming <i class="fa fa-chevron-right"></i>
+              <a href="/2018/12/26/PG-LC-128-Longest-Consecutive-Sequence/" rel="prev" title="PG-LC 128. Longest Consecutive Sequence">
+                PG-LC 128. Longest Consecutive Sequence <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -441,8 +438,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -502,6 +508,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#PG-LC-439-Ternary-Expression-Parser"><span class="nav-number">1.</span> <span class="nav-text">PG-LC 439. Ternary Expression Parser</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
