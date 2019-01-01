@@ -269,6 +269,389 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/12/27/PG-LC-209-Minimum-Size-Subarray-Sum/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xueying Han">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Serena Han's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/27/PG-LC-209-Minimum-Size-Subarray-Sum/" itemprop="url">PG-LC 209. Minimum Size Subarray Sum</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-27T16:23:18-05:00">
+                2018-12-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Given an array of n positive integers and a positive integer s, find the minimal length of a contiguous subarray of which the sum ≥ s. If there isn’t one, return 0 instead.</p>
+<p>Input: s = 7, nums = [2,3,1,2,4,3]<br>Output: 2<br>Explanation: the subarray [4,3] has the minimal length under the problem constraint.</p>
+<hr>
+<p>The idea is clear and simple:</p>
+<ul>
+<li>Adding new numbers from right side.</li>
+<li>When the current sum is larger than s, delete numbers from left side and update the result at the same time.</li>
+</ul>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> minSubArrayLen(<span class="built_in">int</span> s, vector&lt;<span class="built_in">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        <span class="built_in">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">int</span> j = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">int</span> <span class="built_in">sum</span> = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">int</span> res = INT_MAX;</span><br><span class="line">        <span class="keyword">while</span>(j &lt; nums.<span class="built_in">size</span>())&#123;</span><br><span class="line">            <span class="built_in">sum</span> += nums[j++];</span><br><span class="line">            <span class="keyword">while</span>(<span class="built_in">sum</span> &gt;= s)&#123;</span><br><span class="line">                res = <span class="built_in">min</span>(res, j-i);</span><br><span class="line">                <span class="built_in">sum</span> -= nums[i++];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res == INT_MAX ? <span class="number">0</span> : res;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/12/27/PG-LC-239-Sliding-window-Maximum/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xueying Han">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Serena Han's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/27/PG-LC-239-Sliding-window-Maximum/" itemprop="url">PG-LC 239. Sliding window Maximum</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-27T00:30:35-05:00">
+                2018-12-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Given an array nums, there is a sliding window of size k which is moving from the very left of the array to the very right. You can only see the k numbers in the window. Each time the sliding window moves right by one position. Return the max sliding window.</p>
+<p>Example:</p>
+<p>Input: nums = [1,3,-1,-3,5,3,6,7], and k = 3<br>Output: [3,3,5,5,6,7]</p>
+<hr>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// time complexity: O(n)</span></span><br><span class="line">  <span class="comment">// we can use deque to solve this problem</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; maxSlidingWindow(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> k) &#123;</span><br><span class="line">  <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; res;</span><br><span class="line">  <span class="built_in">deque</span>&lt;<span class="keyword">int</span>&gt; dq;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); i++)&#123;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// if the current right side of window is i and the current left side of window is dq.front()</span></span><br><span class="line">      <span class="comment">// then if the size of the window is larger than k, we move the left side by pop element from the front of the deque</span></span><br><span class="line"></span><br><span class="line">      <span class="keyword">while</span>(!dq.empty() &amp;&amp; dq.front() &lt; i-k+<span class="number">1</span>)&#123;</span><br><span class="line">          dq.pop_front();</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// the dq needs to contain the largest numbers of every subarray</span></span><br><span class="line">      <span class="comment">// so the method is when we need to compare the number in the deque and the nums[i], if the number is smaller than nums[i], then we pop the number, if not we keep it in the deque. So if the nums[i] is the largest in a subarray, some numbers which are before it and smaller than it will be popped, some numbers which are after it and also smaller than it will not be pushed into the dq.</span></span><br><span class="line"></span><br><span class="line">      <span class="keyword">while</span> (!dq.empty() &amp;&amp; nums[dq.back()] &lt; nums[i]) &#123;</span><br><span class="line">          dq.pop_back();</span><br><span class="line">      &#125;</span><br><span class="line">      dq.push_back(i);</span><br><span class="line">      <span class="keyword">if</span>(i &gt;= k<span class="number">-1</span>)</span><br><span class="line">          res.push_back(nums[dq.front()]);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/12/26/PG-LC-723-Candy-Crush/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xueying Han">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Serena Han's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/26/PG-LC-723-Candy-Crush/" itemprop="url">PG-LC 723, Candy Crush</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-26T23:09:49-05:00">
+                2018-12-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>This question is about implementing a basic elimination algorithm for Candy Crush.</p>
+<p>Given a 2D integer array board representing the grid of candy, different positive integers board[i][j] represent different types of candies. A value of board[i][j] = 0 represents that the cell at position (i, j) is empty. The given board represents the state of the game following the player’s move. Now, you need to restore the board to a stable state by crushing candies according to the following rules:</p>
+<p>If three or more candies of the same type are adjacent vertically or horizontally, “crush” them all at the same time - these positions become empty.<br>After crushing all candies simultaneously, if an empty space on the board has candies on top of itself, then these candies will drop until they hit a candy or bottom at the same time. (No new candies will drop outside the top boundary.)<br>After the above steps, there may exist more candies that can be crushed. If so, you need to repeat the above steps.<br>If there does not exist more candies that can be crushed (ie. the board is stable), then return the current board.<br>You need to perform the above rules until the board becomes stable, then return the current board.</p>
+<hr>
+<p>Yes, it’s the game.<br>Real fun.<br>I think game companies should use this problem in their interviews.</p>
+<p>So the idea is clear:</p>
+<ul>
+<li>We need to find all cells which will be set to 0 later. Just be careful, we can’t set them to 0 during this process.</li>
+<li>We need to set all crashed cells to 0.</li>
+<li>We need to drop the cells which are satisfy the above conditions by using two pointers.</li>
+</ul>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">void drop(vector&lt;vector&lt;int&gt;&gt;&amp; board)&#123;</span><br><span class="line">    for(int j = <span class="number">0</span>; j &lt; board<span class="string">[0]</span>.size(); j++)&#123;</span><br><span class="line">        int bottom = (int)board.size()-<span class="number">1</span>;</span><br><span class="line">        int top = (int)board.size()-<span class="number">1</span>;</span><br><span class="line">        while(top &gt;= <span class="number">0</span>)&#123;</span><br><span class="line">            if(board<span class="string">[top]</span><span class="string">[j]</span> == <span class="number">0</span>)</span><br><span class="line">                top--;</span><br><span class="line">            else</span><br><span class="line">                board<span class="string">[bottom--]</span><span class="string">[j]</span> = board<span class="string">[top--]</span><span class="string">[j]</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        while(bottom &gt;= <span class="number">0</span>)</span><br><span class="line">            board<span class="string">[bottom--]</span><span class="string">[j]</span> = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">vector&lt;vector&lt;int&gt;&gt; candyCrush(vector&lt;vector&lt;int&gt;&gt;&amp; board) &#123;</span><br><span class="line">    set&lt;pair&lt;int, int&gt;&gt; crashSet;</span><br><span class="line">    for(int i = <span class="number">0</span>; i &lt; board.size(); i++)&#123;</span><br><span class="line">        for(int j = <span class="number">0</span>; j &lt; board<span class="string">[0]</span>.size(); j++)&#123;</span><br><span class="line">            if(board<span class="string">[i]</span><span class="string">[j]</span> == <span class="number">0</span>)</span><br><span class="line">                continue;</span><br><span class="line">            if((i-<span class="number">2</span> &gt;= <span class="number">0</span> &amp;&amp; board<span class="string">[i-1]</span><span class="string">[j]</span> == board<span class="string">[i]</span><span class="string">[j]</span> &amp;&amp; board<span class="string">[i-2]</span><span class="string">[j]</span> == board<span class="string">[i]</span><span class="string">[j]</span>) || (i+<span class="number">2</span> &lt; board.size() &amp;&amp; board<span class="string">[i+1]</span><span class="string">[j]</span> == board<span class="string">[i]</span><span class="string">[j]</span> &amp;&amp; board<span class="string">[i+2]</span><span class="string">[j]</span> == board<span class="string">[i]</span><span class="string">[j]</span>) || (j-<span class="number">2</span> &gt;= <span class="number">0</span> &amp;&amp; board<span class="string">[i]</span><span class="string">[j-1]</span> == board<span class="string">[i]</span><span class="string">[j]</span> &amp;&amp; board<span class="string">[i]</span><span class="string">[j-2]</span> == board<span class="string">[i]</span><span class="string">[j]</span>) || (j+<span class="number">2</span> &lt; board<span class="string">[0]</span>.size() &amp;&amp; board<span class="string">[i]</span><span class="string">[j+1]</span> == board<span class="string">[i]</span><span class="string">[j]</span> &amp;&amp; board<span class="string">[i]</span><span class="string">[j+2]</span> == board<span class="string">[i]</span><span class="string">[j]</span>)||</span><br><span class="line">               (i-<span class="number">1</span> &gt;= <span class="number">0</span> &amp;&amp; i+<span class="number">1</span> &lt; board.size() &amp;&amp; board<span class="string">[i-1]</span><span class="string">[j]</span> == board<span class="string">[i]</span><span class="string">[j]</span> &amp;&amp; board<span class="string">[i+1]</span><span class="string">[j]</span> == board<span class="string">[i]</span><span class="string">[j]</span>) ||</span><br><span class="line">               (j-<span class="number">1</span> &gt;= <span class="number">0</span> &amp;&amp; j+<span class="number">1</span> &lt; board<span class="string">[0]</span>.size() &amp;&amp; board<span class="string">[i]</span><span class="string">[j-1]</span> == board<span class="string">[i]</span><span class="string">[j]</span> &amp;&amp; board<span class="string">[i]</span><span class="string">[j+1]</span> == board<span class="string">[i]</span><span class="string">[j]</span>))</span><br><span class="line">                crashSet.insert(make_pair(i, j));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if(crashSet.empty())</span><br><span class="line">        return board;</span><br><span class="line">    for(auto it = crashSet.begin(); it != crashSet.end(); it++)</span><br><span class="line">        board<span class="string">[it-&gt;first]</span><span class="string">[it-&gt;second]</span> = <span class="number">0</span>;</span><br><span class="line">    drop(board);</span><br><span class="line">    return candyCrush(board);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/12/26/PG-LC-128-Longest-Consecutive-Sequence/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1177,400 +1560,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/12/24/DP-960/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xueying Han">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Serena Han's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/24/DP-960/" itemprop="url">DP-960</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-24T15:14:27-05:00">
-                2018-12-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>We are given an array A of N lowercase letter strings, all of the same length.</p>
-<p>Now, we may choose any set of deletion indices, and for each string, we delete all the characters in those indices.</p>
-<p>For example, if we have an array A = [“babca”,”bbazb”] and deletion indices {0, 1, 4}, then the final array after deletions is [“bc”,”az”].</p>
-<p>Suppose we chose a set of deletion indices D such that after deletions, the final array has every element (row) in lexicographic order.</p>
-<p>For clarity, A[0] is in lexicographic order (ie. A[0][0] &lt;= A[0][1] &lt;= … &lt;= A[0][A[0].length - 1]), A[1] is in lexicographic order (ie. A[1][0] &lt;= A[1][1] &lt;= … &lt;= A[1][A[1].length - 1]), and so on.</p>
-<p>Return the minimum possible value of D.length.</p>
-<p>Input: [“babca”,”bbazb”]<br>Output: 3<br>Explanation: After deleting columns 0, 1, and 4, the final array is A = [“bc”, “az”].<br>Both these rows are individually in lexicographic order (ie. A[0][0] &lt;= A[0][1] and A[1][0] &lt;= A[1][1]).<br>Note that A[0] &gt; A[1] - the array A isn’t necessarily in lexicographic order.</p>
-<ul>
-<li>The subproblem can be converted to find the length of maximum increasing subsequence.<ul>
-<li>So A[k][i] &gt; A[k][j]</li>
-</ul>
-</li>
-<li>The result is that each string should be increasing by deleting some characters.<ul>
-<li>every string must be increasing by deleting the character on i  =&gt;</li>
-<li>we need to delete a character when A[k][i] &lt; A[k][j] (i &gt; j) =&gt;</li>
-<li>so we need to find whether all strings can satisfy A[x][i] &lt; A[x][j] (x &gt;=0 &amp;&amp; x &lt; rows) =&gt;</li>
-<li>if one string can not satisfy this, then we can’t plus one; otherwise, the length of subsequence should be added one.</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> minDeletionSize(<span class="keyword">vector</span>&lt;<span class="keyword">string</span>&gt;&amp; A) &#123;</span><br><span class="line">        <span class="keyword">int</span> row = A.<span class="keyword">size</span>();</span><br><span class="line">        <span class="keyword">int</span> col = A[<span class="number">0</span>].<span class="keyword">size</span>();</span><br><span class="line">        <span class="keyword">vector</span>&lt;<span class="keyword">int</span>&gt; dp(col, <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">int</span> res = INT_MAX;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; col; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; i; j++)&#123;</span><br><span class="line">                <span class="keyword">int</span> k = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">for</span>(; k &lt; row; k++)&#123;</span><br><span class="line">                    <span class="keyword">if</span>(A[k][j] &gt; A[k][i])</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(k == row &amp;&amp; dp[j] + <span class="number">1</span> &gt; dp[i])</span><br><span class="line">                    dp[i] = dp[j] + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            res = <span class="keyword">min</span>(res, col - dp[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/12/01/Bit-Manipulation/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xueying Han">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Serena Han's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/01/Bit-Manipulation/" itemprop="url">Bit Manipulation</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-01T13:33:35-05:00">
-                2018-12-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Leetcode 190. Reverse Bits : <a href="https://leetcode.com/problems/reverse-bits/" target="_blank" rel="noopener">https://leetcode.com/problems/reverse-bits/</a></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">uint32_t</span> reverseBits(<span class="keyword">uint32_t</span> n) &#123;</span><br><span class="line"><span class="keyword">uint32_t</span> res = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span>(i++ &lt; <span class="number">32</span>)&#123;</span><br><span class="line"></span><br><span class="line">res += n &amp; <span class="number">1</span>;</span><br><span class="line">n &gt;&gt;= <span class="number">1</span>;</span><br><span class="line"><span class="keyword">if</span>(i &lt; <span class="number">32</span>)</span><br><span class="line">res &lt;&lt;= <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><ol>
-<li>Get the bit at the lowest position of a number n =&gt; n &amp; 1 .</li>
-<li>add to the end of the new number, new number should left shift 1, and the original number should right shift 1.</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/11/14/Prime-number/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xueying Han">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Serena Han's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/14/Prime-number/" itemprop="url">Prime number</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-14T14:47:59-05:00">
-                2018-11-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="How-to-check-whether-a-number-is-prime-or-not"><a href="#How-to-check-whether-a-number-is-prime-or-not" class="headerlink" title="How to check whether a number is prime or not?"></a>How to check whether a number is prime or not?</h2><h3 id="Method-1"><a href="#Method-1" class="headerlink" title="Method 1:"></a>Method 1:</h3><p>Assume a integer n which is larger than 1. </p>
-<ul>
-<li>Iterate integer i from 2 to n-1.<ul>
-<li>check if i divides n</li>
-<li>if i divides n return false</li>
-</ul>
-</li>
-</ul>
-<h3 id="Method-2"><a href="#Method-2" class="headerlink" title="Method 2:"></a>Method 2:</h3><p>Iterate integer i from 2 to square(n)</p>
-<h3 id="Method-3"><a href="#Method-3" class="headerlink" title="Method 3:"></a>Method 3:</h3><p>lc 204  <a href="https://leetcode.com/problems/count-primes/description/" target="_blank" rel="noopener">https://leetcode.com/problems/count-primes/description/</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">First we assume all the integers which are smaller than n but larger than 2 are prime number, what we need to do is check every integer whether can divide other numbers or not. If the other number can be divided, then this number is not a prime number, we set it as non-prime number.</span><br><span class="line">*/</span><br><span class="line">int countPrimes(int n) &#123;</span><br><span class="line">int count = 0;</span><br><span class="line">vector&lt;bool&gt; isPrime(n, true);</span><br><span class="line">for(int i = 2; i &lt; n; i++)&#123;</span><br><span class="line">if(isPrime[i])&#123;</span><br><span class="line">count++;</span><br><span class="line">for(int j = 2; j * i &lt; n; j++)&#123;</span><br><span class="line">isPrime[i*j] = false;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">return count;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1621,7 +1610,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1643,7 +1632,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>

@@ -269,6 +269,391 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/12/31/DP-LC-931-Minimum-Falling-Path-Sum/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xueying Han">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Serena Han's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/31/DP-LC-931-Minimum-Falling-Path-Sum/" itemprop="url">DP-LC 931 Minimum Falling Path Sum</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-31T22:30:20-05:00">
+                2018-12-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Given a square array of integers A, we want the minimum sum of a falling path through A.</p>
+<p>A falling path starts at any element in the first row, and chooses one element from each row.  The next row’s choice must be in a column that is different from the previous row’s column by at most one.</p>
+<p>Example 1:</p>
+<p>Input: [[1,2,3],[4,5,6],[7,8,9]]<br>Output: 12<br>Explanation:<br>The possible falling paths are:<br>[1,4,7], [1,4,8], [1,5,7], [1,5,8], [1,5,9]<br>[2,4,7], [2,4,8], [2,5,7], [2,5,8], [2,5,9], [2,6,8], [2,6,9]<br>[3,5,7], [3,5,8], [3,5,9], [3,6,8], [3,6,9]<br>The falling path with the smallest sum is [1,4,7], so the answer is 12.</p>
+<hr>
+<p>A typical dp problem. </p>
+<figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> minFallingPathSum(<span class="keyword">vector</span>&lt;<span class="keyword">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; A) &#123;</span><br><span class="line">   <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; A.<span class="keyword">size</span>(); i++)&#123;</span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; A.<span class="keyword">size</span>(); j++)&#123;</span><br><span class="line">           A[i][j] += <span class="keyword">min</span>(&#123;A[i<span class="number">-1</span>][j], A[i<span class="number">-1</span>][<span class="keyword">max</span>(<span class="number">0</span>, j<span class="number">-1</span>)], A[i<span class="number">-1</span>][<span class="keyword">min</span>(j+<span class="number">1</span>, (<span class="keyword">int</span>)A.<span class="keyword">size</span>()<span class="number">-1</span>)]&#125;);</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">int</span> ret = INT_MAX;</span><br><span class="line">   <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; A.<span class="keyword">size</span>(); i++)&#123;</span><br><span class="line">       ret = <span class="keyword">min</span>(ret, A.back()[i]);</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/12/31/PG-Design-HashMap/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xueying Han">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Serena Han's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/31/PG-Design-HashMap/" itemprop="url">PG-Design HashMap</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-31T19:32:49-05:00">
+                2018-12-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Design a HashMap without using any built-in hash table libraries.</p>
+<p>To be specific, your design should include these functions:</p>
+<p>put(key, value) : Insert a (key, value) pair into the HashMap. If the value already exists in the HashMap, update the value.<br>get(key): Returns the value to which the specified key is mapped, or -1 if this map contains no mapping for the key.<br>remove(key) : Remove the mapping for the value key if this map contains the mapping for the key.</p>
+<p>Example:</p>
+<p>MyHashMap hashMap = new MyHashMap();<br>hashMap.put(1, 1);<br>hashMap.put(2, 2);<br>hashMap.get(1);            // returns 1<br>hashMap.get(3);            // returns -1 (not found)<br>hashMap.put(2, 1);          // update the existing value<br>hashMap.get(2);            // returns 1<br>hashMap.remove(2);          // remove the mapping for 2<br>hashMap.get(2);            // returns -1 (not found)</p>
+<p>Note:</p>
+<p>All keys and values will be in the range of [0, 1000000].<br>The number of operations will be in the range of [1, 10000].<br>Please do not use the built-in HashMap library.</p>
+<hr>
+<p>Build a hashmap by linkedlist.</p>
+<ul>
+<li>An array of hashNodes represents an array of slots. And the number of slots is n.</li>
+<li>hash fuction is simple: hash_index = key % n.</li>
+<li>every slot which is the first node stored in the array is a dummy node(key = -1, value = -1).</li>
+<li>If we put a &lt;key, value&gt;, we need to<ul>
+<li>check if the slot exists</li>
+<li>check if share the slot with other nodes having different keys.</li>
+<li>check if the key exists. </li>
+</ul>
+</li>
+</ul>
+<figure class="highlight zephir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">struct HashNode &#123;</span><br><span class="line">    <span class="keyword">int</span> value;</span><br><span class="line">    <span class="keyword">int</span> key;</span><br><span class="line">    HashNode* next;</span><br><span class="line">    HashNode(<span class="keyword">int</span> k, <span class="keyword">int</span> v): value(v), key(k), next(<span class="keyword">NULL</span>)&#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyHashMap</span> </span>&#123;</span><br><span class="line">    vector&lt;HashNode*&gt; <span class="keyword">list</span>;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">/** Initialize your data structure here. */</span></span><br><span class="line">    MyHashMap() &#123;</span><br><span class="line">        <span class="keyword">list</span> = vector&lt;HashNode*&gt;(<span class="number">10000</span>, <span class="keyword">NULL</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** value will always be non-negative. */</span></span><br><span class="line">    void put(<span class="keyword">int</span> key, <span class="keyword">int</span> value) &#123;</span><br><span class="line">        <span class="keyword">int</span> ind = hashFunc(key);</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">list</span>[ind] == <span class="keyword">NULL</span>)</span><br><span class="line">            <span class="keyword">list</span>[ind] = <span class="keyword">new</span> HashNode(<span class="number">-1</span>, <span class="number">-1</span>);</span><br><span class="line">         HashNode* pre = findPre(<span class="keyword">list</span>[ind], key);</span><br><span class="line">        <span class="keyword">if</span>(pre-&gt;next == <span class="keyword">NULL</span>)&#123;</span><br><span class="line">            pre-&gt;next = <span class="keyword">new</span> HashNode(key, value);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            pre-&gt;next-&gt;value = value;</span><br><span class="line">        &#125;    </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Returns the value to which the specified key is mapped, or -1 if this map contains no mapping for the key */</span></span><br><span class="line">    <span class="keyword">int</span> get(<span class="keyword">int</span> key) &#123;</span><br><span class="line">        <span class="keyword">int</span> ind = hashFunc(key);</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">list</span>[ind] == <span class="keyword">NULL</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        HashNode* pre = findPre(<span class="keyword">list</span>[ind], key);</span><br><span class="line">        <span class="keyword">return</span> pre-&gt;next == <span class="keyword">NULL</span> ? <span class="number">-1</span> : pre-&gt;next-&gt;value;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Removes the mapping of the specified value key if this map contains a mapping for the key */</span></span><br><span class="line">    void remove(<span class="keyword">int</span> key) &#123;</span><br><span class="line">        <span class="keyword">int</span> ind = hashFunc(key);</span><br><span class="line">        <span class="keyword">if</span>(!<span class="keyword">list</span>[ind])</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        HashNode* pre = findPre(<span class="keyword">list</span>[ind], key);</span><br><span class="line">       <span class="keyword">if</span>(pre-&gt;next == <span class="keyword">NULL</span>)</span><br><span class="line">           <span class="keyword">return</span>;</span><br><span class="line">        pre-&gt;next = pre-&gt;next-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> hashFunc(<span class="keyword">int</span> key)&#123;</span><br><span class="line">        <span class="keyword">return</span> key % <span class="number">10000</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    HashNode* findPre(HashNode* slot, <span class="keyword">int</span> key)&#123;</span><br><span class="line">        HashNode* pre = <span class="keyword">NULL</span>;</span><br><span class="line">        HashNode* cur = slot;</span><br><span class="line">        <span class="keyword">while</span>(cur != <span class="keyword">NULL</span> &amp;&amp; cur-&gt;key != key)&#123;</span><br><span class="line">            pre = cur;</span><br><span class="line">            cur = cur-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> pre;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/12/29/Two-pointers-3Sum-etc/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xueying Han">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Serena Han's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/29/Two-pointers-3Sum-etc/" itemprop="url">Two pointers-3Sum etc.</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-29T22:06:58-05:00">
+                2018-12-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/12/29/Subarray-Sum/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1149,389 +1534,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/12/27/PG-LC-209-Minimum-Size-Subarray-Sum/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xueying Han">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Serena Han's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/27/PG-LC-209-Minimum-Size-Subarray-Sum/" itemprop="url">PG-LC 209. Minimum Size Subarray Sum</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-27T16:23:18-05:00">
-                2018-12-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Given an array of n positive integers and a positive integer s, find the minimal length of a contiguous subarray of which the sum ≥ s. If there isn’t one, return 0 instead.</p>
-<p>Input: s = 7, nums = [2,3,1,2,4,3]<br>Output: 2<br>Explanation: the subarray [4,3] has the minimal length under the problem constraint.</p>
-<hr>
-<p>The idea is clear and simple:</p>
-<ul>
-<li>Adding new numbers from right side.</li>
-<li>When the current sum is larger than s, delete numbers from left side and update the result at the same time.</li>
-</ul>
-<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> minSubArrayLen(<span class="built_in">int</span> s, vector&lt;<span class="built_in">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        <span class="built_in">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">int</span> j = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">int</span> <span class="built_in">sum</span> = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">int</span> res = INT_MAX;</span><br><span class="line">        <span class="keyword">while</span>(j &lt; nums.<span class="built_in">size</span>())&#123;</span><br><span class="line">            <span class="built_in">sum</span> += nums[j++];</span><br><span class="line">            <span class="keyword">while</span>(<span class="built_in">sum</span> &gt;= s)&#123;</span><br><span class="line">                res = <span class="built_in">min</span>(res, j-i);</span><br><span class="line">                <span class="built_in">sum</span> -= nums[i++];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res == INT_MAX ? <span class="number">0</span> : res;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/12/27/PG-LC-239-Sliding-window-Maximum/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xueying Han">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Serena Han's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/27/PG-LC-239-Sliding-window-Maximum/" itemprop="url">PG-LC 239. Sliding window Maximum</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-27T00:30:35-05:00">
-                2018-12-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Given an array nums, there is a sliding window of size k which is moving from the very left of the array to the very right. You can only see the k numbers in the window. Each time the sliding window moves right by one position. Return the max sliding window.</p>
-<p>Example:</p>
-<p>Input: nums = [1,3,-1,-3,5,3,6,7], and k = 3<br>Output: [3,3,5,5,6,7]</p>
-<hr>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// time complexity: O(n)</span></span><br><span class="line">  <span class="comment">// we can use deque to solve this problem</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; maxSlidingWindow(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> k) &#123;</span><br><span class="line">  <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; res;</span><br><span class="line">  <span class="built_in">deque</span>&lt;<span class="keyword">int</span>&gt; dq;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); i++)&#123;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// if the current right side of window is i and the current left side of window is dq.front()</span></span><br><span class="line">      <span class="comment">// then if the size of the window is larger than k, we move the left side by pop element from the front of the deque</span></span><br><span class="line"></span><br><span class="line">      <span class="keyword">while</span>(!dq.empty() &amp;&amp; dq.front() &lt; i-k+<span class="number">1</span>)&#123;</span><br><span class="line">          dq.pop_front();</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// the dq needs to contain the largest numbers of every subarray</span></span><br><span class="line">      <span class="comment">// so the method is when we need to compare the number in the deque and the nums[i], if the number is smaller than nums[i], then we pop the number, if not we keep it in the deque. So if the nums[i] is the largest in a subarray, some numbers which are before it and smaller than it will be popped, some numbers which are after it and also smaller than it will not be pushed into the dq.</span></span><br><span class="line"></span><br><span class="line">      <span class="keyword">while</span> (!dq.empty() &amp;&amp; nums[dq.back()] &lt; nums[i]) &#123;</span><br><span class="line">          dq.pop_back();</span><br><span class="line">      &#125;</span><br><span class="line">      dq.push_back(i);</span><br><span class="line">      <span class="keyword">if</span>(i &gt;= k<span class="number">-1</span>)</span><br><span class="line">          res.push_back(nums[dq.front()]);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/12/26/PG-LC-723-Candy-Crush/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xueying Han">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Serena Han's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/26/PG-LC-723-Candy-Crush/" itemprop="url">PG-LC 723, Candy Crush</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-26T23:09:49-05:00">
-                2018-12-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>This question is about implementing a basic elimination algorithm for Candy Crush.</p>
-<p>Given a 2D integer array board representing the grid of candy, different positive integers board[i][j] represent different types of candies. A value of board[i][j] = 0 represents that the cell at position (i, j) is empty. The given board represents the state of the game following the player’s move. Now, you need to restore the board to a stable state by crushing candies according to the following rules:</p>
-<p>If three or more candies of the same type are adjacent vertically or horizontally, “crush” them all at the same time - these positions become empty.<br>After crushing all candies simultaneously, if an empty space on the board has candies on top of itself, then these candies will drop until they hit a candy or bottom at the same time. (No new candies will drop outside the top boundary.)<br>After the above steps, there may exist more candies that can be crushed. If so, you need to repeat the above steps.<br>If there does not exist more candies that can be crushed (ie. the board is stable), then return the current board.<br>You need to perform the above rules until the board becomes stable, then return the current board.</p>
-<hr>
-<p>Yes, it’s the game.<br>Real fun.<br>I think game companies should use this problem in their interviews.</p>
-<p>So the idea is clear:</p>
-<ul>
-<li>We need to find all cells which will be set to 0 later. Just be careful, we can’t set them to 0 during this process.</li>
-<li>We need to set all crashed cells to 0.</li>
-<li>We need to drop the cells which are satisfy the above conditions by using two pointers.</li>
-</ul>
-<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">void drop(vector&lt;vector&lt;int&gt;&gt;&amp; board)&#123;</span><br><span class="line">    for(int j = <span class="number">0</span>; j &lt; board<span class="string">[0]</span>.size(); j++)&#123;</span><br><span class="line">        int bottom = (int)board.size()-<span class="number">1</span>;</span><br><span class="line">        int top = (int)board.size()-<span class="number">1</span>;</span><br><span class="line">        while(top &gt;= <span class="number">0</span>)&#123;</span><br><span class="line">            if(board<span class="string">[top]</span><span class="string">[j]</span> == <span class="number">0</span>)</span><br><span class="line">                top--;</span><br><span class="line">            else</span><br><span class="line">                board<span class="string">[bottom--]</span><span class="string">[j]</span> = board<span class="string">[top--]</span><span class="string">[j]</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        while(bottom &gt;= <span class="number">0</span>)</span><br><span class="line">            board<span class="string">[bottom--]</span><span class="string">[j]</span> = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">vector&lt;vector&lt;int&gt;&gt; candyCrush(vector&lt;vector&lt;int&gt;&gt;&amp; board) &#123;</span><br><span class="line">    set&lt;pair&lt;int, int&gt;&gt; crashSet;</span><br><span class="line">    for(int i = <span class="number">0</span>; i &lt; board.size(); i++)&#123;</span><br><span class="line">        for(int j = <span class="number">0</span>; j &lt; board<span class="string">[0]</span>.size(); j++)&#123;</span><br><span class="line">            if(board<span class="string">[i]</span><span class="string">[j]</span> == <span class="number">0</span>)</span><br><span class="line">                continue;</span><br><span class="line">            if((i-<span class="number">2</span> &gt;= <span class="number">0</span> &amp;&amp; board<span class="string">[i-1]</span><span class="string">[j]</span> == board<span class="string">[i]</span><span class="string">[j]</span> &amp;&amp; board<span class="string">[i-2]</span><span class="string">[j]</span> == board<span class="string">[i]</span><span class="string">[j]</span>) || (i+<span class="number">2</span> &lt; board.size() &amp;&amp; board<span class="string">[i+1]</span><span class="string">[j]</span> == board<span class="string">[i]</span><span class="string">[j]</span> &amp;&amp; board<span class="string">[i+2]</span><span class="string">[j]</span> == board<span class="string">[i]</span><span class="string">[j]</span>) || (j-<span class="number">2</span> &gt;= <span class="number">0</span> &amp;&amp; board<span class="string">[i]</span><span class="string">[j-1]</span> == board<span class="string">[i]</span><span class="string">[j]</span> &amp;&amp; board<span class="string">[i]</span><span class="string">[j-2]</span> == board<span class="string">[i]</span><span class="string">[j]</span>) || (j+<span class="number">2</span> &lt; board<span class="string">[0]</span>.size() &amp;&amp; board<span class="string">[i]</span><span class="string">[j+1]</span> == board<span class="string">[i]</span><span class="string">[j]</span> &amp;&amp; board<span class="string">[i]</span><span class="string">[j+2]</span> == board<span class="string">[i]</span><span class="string">[j]</span>)||</span><br><span class="line">               (i-<span class="number">1</span> &gt;= <span class="number">0</span> &amp;&amp; i+<span class="number">1</span> &lt; board.size() &amp;&amp; board<span class="string">[i-1]</span><span class="string">[j]</span> == board<span class="string">[i]</span><span class="string">[j]</span> &amp;&amp; board<span class="string">[i+1]</span><span class="string">[j]</span> == board<span class="string">[i]</span><span class="string">[j]</span>) ||</span><br><span class="line">               (j-<span class="number">1</span> &gt;= <span class="number">0</span> &amp;&amp; j+<span class="number">1</span> &lt; board<span class="string">[0]</span>.size() &amp;&amp; board<span class="string">[i]</span><span class="string">[j-1]</span> == board<span class="string">[i]</span><span class="string">[j]</span> &amp;&amp; board<span class="string">[i]</span><span class="string">[j+1]</span> == board<span class="string">[i]</span><span class="string">[j]</span>))</span><br><span class="line">                crashSet.insert(make_pair(i, j));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if(crashSet.empty())</span><br><span class="line">        return board;</span><br><span class="line">    for(auto it = crashSet.begin(); it != crashSet.end(); it++)</span><br><span class="line">        board<span class="string">[it-&gt;first]</span><span class="string">[it-&gt;second]</span> = <span class="number">0</span>;</span><br><span class="line">    drop(board);</span><br><span class="line">    return candyCrush(board);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1582,7 +1584,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1604,7 +1606,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
