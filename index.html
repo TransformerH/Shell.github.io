@@ -269,6 +269,520 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/01/10/Palindrome/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xueying Han">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Serena Han's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/10/Palindrome/" itemprop="url">Palindrome</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-10T13:22:56-05:00">
+                2019-01-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Palindrome"><a href="#Palindrome" class="headerlink" title="Palindrome"></a>Palindrome</h2><h3 id="LC-564-Find-the-Closest-Palindrome"><a href="#LC-564-Find-the-Closest-Palindrome" class="headerlink" title="LC 564. Find the Closest Palindrome"></a>LC 564. Find the Closest Palindrome</h3><p>Given an integer n, find the closest integer (not including itself), which is a palindrome.</p>
+<p>The ‘closest’ is defined as absolute difference minimized between two integers.</p>
+<p>Example 1:</p>
+<p>Input: “123”<br>Output: “121”</p>
+<hr>
+<ul>
+<li>Idea: two kinds of solution<ul>
+<li>the result has the same length as the input string<ul>
+<li>get first half of the string, if the length of string is odd, then the first half should include the middle letter. -&gt; reverse the first half of the string(this time we should exclude the middle letter if the string has one). -&gt; link them</li>
+<li>example : string 23456 -&gt; first half : 234 -&gt; reverse : 32 -&gt; link 23432</li>
+</ul>
+</li>
+<li>the result has the different length with the input string<ul>
+<li>there are only 4 cases</li>
+<li>example: input 999 -&gt; len = 3 -&gt; 10^3 - 1 = 999, 10^3 + 1 = 1001, 10^2-1 = 99, 10^2 + 1 = 101</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Corner cases<ul>
+<li>length = 1: return the number - 1</li>
+<li>the result set should not include the input</li>
+</ul>
+</li>
+</ul>
+<hr>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">getOtherPalindrom</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">long</span>&gt;&amp; res, <span class="built_in">string</span> halfn, <span class="keyword">int</span> len)</span></span>&#123;</span><br><span class="line">   <span class="keyword">long</span> halfnl = stol(halfn);</span><br><span class="line">   <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; halfs = &#123;to_string(halfnl), to_string(halfnl<span class="number">-1</span>), to_string(halfnl+<span class="number">1</span>)&#125;;</span><br><span class="line">   <span class="keyword">for</span>(<span class="built_in">string</span> half : halfs)&#123;</span><br><span class="line">       <span class="built_in">string</span> h = half;</span><br><span class="line">       <span class="keyword">if</span>(len % <span class="number">2</span> != <span class="number">0</span>)</span><br><span class="line">           half.pop_back();</span><br><span class="line">       reverse(half.begin(), half.end());</span><br><span class="line">       res.push_back(stol(h+half));</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">nearestPalindromic</span><span class="params">(<span class="built_in">string</span> n)</span> </span>&#123;</span><br><span class="line">   <span class="keyword">int</span> len = (<span class="keyword">int</span>)n.length();</span><br><span class="line">   <span class="keyword">if</span>(len == <span class="number">1</span>)</span><br><span class="line">       <span class="keyword">return</span> to_string(stoi(n)<span class="number">-1</span>);</span><br><span class="line">   <span class="built_in">vector</span>&lt;<span class="keyword">long</span>&gt; res = &#123;(<span class="keyword">long</span>)(<span class="built_in">pow</span>(<span class="number">10</span>, len) - <span class="number">1</span>), (<span class="keyword">long</span>)(<span class="built_in">pow</span>(<span class="number">10</span>, len) + <span class="number">1</span>), (<span class="keyword">long</span>)(<span class="built_in">pow</span>(<span class="number">10</span>, len<span class="number">-1</span>) - <span class="number">1</span>), (<span class="keyword">long</span>)(<span class="built_in">pow</span>(<span class="number">10</span>, len<span class="number">-1</span>) + <span class="number">1</span>)&#125;;</span><br><span class="line">   <span class="keyword">int</span> halflen = (len + <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">   <span class="built_in">string</span> halfn = n.substr(<span class="number">0</span>, halflen);</span><br><span class="line">   getOtherPalindrom(res, halfn, len);</span><br><span class="line"></span><br><span class="line">   <span class="keyword">long</span> diff = INT_MAX;</span><br><span class="line">   <span class="keyword">long</span> nl = stol(n);</span><br><span class="line">   <span class="keyword">long</span> ret;</span><br><span class="line">   <span class="keyword">for</span>(<span class="keyword">long</span> r : res)&#123;</span><br><span class="line">       <span class="keyword">if</span>(r == nl)</span><br><span class="line">           <span class="keyword">continue</span>;</span><br><span class="line">       <span class="keyword">if</span>(<span class="built_in">abs</span>(r-nl) &lt; diff)&#123;</span><br><span class="line">           diff = <span class="built_in">abs</span>(r-nl);</span><br><span class="line">           ret = r;</span><br><span class="line">       &#125; <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">abs</span>(r-nl) == diff)&#123;</span><br><span class="line">           <span class="keyword">if</span>(r &lt; ret)</span><br><span class="line">               ret = r;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> to_string(ret);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/01/06/Pancake-Sorting/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xueying Han">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Serena Han's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/06/Pancake-Sorting/" itemprop="url">Pancake Sorting</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-06T00:18:24-05:00">
+                2019-01-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/01/05/Binary-Search/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xueying Han">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Serena Han's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/05/Binary-Search/" itemprop="url">Binary Search</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-05T16:02:57-05:00">
+                2019-01-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="LC-475-Heaters"><a href="#LC-475-Heaters" class="headerlink" title="LC 475. Heaters"></a>LC 475. Heaters</h3><p>Winter is coming! Your first job during the contest is to design a standard heater with fixed warm radius to warm all the houses.</p>
+<p>Now, you are given positions of houses and heaters on a horizontal line, find out minimum radius of heaters so that all houses could be covered by those heaters.</p>
+<p>So, your input will be the positions of houses and heaters seperately, and your expected output will be the minimum radius standard of heaters.</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> findRadius(vector&lt;<span class="built_in">int</span>&gt;&amp; houses, vector&lt;<span class="built_in">int</span>&gt;&amp; heaters) &#123;</span><br><span class="line">      sort(houses.begin(), houses.<span class="keyword">end</span>());</span><br><span class="line">      sort(heaters.begin(), heaters.<span class="keyword">end</span>());</span><br><span class="line">      vector&lt;<span class="built_in">int</span>&gt; <span class="built_in">nearest</span>(houses.<span class="built_in">size</span>(), INT_MAX);</span><br><span class="line">      <span class="built_in">int</span> ho = <span class="number">0</span>, he = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">while</span>(ho &lt; houses.<span class="built_in">size</span>() &amp;&amp; he &lt; heaters.<span class="built_in">size</span>())&#123;</span><br><span class="line">          <span class="keyword">if</span>(houses[ho] &lt;= heaters[he])&#123;</span><br><span class="line">              <span class="built_in">nearest</span>[ho] = heaters[he] - houses[ho];</span><br><span class="line">              ho++;</span><br><span class="line">          &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">              he++;</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      ho = houses.<span class="built_in">size</span>()-<span class="number">1</span>;</span><br><span class="line">      he = heaters.<span class="built_in">size</span>()-<span class="number">1</span>;</span><br><span class="line">      <span class="keyword">while</span>(ho &gt;= <span class="number">0</span> &amp;&amp; he &gt;= <span class="number">0</span>)&#123;</span><br><span class="line">          <span class="keyword">if</span>(houses[ho] &gt;= heaters[he])&#123;</span><br><span class="line">              <span class="built_in">nearest</span>[ho] = <span class="built_in">min</span>(<span class="built_in">nearest</span>[ho], houses[ho] - heaters[he]);</span><br><span class="line">              ho--;</span><br><span class="line">          &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">              he--;</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> *max_element(<span class="built_in">nearest</span>.begin(), <span class="built_in">nearest</span>.<span class="keyword">end</span>());</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/01/05/Subsequence/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xueying Han">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Serena Han's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/05/Subsequence/" itemprop="url">Subsequence</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-05T13:26:06-05:00">
+                2019-01-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Subsequence problems are always also dp problems.</p>
+<h3 id="LC-392-Is-Subsequence"><a href="#LC-392-Is-Subsequence" class="headerlink" title="LC 392. Is Subsequence"></a>LC 392. Is Subsequence</h3><p>Example 1:<br>s = “abc”, t = “ahbgdc”</p>
+<p>Return true.</p>
+<p>Example 2:<br>s = “axc”, t = “ahbgdc”</p>
+<p>Return false.</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">bool isSubsequence(<span class="built_in">string</span> s, <span class="built_in">string</span> t) &#123;</span><br><span class="line">       <span class="keyword">if</span>(s == <span class="string">""</span>)</span><br><span class="line">           <span class="built_in">return</span> <span class="literal">true</span>;</span><br><span class="line">       int <span class="literal">ind</span> = <span class="number">0</span>;</span><br><span class="line">       <span class="keyword">for</span>(int i = <span class="number">0</span>; i &lt; t.<span class="built_in">length</span>(); i++)&#123;</span><br><span class="line">           <span class="keyword">if</span>(t[i] == s[<span class="literal">ind</span>])&#123;</span><br><span class="line">               <span class="literal">ind</span>++;</span><br><span class="line">               <span class="keyword">if</span>(<span class="literal">ind</span> == s.<span class="built_in">length</span>())</span><br><span class="line">                   <span class="built_in">return</span> <span class="literal">true</span>;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="LC-727-Minimum-Window-Subsequence"><a href="#LC-727-Minimum-Window-Subsequence" class="headerlink" title="LC 727. Minimum Window Subsequence"></a>LC 727. Minimum Window Subsequence</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">minWindow</span><span class="params">(<span class="built_in">string</span> S, <span class="built_in">string</span> T)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">int</span> sl = S.length();</span><br><span class="line">       <span class="keyword">int</span> tl = T.length();</span><br><span class="line">       <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; dp(sl, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(tl, <span class="number">-1</span>));</span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; sl; i++)&#123;</span><br><span class="line">           <span class="keyword">if</span>(S[i] == T[<span class="number">0</span>])</span><br><span class="line">               dp[i][<span class="number">0</span>] = i;</span><br><span class="line">           <span class="keyword">else</span>&#123;</span><br><span class="line">               <span class="keyword">if</span>(i != <span class="number">0</span>)</span><br><span class="line">                   dp[i][<span class="number">0</span>] = dp[i<span class="number">-1</span>][<span class="number">0</span>];</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; tl; i++)&#123;</span><br><span class="line">           <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; sl; j++)&#123;</span><br><span class="line">               <span class="keyword">if</span>(S[j] == T[i])&#123;</span><br><span class="line">                   <span class="keyword">if</span>(j &gt; <span class="number">0</span>)</span><br><span class="line">                       dp[j][i] = dp[j<span class="number">-1</span>][i<span class="number">-1</span>];</span><br><span class="line">               &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                   <span class="keyword">if</span>(j &gt; <span class="number">0</span>)</span><br><span class="line">                       dp[j][i] = dp[j<span class="number">-1</span>][i];</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">int</span> len = INT_MAX;</span><br><span class="line">       <span class="built_in">string</span> res = <span class="string">""</span>;</span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; sl; i++)&#123;</span><br><span class="line">           <span class="keyword">if</span>(dp[i][tl<span class="number">-1</span>] != <span class="number">-1</span>)&#123;</span><br><span class="line">               <span class="keyword">if</span>(len &gt; i-dp[i][tl<span class="number">-1</span>]+<span class="number">1</span>)&#123;</span><br><span class="line">                   len = i-dp[i][tl<span class="number">-1</span>]+<span class="number">1</span>;</span><br><span class="line">                   res = S.substr(dp[i][tl<span class="number">-1</span>], len);</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> res;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/01/03/Binary-Index-Tree-Range-Update-and-Range-Queries/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1054,504 +1568,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/12/29/Two-pointers-3Sum-etc/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xueying Han">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Serena Han's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/29/Two-pointers-3Sum-etc/" itemprop="url">Two pointers-3Sum etc.</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-29T22:06:58-05:00">
-                2018-12-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/12/29/Subarray-Sum/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xueying Han">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Serena Han's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/29/Subarray-Sum/" itemprop="url">Subarray Sum</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-29T00:39:00-05:00">
-                2018-12-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="Problems"><a href="#Problems" class="headerlink" title="Problems"></a>Problems</h3><hr>
-<h3 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions"></a>Solutions</h3><ul>
-<li>sliding window: Two-pointers<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line"></span><br><span class="line">*<span class="built_in"> prefix </span>sum: map</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><code>`</code></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/12/29/PG-Find-subarray-with-given-sum/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xueying Han">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Serena Han's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/29/PG-Find-subarray-with-given-sum/" itemprop="url">PG-Find subarray with given sum</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-29T00:02:05-05:00">
-                2018-12-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Given an unsorted array of integers, find a subarray which adds to a given number. If there are more than one subarrays with the sum as the given number, print any of them.</p>
-<p>Examples:</p>
-<p>Input: arr[] = {1, 4, 20, 3, 10, 5}, sum = 33<br>Ouptut: Sum found between indexes 2 and 4</p>
-<p>Input: arr[] = {10, 2, -2, -20, 10}, sum = -10<br>Ouptut: Sum found between indexes 0 to 3</p>
-<p>Input: arr[] = {-10, 0, 2, -2, -20, 10}, sum = 20<br>Ouptut: No subarray with given sum exists</p>
-<hr>
-<p>Numbers are positive.</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt; subArraySum(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; nums, <span class="keyword">int</span> sum)&#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt; res;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> cursum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(j &lt; nums.size())&#123;</span><br><span class="line">        cursum += nums[j++];</span><br><span class="line">        <span class="keyword">while</span>(cursum &gt;= sum &amp;&amp; i &lt;= j<span class="number">-1</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(cursum == sum)</span><br><span class="line">                res.push_back(make_pair(i, j<span class="number">-1</span>));</span><br><span class="line">            cursum -= nums[i++];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Numbers are negative.<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt; neSubArraySum(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; nums, <span class="keyword">int</span> sum)&#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt; res;</span><br><span class="line">    <span class="keyword">int</span> cursum = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; preSum;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); i++)&#123;</span><br><span class="line">        cursum += nums[i];</span><br><span class="line">        <span class="keyword">if</span>(cursum == sum)&#123;</span><br><span class="line">            res.push_back(make_pair(<span class="number">0</span>, i));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(preSum.find(cursum - sum) != preSum.end())&#123;</span><br><span class="line">            res.push_back(make_pair(preSum[cursum-sum] + <span class="number">1</span>, i));</span><br><span class="line">        &#125;</span><br><span class="line">        preSum[cursum] = i;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/12/28/PG-LC-131-Palindrome-Partitioning/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xueying Han">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Serena Han's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/28/PG-LC-131-Palindrome-Partitioning/" itemprop="url">PG-LC 131. Palindrome Partitioning</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-28T18:29:33-05:00">
-                2018-12-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Given a string s, partition s such that every substring of the partition is a palindrome.</p>
-<p>Return all possible palindrome partitioning of s.</p>
-<p>Example:</p>
-<p>Input: “aab”<br>Output:<br>[<br>  [“aa”,”b”],<br>  [“a”,”a”,”b”]<br>]</p>
-<hr>
-<p>backtracking</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isPalindrome</span><span class="params">(<span class="built_in">string</span> s)</span></span>&#123;</span><br><span class="line">      <span class="keyword">int</span> len = s.length();</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len/<span class="number">2</span>; i++)&#123;</span><br><span class="line">          <span class="keyword">if</span>(s[i] != s[len-i<span class="number">-1</span>])</span><br><span class="line">              <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">help</span><span class="params">(<span class="built_in">string</span> s, <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; cur, <span class="built_in">set</span>&lt;<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&gt;&amp; res)</span></span>&#123;</span><br><span class="line">      <span class="keyword">if</span>(s == <span class="string">""</span>)&#123;</span><br><span class="line">          res.insert(cur);</span><br><span class="line">          <span class="keyword">return</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= s.length(); i++)&#123;</span><br><span class="line">          <span class="built_in">string</span> temp = s.substr(<span class="number">0</span>,i);</span><br><span class="line">          <span class="keyword">if</span>(isPalindrome(temp))&#123;</span><br><span class="line">              cur.push_back(temp);</span><br><span class="line">              help(s.substr(i, s.length()-i), cur, res);</span><br><span class="line">              cur.erase(cur.end());</span><br><span class="line">          &#125;      </span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&gt; partition(<span class="built_in">string</span> s) &#123;</span><br><span class="line">      <span class="built_in">set</span>&lt;<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&gt; resset;</span><br><span class="line">      <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; cur;</span><br><span class="line">      help(s, cur, resset);</span><br><span class="line">      <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&gt; res(resset.begin(), resset.end());</span><br><span class="line">      <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1602,7 +1618,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">46</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

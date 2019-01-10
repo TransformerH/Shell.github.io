@@ -79,17 +79,14 @@
 
 
 
-<meta name="description" content="Given an array of characters, compress it in-place. The length after compression must always be smaller than or equal to the original array. Every element of the array should be a character (not int)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Two pointers - LC 443. String Compression">
-<meta property="og:url" content="https://transformerh.github.io/2019/01/01/Two-pointers-LC-443-String-Compression/index.html">
+<meta property="og:title" content="Pancake Sorting">
+<meta property="og:url" content="https://transformerh.github.io/2019/01/06/Pancake-Sorting/index.html">
 <meta property="og:site_name" content="Serena Han&#39;s Blog">
-<meta property="og:description" content="Given an array of characters, compress it in-place. The length after compression must always be smaller than or equal to the original array. Every element of the array should be a character (not int)">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-01-01T05:53:59.564Z">
+<meta property="og:updated_time" content="2019-01-06T05:18:24.059Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Two pointers - LC 443. String Compression">
-<meta name="twitter:description" content="Given an array of characters, compress it in-place. The length after compression must always be smaller than or equal to the original array. Every element of the array should be a character (not int)">
+<meta name="twitter:title" content="Pancake Sorting">
 
 
 
@@ -119,13 +116,13 @@
 
 
 
-  <link rel="canonical" href="https://transformerh.github.io/2019/01/01/Two-pointers-LC-443-String-Compression/"/>
+  <link rel="canonical" href="https://transformerh.github.io/2019/01/06/Pancake-Sorting/"/>
 
 
 
 
 
-  <title>Two pointers - LC 443. String Compression | Serena Han's Blog</title>
+  <title>Pancake Sorting | Serena Han's Blog</title>
   
 
 
@@ -272,7 +269,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/01/01/Two-pointers-LC-443-String-Compression/">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/01/06/Pancake-Sorting/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xueying Han">
@@ -289,7 +286,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Two pointers - LC 443. String Compression</h1>
+          <h1 class="post-title" itemprop="name headline">Pancake Sorting</h1>
         
 
         <div class="post-meta">
@@ -301,8 +298,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-01T00:52:53-05:00">
-                2019-01-01
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-06T00:18:24-05:00">
+                2019-01-06
               </time>
             
 
@@ -339,20 +336,7 @@
       
 
       
-        <p>Given an array of characters, compress it in-place.</p>
-<p>The length after compression must always be smaller than or equal to the original array.</p>
-<p>Every element of the array should be a character (not int) of length 1.</p>
-<p>After you are done modifying the input array in-place, return the new length of the array.</p>
-<p>Follow up:<br>Could you solve it using only O(1) extra space?</p>
-<p>Example 1:</p>
-<p>Input:<br>[“a”,”a”,”b”,”b”,”c”,”c”,”c”]</p>
-<p>Output:<br>Return 6, and the first 6 characters of the input array should be: [“a”,”2”,”b”,”2”,”c”,”3”]</p>
-<p>Explanation:<br>“aa” is replaced by “a2”. “bb” is replaced by “b2”. “ccc” is replaced by “c3”.</p>
-<p>Example 2:</p>
-<p>Input:<br>[“a”]</p>
-<hr>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> compress(vector&lt;<span class="keyword">char</span>&gt;&amp; chars) &#123;</span><br><span class="line">      <span class="keyword">int</span> ind = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">int</span> resInd = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">while</span>(ind &lt; chars.<span class="keyword">size</span>())&#123;</span><br><span class="line">          <span class="keyword">char</span> curchar = chars[ind];</span><br><span class="line">          <span class="keyword">int</span> <span class="keyword">count</span> = <span class="number">0</span>;</span><br><span class="line">          <span class="keyword">while</span>(ind &lt; chars.<span class="keyword">size</span>() &amp;&amp; chars[ind] == curchar)&#123;</span><br><span class="line">              ind++;</span><br><span class="line">              <span class="keyword">count</span>++;</span><br><span class="line">          &#125;</span><br><span class="line">          chars[resInd++] = curchar;</span><br><span class="line">          <span class="keyword">if</span>(<span class="keyword">count</span> &gt; <span class="number">1</span>)&#123;</span><br><span class="line">              string cs = to_string(<span class="keyword">count</span>);</span><br><span class="line">              <span class="keyword">for</span>(<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; cs.length(); k++)</span><br><span class="line">                  chars[resInd++] = cs[k];</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">return</span> resInd;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-
+        
       
     </div>
     
@@ -376,8 +360,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/31/DP-LC-931-Minimum-Falling-Path-Sum/" rel="next" title="DP-LC 931 Minimum Falling Path Sum">
-                <i class="fa fa-chevron-left"></i> DP-LC 931 Minimum Falling Path Sum
+              <a href="/2019/01/05/Binary-Search/" rel="next" title="Binary Search">
+                <i class="fa fa-chevron-left"></i> Binary Search
               </a>
             
           </div>
@@ -386,8 +370,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/01/01/Union-Find/" rel="prev" title="Union Find">
-                Union Find <i class="fa fa-chevron-right"></i>
+              <a href="/2019/01/10/Palindrome/" rel="prev" title="Palindrome">
+                Palindrome <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

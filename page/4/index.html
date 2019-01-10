@@ -269,6 +269,552 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/11/14/Prime-number/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xueying Han">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Serena Han's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/14/Prime-number/" itemprop="url">Prime number</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-14T14:47:59-05:00">
+                2018-11-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="How-to-check-whether-a-number-is-prime-or-not"><a href="#How-to-check-whether-a-number-is-prime-or-not" class="headerlink" title="How to check whether a number is prime or not?"></a>How to check whether a number is prime or not?</h2><h3 id="Method-1"><a href="#Method-1" class="headerlink" title="Method 1:"></a>Method 1:</h3><p>Assume a integer n which is larger than 1. </p>
+<ul>
+<li>Iterate integer i from 2 to n-1.<ul>
+<li>check if i divides n</li>
+<li>if i divides n return false</li>
+</ul>
+</li>
+</ul>
+<h3 id="Method-2"><a href="#Method-2" class="headerlink" title="Method 2:"></a>Method 2:</h3><p>Iterate integer i from 2 to square(n)</p>
+<h3 id="Method-3"><a href="#Method-3" class="headerlink" title="Method 3:"></a>Method 3:</h3><p>lc 204  <a href="https://leetcode.com/problems/count-primes/description/" target="_blank" rel="noopener">https://leetcode.com/problems/count-primes/description/</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">First we assume all the integers which are smaller than n but larger than 2 are prime number, what we need to do is check every integer whether can divide other numbers or not. If the other number can be divided, then this number is not a prime number, we set it as non-prime number.</span><br><span class="line">*/</span><br><span class="line">int countPrimes(int n) &#123;</span><br><span class="line">int count = 0;</span><br><span class="line">vector&lt;bool&gt; isPrime(n, true);</span><br><span class="line">for(int i = 2; i &lt; n; i++)&#123;</span><br><span class="line">if(isPrime[i])&#123;</span><br><span class="line">count++;</span><br><span class="line">for(int j = 2; j * i &lt; n; j++)&#123;</span><br><span class="line">isPrime[i*j] = false;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">return count;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/11/14/GCD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xueying Han">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Serena Han's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/14/GCD/" itemprop="url">GCD</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-14T14:27:20-05:00">
+                2018-11-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="How-to-find-GCD-greatest-common-divisor"><a href="#How-to-find-GCD-greatest-common-divisor" class="headerlink" title="How to find GCD(greatest common divisor)"></a>How to find GCD(greatest common divisor)</h2><h3 id="Method-1-find-all-prime-factors-of-each-number"><a href="#Method-1-find-all-prime-factors-of-each-number" class="headerlink" title="Method 1 : find all prime factors of each number"></a>Method 1 : find all prime factors of each number</h3><p>36 = 2 <em> 2 </em> 3 <em> 3<br>60 = 2</em> 2 <em> 3 </em> 5<br>So the common factors are 2, 2, 3, we can get the gcd = 2 <em> 2 </em> 3</p>
+<h3 id="Method-2-Euclidean-algorithm"><a href="#Method-2-Euclidean-algorithm" class="headerlink" title="Method 2 : Euclidean algorithm"></a>Method 2 : Euclidean algorithm</h3><p>Assume the bigger number is b and smaller number is s.</p>
+<ul>
+<li>Step 1 : remainder = b % s</li>
+<li>Step 2 : b = s, <pre><code>s =  remainder
+if s &gt; 0 return to step 1
+if s == 0 the gcd is b
+</code></pre></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/05/30/Dynamic-Programming/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xueying Han">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Serena Han's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/30/Dynamic-Programming/" itemprop="url">Dynamic Programming</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-30T14:00:24-04:00">
+                2018-05-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li>Classification1</li>
+</ul>
+<ul>
+<li>One-dimensional DP problems</li>
+</ul>
+<ul>
+<li><p>Two-dimensional DP problems</p>
+<ul>
+<li><p>Illustration of dp[i][j]</p>
+<blockquote>
+<p>i, j represent different object A and object B.<br>The value of dp[i][j] represents the cost when A[i] and B[j].</p>
+</blockquote>
+</li>
+<li><p>Equations:</p>
+<ul>
+<li>when the value doesn’t change :<br>dp[i][j] = dp[i-1][j-1]</li>
+<li>when the value changes :<br>dp[i][j] = dp[i-1][j] + A[i-1] or dp[i][j-1] + B[j-1]</li>
+</ul>
+</li>
+<li>LeetCode</li>
+</ul>
+</li>
+</ul>
+<p><a href="https://leetcode.com/problems/minimum-ascii-delete-sum-for-two-strings/description/" target="_blank" rel="noopener">712. Minimum ASCII Delete Sum for Two Strings</a><br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">int minimumDeleteSum(<span class="type">string</span> s1, <span class="type">string</span> s2) &#123;</span><br><span class="line">    int m = (int)s1.size();</span><br><span class="line">    int n = (int)s2.size();</span><br><span class="line">    <span class="type">vector</span>&lt;<span class="type">vector</span>&lt;int&gt;&gt; dp(m+<span class="number">1</span>, <span class="type">vector</span>&lt;int&gt;(n+<span class="number">1</span>, <span class="number">0</span>));</span><br><span class="line">    dp[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    for(int j = <span class="number">1</span>; j &lt;= n; j++)</span><br><span class="line">        dp[<span class="number">0</span>][j] = dp[<span class="number">0</span>][j<span class="number">-1</span>] + s2[j<span class="number">-1</span>];</span><br><span class="line">    for(int i = <span class="number">1</span>; i &lt;= m; i++)&#123;</span><br><span class="line">        dp[i][<span class="number">0</span>] = dp[i<span class="number">-1</span>][<span class="number">0</span>] + s1[i<span class="number">-1</span>];</span><br><span class="line">        for(int j = <span class="number">1</span>; j &lt;= n; j++)&#123;</span><br><span class="line">            if(s1[i<span class="number">-1</span>] == s2[j<span class="number">-1</span>])</span><br><span class="line">                dp[i][j] = dp[i<span class="number">-1</span>][j<span class="number">-1</span>];</span><br><span class="line">            else</span><br><span class="line">                dp[i][j] = min(dp[i<span class="number">-1</span>][j]+s1[i<span class="number">-1</span>], dp[i][j<span class="number">-1</span>]+s2[j<span class="number">-1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return dp[m][n];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><a href="https://leetcode.com/problems/predict-the-winner/description/" target="_blank" rel="noopener">486. Predict the Winner</a><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">judge</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums,  <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; dp, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span></span>&#123;</span><br><span class="line">   <span class="keyword">if</span>(i &gt; j)</span><br><span class="line">       <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">   <span class="keyword">if</span>(dp[i][j] != <span class="number">-1</span>)</span><br><span class="line">       <span class="keyword">return</span> dp[i][j];</span><br><span class="line"></span><br><span class="line">   <span class="keyword">int</span> left = nums[i] + min(judge(nums, dp, i+<span class="number">1</span>, j<span class="number">-1</span>), judge(nums, dp, i+<span class="number">2</span>, j));</span><br><span class="line">   <span class="keyword">int</span> right = nums[j] + min(judge(nums, dp, i+<span class="number">1</span>, j<span class="number">-1</span>), judge(nums, dp, i, j<span class="number">-2</span>));</span><br><span class="line"></span><br><span class="line">   <span class="keyword">return</span> max(left, right);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">PredictTheWinner</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">   <span class="keyword">int</span> n = (<span class="keyword">int</span>)nums.size();</span><br><span class="line">   <span class="keyword">if</span>(n % <span class="number">2</span> == <span class="number">0</span>)</span><br><span class="line">       <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">   <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; dp(n, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(n, <span class="number">-1</span>));</span><br><span class="line">   <span class="keyword">int</span> sum = accumulate(nums.begin(), nums.end(), <span class="number">0</span>);</span><br><span class="line">   <span class="keyword">int</span> player1 = judge(nums, dp, <span class="number">0</span>, n<span class="number">-1</span>);</span><br><span class="line"></span><br><span class="line">   <span class="keyword">return</span> player1 &gt;= (sum - player1)? <span class="literal">true</span> : <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Now, let’s analyze LeetCode486 which is very interesting.<br>Assumption: the current arrange of the list is nums(i, j)<br>So, the player1 can choose nums[i] or nums[j]. The choice bases on the nums[i] or nums[j] and the left numbers.<br>Since we assume that the player2 is clever enough. If we want to win this game, we should prepare for the worst. That is player2 can get the maximum, so player1 can just get the minimum.<br>The equations in this situation are</p>
+<ul>
+<li><p>If player1 chooses nums[i],<br>the minimum of the left(from nums[i+1] to nums[j]) is minimum between nums(i+2, j)(the player2 chooses nums[i+1]) and nums(i+1, j-1)(the player2 chooses nums[j]).</p>
+</li>
+<li><p>In the same case, if player1 chooses nums[j], the minimum of the left(from nums[i] to nums[j-1]) is minimum between nums(i+1, j-1)(the player2 chooses nums[i+1]) and nums(i, j-2)(the player2 chooses nums[j-1]).</p>
+</li>
+</ul>
+<ul>
+<li>Classification2</li>
+</ul>
+<ul>
+<li>Bottom-up method<br><a href="https://leetcode.com/problems/min-cost-climbing-stairs/description/" target="_blank" rel="noopener">746. Min Cost Climbing Stairs</a><figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> minCostClimbingStairs(vector&lt;<span class="built_in">int</span>&gt;&amp; cost) &#123;</span><br><span class="line">   <span class="built_in">int</span> <span class="built_in">n</span> = (<span class="built_in">int</span>)cost.size();</span><br><span class="line">   vector&lt;<span class="built_in">int</span>&gt;dp(<span class="built_in">n</span>, <span class="number">0</span>);</span><br><span class="line">   dp[<span class="number">0</span>] = cost[<span class="number">0</span>];</span><br><span class="line">   dp[<span class="number">1</span>] = cost[<span class="number">1</span>];</span><br><span class="line">   for(<span class="built_in">int</span> i = <span class="number">2</span>; i &lt; <span class="built_in">n</span>; i++)&#123;</span><br><span class="line">       dp[i] = <span class="built_in">min</span>(dp[i-<span class="number">1</span>], dp[i-<span class="number">2</span>]) + cost[i];</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   return dp[<span class="built_in">n</span>-<span class="number">1</span>] &gt; dp[<span class="built_in">n</span>-<span class="number">2</span>] ? dp[<span class="built_in">n</span>-<span class="number">2</span>] <span class="symbol">:</span> dp[<span class="built_in">n</span>-<span class="number">1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>When we want to reach the stair i, we can reach stair i-1 or stair i-2 at first.</p>
+<ul>
+<li>Top-down method</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/05/27/fast-slow-pointers/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xueying Han">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Serena Han's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/27/fast-slow-pointers/" itemprop="url">fast slow pointers</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-27T17:16:11-04:00">
+                2018-05-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li><p>LeetCode</p>
+<ul>
+<li><a href="https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/" target="_blank" rel="noopener">19. Remove Nth Node From End of List</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/05/25/DFS-BFS/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1152,503 +1698,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/05/20/hash-map-in-C-unordered-map/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xueying Han">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Serena Han's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/20/hash-map-in-C-unordered-map/" itemprop="url">hash map in C++: unordered_map</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-20T16:01:34-04:00">
-                2018-05-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ul>
-<li>The differences between unordered_map and map</li>
-</ul>
-<ol>
-<li>the order of keys: map is increasing order(default), unordered_map is no ordering</li>
-<li>implementation: map is built by self-balanced BST, unordered_map is built by hash table</li>
-<li>search time: map uses log(n), unordered_map uses O(1) in average, O(n) in worst case.</li>
-<li>insertion time / deletion time: map uses log(n) + rebalance</li>
-</ol>
-<ul>
-<li>LC</li>
-</ul>
-<ol>
-<li><a href="https://leetcode.com/problems/top-k-frequent-elements/discuss/81624/C++-O(n-log(n-k" target="_blank" rel="noopener">347.Top K Frequent Elements</a>)-unordered_map-and-priority_queue(maxheap)-solution)</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/05/20/Merge-sort-for-Linked-Lists/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xueying Han">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Serena Han's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/20/Merge-sort-for-Linked-Lists/" itemprop="url">Merge sort for Linked Lists</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-20T13:20:06-04:00">
-                2018-05-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ul>
-<li>splitList: fast/slow pointer method  -&gt; ⚠️ fast = head-&gt;next   solve the odd/even sum of the list.</li>
-<li>sortedMerge: the end of the recursion.</li>
-</ul>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">struct <span class="keyword">Node</span><span class="title">&#123;</span></span><br><span class="line"><span class="title">    int</span> val;</span><br><span class="line">    <span class="keyword">Node</span><span class="title">* next</span>;</span><br><span class="line">    <span class="keyword">Node</span><span class="title">(int</span> x):val(x),next(NULL)&#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">void splitList(<span class="keyword">Node</span><span class="title">* head</span>, <span class="keyword">Node</span><span class="title">** front</span>, <span class="keyword">Node</span><span class="title">** back</span>)&#123;</span><br><span class="line">    <span class="keyword">Node</span> <span class="title">*fast</span>, *slow;</span><br><span class="line">    slow = head;</span><br><span class="line">    fast = head-&gt;next;</span><br><span class="line">    </span><br><span class="line">    while(fast != NULL)&#123;</span><br><span class="line">        fast = fast-&gt;next;</span><br><span class="line">        if(fast != NULL)&#123;</span><br><span class="line">            fast = fast-&gt;next;</span><br><span class="line">            slow = slow-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    *front = head;</span><br><span class="line">    *back = slow-&gt;next;</span><br><span class="line">    slow-&gt;next = NULL;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">Node</span><span class="title">* sortedMerge</span>(<span class="keyword">Node</span><span class="title">* a</span>, <span class="keyword">Node</span><span class="title">* b</span>)&#123;</span><br><span class="line">    if(a == NULL)</span><br><span class="line">        return b;</span><br><span class="line">    if(b == NULL)</span><br><span class="line">        return a;</span><br><span class="line">    <span class="keyword">Node</span><span class="title">* mergedNode</span>;</span><br><span class="line">    if(a-&gt;val <span class="tag">&lt;= b-&gt;</span>val)&#123;</span><br><span class="line">        mergedNode = new <span class="keyword">Node</span><span class="title">(a-</span>&gt;val);</span><br><span class="line">        mergedNode-&gt;next = sortedMerge(a-&gt;next, b);</span><br><span class="line">    &#125;else &#123;</span><br><span class="line">        mergedNode = new <span class="keyword">Node</span><span class="title">(b-</span>&gt;val);</span><br><span class="line">        mergedNode-&gt;next = sortedMerge(a, b-&gt;next);</span><br><span class="line">    &#125;</span><br><span class="line">    return mergedNode;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void mergeSort(<span class="keyword">Node</span><span class="title">** headRef</span>)&#123;</span><br><span class="line">    <span class="keyword">Node</span><span class="title">* head</span> = *headRef;</span><br><span class="line">    <span class="keyword">Node</span><span class="title">* a</span>;</span><br><span class="line">    <span class="keyword">Node</span><span class="title">* b</span>;</span><br><span class="line">    </span><br><span class="line">    if(head == NULL || head-&gt;next == NULL)</span><br><span class="line">        return;</span><br><span class="line">    </span><br><span class="line">    splitList(head, &amp;a, &amp;b);</span><br><span class="line">    mergeSort(&amp;a);</span><br><span class="line">    mergeSort(&amp;b);</span><br><span class="line">    </span><br><span class="line">    *headRef = sortedMerge(a, b);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/05/20/Blogs need to be read/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xueying Han">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Serena Han's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/20/Blogs need to be read/" itemprop="url">Blogs need to be read.</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-20T12:12:26-04:00">
-                2018-05-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="https://www.geeksforgeeks.org/find-whether-an-array-is-subset-of-another-array-set-1/" target="_blank" rel="noopener">Find whether an array is subset of another array</a><br><a href="https://www.geeksforgeeks.org/difference-set-multiset-unordered_set-unordered_multiset/" target="_blank" rel="noopener">C++ set, multiset. unordered_set, unordered_multiset</a><br><a href="https://www.geeksforgeeks.org/write-a-c-program-to-print-all-permutations-of-a-given-string/" target="_blank" rel="noopener">permutations_basic</a>     : <a href="https://leetcode.com/problems/permutations-ii/description/" target="_blank" rel="noopener">LeetCode 47</a><br><a href="https://www.geeksforgeeks.org/tag/permutation/" target="_blank" rel="noopener">permutation_all</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/05/12/Greedy-Problems-Max-Single-Sell-Profit/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xueying Han">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Serena Han's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/12/Greedy-Problems-Max-Single-Sell-Profit/" itemprop="url">Greedy Problems - Max Single-Sell Profit</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-12T18:38:34-04:00">
-                2018-05-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1699,7 +1748,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">46</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
