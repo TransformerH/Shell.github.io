@@ -269,6 +269,157 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/01/14/Binary-Search-Tree-and-Recursion/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xueying Han">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Serena Han's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/14/Binary-Search-Tree-and-Recursion/" itemprop="url">Binary Search Tree and Recursion</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-14T00:32:13-05:00">
+                2019-01-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Binary-Search-Tree"><a href="#Binary-Search-Tree" class="headerlink" title="Binary Search Tree"></a>Binary Search Tree</h2><blockquote>
+<p>Type1: compare root-&gt;value with the given number + Recursion</p>
+</blockquote>
+<h4 id="LC-669-Trim-a-Binary-Search-Tree"><a href="#LC-669-Trim-a-Binary-Search-Tree" class="headerlink" title="LC 669. Trim a Binary Search Tree"></a>LC 669. Trim a Binary Search Tree</h4><p>Given a binary search tree and the lowest and highest boundaries as L and R, trim the tree so that all its elements lies in [L, R] (R &gt;= L). You might need to change the root of the tree, so the result should return the new root of the trimmed binary search tree.</p>
+<p>Example 1:</p>
+<p>Input:<br>    1<br>   / \<br>  0   2</p>
+<p>  L = 1<br>  R = 2</p>
+<p>Output:<br>    1<br>      \<br>       2<br>Example 2:</p>
+<p>Input:<br>    3<br>   / \<br>  0   4<br>   \<br>    2<br>   /<br>  1</p>
+<p>  L = 1<br>  R = 3</p>
+<p>Output:<br>      3<br>     /<br>   2<br>  /<br> 1</p>
+ <figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"> /**</span><br><span class="line"> * <span class="keyword">Definition</span> <span class="keyword">for</span> a binary tree node.</span><br><span class="line"> * struct TreeNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     TreeNode *<span class="built_in">left</span>;</span><br><span class="line"> *     TreeNode *<span class="built_in">right</span>;</span><br><span class="line"> *     TreeNode(int x) : val(x), <span class="built_in">left</span>(NULL), <span class="built_in">right</span>(NULL) &#123;&#125;</span><br><span class="line"> * &#125;;</span><br><span class="line"> */</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    TreeNode* trimBST(TreeNode* root, int L, int R) &#123;</span><br><span class="line">        <span class="keyword">if</span>(!root)</span><br><span class="line">            <span class="keyword">return</span> NULL;</span><br><span class="line">        <span class="keyword">if</span>(root-&gt;val &lt; L)</span><br><span class="line">            <span class="keyword">return</span> trimBST(root-&gt;<span class="built_in">right</span>, L, R);</span><br><span class="line">        <span class="keyword">if</span>(root-&gt;val &gt; R)</span><br><span class="line">            <span class="keyword">return</span> trimBST(root-&gt;<span class="built_in">left</span>, L, R);</span><br><span class="line"></span><br><span class="line">        root-&gt;<span class="built_in">left</span> = trimBST(root-&gt;<span class="built_in">left</span>, L, R);</span><br><span class="line">        root-&gt;<span class="built_in">right</span> = trimBST(root-&gt;<span class="built_in">right</span>, L, R);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Type2: find the validate BST by using left &lt; root &lt; right + Recursion</p>
+</blockquote>
+<h4 id="LC-333-Largest-BST-Subtree"><a href="#LC-333-Largest-BST-Subtree" class="headerlink" title="LC 333. Largest BST Subtree"></a>LC 333. Largest BST Subtree</h4><p> Given a binary tree, find the largest subtree which is a Binary Search Tree (BST), where largest means subtree with largest number of nodes in it.</p>
+<p>Note:<br>A subtree must include all of its descendants.</p>
+<p>Example:</p>
+<p>Input: [10,5,15,1,8,null,7]</p>
+<p>   10<br>   / \<br>  5  15<br> / \   \<br>1   8   7</p>
+<p>Output: 3<br>Explanation: The Largest BST Subtree in this case is the highlighted one.<br>             The return value is the subtree’s size, which is 3.<br>Follow up:<br>Can you figure out ways to solve it with O(n) time complexity?</p>
+<hr>
+<p>Time complexity: O(nlogn)<br>Points: The valid range for each point. -&gt; countBST<br><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * <span class="keyword">Definition</span> <span class="keyword">for</span> a binary tree node.</span><br><span class="line"> * struct TreeNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     TreeNode *<span class="built_in">left</span>;</span><br><span class="line"> *     TreeNode *<span class="built_in">right</span>;</span><br><span class="line"> *     TreeNode(int x) : val(x), <span class="built_in">left</span>(NULL), <span class="built_in">right</span>(NULL) &#123;&#125;</span><br><span class="line"> * &#125;;</span><br><span class="line"> */</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int largestBSTSubtree(TreeNode* root) &#123;</span><br><span class="line">        int res = <span class="number">0</span>;</span><br><span class="line">        dfs(root, res);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    void dfs(TreeNode* root, int&amp; res)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!root)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        int count = countBST(root, INT_MIN, INT_MAX);</span><br><span class="line">        <span class="keyword">if</span>(count != <span class="number">-1</span>)&#123;</span><br><span class="line">            res = max(res, count);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        dfs(root-&gt;<span class="built_in">left</span>, res);</span><br><span class="line">        dfs(root-&gt;<span class="built_in">right</span>, res);</span><br><span class="line">    &#125;</span><br><span class="line">    int countBST(TreeNode* root, int vmin, int vmax)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!root)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(root-&gt;val &lt;= vmin |<span class="type">| root</span>-&gt;val &gt;= vmax)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        int <span class="built_in">left</span> = countBST(root-&gt;<span class="built_in">left</span>, vmin, root-&gt;val);</span><br><span class="line">        int <span class="built_in">right</span> = countBST(root-&gt;<span class="built_in">right</span>, root-&gt;val, vmax);</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">left</span> == <span class="number">-1</span> |<span class="type">| right</span> == <span class="number">-1</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">left</span> + <span class="built_in">right</span> + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>Time Complexity: O(n)<br>Points: for each node, first check whether its leftChild and rightChild are BST, and if they are, we need to know the number of the nodes.<br><figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * <span class="type">Definition</span> <span class="keyword">for</span> a binary tree node.</span><br><span class="line"> * <span class="keyword">struct</span> <span class="type">TreeNode</span> &#123;</span><br><span class="line"> *     <span class="built_in">int</span> <span class="keyword">val</span>;</span><br><span class="line"> *     <span class="type">TreeNode</span> *left;</span><br><span class="line"> *     <span class="type">TreeNode</span> *right;</span><br><span class="line"> *     <span class="type">TreeNode</span>(<span class="built_in">int</span> x) : <span class="keyword">val</span>(x), left(<span class="type">NULL</span>), right(<span class="type">NULL</span>) &#123;&#125;</span><br><span class="line"> * &#125;;</span><br><span class="line"> */</span><br><span class="line"><span class="keyword">class</span> <span class="type">Solution</span> &#123;</span><br><span class="line">public:</span><br><span class="line">    <span class="built_in">int</span> largestBSTSubtree(<span class="type">TreeNode</span>* root) &#123;</span><br><span class="line">        <span class="built_in">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">int</span> vmin = <span class="type">INT_MIN</span>;</span><br><span class="line">        <span class="built_in">int</span> vmax = <span class="type">INT_MAX</span>;</span><br><span class="line">        isValid(root, res, vmin, vmax);</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">bool</span> isValid(<span class="type">TreeNode</span>* root, <span class="built_in">int</span>&amp; res, <span class="built_in">int</span>&amp; vmin, <span class="built_in">int</span>&amp; vmax)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!root)</span><br><span class="line">            return <span class="literal">true</span>;</span><br><span class="line">        <span class="built_in">int</span> lres = <span class="number">0</span>, rres = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">int</span> lvmin = <span class="type">INT_MIN</span>, lvmax = <span class="type">INT_MAX</span>;</span><br><span class="line">        <span class="built_in">int</span> rvmin = <span class="type">INT_MIN</span>, rvmax = <span class="type">INT_MAX</span>;</span><br><span class="line">        <span class="built_in">bool</span> left = isValid(root-&gt;left, lres, lvmin, lvmax);</span><br><span class="line">        <span class="built_in">bool</span> right = isValid(root-&gt;right, rres, rvmin, rvmax);</span><br><span class="line">        <span class="keyword">if</span>(left &amp;&amp; right)&#123;</span><br><span class="line">            <span class="keyword">if</span>((!root-&gt;left || root-&gt;<span class="keyword">val</span> &gt; lvmax) &amp;&amp; (!root-&gt;right || root-&gt;<span class="keyword">val</span> &lt; rvmin))&#123;</span><br><span class="line">                res = lres + rres + <span class="number">1</span>;</span><br><span class="line">                vmin = root-&gt;left ? lvmin : root-&gt;<span class="keyword">val</span>;</span><br><span class="line">                vmax = root-&gt;right ? rvmax : root-&gt;<span class="keyword">val</span>;</span><br><span class="line">                return <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        res = max(lres, rres);</span><br><span class="line">        return <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h4 id="LC-98-Validate-Binary-Search-Tree"><a href="#LC-98-Validate-Binary-Search-Tree" class="headerlink" title="LC 98. Validate Binary Search Tree"></a>LC 98. Validate Binary Search Tree</h4><p>Given a binary tree, determine if it is a valid binary search tree (BST).</p>
+<p>Assume a BST is defined as follows:</p>
+<p>The left subtree of a node contains only nodes with keys less than the node’s key.<br>The right subtree of a node contains only nodes with keys greater than the node’s key.<br>Both the left and right subtrees must also be binary search trees.<br>Example 1:</p>
+<p>Input:<br>    2<br>   / \<br>  1   3<br>Output: true<br>Example 2:</p>
+<pre><code>5
+</code></pre><p>   / \<br>  1   4<br>     / \<br>    3   6<br>Output: false<br>Explanation: The input is: [5,1,4,null,null,3,6]. The root node’s value is 5 but its right child’s value is 4.</p>
+<figure class="highlight vbscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition <span class="keyword">for</span> a binary tree node.</span><br><span class="line"> * struct TreeNode &#123;</span><br><span class="line"> *     <span class="built_in">int</span> val;</span><br><span class="line"> *     TreeNode *<span class="built_in">left</span>;</span><br><span class="line"> *     TreeNode *<span class="built_in">right</span>;</span><br><span class="line"> *     TreeNode(<span class="built_in">int</span> x) : val(x), <span class="built_in">left</span>(<span class="literal">NULL</span>), <span class="built_in">right</span>(<span class="literal">NULL</span>) &#123;&#125;</span><br><span class="line"> * &#125;;</span><br><span class="line"> */</span><br><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    /*</span><br><span class="line">    using stack <span class="keyword">to</span> <span class="keyword">do</span> dfs.</span><br><span class="line">    keep a treenode pre <span class="keyword">to</span> record the node before the current treenode</span><br><span class="line">    <span class="keyword">if</span> the current treenode <span class="keyword">is</span> root, the previous node <span class="keyword">is</span> its <span class="built_in">left</span> child; <span class="keyword">if</span> the current treenode <span class="keyword">is</span> <span class="built_in">right</span> child, the previous node <span class="keyword">is</span> its root</span><br><span class="line">    <span class="keyword">Then</span> we need <span class="keyword">to</span> check <span class="keyword">if</span> the previous node <span class="keyword">is</span> larger than <span class="keyword">or</span> equal <span class="keyword">to</span> the current node. <span class="keyword">if</span> <span class="literal">true</span>, <span class="keyword">then</span> return <span class="literal">false</span></span><br><span class="line">    */</span><br><span class="line">   bool isValidBST(TreeNode* root) &#123;</span><br><span class="line">    <span class="keyword">if</span>(!root)</span><br><span class="line">        return <span class="literal">true</span>;</span><br><span class="line">    stack&lt;TreeNode*&gt; nodeStack;</span><br><span class="line">    TreeNode *pre = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">while</span>(root || !nodeStack.<span class="literal">empty</span>())&#123;</span><br><span class="line">        <span class="keyword">while</span>(root)&#123;</span><br><span class="line">            nodeStack.push(root);</span><br><span class="line">            root = root-&gt;<span class="built_in">left</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        root = nodeStack.top();</span><br><span class="line">        nodeStack.pop();</span><br><span class="line">        <span class="keyword">if</span>(pre &amp;&amp; root-&gt;val &lt;= pre-&gt;val)</span><br><span class="line">            return <span class="literal">false</span>;</span><br><span class="line">        pre = root;</span><br><span class="line">        root = root-&gt;<span class="built_in">right</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    return <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/01/10/Palindrome/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -605,7 +756,7 @@
       
         
           
-            <h3 id="LC-475-Heaters"><a href="#LC-475-Heaters" class="headerlink" title="LC 475. Heaters"></a>LC 475. Heaters</h3><p>Winter is coming! Your first job during the contest is to design a standard heater with fixed warm radius to warm all the houses.</p>
+            <h2 id="Binary-Search"><a href="#Binary-Search" class="headerlink" title="Binary Search"></a>Binary Search</h2><h3 id="LC-475-Heaters"><a href="#LC-475-Heaters" class="headerlink" title="LC 475. Heaters"></a>LC 475. Heaters</h3><p>Winter is coming! Your first job during the contest is to design a standard heater with fixed warm radius to warm all the houses.</p>
 <p>Now, you are given positions of houses and heaters on a horizontal line, find out minimum radius of heaters so that all houses could be covered by those heaters.</p>
 <p>So, your input will be the positions of houses and heaters seperately, and your expected output will be the minimum radius standard of heaters.</p>
 <figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> findRadius(vector&lt;<span class="built_in">int</span>&gt;&amp; houses, vector&lt;<span class="built_in">int</span>&gt;&amp; heaters) &#123;</span><br><span class="line">      sort(houses.begin(), houses.<span class="keyword">end</span>());</span><br><span class="line">      sort(heaters.begin(), heaters.<span class="keyword">end</span>());</span><br><span class="line">      vector&lt;<span class="built_in">int</span>&gt; <span class="built_in">nearest</span>(houses.<span class="built_in">size</span>(), INT_MAX);</span><br><span class="line">      <span class="built_in">int</span> ho = <span class="number">0</span>, he = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">while</span>(ho &lt; houses.<span class="built_in">size</span>() &amp;&amp; he &lt; heaters.<span class="built_in">size</span>())&#123;</span><br><span class="line">          <span class="keyword">if</span>(houses[ho] &lt;= heaters[he])&#123;</span><br><span class="line">              <span class="built_in">nearest</span>[ho] = heaters[he] - houses[ho];</span><br><span class="line">              ho++;</span><br><span class="line">          &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">              he++;</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      ho = houses.<span class="built_in">size</span>()-<span class="number">1</span>;</span><br><span class="line">      he = heaters.<span class="built_in">size</span>()-<span class="number">1</span>;</span><br><span class="line">      <span class="keyword">while</span>(ho &gt;= <span class="number">0</span> &amp;&amp; he &gt;= <span class="number">0</span>)&#123;</span><br><span class="line">          <span class="keyword">if</span>(houses[ho] &gt;= heaters[he])&#123;</span><br><span class="line">              <span class="built_in">nearest</span>[ho] = <span class="built_in">min</span>(<span class="built_in">nearest</span>[ho], houses[ho] - heaters[he]);</span><br><span class="line">              ho--;</span><br><span class="line">          &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">              he--;</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> *max_element(<span class="built_in">nearest</span>.begin(), <span class="built_in">nearest</span>.<span class="keyword">end</span>());</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
@@ -1440,146 +1591,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/12/31/PG-Design-HashMap/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xueying Han">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Serena Han's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/31/PG-Design-HashMap/" itemprop="url">PG-Design HashMap</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-31T19:32:49-05:00">
-                2018-12-31
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Design a HashMap without using any built-in hash table libraries.</p>
-<p>To be specific, your design should include these functions:</p>
-<p>put(key, value) : Insert a (key, value) pair into the HashMap. If the value already exists in the HashMap, update the value.<br>get(key): Returns the value to which the specified key is mapped, or -1 if this map contains no mapping for the key.<br>remove(key) : Remove the mapping for the value key if this map contains the mapping for the key.</p>
-<p>Example:</p>
-<p>MyHashMap hashMap = new MyHashMap();<br>hashMap.put(1, 1);<br>hashMap.put(2, 2);<br>hashMap.get(1);            // returns 1<br>hashMap.get(3);            // returns -1 (not found)<br>hashMap.put(2, 1);          // update the existing value<br>hashMap.get(2);            // returns 1<br>hashMap.remove(2);          // remove the mapping for 2<br>hashMap.get(2);            // returns -1 (not found)</p>
-<p>Note:</p>
-<p>All keys and values will be in the range of [0, 1000000].<br>The number of operations will be in the range of [1, 10000].<br>Please do not use the built-in HashMap library.</p>
-<hr>
-<p>Build a hashmap by linkedlist.</p>
-<ul>
-<li>An array of hashNodes represents an array of slots. And the number of slots is n.</li>
-<li>hash fuction is simple: hash_index = key % n.</li>
-<li>every slot which is the first node stored in the array is a dummy node(key = -1, value = -1).</li>
-<li>If we put a &lt;key, value&gt;, we need to<ul>
-<li>check if the slot exists</li>
-<li>check if share the slot with other nodes having different keys.</li>
-<li>check if the key exists. </li>
-</ul>
-</li>
-</ul>
-<figure class="highlight zephir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">struct HashNode &#123;</span><br><span class="line">    <span class="keyword">int</span> value;</span><br><span class="line">    <span class="keyword">int</span> key;</span><br><span class="line">    HashNode* next;</span><br><span class="line">    HashNode(<span class="keyword">int</span> k, <span class="keyword">int</span> v): value(v), key(k), next(<span class="keyword">NULL</span>)&#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyHashMap</span> </span>&#123;</span><br><span class="line">    vector&lt;HashNode*&gt; <span class="keyword">list</span>;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">/** Initialize your data structure here. */</span></span><br><span class="line">    MyHashMap() &#123;</span><br><span class="line">        <span class="keyword">list</span> = vector&lt;HashNode*&gt;(<span class="number">10000</span>, <span class="keyword">NULL</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** value will always be non-negative. */</span></span><br><span class="line">    void put(<span class="keyword">int</span> key, <span class="keyword">int</span> value) &#123;</span><br><span class="line">        <span class="keyword">int</span> ind = hashFunc(key);</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">list</span>[ind] == <span class="keyword">NULL</span>)</span><br><span class="line">            <span class="keyword">list</span>[ind] = <span class="keyword">new</span> HashNode(<span class="number">-1</span>, <span class="number">-1</span>);</span><br><span class="line">         HashNode* pre = findPre(<span class="keyword">list</span>[ind], key);</span><br><span class="line">        <span class="keyword">if</span>(pre-&gt;next == <span class="keyword">NULL</span>)&#123;</span><br><span class="line">            pre-&gt;next = <span class="keyword">new</span> HashNode(key, value);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            pre-&gt;next-&gt;value = value;</span><br><span class="line">        &#125;    </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Returns the value to which the specified key is mapped, or -1 if this map contains no mapping for the key */</span></span><br><span class="line">    <span class="keyword">int</span> get(<span class="keyword">int</span> key) &#123;</span><br><span class="line">        <span class="keyword">int</span> ind = hashFunc(key);</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">list</span>[ind] == <span class="keyword">NULL</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        HashNode* pre = findPre(<span class="keyword">list</span>[ind], key);</span><br><span class="line">        <span class="keyword">return</span> pre-&gt;next == <span class="keyword">NULL</span> ? <span class="number">-1</span> : pre-&gt;next-&gt;value;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Removes the mapping of the specified value key if this map contains a mapping for the key */</span></span><br><span class="line">    void remove(<span class="keyword">int</span> key) &#123;</span><br><span class="line">        <span class="keyword">int</span> ind = hashFunc(key);</span><br><span class="line">        <span class="keyword">if</span>(!<span class="keyword">list</span>[ind])</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        HashNode* pre = findPre(<span class="keyword">list</span>[ind], key);</span><br><span class="line">       <span class="keyword">if</span>(pre-&gt;next == <span class="keyword">NULL</span>)</span><br><span class="line">           <span class="keyword">return</span>;</span><br><span class="line">        pre-&gt;next = pre-&gt;next-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> hashFunc(<span class="keyword">int</span> key)&#123;</span><br><span class="line">        <span class="keyword">return</span> key % <span class="number">10000</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    HashNode* findPre(HashNode* slot, <span class="keyword">int</span> key)&#123;</span><br><span class="line">        HashNode* pre = <span class="keyword">NULL</span>;</span><br><span class="line">        HashNode* cur = slot;</span><br><span class="line">        <span class="keyword">while</span>(cur != <span class="keyword">NULL</span> &amp;&amp; cur-&gt;key != key)&#123;</span><br><span class="line">            pre = cur;</span><br><span class="line">            cur = cur-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> pre;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1630,7 +1641,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">46</span>
+                  <span class="site-state-item-count">47</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
