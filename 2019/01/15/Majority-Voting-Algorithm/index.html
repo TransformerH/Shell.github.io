@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="PalindromeLC 564. Find the Closest PalindromeGiven an integer n, find the closest integer (not including itself), which is a palindrome. The ‘closest’ is defined as absolute difference minimized betwe">
+<meta name="description" content="Majority Voting Algorithmhttps://gregable.com/2013/10/majority-vote-algorithm-find-majority.html  Simple solution: sort the list. If there is a majority value, then it should be at the middle(or in th">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Palindrome">
-<meta property="og:url" content="https://transformerh.github.io/2019/01/10/Palindrome/index.html">
+<meta property="og:title" content="Majority Voting Algorithm">
+<meta property="og:url" content="https://transformerh.github.io/2019/01/15/Majority-Voting-Algorithm/index.html">
 <meta property="og:site_name" content="Serena Han&#39;s Blog">
-<meta property="og:description" content="PalindromeLC 564. Find the Closest PalindromeGiven an integer n, find the closest integer (not including itself), which is a palindrome. The ‘closest’ is defined as absolute difference minimized betwe">
+<meta property="og:description" content="Majority Voting Algorithmhttps://gregable.com/2013/10/majority-vote-algorithm-find-majority.html  Simple solution: sort the list. If there is a majority value, then it should be at the middle(or in th">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-01-10T18:34:38.364Z">
+<meta property="og:updated_time" content="2019-01-15T16:30:47.897Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Palindrome">
-<meta name="twitter:description" content="PalindromeLC 564. Find the Closest PalindromeGiven an integer n, find the closest integer (not including itself), which is a palindrome. The ‘closest’ is defined as absolute difference minimized betwe">
+<meta name="twitter:title" content="Majority Voting Algorithm">
+<meta name="twitter:description" content="Majority Voting Algorithmhttps://gregable.com/2013/10/majority-vote-algorithm-find-majority.html  Simple solution: sort the list. If there is a majority value, then it should be at the middle(or in th">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="https://transformerh.github.io/2019/01/10/Palindrome/"/>
+  <link rel="canonical" href="https://transformerh.github.io/2019/01/15/Majority-Voting-Algorithm/"/>
 
 
 
 
 
-  <title>Palindrome | Serena Han's Blog</title>
+  <title>Majority Voting Algorithm | Serena Han's Blog</title>
   
 
 
@@ -272,7 +272,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/01/10/Palindrome/">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/01/15/Majority-Voting-Algorithm/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xueying Han">
@@ -289,7 +289,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Palindrome</h1>
+          <h1 class="post-title" itemprop="name headline">Majority Voting Algorithm</h1>
         
 
         <div class="post-meta">
@@ -301,8 +301,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-10T13:22:56-05:00">
-                2019-01-10
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-15T00:08:34-05:00">
+                2019-01-15
               </time>
             
 
@@ -339,33 +339,43 @@
       
 
       
-        <h2 id="Palindrome"><a href="#Palindrome" class="headerlink" title="Palindrome"></a>Palindrome</h2><h3 id="LC-564-Find-the-Closest-Palindrome"><a href="#LC-564-Find-the-Closest-Palindrome" class="headerlink" title="LC 564. Find the Closest Palindrome"></a>LC 564. Find the Closest Palindrome</h3><p>Given an integer n, find the closest integer (not including itself), which is a palindrome.</p>
-<p>The ‘closest’ is defined as absolute difference minimized between two integers.</p>
-<p>Example 1:</p>
-<p>Input: “123”<br>Output: “121”</p>
-<hr>
+        <h3 id="Majority-Voting-Algorithm"><a href="#Majority-Voting-Algorithm" class="headerlink" title="Majority Voting Algorithm"></a>Majority Voting Algorithm</h3><p><a href="https://gregable.com/2013/10/majority-vote-algorithm-find-majority.html" target="_blank" rel="noopener">https://gregable.com/2013/10/majority-vote-algorithm-find-majority.html</a></p>
 <ul>
-<li>Idea: two kinds of solution<ul>
-<li>the result has the same length as the input string<ul>
-<li>get first half of the string, if the length of string is odd, then the first half should include the middle letter. -&gt; reverse the first half of the string(this time we should exclude the middle letter if the string has one). -&gt; link them</li>
-<li>example : string 23456 -&gt; first half : 234 -&gt; reverse : 32 -&gt; link 23432</li>
+<li>Simple solution:<ul>
+<li>sort the list.</li>
+<li>If there is a majority value, then it should be at the middle(or in the lc229 2/3) position.</li>
+<li>time complexity: sort -&gt; O(nlogn)</li>
 </ul>
 </li>
-<li>the result has the different length with the input string<ul>
-<li>there are only 4 cases</li>
-<li>example: input 999 -&gt; len = 3 -&gt; 10^3 - 1 = 999, 10^3 + 1 = 1001, 10^2-1 = 99, 10^2 + 1 = 101</li>
+<li>Boyer-Moore algorithm<ul>
+<li>time complexity: O(N), space complexity: O(1)</li>
+<li>Two passes<ul>
+<li>First pass: Find the candidate<ul>
+<li>variable : candidate, count</li>
+<li>traverse the list, if the current number is equal to candidate, then count++.</li>
+<li>if the count is equal to 0 and the current number is not equal to the candidate, set the candidate as the current number and count++.</li>
+<li>if the count is larger than 0 and the current number is not equal to the candidate, then count–.</li>
+</ul>
+</li>
+<li>Second pass: double check the candidate<ul>
+<li>traverse the list, count the number of members which is equal to candidate</li>
+<li>if count &gt; 1/2 list (or other) then return the candidate, else return false</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>Corner cases<ul>
-<li>length = 1: return the number - 1</li>
-<li>the result set should not include the input</li>
 </ul>
 </li>
 </ul>
 <hr>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">getOtherPalindrom</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">long</span>&gt;&amp; res, <span class="built_in">string</span> halfn, <span class="keyword">int</span> len)</span></span>&#123;</span><br><span class="line">   <span class="keyword">long</span> halfnl = stol(halfn);</span><br><span class="line">   <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; halfs = &#123;to_string(halfnl), to_string(halfnl<span class="number">-1</span>), to_string(halfnl+<span class="number">1</span>)&#125;;</span><br><span class="line">   <span class="keyword">for</span>(<span class="built_in">string</span> half : halfs)&#123;</span><br><span class="line">       <span class="built_in">string</span> h = half;</span><br><span class="line">       <span class="keyword">if</span>(len % <span class="number">2</span> != <span class="number">0</span>)</span><br><span class="line">           half.pop_back();</span><br><span class="line">       reverse(half.begin(), half.end());</span><br><span class="line">       res.push_back(stol(h+half));</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">nearestPalindromic</span><span class="params">(<span class="built_in">string</span> n)</span> </span>&#123;</span><br><span class="line">   <span class="keyword">int</span> len = (<span class="keyword">int</span>)n.length();</span><br><span class="line">   <span class="keyword">if</span>(len == <span class="number">1</span>)</span><br><span class="line">       <span class="keyword">return</span> to_string(stoi(n)<span class="number">-1</span>);</span><br><span class="line">   <span class="built_in">vector</span>&lt;<span class="keyword">long</span>&gt; res = &#123;(<span class="keyword">long</span>)(<span class="built_in">pow</span>(<span class="number">10</span>, len) - <span class="number">1</span>), (<span class="keyword">long</span>)(<span class="built_in">pow</span>(<span class="number">10</span>, len) + <span class="number">1</span>), (<span class="keyword">long</span>)(<span class="built_in">pow</span>(<span class="number">10</span>, len<span class="number">-1</span>) - <span class="number">1</span>), (<span class="keyword">long</span>)(<span class="built_in">pow</span>(<span class="number">10</span>, len<span class="number">-1</span>) + <span class="number">1</span>)&#125;;</span><br><span class="line">   <span class="keyword">int</span> halflen = (len + <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">   <span class="built_in">string</span> halfn = n.substr(<span class="number">0</span>, halflen);</span><br><span class="line">   getOtherPalindrom(res, halfn, len);</span><br><span class="line"></span><br><span class="line">   <span class="keyword">long</span> diff = INT_MAX;</span><br><span class="line">   <span class="keyword">long</span> nl = stol(n);</span><br><span class="line">   <span class="keyword">long</span> ret;</span><br><span class="line">   <span class="keyword">for</span>(<span class="keyword">long</span> r : res)&#123;</span><br><span class="line">       <span class="keyword">if</span>(r == nl)</span><br><span class="line">           <span class="keyword">continue</span>;</span><br><span class="line">       <span class="keyword">if</span>(<span class="built_in">abs</span>(r-nl) &lt; diff)&#123;</span><br><span class="line">           diff = <span class="built_in">abs</span>(r-nl);</span><br><span class="line">           ret = r;</span><br><span class="line">       &#125; <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">abs</span>(r-nl) == diff)&#123;</span><br><span class="line">           <span class="keyword">if</span>(r &lt; ret)</span><br><span class="line">               ret = r;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> to_string(ret);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="LC-229-Majority-Element-II"><a href="#LC-229-Majority-Element-II" class="headerlink" title="LC 229. Majority Element II"></a>LC 229. Majority Element II</h4><p>Given an integer array of size n, find all elements that appear more than ⌊ n/3 ⌋ times.</p>
+<p>Note: The algorithm should run in linear time and in O(1) space.</p>
+<p>Example 1:</p>
+<p>Input: [3,2,3]<br>Output: [3]<br>Example 2:</p>
+<p>Input: [1,1,1,3,3,2,2,2]<br>Output: [1,2]</p>
+<hr>
+<p>1/3 list means that there may have 1 or 2 majority elements. So we need to set 2 candidate variables and 2 count variables.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; majorityElement(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        <span class="keyword">int</span> candidate1 = <span class="number">0</span>, candidate2 = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> count1 = <span class="number">0</span>, count2 = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> n : nums)&#123;</span><br><span class="line">            <span class="keyword">if</span>(candidate1 == n)</span><br><span class="line">                count1++;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(candidate2 == n)</span><br><span class="line">                count2++;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(count1 == <span class="number">0</span>)&#123;</span><br><span class="line">                candidate1 = n;</span><br><span class="line">                count1 = <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span>(count2 == <span class="number">0</span>)&#123;</span><br><span class="line">                candidate2 = n;</span><br><span class="line">                count2 = <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                count1--;</span><br><span class="line">                count2--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; res;</span><br><span class="line">        count1 = <span class="number">0</span>;</span><br><span class="line">        count2 = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> n : nums)&#123;</span><br><span class="line">            <span class="keyword">if</span>(n == candidate1)</span><br><span class="line">                count1++;</span><br><span class="line">            <span class="keyword">if</span>(n == candidate2)</span><br><span class="line">                count2++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(count1 &gt; nums.size() / <span class="number">3</span>)</span><br><span class="line">            res.push_back(candidate1);</span><br><span class="line">        <span class="keyword">if</span>(count2 &gt; nums.size() / <span class="number">3</span>)</span><br><span class="line">            res.push_back(candidate2);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -390,8 +400,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/06/Pancake-Sorting/" rel="next" title="Pancake Sorting">
-                <i class="fa fa-chevron-left"></i> Pancake Sorting
+              <a href="/2019/01/14/Binary-Search-Tree-and-Recursion/" rel="next" title="Binary Search Tree and Recursion">
+                <i class="fa fa-chevron-left"></i> Binary Search Tree and Recursion
               </a>
             
           </div>
@@ -399,10 +409,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/01/14/Binary-Search-Tree-and-Recursion/" rel="prev" title="Binary Search Tree and Recursion">
-                Binary Search Tree and Recursion <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -534,7 +540,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Palindrome"><span class="nav-number">1.</span> <span class="nav-text">Palindrome</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#LC-564-Find-the-Closest-Palindrome"><span class="nav-number">1.1.</span> <span class="nav-text">LC 564. Find the Closest Palindrome</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Majority-Voting-Algorithm"><span class="nav-number">1.</span> <span class="nav-text">Majority Voting Algorithm</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#LC-229-Majority-Element-II"><span class="nav-number">1.1.</span> <span class="nav-text">LC 229. Majority Element II</span></a></li></ol></li></ol></div>
             
 
           </div>
