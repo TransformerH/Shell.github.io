@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="12345678910void permute(vector&amp;lt;int&amp;gt;&amp;amp; nums, int start, int end, set&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt;&amp;amp; setRes)&amp;#123;    if(start == end)&amp;#123;        setRes.insert(nums);    &amp;#125;    for(int i =">
+<meta name="description" content="IntervalsOverlapping IntervalsSome diagram problems also finding overlapping parts are actually 2D overlapping-intervals problems.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Permutation-backtracking">
-<meta property="og:url" content="https://transformerh.github.io/2018/05/21/Permutation-backtracking/index.html">
+<meta property="og:title" content="Intervals">
+<meta property="og:url" content="https://transformerh.github.io/2019/01/15/Intervals/index.html">
 <meta property="og:site_name" content="Serena Han&#39;s Blog">
-<meta property="og:description" content="12345678910void permute(vector&amp;lt;int&amp;gt;&amp;amp; nums, int start, int end, set&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt;&amp;amp; setRes)&amp;#123;    if(start == end)&amp;#123;        setRes.insert(nums);    &amp;#125;    for(int i =">
+<meta property="og:description" content="IntervalsOverlapping IntervalsSome diagram problems also finding overlapping parts are actually 2D overlapping-intervals problems.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-05-21T11:09:32.939Z">
+<meta property="og:updated_time" content="2019-01-15T20:29:08.575Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Permutation-backtracking">
-<meta name="twitter:description" content="12345678910void permute(vector&amp;lt;int&amp;gt;&amp;amp; nums, int start, int end, set&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt;&amp;amp; setRes)&amp;#123;    if(start == end)&amp;#123;        setRes.insert(nums);    &amp;#125;    for(int i =">
+<meta name="twitter:title" content="Intervals">
+<meta name="twitter:description" content="IntervalsOverlapping IntervalsSome diagram problems also finding overlapping parts are actually 2D overlapping-intervals problems.">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="https://transformerh.github.io/2018/05/21/Permutation-backtracking/"/>
+  <link rel="canonical" href="https://transformerh.github.io/2019/01/15/Intervals/"/>
 
 
 
 
 
-  <title>Permutation-backtracking | Serena Han's Blog</title>
+  <title>Intervals | Serena Han's Blog</title>
   
 
 
@@ -272,7 +272,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/05/21/Permutation-backtracking/">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/01/15/Intervals/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xueying Han">
@@ -289,7 +289,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Permutation-backtracking</h1>
+          <h1 class="post-title" itemprop="name headline">Intervals</h1>
         
 
         <div class="post-meta">
@@ -301,8 +301,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-21T19:01:34-04:00">
-                2018-05-21
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-15T15:26:51-05:00">
+                2019-01-15
               </time>
             
 
@@ -339,16 +339,7 @@
       
 
       
-        <figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">void</span> permute(vector&lt;<span class="built_in">int</span>&gt;&amp; nums, <span class="built_in">int</span> start, <span class="built_in">int</span> <span class="keyword">end</span>, <span class="built_in">set</span>&lt;vector&lt;<span class="built_in">int</span>&gt;&gt;&amp; setRes)&#123;</span><br><span class="line">    <span class="keyword">if</span>(start == <span class="keyword">end</span>)&#123;</span><br><span class="line">        setRes.insert(nums);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="built_in">int</span> i = start; i &lt;= <span class="keyword">end</span>; i++)&#123;</span><br><span class="line">        swap(nums[start], nums[i]);</span><br><span class="line">        permute(nums, start + <span class="number">1</span>, <span class="keyword">end</span>, setRes);</span><br><span class="line">        swap(nums[start] , nums[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>The details of this code  </p>
-<ul>
-<li>the start is fixed in each recursion, it changes when calls permute function</li>
-<li>the elements following the start change in each recursion and exchange their positions with the start.</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">permute(nums, <span class="keyword">start</span> + <span class="number">1</span>, <span class="keyword">end</span>, setRes);</span><br></pre></td></tr></table></figure>
+        <h2 id="Intervals"><a href="#Intervals" class="headerlink" title="Intervals"></a>Intervals</h2><p>Overlapping Intervals<br>Some diagram problems also finding overlapping parts are actually 2D overlapping-intervals problems.</p>
 
       
     </div>
@@ -373,8 +364,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/21/find-the-number-of-1-bits-Hamming-weight/" rel="next" title="find the number of 1 bits - Hamming weight">
-                <i class="fa fa-chevron-left"></i> find the number of 1 bits - Hamming weight
+              <a href="/2019/01/15/Majority-Voting-Algorithm/" rel="next" title="Majority Voting Algorithm">
+                <i class="fa fa-chevron-left"></i> Majority Voting Algorithm
               </a>
             
           </div>
@@ -382,10 +373,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/23/Backtracking/" rel="prev" title="Backtracking">
-                Backtracking <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -437,8 +424,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -498,6 +494,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Intervals"><span class="nav-number">1.</span> <span class="nav-text">Intervals</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
