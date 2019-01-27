@@ -269,6 +269,133 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/12/27/PG-Connect-n-ropes-with-minimum-cost/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xueying Han">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Serena Han's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/27/PG-Connect-n-ropes-with-minimum-cost/" itemprop="url">PG-Connect n ropes with minimum cost</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-27T23:07:15-05:00">
+                2018-12-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>There are given n ropes of different lengths, we need to connect these ropes into one rope. The cost to connect two ropes is equal to sum of their lengths. We need to connect the ropes with minimum cost.</p>
+<p>For example if we are given 4 ropes of lengths 4, 3, 2 and 6. We can connect the ropes in following ways.<br>1) First connect ropes of lengths 2 and 3. Now we have three ropes of lengths 4, 6 and 5.<br>2) Now connect ropes of lengths 4 and 5. Now we have two ropes of lengths 6 and 9.<br>3) Finally connect the two ropes and all ropes have connected.</p>
+<p>Total cost for connecting all ropes is 5 + 9 + 15 = 29.</p>
+<hr>
+<p>We can see that the results of previous picked ropes will include more than once in the whole process.<br>So we need to use greedy algorithm by picked smallest ropes every time.<br>And the result needs to be added into current array.<br>Then choose two smallest numbers again.</p>
+<p>So we need to build a min heap.</p>
+<p>The easiest way to build a min heap by C++ and java is using priority queue.</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> minCost(vector&lt;<span class="keyword">int</span>&gt;&amp; ropes)&#123;</span><br><span class="line">    priority_queue&lt;<span class="keyword">int</span>, vector&lt;<span class="keyword">int</span>&gt;, greater&lt;<span class="keyword">int</span>&gt;&gt; pq;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> r : ropes)</span><br><span class="line">        pq.<span class="keyword">push</span>(r);</span><br><span class="line">    <span class="keyword">while</span>(pq.<span class="keyword">size</span>() &gt; <span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">int</span> len1 = pq.top(); pq.<span class="keyword">pop</span>();</span><br><span class="line">        <span class="keyword">int</span> len2 = pq.top(); pq.<span class="keyword">pop</span>();</span><br><span class="line">        res += len1 + len2;</span><br><span class="line">        pq.<span class="keyword">push</span>(len1+len2);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/12/27/PG-Find-the-maxium-element-in-an-array-which-is-first-increasing-and-then-decreasing/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1419,143 +1546,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/12/25/Tree-366-Find-Leaves-of-Binary-Tree/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xueying Han">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Serena Han's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/25/Tree-366-Find-Leaves-of-Binary-Tree/" itemprop="url">Tree-366. Find Leaves of Binary Tree</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-25T11:09:12-05:00">
-                2018-12-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Input: [1,2,3,4,5]</p>
-<pre><code>    1
-   / \
-  2   3
- / \     
-4   5    
-</code></pre><p>Output: [ [4,5,3],[2],[1]]</p>
-<ul>
-<li>Define a level of a node by its child nodes</li>
-<li><p>The process of running a test:</p>
-<blockquote>
-<p>dfs([], node(1))<br>dfs([], node(3))<br>dfs([], node(NULL))<br>return -1 to dfs([], node(3))<br>dfs([], node(NULL))<br>dfs([], node(3)): level = 1 + max(-1, -1) = 0<br>dfs([], node(3)): [ [3]] -&gt; return 0<br>dfs([ [3]], node(2))<br>dfs([ [3]], node(5))<br>dfs([ [3]], node(NULL))<br>return -1 to dfs([ [3]], node(5))<br>dfs([ [3]], node(NULL))<br>return -1 to dfs([ [3]], node(5))<br>dfs([ [3]], node(5)) level = 1 + max(-1, -1) = 0<br>dfs([ [3]], node(5)): [ [5,3]] -&gt; return 0</p>
-</blockquote>
-</li>
-<li><p>recursion : The easiest way to thinking the process of recursion is first to test the lowermost level.</p>
-</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; res, TreeNode* node)</span></span>&#123;</span><br><span class="line">      <span class="keyword">if</span>(!node)</span><br><span class="line">          <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">      <span class="keyword">int</span> level = <span class="number">1</span> + max(dfs(res, node-&gt;right), dfs(res, node-&gt;left));</span><br><span class="line">      <span class="keyword">if</span>(res.size() &lt; level + <span class="number">1</span>)&#123;</span><br><span class="line">          <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; subres;</span><br><span class="line">          res.push_back(subres);</span><br><span class="line">      &#125;</span><br><span class="line">      res[level].push_back(node-&gt;val);</span><br><span class="line">      <span class="keyword">return</span> level;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; findLeaves(TreeNode* root) &#123;</span><br><span class="line">      <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; res;</span><br><span class="line">      dfs(res, root);</span><br><span class="line">      <span class="keyword">return</span> res;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1606,7 +1596,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-count">50</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
