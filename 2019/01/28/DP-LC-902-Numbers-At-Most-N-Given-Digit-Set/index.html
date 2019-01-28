@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="PG," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -79,18 +79,17 @@
 
 
 
-<meta name="description" content="Original questionExample:input: strings “AGGTAB” and “GXTXAYB”output: 4  Two cases:string S and T,  m = S.length + 1, n = T.length + 1dp[i][j] records the length of longest common subsequence between">
-<meta name="keywords" content="PG">
+<meta name="description" content="DescriptionWe have a sorted set of digits D, a non-empty subset of {‘1’,’2’,’3’,’4’,’5’,’6’,’7’,’8’,’9’}.  (Note that ‘0’ is not included.) Now, we write numbers using these digits, using each digit a">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PG-longest common subsequence">
-<meta property="og:url" content="https://transformerh.github.io/2018/12/25/PG-longest-common-subsequence/index.html">
+<meta property="og:title" content="LC 902. Numbers At Most N Given Digit Set">
+<meta property="og:url" content="https://transformerh.github.io/2019/01/28/DP-LC-902-Numbers-At-Most-N-Given-Digit-Set/index.html">
 <meta property="og:site_name" content="Serena Han&#39;s Blog">
-<meta property="og:description" content="Original questionExample:input: strings “AGGTAB” and “GXTXAYB”output: 4  Two cases:string S and T,  m = S.length + 1, n = T.length + 1dp[i][j] records the length of longest common subsequence between">
+<meta property="og:description" content="DescriptionWe have a sorted set of digits D, a non-empty subset of {‘1’,’2’,’3’,’4’,’5’,’6’,’7’,’8’,’9’}.  (Note that ‘0’ is not included.) Now, we write numbers using these digits, using each digit a">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-12-26T03:47:32.754Z">
+<meta property="og:updated_time" content="2019-01-28T17:32:50.222Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PG-longest common subsequence">
-<meta name="twitter:description" content="Original questionExample:input: strings “AGGTAB” and “GXTXAYB”output: 4  Two cases:string S and T,  m = S.length + 1, n = T.length + 1dp[i][j] records the length of longest common subsequence between">
+<meta name="twitter:title" content="LC 902. Numbers At Most N Given Digit Set">
+<meta name="twitter:description" content="DescriptionWe have a sorted set of digits D, a non-empty subset of {‘1’,’2’,’3’,’4’,’5’,’6’,’7’,’8’,’9’}.  (Note that ‘0’ is not included.) Now, we write numbers using these digits, using each digit a">
 
 
 
@@ -120,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="https://transformerh.github.io/2018/12/25/PG-longest-common-subsequence/"/>
+  <link rel="canonical" href="https://transformerh.github.io/2019/01/28/DP-LC-902-Numbers-At-Most-N-Given-Digit-Set/"/>
 
 
 
 
 
-  <title>PG-longest common subsequence | Serena Han's Blog</title>
+  <title>LC 902. Numbers At Most N Given Digit Set | Serena Han's Blog</title>
   
 
 
@@ -273,7 +272,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/12/25/PG-longest-common-subsequence/">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/01/28/DP-LC-902-Numbers-At-Most-N-Given-Digit-Set/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xueying Han">
@@ -290,7 +289,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">PG-longest common subsequence</h1>
+          <h1 class="post-title" itemprop="name headline">LC 902. Numbers At Most N Given Digit Set</h1>
         
 
         <div class="post-meta">
@@ -302,8 +301,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-25T21:39:02-05:00">
-                2018-12-25
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-28T11:19:16-05:00">
+                2019-01-28
               </time>
             
 
@@ -340,21 +339,19 @@
       
 
       
-        <h3 id="Original-question"><a href="#Original-question" class="headerlink" title="Original question"></a>Original question</h3><p>Example:<br>input: strings “AGGTAB” and “GXTXAYB”<br>output: 4</p>
+        <h4 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h4><p>We have a sorted set of digits D, a non-empty subset of {‘1’,’2’,’3’,’4’,’5’,’6’,’7’,’8’,’9’}.  (Note that ‘0’ is not included.)</p>
+<p>Now, we write numbers using these digits, using each digit as many times as we want.  For example, if D = {‘1’,’3’,’5’}, we may write numbers such as ‘13’, ‘551’, ‘1351315’.</p>
+<p>Return the number of positive integers that can be written (using the digits of D) that are less than or equal to N.</p>
+<p>Example 1:</p>
+<p>Input: D = [“1”,”3”,”5”,”7”], N = 100<br>Output: 20<br>Explanation:<br>The 20 numbers that can be written are:<br>1, 3, 5, 7, 11, 13, 15, 17, 31, 33, 35, 37, 51, 53, 55, 57, 71, 73, 75, 77.<br>Example 2:</p>
+<p>Input: D = [“1”,”4”,”9”], N = 1000000000<br>Output: 29523<br>Explanation:<br>We can write 3 one digit numbers, 9 two digit numbers, 27 three digit numbers,<br>81 four digit numbers, 243 five digit numbers, 729 six digit numbers,<br>2187 seven digit numbers, 6561 eight digit numbers, and 19683 nine digit numbers.<br>In total, this is 29523 integers that can be written using the digits of D.</p>
+<p>Note:</p>
+<p>D is a subset of digits ‘1’-‘9’ in sorted order.<br>1 &lt;= N &lt;= 10^9</p>
 <hr>
-<p>Two cases:<br>string S and T,  m = S.length + 1, n = T.length + 1<br>dp[i][j] records the length of longest common subsequence between S[0..i] and T[0..j]</p>
-<ol>
-<li>S[i] == T[j] then dp[i][j] = dp[i-1][j-1] + 1</li>
-<li>S[i] != T[j] then dp[i][j] = max(dp[i-1][j], dp[i][j-1])</li>
-</ol>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">largestCommonSubsequence</span><span class="params">(<span class="built_in">string</span> S, <span class="built_in">string</span> T)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> slen = (<span class="keyword">int</span>)S.length();</span><br><span class="line">    <span class="keyword">int</span> tlen = (<span class="keyword">int</span>)T.length();</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; dp(slen+<span class="number">1</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(tlen+<span class="number">1</span>, <span class="number">0</span>));</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; slen; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; tlen; j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(S[i] == T[j])</span><br><span class="line">                dp[i+<span class="number">1</span>][j+<span class="number">1</span>] = dp[i][j] + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                dp[i+<span class="number">1</span>][j+<span class="number">1</span>] = max(dp[i][j+<span class="number">1</span>], dp[i+<span class="number">1</span>][j]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dp[slen][tlen];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>I first use DFS to solve it and obviously DFS can cause TLE. So I have no choice, this is a typical math problem.</p>
 <hr>
-<h3 id="LC-583-Delete-Operation-for-Two-Strings"><a href="#LC-583-Delete-Operation-for-Two-Strings" class="headerlink" title="LC 583. Delete Operation for Two Strings"></a>LC 583. Delete Operation for Two Strings</h3><p>Given two words word1 and word2, find the minimum number of steps required to make word1 and word2 the same, where in each step you can delete one character in either string.</p>
-<p>Input: “sea”, “eat”<br>Output: 2<br>Explanation: You need one step to make “sea” to “ea” and another step to make “eat” to “ea”.</p>
-<blockquote>
-<p>The question can be inverted to find the longest common subsequence.</p>
-</blockquote>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">minDistance</span><span class="params">(<span class="built_in">string</span> word1, <span class="built_in">string</span> word2)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">int</span> len1 = word1.length();</span><br><span class="line">       <span class="keyword">int</span> len2 = word2.length();</span><br><span class="line">       <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; dp(len1+<span class="number">1</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(len2+<span class="number">1</span>, <span class="number">0</span>));</span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len1; i++)&#123;</span><br><span class="line">           <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; len2; j++)&#123;</span><br><span class="line">               <span class="keyword">if</span>(word1[i] == word2[j])</span><br><span class="line">                   dp[i+<span class="number">1</span>][j+<span class="number">1</span>] = dp[i][j] + <span class="number">1</span>;</span><br><span class="line">               <span class="keyword">else</span></span><br><span class="line">                   dp[i+<span class="number">1</span>][j+<span class="number">1</span>] = max(dp[i][j+<span class="number">1</span>], dp[i+<span class="number">1</span>][j]);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> len1 + len2 - <span class="number">2</span>*dp[len1][len2];</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h5 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h5><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">   <span class="function"><span class="keyword">void</span> <span class="title">dfsDigit</span><span class="params">(<span class="built_in">stack</span>&lt;<span class="built_in">string</span>&gt;&amp; dstack, <span class="keyword">int</span> N, <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; D, <span class="keyword">int</span>&amp; count)</span></span>&#123;</span><br><span class="line">            <span class="keyword">while</span>(!dstack.empty())&#123;</span><br><span class="line">                <span class="built_in">string</span> top = dstack.top();</span><br><span class="line">                dstack.pop();</span><br><span class="line">                <span class="keyword">for</span>(<span class="built_in">string</span> s : D)&#123;</span><br><span class="line">                    <span class="built_in">string</span> cur = top + s;</span><br><span class="line">                    <span class="keyword">if</span>(stol(cur) &lt;= N)&#123;</span><br><span class="line">                        count++;</span><br><span class="line">                        dstack.push(cur);</span><br><span class="line">                    &#125; <span class="keyword">else</span></span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">int</span> <span class="title">atMostNGivenDigitSet</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; D, <span class="keyword">int</span> N)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">            <span class="built_in">stack</span>&lt;<span class="built_in">string</span>&gt; dstack;</span><br><span class="line">            <span class="keyword">for</span>(<span class="built_in">string</span> s : D)&#123;</span><br><span class="line">                <span class="keyword">int</span> c = stol(s);</span><br><span class="line">                <span class="keyword">if</span>(c &lt;= N)&#123;</span><br><span class="line">                    dstack.push(s);</span><br><span class="line">                    count++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            dfsDigit(dstack, N, D, count);</span><br><span class="line">            <span class="keyword">return</span> count;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h5 id="Math"><a href="#Math" class="headerlink" title="Math"></a>Math</h5><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> atMostNGivenDigitSet(vector&lt;<span class="keyword">string</span>&gt;&amp; D, <span class="keyword">int</span> N) &#123;</span><br><span class="line">       <span class="keyword">string</span> strN = to_string(N);</span><br><span class="line">       <span class="keyword">int</span> lenN = strN.length();</span><br><span class="line">       <span class="keyword">int</span> sizeD = D.<span class="built_in">size</span>();</span><br><span class="line">       <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">       <span class="built_in">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; lenN; i++)</span><br><span class="line">           count += <span class="built_in">pow</span>(sizeD, i);</span><br><span class="line">       <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">      <span class="built_in">while</span>(i &lt; lenN)&#123;</span><br><span class="line">           <span class="built_in">for</span>(<span class="keyword">string</span> c : D)&#123;</span><br><span class="line">               <span class="built_in">if</span>(*c.c_str() &lt; strN[i])&#123;</span><br><span class="line">                   count += <span class="built_in">pow</span>(sizeD, lenN - i - <span class="number">1</span>);</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="built_in">if</span>(<span class="built_in">find</span>(D.<span class="built_in">begin</span>(), D.<span class="built_in">end</span>(), <span class="keyword">string</span>(<span class="number">1</span>, strN[i])) == D.<span class="built_in">end</span>())</span><br><span class="line">               <span class="built_in">break</span>;      </span><br><span class="line">          i++;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="built_in">return</span> count += (i == lenN ? <span class="number">1</span> : <span class="number">0</span>);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -370,12 +367,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/PG/" rel="tag"># PG</a>
-          
-        </div>
-      
 
       
       
@@ -385,8 +376,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/25/41-First-Missing-Positive/" rel="next" title="41.First Missing Positive">
-                <i class="fa fa-chevron-left"></i> 41.First Missing Positive
+              <a href="/2019/01/28/LC-527-Word-Abbreviation/" rel="next" title="LC 527 Word Abbreviation">
+                <i class="fa fa-chevron-left"></i> LC 527 Word Abbreviation
               </a>
             
           </div>
@@ -394,10 +385,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/12/26/PG-LC-220-Contains-Duplicate/" rel="prev" title="PG-LC 220 Contains Duplicate">
-                PG-LC 220 Contains Duplicate <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -529,7 +516,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Original-question"><span class="nav-number">1.</span> <span class="nav-text">Original question</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LC-583-Delete-Operation-for-Two-Strings"><span class="nav-number">2.</span> <span class="nav-text">LC 583. Delete Operation for Two Strings</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Description"><span class="nav-number">1.</span> <span class="nav-text">Description</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#DFS"><span class="nav-number">1.1.</span> <span class="nav-text">DFS</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Math"><span class="nav-number">1.2.</span> <span class="nav-text">Math</span></a></li></ol></li></ol></div>
             
 
           </div>
