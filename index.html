@@ -269,6 +269,127 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/01/28/LC-527-Word-Abbreviation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xueying Han">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Serena Han's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/28/LC-527-Word-Abbreviation/" itemprop="url">LC 527 Word Abbreviation</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-28T01:06:19-05:00">
+                2019-01-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>My LeetCode member has expired again. Just leave the code here and I will check it out later.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">getAbbre</span><span class="params">(<span class="built_in">string</span> s, <span class="keyword">int</span> i)</span></span>&#123;</span><br><span class="line">            <span class="built_in">string</span> abbre = s.substr(<span class="number">0</span>, i);</span><br><span class="line">            abbre += to_string(s.length()<span class="number">-1</span>-i);</span><br><span class="line">            abbre += s.back();</span><br><span class="line">            <span class="keyword">return</span> abbre;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; wordsAbbreviation(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; dict) &#123;</span><br><span class="line">            <span class="keyword">int</span> size = dict.size();</span><br><span class="line">            <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; prefix(size, <span class="number">1</span>);</span><br><span class="line">            <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; abbre(size, <span class="string">""</span>);</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; i++)&#123;</span><br><span class="line">                abbre[i] = getAbbre(dict[i], <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; i++)&#123;</span><br><span class="line">                <span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">                    <span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt; dupli;</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> j = i+<span class="number">1</span>; j &lt; size; j++)&#123;</span><br><span class="line">                        <span class="keyword">if</span>(abbre[j] == abbre[i])</span><br><span class="line">                            dupli.insert(j);</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">if</span>(dupli.empty())</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    dupli.insert(i);</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">auto</span> it = dupli.begin(); it != dupli.end(); it++)&#123;</span><br><span class="line">                        abbre[*it] = getAbbre(dict[*it], ++prefix[*it]);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> abbre;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/01/27/Google-LC911-Online-Election/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1486,133 +1607,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/01/02/Trie/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xueying Han">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Serena Han's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/02/Trie/" itemprop="url">Trie</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-02T21:50:06-05:00">
-                2019-01-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>LC 208. Implement Trie(Prefix Tree)</p>
-<p>Not fast… But it’s bug free at the first commitment. I’m soooo happy.</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">TrieNode</span> &#123;</span></span><br><span class="line">    <span class="keyword">bool</span> end = <span class="literal">false</span>;</span><br><span class="line">    <span class="built_in">vector</span>&lt;TrieNode*&gt; alpha;</span><br><span class="line">    TrieNode()&#123;</span><br><span class="line">        alpha = <span class="built_in">vector</span>&lt;TrieNode*&gt;(<span class="number">26</span>, <span class="literal">NULL</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Trie</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    TrieNode* root;</span><br><span class="line">    <span class="comment">/** Initialize your data structure here. */</span></span><br><span class="line">    Trie() &#123;</span><br><span class="line">        root = <span class="keyword">new</span> TrieNode();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Inserts a word into the trie. */</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="built_in">string</span> word)</span> </span>&#123;</span><br><span class="line">        TrieNode* temp = root;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; word.length(); i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> cind = word[i] - <span class="string">'a'</span>;</span><br><span class="line">            <span class="keyword">if</span>(!temp-&gt;alpha[cind])&#123;</span><br><span class="line">                temp-&gt;alpha[cind] = <span class="keyword">new</span> TrieNode();</span><br><span class="line">            &#125;</span><br><span class="line">            temp = temp-&gt;alpha[cind];</span><br><span class="line">        &#125;</span><br><span class="line">        temp-&gt;end = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Returns if the word is in the trie. */</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">search</span><span class="params">(<span class="built_in">string</span> word)</span> </span>&#123;</span><br><span class="line">        TrieNode* temp = root;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">char</span> c : word)&#123;</span><br><span class="line">            <span class="keyword">int</span> cind = c - <span class="string">'a'</span>;</span><br><span class="line">            <span class="keyword">if</span>(!temp-&gt;alpha[cind])</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            temp = temp-&gt;alpha[cind];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(!temp-&gt;end)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Returns if there is any word in the trie that starts with the given prefix. */</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">startsWith</span><span class="params">(<span class="built_in">string</span> prefix)</span> </span>&#123;</span><br><span class="line">        TrieNode* temp = root;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">char</span> c : prefix)&#123;</span><br><span class="line">            <span class="keyword">int</span> cind = c - <span class="string">'a'</span>;</span><br><span class="line">            <span class="keyword">if</span>(!temp-&gt;alpha[cind])</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            temp = temp-&gt;alpha[cind];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1658,7 +1657,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">50</span>
+                  <span class="site-state-item-count">51</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
