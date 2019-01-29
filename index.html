@@ -269,6 +269,131 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/01/28/LC-539-Minimum-Time-Difference/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xueying Han">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Serena Han's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/28/LC-539-Minimum-Time-Difference/" itemprop="url">LC 539. Minimum Time Difference</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-28T22:20:21-05:00">
+                2019-01-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h4><p>Given a list of 24-hour clock time points in “Hour:Minutes” format, find the minimum minutes difference between any two time points in the list.<br>Example 1:</p>
+<p>Input: [“23:59”,”00:00”]<br>Output: 1</p>
+<hr>
+<h4 id="Brute-force-one-TLE"><a href="#Brute-force-one-TLE" class="headerlink" title="Brute-force one- TLE"></a>Brute-force one- TLE</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">diff</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; time1, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; time2)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(time1[<span class="number">0</span>] &gt; time2[<span class="number">0</span>] || (time1[<span class="number">0</span>] == time2[<span class="number">0</span>] &amp;&amp; time1[<span class="number">1</span>] &gt; time2[<span class="number">1</span>]))&#123;</span><br><span class="line">            <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; temp = time1;</span><br><span class="line">            time1 = time2;</span><br><span class="line">            time2 = temp;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> hdiff = (time2[<span class="number">0</span>] - time1[<span class="number">0</span>]) * <span class="number">60</span>;</span><br><span class="line">        <span class="keyword">int</span> mdiff = time2[<span class="number">1</span>] - time1[<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">return</span> <span class="number">24</span> * <span class="number">60</span> - (hdiff + mdiff) &gt; hdiff + mdiff ? hdiff + mdiff : <span class="number">24</span>*<span class="number">60</span> - (hdiff + mdiff);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">comp</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; time1, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; time2)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> time1[<span class="number">0</span>] &lt; time2[<span class="number">0</span>] || (time1[<span class="number">0</span>] == time2[<span class="number">0</span>] &amp;&amp; time1[<span class="number">1</span>] &lt; time2[<span class="number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findMinDifference</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; timePoints)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; times;</span><br><span class="line">        <span class="keyword">for</span>(<span class="built_in">string</span> t : timePoints)&#123;</span><br><span class="line">            <span class="function"><span class="built_in">stringstream</span> <span class="title">ss</span><span class="params">(t)</span></span>;</span><br><span class="line">            <span class="built_in">string</span> part;</span><br><span class="line">            <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; hm;</span><br><span class="line">            <span class="keyword">while</span>(getline(ss, part, <span class="string">':'</span>))&#123;</span><br><span class="line">                hm.push_back(part);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">int</span> hour = stoi(hm[<span class="number">0</span>]);</span><br><span class="line">            <span class="keyword">int</span> min =  stoi(hm[<span class="number">1</span>]);</span><br><span class="line">            times.push_back(&#123;hour, min&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> minimum = INT_MAX;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; times.size(); i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; times.size(); j++)&#123;</span><br><span class="line">                minimum = min(minimum, diff(times[i], times[j]));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> minimum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="Better-Solution-slot-fixed-length-array-is-very-useful"><a href="#Better-Solution-slot-fixed-length-array-is-very-useful" class="headerlink" title="Better Solution : slot - fixed-length array is very useful"></a>Better Solution : slot - fixed-length array is very useful</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findMinDifference</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; timePoints)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt; timeSlot(<span class="number">24</span>*<span class="number">60</span>, <span class="literal">false</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="built_in">string</span> s : timePoints)&#123;</span><br><span class="line">            <span class="function"><span class="built_in">stringstream</span> <span class="title">ss</span><span class="params">(s)</span></span>;</span><br><span class="line">            <span class="built_in">string</span> part;</span><br><span class="line">            <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; tp;</span><br><span class="line">            <span class="keyword">while</span>(getline(ss, part, <span class="string">':'</span>))&#123;</span><br><span class="line">                tp.push_back(part);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">int</span> hour = stoi(tp[<span class="number">0</span>]);</span><br><span class="line">            <span class="keyword">int</span> mini = stoi(tp[<span class="number">1</span>]);</span><br><span class="line">            <span class="keyword">if</span>(timeSlot[hour*<span class="number">60</span>+mini])</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            timeSlot[hour*<span class="number">60</span>+mini] = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> first = INT_MAX, last = INT_MIN;</span><br><span class="line">        <span class="keyword">int</span> res = INT_MAX, pre = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; timeSlot.size(); i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(timeSlot[i])&#123;</span><br><span class="line">                <span class="keyword">if</span>(first != INT_MAX)&#123;</span><br><span class="line">                    res = min(res, i - pre);</span><br><span class="line">                &#125;</span><br><span class="line">                first = min(first, i);</span><br><span class="line">                last = max(last, i);</span><br><span class="line">                pre = i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> min(res, <span class="number">24</span>*<span class="number">60</span>-last+first);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/01/28/LC-166-Fraction-to-Recurring-Decimal/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1473,129 +1598,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/01/05/Binary-Search/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xueying Han">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Serena Han's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/05/Binary-Search/" itemprop="url">Binary Search</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-05T16:02:57-05:00">
-                2019-01-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Binary-Search"><a href="#Binary-Search" class="headerlink" title="Binary Search"></a>Binary Search</h2><h3 id="LC-475-Heaters"><a href="#LC-475-Heaters" class="headerlink" title="LC 475. Heaters"></a>LC 475. Heaters</h3><p>Winter is coming! Your first job during the contest is to design a standard heater with fixed warm radius to warm all the houses.</p>
-<p>Now, you are given positions of houses and heaters on a horizontal line, find out minimum radius of heaters so that all houses could be covered by those heaters.</p>
-<p>So, your input will be the positions of houses and heaters seperately, and your expected output will be the minimum radius standard of heaters.</p>
-<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> findRadius(vector&lt;<span class="built_in">int</span>&gt;&amp; houses, vector&lt;<span class="built_in">int</span>&gt;&amp; heaters) &#123;</span><br><span class="line">      sort(houses.begin(), houses.<span class="keyword">end</span>());</span><br><span class="line">      sort(heaters.begin(), heaters.<span class="keyword">end</span>());</span><br><span class="line">      vector&lt;<span class="built_in">int</span>&gt; <span class="built_in">nearest</span>(houses.<span class="built_in">size</span>(), INT_MAX);</span><br><span class="line">      <span class="built_in">int</span> ho = <span class="number">0</span>, he = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">while</span>(ho &lt; houses.<span class="built_in">size</span>() &amp;&amp; he &lt; heaters.<span class="built_in">size</span>())&#123;</span><br><span class="line">          <span class="keyword">if</span>(houses[ho] &lt;= heaters[he])&#123;</span><br><span class="line">              <span class="built_in">nearest</span>[ho] = heaters[he] - houses[ho];</span><br><span class="line">              ho++;</span><br><span class="line">          &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">              he++;</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      ho = houses.<span class="built_in">size</span>()-<span class="number">1</span>;</span><br><span class="line">      he = heaters.<span class="built_in">size</span>()-<span class="number">1</span>;</span><br><span class="line">      <span class="keyword">while</span>(ho &gt;= <span class="number">0</span> &amp;&amp; he &gt;= <span class="number">0</span>)&#123;</span><br><span class="line">          <span class="keyword">if</span>(houses[ho] &gt;= heaters[he])&#123;</span><br><span class="line">              <span class="built_in">nearest</span>[ho] = <span class="built_in">min</span>(<span class="built_in">nearest</span>[ho], houses[ho] - heaters[he]);</span><br><span class="line">              ho--;</span><br><span class="line">          &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">              he--;</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> *max_element(<span class="built_in">nearest</span>.begin(), <span class="built_in">nearest</span>.<span class="keyword">end</span>());</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1646,7 +1648,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-count">54</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
