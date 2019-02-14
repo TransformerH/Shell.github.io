@@ -269,6 +269,273 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/05/21/Binary-search-range/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xueying Han">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Serena Han's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/21/Binary-search-range/" itemprop="url">Binary search - range</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-21T13:44:43-04:00">
+                2018-05-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>binary search range method<br>when the array is unordered. but we can get the min and max elements of the array.</p>
+<ul>
+<li><p>算法语言描述：</p>
+<blockquote>
+<p>用元素的数值范围而不是元素的下标值范围对目标值进行逼近。<br>数组中的元素值范围为lowest…highest，<br>数组中的所有元素的值都在lowest…mid 和 mid+1… highest两个区间内，<br>mid不一定是在数组中，可能只是一个参考值，</p>
+</blockquote>
+</li>
+<li><p>使用方法：</p>
+</li>
+</ul>
+<ol>
+<li>寻找xth的元素(<a href="https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/discuss/85173/Share-my-thoughts-and-Clean-Java-Code" target="_blank" rel="noopener">LeetCode378</a>)：<br>如果数组中处于lowest…mid的元素的个数小于x，则xth在mid+1…highest区间内，<br>所以将lowest = mid + 1，查找的数值范围减小为原先的一半。</li>
+<li>寻找重复的元素(<a href="https://leetcode.com/problems/find-the-duplicate-number/description/" target="_blank" rel="noopener">LeetCode287</a>):<br>如果数组中小于mid的元素的总个数小于范围值的一半，则证明大于mid的元素中有元素值重复。</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/05/20/hash-map-in-C-unordered-map/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xueying Han">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Serena Han's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/20/hash-map-in-C-unordered-map/" itemprop="url">hash map in C++: unordered_map</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-20T16:01:34-04:00">
+                2018-05-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li>The differences between unordered_map and map</li>
+</ul>
+<ol>
+<li>the order of keys: map is increasing order(default), unordered_map is no ordering</li>
+<li>implementation: map is built by self-balanced BST, unordered_map is built by hash table</li>
+<li>search time: map uses log(n), unordered_map uses O(1) in average, O(n) in worst case.</li>
+<li>insertion time / deletion time: map uses log(n) + rebalance</li>
+</ol>
+<ul>
+<li>LC</li>
+</ul>
+<ol>
+<li><a href="https://leetcode.com/problems/top-k-frequent-elements/discuss/81624/C++-O(n-log(n-k" target="_blank" rel="noopener">347.Top K Frequent Elements</a>)-unordered_map-and-priority_queue(maxheap)-solution)</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/05/20/Merge-sort-for-Linked-Lists/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -987,7 +1254,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-count">57</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
