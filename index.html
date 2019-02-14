@@ -269,6 +269,142 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/02/13/Vector-realization/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xueying Han">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Serena Han's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/13/Vector-realization/" itemprop="url">Vector realization</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-13T22:09:58-05:00">
+                2019-02-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="C-STL-Data-structures-Vector"><a href="#C-STL-Data-structures-Vector" class="headerlink" title="C++ - STL - Data structures - Vector"></a>C++ - STL - Data structures - Vector</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  main.cpp</span></span><br><span class="line"><span class="comment">//  MyVector</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  Created by 韩雪滢 on 2019/2/12.</span></span><br><span class="line"><span class="comment">//  Copyright © 2019 韩雪滢. All rights reserved.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;memory&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>, <span class="title">class</span> <span class="title">Alloc</span> = <span class="title">std</span>:</span>:allocator&lt;T&gt;&gt; <span class="class"><span class="keyword">class</span> <span class="title">myVector</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">typedef</span> T value_type;</span><br><span class="line">    <span class="keyword">typedef</span> value_type* iterator;</span><br><span class="line">    <span class="keyword">typedef</span> <span class="keyword">const</span> value_type* const_iterator;</span><br><span class="line">    <span class="keyword">typedef</span> value_type&amp; reference;</span><br><span class="line">    <span class="keyword">typedef</span> value_type* pointer;</span><br><span class="line">    <span class="keyword">typedef</span> <span class="keyword">size_t</span> size_type;</span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">    <span class="built_in">std</span>::allocator&lt;value_type&gt; _alloc;</span><br><span class="line">    iterator _start;</span><br><span class="line">    iterator _end;</span><br><span class="line">    iterator _end_of_storage;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    myVector(): _start(<span class="number">0</span>), _end(<span class="number">0</span>), _end_of_storage(<span class="number">0</span>)&#123;&#125;</span><br><span class="line">    myVector(size_type n, <span class="keyword">const</span> T&amp; value);</span><br><span class="line">    myVector(<span class="keyword">const</span> myVector&amp; v);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function">iterator <span class="title">begin</span><span class="params">()</span> </span>&#123;<span class="keyword">return</span> _start;&#125;</span><br><span class="line">    <span class="function">iterator <span class="title">end</span><span class="params">()</span> </span>&#123;<span class="keyword">return</span> _end;&#125;</span><br><span class="line">    reference <span class="keyword">operator</span>[] (size_type n)&#123;<span class="keyword">return</span> *(begin() + n);&#125;</span><br><span class="line">    myVector&amp; <span class="keyword">operator</span>= (<span class="keyword">const</span> myVector&amp; rv);</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">push_back</span><span class="params">(<span class="keyword">const</span> T&amp; value)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">insert_aux</span><span class="params">(iterator position, <span class="keyword">const</span> T&amp; x)</span></span>;</span><br><span class="line">    <span class="function">size_type <span class="title">size</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> size_type(end() - begin());&#125;</span><br><span class="line">    <span class="keyword">void</span> _destroy();</span><br><span class="line">    <span class="function">const_iterator <span class="title">cbegin</span><span class="params">()</span> <span class="keyword">const</span></span>&#123;<span class="keyword">return</span> _start;&#125;</span><br><span class="line">    <span class="function">const_iterator <span class="title">cend</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123;<span class="keyword">return</span> _end;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(iterator position, <span class="keyword">const</span> T&amp; value)</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>, <span class="title">class</span> <span class="title">Alloc</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">myVector</span>&lt;T, Alloc&gt;:</span>:myVector(size_type n, <span class="keyword">const</span> T&amp; value)&#123;</span><br><span class="line">    _start = _alloc.allocate(n);</span><br><span class="line">    <span class="built_in">std</span>::uninitialized_fill(_start, _start + n, value);</span><br><span class="line">    _end = _end_of_storage = _start + n;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>, <span class="title">class</span> <span class="title">Alloc</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">myVector</span>&lt;T, Alloc&gt;:</span>:myVector(<span class="keyword">const</span> myVector&amp; v)&#123;</span><br><span class="line">    _start = _alloc.allocate(v.cend() - v.cbegin());</span><br><span class="line">    _end = uninitialized_copy(v.cbegin(), v.cend(), _start);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>, <span class="title">class</span> <span class="title">Alloc</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">void</span> <span class="title">myVector</span>&lt;T, Alloc&gt;:</span>:_destroy()&#123;</span><br><span class="line">    <span class="keyword">if</span>(_start)&#123;</span><br><span class="line">        <span class="function">iterator <span class="title">it</span><span class="params">(_end)</span></span>;</span><br><span class="line">        <span class="keyword">while</span>(it != _start)&#123;</span><br><span class="line">            _alloc.destroy(it--);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    _alloc.deallocate(_start, _end_of_storage - _start);</span><br><span class="line">    _start = _end_of_storage = <span class="literal">nullptr</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>, <span class="title">class</span> <span class="title">Alloc</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">void</span> <span class="title">myVector</span>&lt;T, Alloc&gt;:</span>:insert_aux(iterator position, <span class="keyword">const</span> T &amp;x)&#123;</span><br><span class="line">    <span class="keyword">if</span>(_end == _end_of_storage)&#123;</span><br><span class="line">        size_type ori_size = size();</span><br><span class="line">        size_type len = ori_size ? ori_size * <span class="number">2</span> : <span class="number">1</span>;</span><br><span class="line">        iterator new_start = _alloc.allocate(len);</span><br><span class="line">        iterator new_end = new_start;</span><br><span class="line">        new_end = uninitialized_copy(_start, position, new_start);</span><br><span class="line">        _alloc.construct(new_end, x);</span><br><span class="line">        new_end++;</span><br><span class="line">        new_end = uninitialized_copy(position, _end, new_end);</span><br><span class="line">        _destroy();</span><br><span class="line">        _start = new_start;</span><br><span class="line">        _end = new_end;</span><br><span class="line">        _end_of_storage = _start + len;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>, <span class="title">class</span> <span class="title">Alloc</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">void</span> <span class="title">myVector</span>&lt;T, Alloc&gt;:</span>:push_back(<span class="keyword">const</span> T &amp;value)&#123;</span><br><span class="line">    <span class="keyword">if</span>(_end != _end_of_storage)&#123;</span><br><span class="line">        _alloc.construct(_end, value);</span><br><span class="line">        _end++;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        insert_aux(end(), value);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>, <span class="title">class</span> <span class="title">Alloc</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">myVector</span>&lt;T, Alloc&gt;&amp; <span class="title">myVector</span>&lt;T, Alloc&gt;:</span>:<span class="keyword">operator</span>=(<span class="keyword">const</span> myVector&lt;T, Alloc&gt; &amp;rv)&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">this</span> == &amp;rv)</span><br><span class="line">        <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">    _start = _alloc.allocate(rv.cend() - rv.cbegin());</span><br><span class="line">    _end = _end_of_storage = uninitialized_copy(rv.cbegin(), rv.cend(), _start);</span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>, <span class="title">class</span> <span class="title">Alloc</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">void</span> <span class="title">myVector</span>&lt;T, Alloc&gt;:</span>:insert(iterator position, <span class="keyword">const</span> T &amp;value)&#123;</span><br><span class="line">    <span class="keyword">if</span>(_end == _end_of_storage)&#123;</span><br><span class="line">        size_type len = size() * <span class="number">2</span>;</span><br><span class="line">        iterator new_start = _alloc.allocate(len);</span><br><span class="line">        iterator new_end = uninitialized_copy(_start, position, new_start);</span><br><span class="line">        _alloc.construct(new_end, value);</span><br><span class="line">        new_end++;</span><br><span class="line">        new_end = uninitialized_copy(position, _end, new_end);</span><br><span class="line">        _destroy();</span><br><span class="line">        _start = new_start;</span><br><span class="line">        _end = new_end;</span><br><span class="line">        _end_of_storage = _start + len;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        iterator old_end = _end;</span><br><span class="line">        _end += <span class="number">1</span>;</span><br><span class="line">        copy_backward(position, old_end, _end);</span><br><span class="line">        _alloc.construct(position, value);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span> </span>&#123;</span><br><span class="line">    myVector&lt;<span class="keyword">int</span>&gt; vec(<span class="number">3</span>, <span class="number">1</span>);</span><br><span class="line">    myVector&lt;<span class="keyword">int</span>&gt; vec2(<span class="number">5</span>, <span class="number">1</span>);</span><br><span class="line">    vec.push_back(<span class="number">3</span>);</span><br><span class="line">    vec2 = vec;</span><br><span class="line"></span><br><span class="line">    myVector&lt;<span class="keyword">int</span>&gt; vec3(vec2);</span><br><span class="line">    vec3.insert(vec3.begin()+<span class="number">2</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; vec3.size(); i++)</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; vec3[i] &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="C-Review"><a href="#C-Review" class="headerlink" title="C++ Review:"></a>C++ Review:</h4><ul>
+<li>std::allocator() <a href="https://www.geeksforgeeks.org/stdallocator-in-cpp-with-examples/" target="_blank" rel="noopener">https://www.geeksforgeeks.org/stdallocator-in-cpp-with-examples/</a></li>
+<li>Template <a href="https://www.geeksforgeeks.org/templates-cpp/" target="_blank" rel="noopener">https://www.geeksforgeeks.org/templates-cpp/</a></li>
+<li><p>operator overloading <a href="https://www.geeksforgeeks.org/stdallocator-in-cpp-with-examples/" target="_blank" rel="noopener">https://www.geeksforgeeks.org/stdallocator-in-cpp-with-examples/</a></p>
+</li>
+<li><p>size_t : is defined to be an unsigned integer with enough bytes to represent the size of any type<br>ForwardIterator uninitialized_copy(InputIterator first, InputIterator last, ForwardIterator result)</p>
+</li>
+</ul>
+<p>allocator:</p>
+<ul>
+<li>destroy: destroy in-place the object pointed by pointer, does not deallocate the storage for the element</li>
+<li>deallocate: releases the storage previously allocated by the allocator</li>
+<li>construct:  allocator.construct ( pointer, obj ) : construct an element object on the location pointed by the pointer</li>
+<li>pointer allocate(size_type n): allocate a block of storage to contain n elements of type value_type and return a pointer to the first element.</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/01/28/LC-539-Minimum-Time-Difference/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1479,125 +1615,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/01/06/Pancake-Sorting/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xueying Han">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Serena Han's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/06/Pancake-Sorting/" itemprop="url">Pancake Sorting</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-06T00:18:24-05:00">
-                2019-01-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1648,7 +1665,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">54</span>
+                  <span class="site-state-item-count">55</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
