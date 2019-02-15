@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="LeetCode_Patterns," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -79,18 +79,17 @@
 
 
 
-<meta name="description" content="How to find GCD(greatest common divisor)Method 1 : find all prime factors of each number36 = 2  2  3  360 = 2 2  3  5So the common factors are 2, 2, 3, we can get the gcd = 2  2  3 Method 2 : Euclidea">
-<meta name="keywords" content="LeetCode_Patterns">
+<meta name="description" content="###LC 87 Scramble String Given a string s1, we may represent it as a binary tree by partitioning it to two non-empty substrings recursively. Below is one possible representation of s1 = “great”: great">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GCD">
-<meta property="og:url" content="https://transformerh.github.io/2018/11/14/GCD/index.html">
+<meta property="og:title" content="LC 87 Scramble String">
+<meta property="og:url" content="https://transformerh.github.io/2019/02/15/LC-87-Scramble-String/index.html">
 <meta property="og:site_name" content="Serena Han&#39;s Blog">
-<meta property="og:description" content="How to find GCD(greatest common divisor)Method 1 : find all prime factors of each number36 = 2  2  3  360 = 2 2  3  5So the common factors are 2, 2, 3, we can get the gcd = 2  2  3 Method 2 : Euclidea">
+<meta property="og:description" content="###LC 87 Scramble String Given a string s1, we may represent it as a binary tree by partitioning it to two non-empty substrings recursively. Below is one possible representation of s1 = “great”: great">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-11-14T19:44:51.228Z">
+<meta property="og:updated_time" content="2019-02-15T06:14:49.025Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="GCD">
-<meta name="twitter:description" content="How to find GCD(greatest common divisor)Method 1 : find all prime factors of each number36 = 2  2  3  360 = 2 2  3  5So the common factors are 2, 2, 3, we can get the gcd = 2  2  3 Method 2 : Euclidea">
+<meta name="twitter:title" content="LC 87 Scramble String">
+<meta name="twitter:description" content="###LC 87 Scramble String Given a string s1, we may represent it as a binary tree by partitioning it to two non-empty substrings recursively. Below is one possible representation of s1 = “great”: great">
 
 
 
@@ -120,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="https://transformerh.github.io/2018/11/14/GCD/"/>
+  <link rel="canonical" href="https://transformerh.github.io/2019/02/15/LC-87-Scramble-String/"/>
 
 
 
 
 
-  <title>GCD | Serena Han's Blog</title>
+  <title>LC 87 Scramble String | Serena Han's Blog</title>
   
 
 
@@ -273,7 +272,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/11/14/GCD/">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/02/15/LC-87-Scramble-String/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xueying Han">
@@ -290,7 +289,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">GCD</h1>
+          <h1 class="post-title" itemprop="name headline">LC 87 Scramble String</h1>
         
 
         <div class="post-meta">
@@ -302,8 +301,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-14T14:27:20-05:00">
-                2018-11-14
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-15T01:06:39-05:00">
+                2019-02-15
               </time>
             
 
@@ -340,15 +339,24 @@
       
 
       
-        <h2 id="How-to-find-GCD-greatest-common-divisor"><a href="#How-to-find-GCD-greatest-common-divisor" class="headerlink" title="How to find GCD(greatest common divisor)"></a>How to find GCD(greatest common divisor)</h2><h3 id="Method-1-find-all-prime-factors-of-each-number"><a href="#Method-1-find-all-prime-factors-of-each-number" class="headerlink" title="Method 1 : find all prime factors of each number"></a>Method 1 : find all prime factors of each number</h3><p>36 = 2 <em> 2 </em> 3 <em> 3<br>60 = 2</em> 2 <em> 3 </em> 5<br>So the common factors are 2, 2, 3, we can get the gcd = 2 <em> 2 </em> 3</p>
-<h3 id="Method-2-Euclidean-algorithm"><a href="#Method-2-Euclidean-algorithm" class="headerlink" title="Method 2 : Euclidean algorithm"></a>Method 2 : Euclidean algorithm</h3><p>Assume the bigger number is b and smaller number is s.</p>
-<ul>
-<li>Step 1 : remainder = b % s</li>
-<li>Step 2 : b = s, <pre><code>s =  remainder
-if s &gt; 0 return to step 1
-if s == 0 the gcd is b
-</code></pre></li>
-</ul>
+        <p>###LC 87 Scramble String</p>
+<p>Given a string s1, we may represent it as a binary tree by partitioning it to two non-empty substrings recursively.</p>
+<p>Below is one possible representation of s1 = “great”:</p>
+<pre><code>great
+</code></pre><p>   /    \<br>  gr    eat<br> / \    /  \<br>g   r  e   at<br>           / \<br>          a   t<br>To scramble the string, we may choose any non-leaf node and swap its two children.</p>
+<p>For example, if we choose the node “gr” and swap its two children, it produces a scrambled string “rgeat”.</p>
+<pre><code>rgeat
+</code></pre><p>   /    \<br>  rg    eat<br> / \    /  \<br>r   g  e   at<br>           / \<br>          a   t<br>We say that “rgeat” is a scrambled string of “great”.</p>
+<p>Similarly, if we continue to swap the children of nodes “eat” and “at”, it produces a scrambled string “rgtae”.</p>
+<pre><code>rgtae
+</code></pre><p>   /    \<br>  rg    tae<br> / \    /  \<br>r   g  ta  e<br>       / \<br>      t   a<br>We say that “rgtae” is a scrambled string of “great”.</p>
+<p>Given two strings s1 and s2 of the same length, determine if s2 is a scrambled string of s1.</p>
+<p>Example 1:</p>
+<p>Input: s1 = “great”, s2 = “rgeat”<br>Output: true<br>Example 2:</p>
+<p>Input: s1 = “abcde”, s2 = “caebd”</p>
+<h2 id="Output-false"><a href="#Output-false" class="headerlink" title="Output: false"></a>Output: false</h2><p>Tag: Enumeration, Recursion</p>
+<p>The important idea is that if the number of characters is equal between the string1 and string2, that means string2 is one of string1’s enumerations. And we all know that one enumeration can be transform to another one by swapping.</p>
+<h2 id="So-what-we-need-to-do-is-just-check-whether-the-two-strings-are-enumerations"><a href="#So-what-we-need-to-do-is-just-check-whether-the-two-strings-are-enumerations" class="headerlink" title="So, what we need to do is just check whether the two strings are enumerations."></a>So, what we need to do is just check whether the two strings are enumerations.</h2><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line"><span class="symbol">public:</span></span><br><span class="line">    <span class="keyword">bool </span>isScramble(string <span class="built_in">s1</span>, string <span class="built_in">s2</span>) &#123;</span><br><span class="line">        if(<span class="built_in">s1</span> == <span class="built_in">s2</span>)</span><br><span class="line">            return true<span class="comment">;</span></span><br><span class="line">        vector&lt;char&gt; alpha(<span class="number">26</span>, <span class="number">0</span>)<span class="comment">;</span></span><br><span class="line">        for(int i = <span class="number">0</span><span class="comment">; i &lt; s1.length(); i++)&#123;</span></span><br><span class="line">            alpha[<span class="built_in">s1</span>[i] - <span class="string">'a'</span>]++<span class="comment">;</span></span><br><span class="line">            alpha[<span class="built_in">s2</span>[i] - <span class="string">'a'</span>]--<span class="comment">;</span></span><br><span class="line">        &#125;</span><br><span class="line">        for(int i = <span class="number">0</span><span class="comment">; i &lt; 26; i++)&#123;</span></span><br><span class="line">            if(alpha[i] != <span class="number">0</span>)</span><br><span class="line">                return false<span class="comment">;</span></span><br><span class="line">        &#125;</span><br><span class="line">        for(int i = <span class="number">1</span><span class="comment">; i &lt; s1.length(); i++)&#123;</span></span><br><span class="line">            if(isScramble(<span class="built_in">s1</span>.<span class="keyword">substr(0, </span>i), <span class="built_in">s2</span>.<span class="keyword">substr(0, </span>i)) &amp;&amp; isScramble(<span class="built_in">s1</span>.<span class="keyword">substr(i), </span><span class="built_in">s2</span>.<span class="keyword">substr(i)))</span></span><br><span class="line"><span class="keyword"> </span>               return true<span class="comment">;</span></span><br><span class="line">            if(isScramble(<span class="built_in">s1</span>.<span class="keyword">substr(0, </span>i), <span class="built_in">s2</span>.<span class="keyword">substr(s1.length()-i)) </span>&amp;&amp; isScramble(<span class="built_in">s1</span>.<span class="keyword">substr(i), </span><span class="built_in">s2</span>.<span class="keyword">substr(0, </span><span class="built_in">s1</span>.length()-i)))</span><br><span class="line">                return true<span class="comment">;</span></span><br><span class="line">        &#125;</span><br><span class="line">        return false<span class="comment">;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;<span class="comment">;</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -364,12 +372,6 @@ if s == 0 the gcd is b
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/LeetCode-Patterns/" rel="tag"># LeetCode_Patterns</a>
-          
-        </div>
-      
 
       
       
@@ -379,8 +381,8 @@ if s == 0 the gcd is b
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/30/Dynamic-Programming/" rel="next" title="Dynamic Programming">
-                <i class="fa fa-chevron-left"></i> Dynamic Programming
+              <a href="/2019/02/14/LC-72-Edit-Distance/" rel="next" title="LC 72 Edit Distance">
+                <i class="fa fa-chevron-left"></i> LC 72 Edit Distance
               </a>
             
           </div>
@@ -388,10 +390,6 @@ if s == 0 the gcd is b
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/11/14/Prime-number/" rel="prev" title="Prime number">
-                Prime number <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -523,7 +521,7 @@ if s == 0 the gcd is b
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-find-GCD-greatest-common-divisor"><span class="nav-number">1.</span> <span class="nav-text">How to find GCD(greatest common divisor)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Method-1-find-all-prime-factors-of-each-number"><span class="nav-number">1.1.</span> <span class="nav-text">Method 1 : find all prime factors of each number</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Method-2-Euclidean-algorithm"><span class="nav-number">1.2.</span> <span class="nav-text">Method 2 : Euclidean algorithm</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Output-false"><span class="nav-number">1.</span> <span class="nav-text">Output: false</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#So-what-we-need-to-do-is-just-check-whether-the-two-strings-are-enumerations"><span class="nav-number">2.</span> <span class="nav-text">So, what we need to do is just check whether the two strings are enumerations.</span></a></li></ol></div>
             
 
           </div>
