@@ -269,6 +269,145 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/02/17/C-STL-string/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xueying Han">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Serena Han's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/17/C-STL-string/" itemprop="url">C++ -- STL -- string</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-17T15:10:25-05:00">
+                2019-02-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h5 id="STL-string"><a href="#STL-string" class="headerlink" title="STL-string"></a>STL-string</h5><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  main.cpp</span></span><br><span class="line"><span class="comment">//  CString</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  Created by 韩雪滢 on 2019/2/17.</span></span><br><span class="line"><span class="comment">//  Copyright © 2019 韩雪滢. All rights reserved.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"></span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">class CString&#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="built_in">char</span>* <span class="built_in">str</span>;</span><br><span class="line">    <span class="built_in">char</span>&amp; operator[](<span class="built_in">int</span> index);</span><br><span class="line">    friend CString operator+ (<span class="keyword">const</span> CString&amp; cstr1, <span class="keyword">const</span> CString&amp; cstr2);</span><br><span class="line">    friend CString operator+= (CString&amp; cstr1, <span class="keyword">const</span> CString&amp; cstr2);</span><br><span class="line">    friend bool operator== (<span class="keyword">const</span> CString&amp; cstr1, <span class="keyword">const</span> CString&amp; cstr2);</span><br><span class="line">    friend ostream&amp; operator&lt;&lt;(ostream&amp; os, <span class="keyword">const</span> CString&amp; cstr);</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    CString(<span class="keyword">const</span> <span class="built_in">char</span>* cstr = nullptr);</span><br><span class="line">    CString(<span class="keyword">const</span> CString&amp; cstr):<span class="built_in">str</span>(<span class="keyword">new</span> <span class="built_in">char</span>[cstr.length()+<span class="number">1</span>])&#123;</span><br><span class="line">        strcpy(<span class="built_in">str</span>, cstr.<span class="built_in">str</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    size_t length() <span class="keyword">const</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> strlen(<span class="built_in">str</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    ~CString()&#123;</span><br><span class="line"><span class="comment">//        if(str != nullptr)&#123;</span></span><br><span class="line"><span class="comment">//            delete [] str;</span></span><br><span class="line"><span class="comment">//            str = nullptr;</span></span><br><span class="line"><span class="comment">//        &#125;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">CString::CString(<span class="keyword">const</span> <span class="built_in">char</span>* cstr)&#123;</span><br><span class="line">    <span class="keyword">if</span>(cstr == nullptr)&#123;</span><br><span class="line">        <span class="built_in">str</span> = <span class="keyword">new</span> <span class="built_in">char</span>[<span class="number">1</span>];</span><br><span class="line">        *<span class="built_in">str</span> = <span class="string">'\0'</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">str</span> = <span class="keyword">new</span> <span class="built_in">char</span>[strlen(cstr) + <span class="number">1</span>];</span><br><span class="line">        strcpy(<span class="built_in">str</span>, cstr);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">char</span>&amp; CString::operator[](<span class="built_in">int</span> index)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">str</span>[index];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">CString operator+ (<span class="keyword">const</span> CString&amp; cstr1, <span class="keyword">const</span> CString&amp; cstr2)&#123;</span><br><span class="line">    CString nstr(<span class="keyword">new</span> <span class="built_in">char</span>[cstr1.length() + cstr2.length() + <span class="number">1</span>]);</span><br><span class="line">    strcpy(nstr.<span class="built_in">str</span>, cstr1.<span class="built_in">str</span>);</span><br><span class="line">    strcat(nstr.<span class="built_in">str</span>, cstr2.<span class="built_in">str</span>);</span><br><span class="line">    <span class="keyword">return</span> nstr;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">CString operator+= (CString&amp; cstr1, <span class="keyword">const</span> CString&amp; cstr2)&#123;</span><br><span class="line">    cstr1 = cstr1 + cstr2;</span><br><span class="line">    <span class="keyword">return</span> cstr1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bool operator== (<span class="keyword">const</span> CString&amp; cstr1, <span class="keyword">const</span> CString&amp; cstr2)&#123;</span><br><span class="line">    <span class="keyword">if</span>(strcmp(cstr1.<span class="built_in">str</span>, cstr2.<span class="built_in">str</span>) == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br><span class="line">ostream&amp; operator&lt;&lt;(ostream&amp; os, <span class="keyword">const</span> CString&amp; cstr)&#123;</span><br><span class="line">    os &lt;&lt; cstr.<span class="built_in">str</span>;</span><br><span class="line">    <span class="keyword">return</span> os;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">int</span> main(<span class="built_in">int</span> argc, <span class="keyword">const</span> <span class="built_in">char</span> * argv[]) &#123;</span><br><span class="line">    CString str1(<span class="string">"Ivy "</span>);</span><br><span class="line">    CString str2(<span class="string">"Loves "</span>);</span><br><span class="line">    CString str3(<span class="string">"C++"</span>);</span><br><span class="line">    CString <span class="built_in">str</span>(<span class="string">""</span>);</span><br><span class="line">    str1 += str2;</span><br><span class="line">    <span class="built_in">str</span> = str1 + str3;</span><br><span class="line">    cout &lt;&lt; <span class="built_in">str</span> &lt;&lt; endl;</span><br><span class="line">    CString str4(<span class="built_in">str</span>);</span><br><span class="line">    cout &lt;&lt; str4 &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="C-Review"><a href="#C-Review" class="headerlink" title="C++ Review"></a>C++ Review</h5><ul>
+<li><p>operator overloading</p>
+<ul>
+<li>one argument : function remember</li>
+<li>two arguments: friend function of the class</li>
+<li>CString operator += (CString&amp; cstr1, const CString&amp; cstr2); // the first argument is not constant, because it will be rewrite.</li>
+<li>ostream&amp; operator &lt;&lt; (ostream&amp; os, const CString&amp; str1)</li>
+</ul>
+</li>
+<li><p>char*</p>
+<ul>
+<li>strcpy(char<em> dst, char</em> src)</li>
+<li>strcat(char<em> dst, char</em> src)</li>
+<li>strlen(char*)</li>
+<li>strcmp(char<em> str1, char</em> str2)</li>
+<li>the last one of a char* is ‘\0’</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/02/16/C-review-priority-queue/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1400,132 +1539,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/01/28/LC-527-Word-Abbreviation/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xueying Han">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Serena Han's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/28/LC-527-Word-Abbreviation/" itemprop="url">LC 527 Word Abbreviation</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-28T01:06:19-05:00">
-                2019-01-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>My LeetCode member has expired again. Just leave the code here and I will check it out later.</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">getAbbre</span><span class="params">(<span class="built_in">string</span> s, <span class="keyword">int</span> i)</span></span>&#123;</span><br><span class="line">            <span class="built_in">string</span> abbre = s.substr(<span class="number">0</span>, i);</span><br><span class="line">            abbre += to_string(s.length()<span class="number">-1</span>-i);</span><br><span class="line">            abbre += s.back();</span><br><span class="line">            <span class="keyword">return</span> abbre;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; wordsAbbreviation(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; dict) &#123;</span><br><span class="line">            <span class="keyword">int</span> size = dict.size();</span><br><span class="line">            <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; prefix(size, <span class="number">1</span>);</span><br><span class="line">            <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; abbre(size, <span class="string">""</span>);</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; i++)&#123;</span><br><span class="line">                abbre[i] = getAbbre(dict[i], <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; i++)&#123;</span><br><span class="line">                <span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">                    <span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt; dupli;</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> j = i+<span class="number">1</span>; j &lt; size; j++)&#123;</span><br><span class="line">                        <span class="keyword">if</span>(abbre[j] == abbre[i])</span><br><span class="line">                            dupli.insert(j);</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">if</span>(dupli.empty())</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    dupli.insert(i);</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">auto</span> it = dupli.begin(); it != dupli.end(); it++)&#123;</span><br><span class="line">                        abbre[*it] = getAbbre(dict[*it], ++prefix[*it]);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> abbre;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1571,7 +1589,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-count">61</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
