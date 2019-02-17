@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="IntervalsOverlapping IntervalsSome diagram problems also finding overlapping parts are actually 2D overlapping-intervals problems.">
+<meta name="description" content="Some tips keep an execution_time in scheduler class to calculate waiting_time for every task. compare job’s running_time and the time_quantum.  12345678910111213141516171819202122232425262728293031323">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Intervals">
-<meta property="og:url" content="https://transformerh.github.io/2019/01/15/Intervals/index.html">
+<meta property="og:title" content="Round Robin Schedular">
+<meta property="og:url" content="https://transformerh.github.io/2019/02/17/Round-Robin-Schedular/index.html">
 <meta property="og:site_name" content="Serena Han&#39;s Blog">
-<meta property="og:description" content="IntervalsOverlapping IntervalsSome diagram problems also finding overlapping parts are actually 2D overlapping-intervals problems.">
+<meta property="og:description" content="Some tips keep an execution_time in scheduler class to calculate waiting_time for every task. compare job’s running_time and the time_quantum.  12345678910111213141516171819202122232425262728293031323">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-01-15T20:29:08.575Z">
+<meta property="og:updated_time" content="2019-02-17T20:28:04.627Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Intervals">
-<meta name="twitter:description" content="IntervalsOverlapping IntervalsSome diagram problems also finding overlapping parts are actually 2D overlapping-intervals problems.">
+<meta name="twitter:title" content="Round Robin Schedular">
+<meta name="twitter:description" content="Some tips keep an execution_time in scheduler class to calculate waiting_time for every task. compare job’s running_time and the time_quantum.  12345678910111213141516171819202122232425262728293031323">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="https://transformerh.github.io/2019/01/15/Intervals/"/>
+  <link rel="canonical" href="https://transformerh.github.io/2019/02/17/Round-Robin-Schedular/"/>
 
 
 
 
 
-  <title>Intervals | Serena Han's Blog</title>
+  <title>Round Robin Schedular | Serena Han's Blog</title>
   
 
 
@@ -272,7 +272,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/01/15/Intervals/">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/02/17/Round-Robin-Schedular/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xueying Han">
@@ -289,7 +289,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Intervals</h1>
+          <h1 class="post-title" itemprop="name headline">Round Robin Schedular</h1>
         
 
         <div class="post-meta">
@@ -301,8 +301,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-15T15:26:51-05:00">
-                2019-01-15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-17T15:24:31-05:00">
+                2019-02-17
               </time>
             
 
@@ -339,7 +339,11 @@
       
 
       
-        <h2 id="Intervals"><a href="#Intervals" class="headerlink" title="Intervals"></a>Intervals</h2><p>Overlapping Intervals<br>Some diagram problems also finding overlapping parts are actually 2D overlapping-intervals problems.</p>
+        <h4 id="Some-tips"><a href="#Some-tips" class="headerlink" title="Some tips"></a>Some tips</h4><ul>
+<li>keep an execution_time in scheduler class to calculate waiting_time for every task.</li>
+<li>compare job’s running_time and the time_quantum.</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  main.cpp</span></span><br><span class="line"><span class="comment">//  RoundRobinScheduler</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  Created by 韩雪滢 on 2019/2/13.</span></span><br><span class="line"><span class="comment">//  Copyright © 2019 韩雪滢. All rights reserved.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;deque&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Job</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> running_time;</span><br><span class="line">    <span class="keyword">int</span> stat_waiting_time;</span><br><span class="line">    <span class="keyword">int</span> arrival_time;</span><br><span class="line">    <span class="keyword">int</span> id;</span><br><span class="line">    Job(<span class="keyword">int</span> jid, <span class="keyword">int</span> rtime, <span class="keyword">int</span> arrtime)&#123;</span><br><span class="line">        running_time = rtime;</span><br><span class="line">        arrival_time = arrtime;</span><br><span class="line">        stat_waiting_time = <span class="number">0</span>;</span><br><span class="line">        id = jid;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Schedulor</span> &#123;</span></span><br><span class="line">    <span class="built_in">deque</span>&lt;Job&gt; run_queue;</span><br><span class="line">    <span class="built_in">deque</span>&lt;Job&gt; done_queue;</span><br><span class="line">    <span class="keyword">int</span> execution_time;</span><br><span class="line">    <span class="keyword">int</span> time_quantum;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Schedulor(<span class="keyword">int</span> quantum, <span class="built_in">deque</span>&lt;Job&gt; rq)&#123;</span><br><span class="line">        time_quantum = quantum;</span><br><span class="line">        execution_time = <span class="number">0</span>;</span><br><span class="line">        run_queue = rq;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">updateRunningQue</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">while</span>(!run_queue.empty())&#123;</span><br><span class="line">            Job front = run_queue.front();</span><br><span class="line">            front.stat_waiting_time += execution_time - front.arrival_time;</span><br><span class="line">            run_queue.pop_front();</span><br><span class="line">            execution_time += front.running_time &gt;= time_quantum ? time_quantum : front.running_time;</span><br><span class="line">            <span class="keyword">if</span>(front.running_time &gt;= time_quantum)&#123;</span><br><span class="line">                execution_time += time_quantum;</span><br><span class="line">                front.running_time -= time_quantum;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                execution_time += front.running_time;</span><br><span class="line">                front.running_time = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(front.running_time == <span class="number">0</span>)</span><br><span class="line">                done_queue.push_back(front);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                run_queue.push_back(front);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">output</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"done_queue"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> it = done_queue.begin(); it != done_queue.end(); it++)</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; it-&gt;id &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span> </span>&#123;</span><br><span class="line">    <span class="built_in">deque</span>&lt;Job&gt; rq;</span><br><span class="line">    rq.push_back(Job(<span class="number">1</span>, <span class="number">10</span>, <span class="number">0</span>));</span><br><span class="line">    rq.push_back(Job(<span class="number">2</span>, <span class="number">4</span>, <span class="number">1</span>));</span><br><span class="line">    rq.push_back(Job(<span class="number">3</span>, <span class="number">5</span>, <span class="number">2</span>));</span><br><span class="line">    rq.push_back(Job(<span class="number">4</span>, <span class="number">3</span>, <span class="number">3</span>));</span><br><span class="line"></span><br><span class="line">    <span class="function">Schedulor <span class="title">sch</span><span class="params">(<span class="number">3</span>, rq)</span></span>;</span><br><span class="line">    sch.updateRunningQue();</span><br><span class="line">    sch.output();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -364,8 +368,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/15/Majority-Voting-Algorithm/" rel="next" title="Majority Voting Algorithm">
-                <i class="fa fa-chevron-left"></i> Majority Voting Algorithm
+              <a href="/2019/02/17/C-STL-string/" rel="next" title="C++ -- STL -- string">
+                <i class="fa fa-chevron-left"></i> C++ -- STL -- string
               </a>
             
           </div>
@@ -373,10 +377,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/01/27/Google-LC911-Online-Election/" rel="prev" title="LC911. Online Election">
-                LC911. Online Election <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -508,7 +508,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Intervals"><span class="nav-number">1.</span> <span class="nav-text">Intervals</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Some-tips"><span class="nav-number">1.</span> <span class="nav-text">Some tips</span></a></li></ol></div>
             
 
           </div>
