@@ -269,6 +269,149 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/01/01/Union-Find/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xueying Han">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Serena Han's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/01/Union-Find/" itemprop="url">Union Find</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-01T17:48:00-05:00">
+                2019-01-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="Common"><a href="#Common" class="headerlink" title="Common"></a>Common</h3><hr>
+<h3 id="LC-947-Most-Stones-Removed-with-Same-Row-or-Column"><a href="#LC-947-Most-Stones-Removed-with-Same-Row-or-Column" class="headerlink" title="LC 947. Most Stones Removed with Same Row or Column"></a>LC 947. Most Stones Removed with Same Row or Column</h3><p>On a 2D plane, we place stones at some integer coordinate points.  Each coordinate point may have at most one stone.</p>
+<p>Now, a move consists of removing a stone that shares a column or row with another stone on the grid.</p>
+<p>What is the largest possible number of moves we can make?</p>
+<p>Example 1:</p>
+<p>Input: stones = [ [0,0],[0,1],[1,0],[1,2],[2,1],[2,2]]<br>Output: 5<br>Example 2:</p>
+<p>Input: stones = [ [0,0],[0,2],[1,1],[2,0],[2,2]]<br>Output: 3<br>Example 3:</p>
+<p>Input: stones = [ [0,0]]<br>Output: 0</p>
+<hr>
+<p>If we connect all stones with same column or row as an island, then this problem wants us to remove stones until there is only one stone left in this union.<br>So in the result, #of islands = #of left stones.<br>And the result = #of all stones - #of islands.</p>
+<p>=&gt;</p>
+<p>This problem can be reversed to count the number of islands.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">removeStones</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; stones)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; stones.size(); i++)&#123;</span><br><span class="line">            uni(stones[i][<span class="number">0</span>], ~stones[i][<span class="number">1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> stones.size()-island;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; fmap;</span><br><span class="line">    <span class="keyword">int</span> island = <span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(fmap.find(x) == fmap.end())&#123;</span><br><span class="line">            fmap[x] = x;</span><br><span class="line">            island++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(fmap[x] != x)</span><br><span class="line">            fmap[x] = find(fmap[x]);</span><br><span class="line">        <span class="keyword">return</span> fmap[x];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">uni</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> xroot = find(x);</span><br><span class="line">        <span class="keyword">int</span> yroot = find(y);</span><br><span class="line">        <span class="keyword">if</span>(xroot != yroot)&#123;</span><br><span class="line">            fmap[xroot] = yroot;</span><br><span class="line">            island--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="LC-959-Regions-Cut-By-Slashes"><a href="#LC-959-Regions-Cut-By-Slashes" class="headerlink" title="LC 959. Regions Cut By Slashes"></a>LC 959. Regions Cut By Slashes</h3><p>not a typical problem but an interesting one.<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; regions;</span><br><span class="line">    <span class="keyword">int</span> islands, n;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">regionsBySlashes</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; grid)</span> </span>&#123;</span><br><span class="line">        n = grid.size();</span><br><span class="line">        islands = n*n*<span class="number">4</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n*n*<span class="number">4</span>; i++)&#123;</span><br><span class="line">            regions.push_back(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(i &gt; <span class="number">0</span>)</span><br><span class="line">                    uni(g(i<span class="number">-1</span>, j, <span class="number">2</span>), g(i, j, <span class="number">0</span>));</span><br><span class="line">                <span class="keyword">if</span>(j &gt; <span class="number">0</span>)</span><br><span class="line">                    uni(g(i, j<span class="number">-1</span>, <span class="number">1</span>), g(i, j, <span class="number">3</span>));</span><br><span class="line">                 <span class="keyword">if</span>(grid[i][j] != <span class="string">'/'</span>)&#123;</span><br><span class="line">                    uni(g(i, j, <span class="number">0</span>), g(i, j, <span class="number">1</span>));</span><br><span class="line">                    uni(g(i, j, <span class="number">2</span>), g(i, j, <span class="number">3</span>));</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(grid[i][j] != <span class="string">'\\'</span>)&#123;</span><br><span class="line">                    uni(g(i, j, <span class="number">0</span>), g(i, j, <span class="number">3</span>));</span><br><span class="line">                    uni(g(i, j, <span class="number">2</span>), g(i, j, <span class="number">1</span>));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> islands;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(x != regions[x])</span><br><span class="line">            regions[x] = find(regions[x]);</span><br><span class="line">        <span class="keyword">return</span> regions[x];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">uni</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> xroot = find(x);</span><br><span class="line">        <span class="keyword">int</span> yroot = find(y);</span><br><span class="line">        <span class="keyword">if</span>(xroot != yroot)&#123;</span><br><span class="line">            regions[xroot] = yroot;</span><br><span class="line">            islands--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">g</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j, <span class="keyword">int</span> k)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (i*n + j) * <span class="number">4</span> + k;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h3 id="323-Number-of-Connected-Components-in-an-Undirected-Graph"><a href="#323-Number-of-Connected-Components-in-an-Undirected-Graph" class="headerlink" title="323. Number of Connected Components in an Undirected Graph"></a>323. Number of Connected Components in an Undirected Graph</h3><p>Given n nodes labeled from 0 to n - 1 and a list of undirected edges (each edge is a pair of nodes), write a function to find the number of connected components in an undirected graph.</p>
+<p>Example 1:</p>
+<p>Input: n = 5 and edges = [[0, 1], [1, 2], [3, 4]]</p>
+<pre><code>0          3
+|          |
+1 --- 2    4
+</code></pre><p>Output: 2</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; roots)</span></span>&#123;</span><br><span class="line"> <span class="keyword">if</span>(x != roots[x])</span><br><span class="line">     roots[x] = find(roots[x], roots);</span><br><span class="line">  <span class="keyword">return</span> roots[x];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">countComponents</span><span class="params">(<span class="keyword">int</span> n, <span class="built_in">vector</span>&lt;pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt;&amp; edges)</span> </span>&#123;</span><br><span class="line">  <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; roots(n, <span class="number">0</span>);</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">      roots[i] = i;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">auto</span> p : edges)&#123;</span><br><span class="line">      <span class="keyword">int</span> sroot = find(p.first, roots);</span><br><span class="line">      <span class="keyword">int</span> eroot = find(p.second, roots);</span><br><span class="line">      <span class="keyword">if</span>(sroot != eroot)&#123;</span><br><span class="line">          roots[sroot] = eroot;</span><br><span class="line">          n--;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> n;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>### </p>
+<p>index group</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/01/01/Two-pointers-LC-443-String-Compression/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1412,133 +1555,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/12/27/PG-Connect-n-ropes-with-minimum-cost/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xueying Han">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Serena Han's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/27/PG-Connect-n-ropes-with-minimum-cost/" itemprop="url">PG-Connect n ropes with minimum cost</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-27T23:07:15-05:00">
-                2018-12-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>There are given n ropes of different lengths, we need to connect these ropes into one rope. The cost to connect two ropes is equal to sum of their lengths. We need to connect the ropes with minimum cost.</p>
-<p>For example if we are given 4 ropes of lengths 4, 3, 2 and 6. We can connect the ropes in following ways.<br>1) First connect ropes of lengths 2 and 3. Now we have three ropes of lengths 4, 6 and 5.<br>2) Now connect ropes of lengths 4 and 5. Now we have two ropes of lengths 6 and 9.<br>3) Finally connect the two ropes and all ropes have connected.</p>
-<p>Total cost for connecting all ropes is 5 + 9 + 15 = 29.</p>
-<hr>
-<p>We can see that the results of previous picked ropes will include more than once in the whole process.<br>So we need to use greedy algorithm by picked smallest ropes every time.<br>And the result needs to be added into current array.<br>Then choose two smallest numbers again.</p>
-<p>So we need to build a min heap.</p>
-<p>The easiest way to build a min heap by C++ and java is using priority queue.</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> minCost(vector&lt;<span class="keyword">int</span>&gt;&amp; ropes)&#123;</span><br><span class="line">    priority_queue&lt;<span class="keyword">int</span>, vector&lt;<span class="keyword">int</span>&gt;, greater&lt;<span class="keyword">int</span>&gt;&gt; pq;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> r : ropes)</span><br><span class="line">        pq.<span class="keyword">push</span>(r);</span><br><span class="line">    <span class="keyword">while</span>(pq.<span class="keyword">size</span>() &gt; <span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">int</span> len1 = pq.top(); pq.<span class="keyword">pop</span>();</span><br><span class="line">        <span class="keyword">int</span> len2 = pq.top(); pq.<span class="keyword">pop</span>();</span><br><span class="line">        res += len1 + len2;</span><br><span class="line">        pq.<span class="keyword">push</span>(len1+len2);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1589,7 +1605,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">59</span>
+                  <span class="site-state-item-count">60</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
