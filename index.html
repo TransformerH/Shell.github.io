@@ -269,6 +269,187 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/02/18/C-review-template/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xueying Han">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Serena Han's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/18/C-review-template/" itemprop="url">C++ - review - template</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-18T00:24:11-05:00">
+                2019-02-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="class-templates"><a href="#class-templates" class="headerlink" title="class templates"></a>class templates</h3><ul>
+<li><p>template arguments</p>
+<ul>
+<li><p>one argument</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">template</span>&lt;<span class="selector-tag">class</span> <span class="selector-tag">T</span>&gt;</span><br><span class="line"><span class="selector-tag">class</span> <span class="selector-tag">ClassName</span>&#123;</span><br><span class="line"><span class="attribute">private</span>:</span><br><span class="line">  T pa;</span><br><span class="line"><span class="attribute">public</span>:</span><br><span class="line">  <span class="built_in">ClassName</span>(T a): <span class="built_in">pa</span>(a)&#123;&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>multiple arguments</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">template</span>&lt;<span class="keyword">class</span> <span class="type">T</span>, <span class="keyword">class</span> <span class="type">U</span>&gt;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="type">ClassName</span>&#123;</span></span><br><span class="line"><span class="class">private:</span></span><br><span class="line"><span class="class">  <span class="type">T</span> a;</span></span><br><span class="line"><span class="class">  <span class="type">U</span> b;</span></span><br><span class="line"><span class="class">public:</span></span><br><span class="line"><span class="class">  <span class="type">ClassName</span>(<span class="type">T</span> <span class="title">pa</span>, <span class="type">U</span> <span class="title">pb</span>): a(<span class="title">pa</span>), b(<span class="title">pb</span>)&#123;&#125;</span></span><br><span class="line"><span class="class">&#125;;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>default-type argument</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>, <span class="title">class</span> <span class="title">Alloc</span> = <span class="title">std</span>:</span>:allocator&lt;T&gt;&gt;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ClassName</span>&#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">  T a;</span><br><span class="line">  Alloc _alloc;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  ClassName(T pa): a(pa)&#123;&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>template specialization</p>
+<ul>
+<li>when specialize the function, template declaration should be <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> </span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>#include <iostream><br>using namespace std;<br>template<class t=""><br>class TemplateClass{<br>public:</class></iostream></p>
+<pre><code>static int count;
+TemplateClass(){count++;}
+void output(){
+    cout &lt;&lt; count &lt;&lt; endl;
+}
+</code></pre><p>};<br>template<class t=""><br>int TemplateClass<t>::count = 0;</t></class></p>
+<p>template&lt;&gt;<br>void TemplateClass<int>::output(){</int></p>
+<pre><code>cout &lt;&lt; &quot;template specialize int: &quot; &lt;&lt; count &lt;&lt; endl;
+</code></pre><p>}</p>
+<p>template&lt;&gt;<br>void TemplateClass<double>::output(){</double></p>
+<pre><code>cout &lt;&lt; &quot;template specialize double: &quot; &lt;&lt; count &lt;&lt; endl;
+</code></pre><p>}<br>int main(int argc, const char * argv[]) {</p>
+<pre><code>TemplateClass&lt;int&gt; tem1;
+tem1.output();
+TemplateClass&lt;int&gt; tem2;
+tem2.output();
+TemplateClass&lt;double&gt; tem3;
+tem3.output();
+TemplateClass&lt;double&gt; tem4;
+tem4.output();
+return 0;
+</code></pre><p>}</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">* template <span class="keyword">and</span> static variables</span><br><span class="line">  * initialize static class variables outside the class</span><br><span class="line">  * instances with different types will hold their own static variables</span><br><span class="line">  * instances with same<span class="built_in"> type </span>will share one static variable</span><br></pre></td></tr></table></figure>
+<p>#include <iostream><br>using namespace std;<br>template<class t=""><br>class TemplateClass{<br>public:</class></iostream></p>
+<pre><code>static int count;
+TemplateClass(){count++;}
+void output(){
+    cout &lt;&lt; count &lt;&lt; endl;
+}
+</code></pre><p>};<br>template<class t=""><br>int TemplateClass<t>::count = 0;</t></class></p>
+<p>int main(int argc, const char * argv[]) {</p>
+<pre><code>TemplateClass&lt;int&gt; tem1;
+tem1.output();
+TemplateClass&lt;int&gt; tem2;
+tem2.output();
+TemplateClass&lt;double&gt; tem3;
+tem3.output();
+TemplateClass&lt;double&gt; tem4;
+tem4.output();
+return 0;
+</code></pre><p>}<br>//output is 1 2 1 2<br><code>`</code></p>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/02/17/Round-Robin-Schedular/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1401,136 +1582,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/01/28/LC-166-Fraction-to-Recurring-Decimal/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xueying Han">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Serena Han's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/28/LC-166-Fraction-to-Recurring-Decimal/" itemprop="url">LC 166. Fraction to Recurring Decimal</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-28T14:49:06-05:00">
-                2019-01-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h4><p>Given two integers representing the numerator and denominator of a fraction, return the fraction in string format.</p>
-<p>If the fractional part is repeating, enclose the repeating part in parentheses.</p>
-<p>Example 1:</p>
-<p>Input: numerator = 1, denominator = 2<br>Output: “0.5”<br>Example 2:</p>
-<p>Input: numerator = 2, denominator = 1<br>Output: “2”<br>Example 3:</p>
-<p>Input: numerator = 2, denominator = 3<br>Output: “0.(6)”</p>
-<hr>
-<p>It’s a math problem, and why is it a medium?</p>
-<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    <span class="built_in">string</span> fractionToDecimal(int numerator, int denominator) &#123;</span><br><span class="line">        <span class="built_in">map</span>&lt;int, int&gt; ndMap;</span><br><span class="line">        <span class="built_in">string</span> res = <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">if</span>(numerator &lt; <span class="number">0</span> ^ denominator &lt; <span class="number">0</span>)</span><br><span class="line">          res += <span class="string">"-"</span>;</span><br><span class="line">        <span class="keyword">if</span>(numerator == <span class="number">0</span>)</span><br><span class="line">            res = <span class="string">""</span>;</span><br><span class="line">        long <span class="built_in">num</span> = <span class="built_in">abs</span>((long)numerator);</span><br><span class="line">        long den = <span class="built_in">abs</span>((long)denominator);</span><br><span class="line">        long <span class="built_in">rem</span> = <span class="built_in">num</span> <span class="symbol">%</span> den;</span><br><span class="line">        <span class="built_in">string</span> decRes = <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">while</span>((<span class="built_in">rem</span> != <span class="number">0</span>) &amp;&amp; ndMap.find(<span class="built_in">rem</span>) == ndMap.end())&#123;</span><br><span class="line">            ndMap[<span class="built_in">rem</span>] = decRes.<span class="built_in">length</span>();</span><br><span class="line">            <span class="built_in">rem</span> *= <span class="number">10</span>;</span><br><span class="line">            decRes += to_string(<span class="built_in">rem</span> / den);</span><br><span class="line">            <span class="built_in">rem</span> <span class="symbol">%</span>= den;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; decRes &lt;&lt; endl;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">rem</span> == <span class="number">0</span>)&#123;</span><br><span class="line">            res += <span class="built_in">num</span> <span class="symbol">%</span> den == <span class="number">0</span> ?  to_string(<span class="built_in">num</span> / den) : to_string(<span class="built_in">num</span> / den) + <span class="string">"."</span> + decRes;</span><br><span class="line">        &#125;<span class="keyword">else</span></span><br><span class="line">            res += to_string(<span class="built_in">num</span> / den) + <span class="string">"."</span> + decRes.substr(<span class="number">0</span>, ndMap[<span class="built_in">rem</span>]) + <span class="string">"("</span> + decRes.substr(ndMap[<span class="built_in">rem</span>]) + <span class="string">")"</span>;</span><br><span class="line">        <span class="built_in">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<hr>
-<h4 id="Original-algorithm"><a href="#Original-algorithm" class="headerlink" title="Original algorithm"></a>Original algorithm</h4><figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span> fractionToDecimal(int numr, int denr)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">string</span> res; // Initialize result</span><br><span class="line"></span><br><span class="line">            // Create a <span class="built_in">map</span> to store already seen remainders</span><br><span class="line">            // <span class="built_in">remainder</span> <span class="built_in">is</span> used as <span class="built_in">key</span> <span class="keyword">and</span> its <span class="built_in">position</span> <span class="keyword">in</span></span><br><span class="line">            // result <span class="built_in">is</span> stored as value. Note that we need</span><br><span class="line">            // <span class="built_in">position</span> <span class="keyword">for</span> cases like <span class="number">1</span>/<span class="number">6</span>.  In this case,</span><br><span class="line">            // the recurring sequence doesn't start from <span class="built_in">first</span></span><br><span class="line">            // <span class="built_in">remainder</span>.</span><br><span class="line">            <span class="built_in">map</span>&lt;int, int&gt; mp;</span><br><span class="line">            mp.clear();</span><br><span class="line"></span><br><span class="line">            // Find <span class="built_in">first</span> <span class="built_in">remainder</span></span><br><span class="line">            int <span class="built_in">rem</span> = numr%denr;</span><br><span class="line"></span><br><span class="line">            // Keep finding <span class="built_in">remainder</span> until either <span class="built_in">remainder</span></span><br><span class="line">            // becomes <span class="number">0</span> <span class="keyword">or</span> repeats</span><br><span class="line">            <span class="keyword">while</span> ( (<span class="built_in">rem</span>!=<span class="number">0</span>) &amp;&amp; (mp.find(<span class="built_in">rem</span>) == mp.end()) )</span><br><span class="line">            &#123;</span><br><span class="line">                // Store this <span class="built_in">remainder</span></span><br><span class="line">                mp[<span class="built_in">rem</span>] = res.<span class="built_in">length</span>();</span><br><span class="line"></span><br><span class="line">                // Multiply <span class="built_in">remainder</span> with <span class="number">10</span></span><br><span class="line">                <span class="built_in">rem</span> = <span class="built_in">rem</span>*<span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">                // Append <span class="built_in">rem</span> / denr to result</span><br><span class="line">                int res_part = <span class="built_in">rem</span> / denr;</span><br><span class="line">                res += to_string(res_part);</span><br><span class="line"></span><br><span class="line">                // Update <span class="built_in">remainder</span></span><br><span class="line">                <span class="built_in">rem</span> = <span class="built_in">rem</span> <span class="symbol">%</span> denr;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="built_in">return</span> (<span class="built_in">rem</span> == <span class="number">0</span>)? <span class="string">""</span> : res.substr(mp[<span class="built_in">rem</span>]);</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1581,7 +1632,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">62</span>
+                  <span class="site-state-item-count">63</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

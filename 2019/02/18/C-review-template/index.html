@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="Given an array of characters, compress it in-place. The length after compression must always be smaller than or equal to the original array. Every element of the array should be a character (not int)">
+<meta name="description" content="class templates template arguments  one argument 1234567template&amp;lt;class T&amp;gt;class ClassName&amp;#123;private:  T pa;public:  ClassName(T a): pa(a)&amp;#123;&amp;#125;&amp;#125;;  multiple arguments 12345678templat">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Two pointers - LC 443. String Compression">
-<meta property="og:url" content="https://transformerh.github.io/2019/01/01/Two-pointers-LC-443-String-Compression/index.html">
+<meta property="og:title" content="C++ - review - template">
+<meta property="og:url" content="https://transformerh.github.io/2019/02/18/C-review-template/index.html">
 <meta property="og:site_name" content="Serena Han&#39;s Blog">
-<meta property="og:description" content="Given an array of characters, compress it in-place. The length after compression must always be smaller than or equal to the original array. Every element of the array should be a character (not int)">
+<meta property="og:description" content="class templates template arguments  one argument 1234567template&amp;lt;class T&amp;gt;class ClassName&amp;#123;private:  T pa;public:  ClassName(T a): pa(a)&amp;#123;&amp;#125;&amp;#125;;  multiple arguments 12345678templat">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-01-01T05:53:59.564Z">
+<meta property="og:updated_time" content="2019-02-18T06:17:43.256Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Two pointers - LC 443. String Compression">
-<meta name="twitter:description" content="Given an array of characters, compress it in-place. The length after compression must always be smaller than or equal to the original array. Every element of the array should be a character (not int)">
+<meta name="twitter:title" content="C++ - review - template">
+<meta name="twitter:description" content="class templates template arguments  one argument 1234567template&amp;lt;class T&amp;gt;class ClassName&amp;#123;private:  T pa;public:  ClassName(T a): pa(a)&amp;#123;&amp;#125;&amp;#125;;  multiple arguments 12345678templat">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="https://transformerh.github.io/2019/01/01/Two-pointers-LC-443-String-Compression/"/>
+  <link rel="canonical" href="https://transformerh.github.io/2019/02/18/C-review-template/"/>
 
 
 
 
 
-  <title>Two pointers - LC 443. String Compression | Serena Han's Blog</title>
+  <title>C++ - review - template | Serena Han's Blog</title>
   
 
 
@@ -272,7 +272,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/01/01/Two-pointers-LC-443-String-Compression/">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/02/18/C-review-template/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xueying Han">
@@ -289,7 +289,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Two pointers - LC 443. String Compression</h1>
+          <h1 class="post-title" itemprop="name headline">C++ - review - template</h1>
         
 
         <div class="post-meta">
@@ -301,8 +301,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-01T00:52:53-05:00">
-                2019-01-01
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-18T00:24:11-05:00">
+                2019-02-18
               </time>
             
 
@@ -339,19 +339,68 @@
       
 
       
-        <p>Given an array of characters, compress it in-place.</p>
-<p>The length after compression must always be smaller than or equal to the original array.</p>
-<p>Every element of the array should be a character (not int) of length 1.</p>
-<p>After you are done modifying the input array in-place, return the new length of the array.</p>
-<p>Follow up:<br>Could you solve it using only O(1) extra space?</p>
-<p>Example 1:</p>
-<p>Input:<br>[“a”,”a”,”b”,”b”,”c”,”c”,”c”]</p>
-<p>Output:<br>Return 6, and the first 6 characters of the input array should be: [“a”,”2”,”b”,”2”,”c”,”3”]</p>
-<p>Explanation:<br>“aa” is replaced by “a2”. “bb” is replaced by “b2”. “ccc” is replaced by “c3”.</p>
-<p>Example 2:</p>
-<p>Input:<br>[“a”]</p>
-<hr>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> compress(vector&lt;<span class="keyword">char</span>&gt;&amp; chars) &#123;</span><br><span class="line">      <span class="keyword">int</span> ind = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">int</span> resInd = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">while</span>(ind &lt; chars.<span class="keyword">size</span>())&#123;</span><br><span class="line">          <span class="keyword">char</span> curchar = chars[ind];</span><br><span class="line">          <span class="keyword">int</span> <span class="keyword">count</span> = <span class="number">0</span>;</span><br><span class="line">          <span class="keyword">while</span>(ind &lt; chars.<span class="keyword">size</span>() &amp;&amp; chars[ind] == curchar)&#123;</span><br><span class="line">              ind++;</span><br><span class="line">              <span class="keyword">count</span>++;</span><br><span class="line">          &#125;</span><br><span class="line">          chars[resInd++] = curchar;</span><br><span class="line">          <span class="keyword">if</span>(<span class="keyword">count</span> &gt; <span class="number">1</span>)&#123;</span><br><span class="line">              string cs = to_string(<span class="keyword">count</span>);</span><br><span class="line">              <span class="keyword">for</span>(<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; cs.length(); k++)</span><br><span class="line">                  chars[resInd++] = cs[k];</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">return</span> resInd;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+        <h3 id="class-templates"><a href="#class-templates" class="headerlink" title="class templates"></a>class templates</h3><ul>
+<li><p>template arguments</p>
+<ul>
+<li><p>one argument</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">template</span>&lt;<span class="selector-tag">class</span> <span class="selector-tag">T</span>&gt;</span><br><span class="line"><span class="selector-tag">class</span> <span class="selector-tag">ClassName</span>&#123;</span><br><span class="line"><span class="attribute">private</span>:</span><br><span class="line">  T pa;</span><br><span class="line"><span class="attribute">public</span>:</span><br><span class="line">  <span class="built_in">ClassName</span>(T a): <span class="built_in">pa</span>(a)&#123;&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>multiple arguments</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">template</span>&lt;<span class="keyword">class</span> <span class="type">T</span>, <span class="keyword">class</span> <span class="type">U</span>&gt;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="type">ClassName</span>&#123;</span></span><br><span class="line"><span class="class">private:</span></span><br><span class="line"><span class="class">  <span class="type">T</span> a;</span></span><br><span class="line"><span class="class">  <span class="type">U</span> b;</span></span><br><span class="line"><span class="class">public:</span></span><br><span class="line"><span class="class">  <span class="type">ClassName</span>(<span class="type">T</span> <span class="title">pa</span>, <span class="type">U</span> <span class="title">pb</span>): a(<span class="title">pa</span>), b(<span class="title">pb</span>)&#123;&#125;</span></span><br><span class="line"><span class="class">&#125;;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>default-type argument</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>, <span class="title">class</span> <span class="title">Alloc</span> = <span class="title">std</span>:</span>:allocator&lt;T&gt;&gt;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ClassName</span>&#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">  T a;</span><br><span class="line">  Alloc _alloc;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  ClassName(T pa): a(pa)&#123;&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>template specialization</p>
+<ul>
+<li>when specialize the function, template declaration should be <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> </span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>#include <iostream><br>using namespace std;<br>template<class t=""><br>class TemplateClass{<br>public:</class></iostream></p>
+<pre><code>static int count;
+TemplateClass(){count++;}
+void output(){
+    cout &lt;&lt; count &lt;&lt; endl;
+}
+</code></pre><p>};<br>template<class t=""><br>int TemplateClass<t>::count = 0;</t></class></p>
+<p>template&lt;&gt;<br>void TemplateClass<int>::output(){</int></p>
+<pre><code>cout &lt;&lt; &quot;template specialize int: &quot; &lt;&lt; count &lt;&lt; endl;
+</code></pre><p>}</p>
+<p>template&lt;&gt;<br>void TemplateClass<double>::output(){</double></p>
+<pre><code>cout &lt;&lt; &quot;template specialize double: &quot; &lt;&lt; count &lt;&lt; endl;
+</code></pre><p>}<br>int main(int argc, const char * argv[]) {</p>
+<pre><code>TemplateClass&lt;int&gt; tem1;
+tem1.output();
+TemplateClass&lt;int&gt; tem2;
+tem2.output();
+TemplateClass&lt;double&gt; tem3;
+tem3.output();
+TemplateClass&lt;double&gt; tem4;
+tem4.output();
+return 0;
+</code></pre><p>}</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">* template <span class="keyword">and</span> static variables</span><br><span class="line">  * initialize static class variables outside the class</span><br><span class="line">  * instances with different types will hold their own static variables</span><br><span class="line">  * instances with same<span class="built_in"> type </span>will share one static variable</span><br></pre></td></tr></table></figure>
+<p>#include <iostream><br>using namespace std;<br>template<class t=""><br>class TemplateClass{<br>public:</class></iostream></p>
+<pre><code>static int count;
+TemplateClass(){count++;}
+void output(){
+    cout &lt;&lt; count &lt;&lt; endl;
+}
+</code></pre><p>};<br>template<class t=""><br>int TemplateClass<t>::count = 0;</t></class></p>
+<p>int main(int argc, const char * argv[]) {</p>
+<pre><code>TemplateClass&lt;int&gt; tem1;
+tem1.output();
+TemplateClass&lt;int&gt; tem2;
+tem2.output();
+TemplateClass&lt;double&gt; tem3;
+tem3.output();
+TemplateClass&lt;double&gt; tem4;
+tem4.output();
+return 0;
+</code></pre><p>}<br>//output is 1 2 1 2<br><code>`</code></p>
+</li>
+</ul>
 
       
     </div>
@@ -376,8 +425,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/31/DP-LC-931-Minimum-Falling-Path-Sum/" rel="next" title="DP-LC 931 Minimum Falling Path Sum">
-                <i class="fa fa-chevron-left"></i> DP-LC 931 Minimum Falling Path Sum
+              <a href="/2019/02/17/Round-Robin-Schedular/" rel="next" title="Round Robin Schedular">
+                <i class="fa fa-chevron-left"></i> Round Robin Schedular
               </a>
             
           </div>
@@ -385,10 +434,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/01/01/Union-Find/" rel="prev" title="Union Find">
-                Union Find <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -440,8 +485,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -501,6 +555,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#class-templates"><span class="nav-number">1.</span> <span class="nav-text">class templates</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
