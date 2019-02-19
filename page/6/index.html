@@ -269,6 +269,169 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/05/30/Dynamic-Programming/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xueying Han">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Serena Han's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/30/Dynamic-Programming/" itemprop="url">Dynamic Programming</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-30T14:00:24-04:00">
+                2018-05-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li>Classification1</li>
+</ul>
+<ul>
+<li>One-dimensional DP problems</li>
+</ul>
+<ul>
+<li><p>Two-dimensional DP problems</p>
+<ul>
+<li><p>Illustration of dp[i][j]</p>
+<blockquote>
+<p>i, j represent different object A and object B.<br>The value of dp[i][j] represents the cost when A[i] and B[j].</p>
+</blockquote>
+</li>
+<li><p>Equations:</p>
+<ul>
+<li>when the value doesn’t change :<br>dp[i][j] = dp[i-1][j-1]</li>
+<li>when the value changes :<br>dp[i][j] = dp[i-1][j] + A[i-1] or dp[i][j-1] + B[j-1]</li>
+</ul>
+</li>
+<li>LeetCode</li>
+</ul>
+</li>
+</ul>
+<p><a href="https://leetcode.com/problems/minimum-ascii-delete-sum-for-two-strings/description/" target="_blank" rel="noopener">712. Minimum ASCII Delete Sum for Two Strings</a><br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">int minimumDeleteSum(<span class="type">string</span> s1, <span class="type">string</span> s2) &#123;</span><br><span class="line">    int m = (int)s1.size();</span><br><span class="line">    int n = (int)s2.size();</span><br><span class="line">    <span class="type">vector</span>&lt;<span class="type">vector</span>&lt;int&gt;&gt; dp(m+<span class="number">1</span>, <span class="type">vector</span>&lt;int&gt;(n+<span class="number">1</span>, <span class="number">0</span>));</span><br><span class="line">    dp[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    for(int j = <span class="number">1</span>; j &lt;= n; j++)</span><br><span class="line">        dp[<span class="number">0</span>][j] = dp[<span class="number">0</span>][j<span class="number">-1</span>] + s2[j<span class="number">-1</span>];</span><br><span class="line">    for(int i = <span class="number">1</span>; i &lt;= m; i++)&#123;</span><br><span class="line">        dp[i][<span class="number">0</span>] = dp[i<span class="number">-1</span>][<span class="number">0</span>] + s1[i<span class="number">-1</span>];</span><br><span class="line">        for(int j = <span class="number">1</span>; j &lt;= n; j++)&#123;</span><br><span class="line">            if(s1[i<span class="number">-1</span>] == s2[j<span class="number">-1</span>])</span><br><span class="line">                dp[i][j] = dp[i<span class="number">-1</span>][j<span class="number">-1</span>];</span><br><span class="line">            else</span><br><span class="line">                dp[i][j] = min(dp[i<span class="number">-1</span>][j]+s1[i<span class="number">-1</span>], dp[i][j<span class="number">-1</span>]+s2[j<span class="number">-1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return dp[m][n];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><a href="https://leetcode.com/problems/predict-the-winner/description/" target="_blank" rel="noopener">486. Predict the Winner</a><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">judge</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums,  <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; dp, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span></span>&#123;</span><br><span class="line">   <span class="keyword">if</span>(i &gt; j)</span><br><span class="line">       <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">   <span class="keyword">if</span>(dp[i][j] != <span class="number">-1</span>)</span><br><span class="line">       <span class="keyword">return</span> dp[i][j];</span><br><span class="line"></span><br><span class="line">   <span class="keyword">int</span> left = nums[i] + min(judge(nums, dp, i+<span class="number">1</span>, j<span class="number">-1</span>), judge(nums, dp, i+<span class="number">2</span>, j));</span><br><span class="line">   <span class="keyword">int</span> right = nums[j] + min(judge(nums, dp, i+<span class="number">1</span>, j<span class="number">-1</span>), judge(nums, dp, i, j<span class="number">-2</span>));</span><br><span class="line"></span><br><span class="line">   <span class="keyword">return</span> max(left, right);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">PredictTheWinner</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">   <span class="keyword">int</span> n = (<span class="keyword">int</span>)nums.size();</span><br><span class="line">   <span class="keyword">if</span>(n % <span class="number">2</span> == <span class="number">0</span>)</span><br><span class="line">       <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">   <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; dp(n, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(n, <span class="number">-1</span>));</span><br><span class="line">   <span class="keyword">int</span> sum = accumulate(nums.begin(), nums.end(), <span class="number">0</span>);</span><br><span class="line">   <span class="keyword">int</span> player1 = judge(nums, dp, <span class="number">0</span>, n<span class="number">-1</span>);</span><br><span class="line"></span><br><span class="line">   <span class="keyword">return</span> player1 &gt;= (sum - player1)? <span class="literal">true</span> : <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Now, let’s analyze LeetCode486 which is very interesting.<br>Assumption: the current arrange of the list is nums(i, j)<br>So, the player1 can choose nums[i] or nums[j]. The choice bases on the nums[i] or nums[j] and the left numbers.<br>Since we assume that the player2 is clever enough. If we want to win this game, we should prepare for the worst. That is player2 can get the maximum, so player1 can just get the minimum.<br>The equations in this situation are</p>
+<ul>
+<li><p>If player1 chooses nums[i],<br>the minimum of the left(from nums[i+1] to nums[j]) is minimum between nums(i+2, j)(the player2 chooses nums[i+1]) and nums(i+1, j-1)(the player2 chooses nums[j]).</p>
+</li>
+<li><p>In the same case, if player1 chooses nums[j], the minimum of the left(from nums[i] to nums[j-1]) is minimum between nums(i+1, j-1)(the player2 chooses nums[i+1]) and nums(i, j-2)(the player2 chooses nums[j-1]).</p>
+</li>
+</ul>
+<ul>
+<li>Classification2</li>
+</ul>
+<ul>
+<li>Bottom-up method<br><a href="https://leetcode.com/problems/min-cost-climbing-stairs/description/" target="_blank" rel="noopener">746. Min Cost Climbing Stairs</a><figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> minCostClimbingStairs(vector&lt;<span class="built_in">int</span>&gt;&amp; cost) &#123;</span><br><span class="line">   <span class="built_in">int</span> <span class="built_in">n</span> = (<span class="built_in">int</span>)cost.size();</span><br><span class="line">   vector&lt;<span class="built_in">int</span>&gt;dp(<span class="built_in">n</span>, <span class="number">0</span>);</span><br><span class="line">   dp[<span class="number">0</span>] = cost[<span class="number">0</span>];</span><br><span class="line">   dp[<span class="number">1</span>] = cost[<span class="number">1</span>];</span><br><span class="line">   for(<span class="built_in">int</span> i = <span class="number">2</span>; i &lt; <span class="built_in">n</span>; i++)&#123;</span><br><span class="line">       dp[i] = <span class="built_in">min</span>(dp[i-<span class="number">1</span>], dp[i-<span class="number">2</span>]) + cost[i];</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   return dp[<span class="built_in">n</span>-<span class="number">1</span>] &gt; dp[<span class="built_in">n</span>-<span class="number">2</span>] ? dp[<span class="built_in">n</span>-<span class="number">2</span>] <span class="symbol">:</span> dp[<span class="built_in">n</span>-<span class="number">1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>When we want to reach the stair i, we can reach stair i-1 or stair i-2 at first.</p>
+<ul>
+<li>Top-down method</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/05/27/fast-slow-pointers/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1536,126 +1699,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/05/20/Blogs need to be read/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xueying Han">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Serena Han's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/20/Blogs need to be read/" itemprop="url">Blogs need to be read.</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-20T12:12:26-04:00">
-                2018-05-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="https://www.geeksforgeeks.org/find-whether-an-array-is-subset-of-another-array-set-1/" target="_blank" rel="noopener">Find whether an array is subset of another array</a><br><a href="https://www.geeksforgeeks.org/difference-set-multiset-unordered_set-unordered_multiset/" target="_blank" rel="noopener">C++ set, multiset. unordered_set, unordered_multiset</a><br><a href="https://www.geeksforgeeks.org/write-a-c-program-to-print-all-permutations-of-a-given-string/" target="_blank" rel="noopener">permutations_basic</a>     : <a href="https://leetcode.com/problems/permutations-ii/description/" target="_blank" rel="noopener">LeetCode 47</a><br><a href="https://www.geeksforgeeks.org/tag/permutation/" target="_blank" rel="noopener">permutation_all</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1706,7 +1749,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">63</span>
+                  <span class="site-state-item-count">64</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
