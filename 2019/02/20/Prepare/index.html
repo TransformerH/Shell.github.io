@@ -79,14 +79,17 @@
 
 
 
+<meta name="description" content="https://raw.githubusercontent.com/RoyProton/Akuna_SH_Code_Challenge/master/src/solution.cpp RTT  sample: http://beej.us/guide/bgnet/html/multi/clientserver.html 1 kilobyte = 1024 char = 1024 byte  ser">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Two pointers-3Sum etc.">
-<meta property="og:url" content="https://transformerh.github.io/2018/12/29/Two-pointers-3Sum-etc/index.html">
+<meta property="og:title" content="Prepare">
+<meta property="og:url" content="https://transformerh.github.io/2019/02/20/Prepare/index.html">
 <meta property="og:site_name" content="Serena Han&#39;s Blog">
+<meta property="og:description" content="https://raw.githubusercontent.com/RoyProton/Akuna_SH_Code_Challenge/master/src/solution.cpp RTT  sample: http://beej.us/guide/bgnet/html/multi/clientserver.html 1 kilobyte = 1024 char = 1024 byte  ser">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-12-30T03:06:58.631Z">
+<meta property="og:updated_time" content="2019-02-20T15:05:52.585Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Two pointers-3Sum etc.">
+<meta name="twitter:title" content="Prepare">
+<meta name="twitter:description" content="https://raw.githubusercontent.com/RoyProton/Akuna_SH_Code_Challenge/master/src/solution.cpp RTT  sample: http://beej.us/guide/bgnet/html/multi/clientserver.html 1 kilobyte = 1024 char = 1024 byte  ser">
 
 
 
@@ -116,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="https://transformerh.github.io/2018/12/29/Two-pointers-3Sum-etc/"/>
+  <link rel="canonical" href="https://transformerh.github.io/2019/02/20/Prepare/"/>
 
 
 
 
 
-  <title>Two pointers-3Sum etc. | Serena Han's Blog</title>
+  <title>Prepare | Serena Han's Blog</title>
   
 
 
@@ -269,7 +272,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/12/29/Two-pointers-3Sum-etc/">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/02/20/Prepare/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xueying Han">
@@ -286,7 +289,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Two pointers-3Sum etc.</h1>
+          <h1 class="post-title" itemprop="name headline">Prepare</h1>
         
 
         <div class="post-meta">
@@ -298,8 +301,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-29T22:06:58-05:00">
-                2018-12-29
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-20T10:04:43-05:00">
+                2019-02-20
               </time>
             
 
@@ -336,7 +339,93 @@
       
 
       
-        
+        <p><a href="https://raw.githubusercontent.com/RoyProton/Akuna_SH_Code_Challenge/master/src/solution.cpp" target="_blank" rel="noopener">https://raw.githubusercontent.com/RoyProton/Akuna_SH_Code_Challenge/master/src/solution.cpp</a></p>
+<p>RTT</p>
+<ul>
+<li>sample: <a href="http://beej.us/guide/bgnet/html/multi/clientserver.html" target="_blank" rel="noopener">http://beej.us/guide/bgnet/html/multi/clientserver.html</a></li>
+<li>1 kilobyte = 1024 char = 1024 byte</li>
+</ul>
+<p>server</p>
+<ul>
+<li>server_setup : parameter is port number<ul>
+<li>get sock file descriptor</li>
+<li>initialize server address: memset(pointer, 0, sizeof(server_address))</li>
+<li>initialize address, family, port</li>
+<li>bind the server address to the socket file descriptor</li>
+<li>listen to the socket</li>
+</ul>
+</li>
+<li>send<ul>
+<li>send the message to the current client</li>
+<li>✺ the type of the message if string , -&gt; string.c_str()   with the length of the message</li>
+</ul>
+</li>
+<li>receive<ul>
+<li>while(1) : the outer while loop is used to accept connections from clients, there is no break in the outer while loop, always prepare to receive messages<ul>
+<li>get the client address by accept(current_socket_file_descriptor, &amp;client_address, sizeof(client_address))</li>
+<li>convert the client address</li>
+<li>create a server thread and run a while loop<ul>
+<li>while(1): the inner loop is used to accept messages from the current client<ul>
+<li>if getting the message from client successful then break this inner while loop<br>Server running process</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>set up the server with  a port number</li>
+<li>create a thread  and run the while loop<ol>
+<li>check if receive a message, if message then send a message to current client</li>
+</ol>
+</li>
+<li>if  create the thread successfully<ol>
+<li>receive the message from the current client in the while loop</li>
+</ol>
+</li>
+</ol>
+<p>Client</p>
+<ul>
+<li>client_setup: parameters server address and port number<ul>
+<li>check and build the socket</li>
+<li>check the server address if available<ul>
+<li>if not, get host by name</li>
+<li>check other available addresses from server’s address list</li>
+</ul>
+</li>
+<li>set family and port</li>
+<li>build connection with server</li>
+</ul>
+</li>
+<li>send<ul>
+<li>check socket is available</li>
+<li>send message and length</li>
+</ul>
+</li>
+<li>receive:  return the size of message n<ul>
+<li>int recieve(int new_sock_file_descriptor,  char* buffer, int max_buffer_size)</li>
+<li>buffer[n] = 0 ; // set the end signal of message</li>
+</ul>
+</li>
+<li>read<ul>
+<li>set a buffer</li>
+<li>add to string<br>Client running process</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>setup : host address and port number</li>
+<li>while loop<ol>
+<li>send message</li>
+<li>receive message</li>
+<li>sleep<br>char[] buffer<br>delete[] buffer</li>
+</ol>
+</li>
+</ol>
+
       
     </div>
     
@@ -360,8 +449,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/29/Subarray-Sum/" rel="next" title="Subarray Sum">
-                <i class="fa fa-chevron-left"></i> Subarray Sum
+              <a href="/2019/02/19/Red-black-tree/" rel="next" title="Red-black tree">
+                <i class="fa fa-chevron-left"></i> Red-black tree
               </a>
             
           </div>
@@ -369,10 +458,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/12/31/PG-Design-HashMap/" rel="prev" title="PG-Design HashMap">
-                PG-Design HashMap <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>

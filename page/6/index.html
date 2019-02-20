@@ -269,6 +269,134 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/11/14/GCD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xueying Han">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Serena Han's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/14/GCD/" itemprop="url">GCD</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-14T14:27:20-05:00">
+                2018-11-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="How-to-find-GCD-greatest-common-divisor"><a href="#How-to-find-GCD-greatest-common-divisor" class="headerlink" title="How to find GCD(greatest common divisor)"></a>How to find GCD(greatest common divisor)</h2><h3 id="Method-1-find-all-prime-factors-of-each-number"><a href="#Method-1-find-all-prime-factors-of-each-number" class="headerlink" title="Method 1 : find all prime factors of each number"></a>Method 1 : find all prime factors of each number</h3><p>36 = 2 <em> 2 </em> 3 <em> 3<br>60 = 2</em> 2 <em> 3 </em> 5<br>So the common factors are 2, 2, 3, we can get the gcd = 2 <em> 2 </em> 3</p>
+<h3 id="Method-2-Euclidean-algorithm"><a href="#Method-2-Euclidean-algorithm" class="headerlink" title="Method 2 : Euclidean algorithm"></a>Method 2 : Euclidean algorithm</h3><p>Assume the bigger number is b and smaller number is s.</p>
+<ul>
+<li>Step 1 : remainder = b % s</li>
+<li>Step 2 : b = s, <pre><code>s =  remainder
+if s &gt; 0 return to step 1
+if s == 0 the gcd is b
+</code></pre></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/05/30/Dynamic-Programming/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1575,130 +1703,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/05/20/Merge-sort-for-Linked-Lists/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xueying Han">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Serena Han's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/20/Merge-sort-for-Linked-Lists/" itemprop="url">Merge sort for Linked Lists</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-20T13:20:06-04:00">
-                2018-05-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ul>
-<li>splitList: fast/slow pointer method  -&gt; ⚠️ fast = head-&gt;next   solve the odd/even sum of the list.</li>
-<li>sortedMerge: the end of the recursion.</li>
-</ul>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">struct <span class="keyword">Node</span><span class="title">&#123;</span></span><br><span class="line"><span class="title">    int</span> val;</span><br><span class="line">    <span class="keyword">Node</span><span class="title">* next</span>;</span><br><span class="line">    <span class="keyword">Node</span><span class="title">(int</span> x):val(x),next(NULL)&#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">void splitList(<span class="keyword">Node</span><span class="title">* head</span>, <span class="keyword">Node</span><span class="title">** front</span>, <span class="keyword">Node</span><span class="title">** back</span>)&#123;</span><br><span class="line">    <span class="keyword">Node</span> <span class="title">*fast</span>, *slow;</span><br><span class="line">    slow = head;</span><br><span class="line">    fast = head-&gt;next;</span><br><span class="line">    </span><br><span class="line">    while(fast != NULL)&#123;</span><br><span class="line">        fast = fast-&gt;next;</span><br><span class="line">        if(fast != NULL)&#123;</span><br><span class="line">            fast = fast-&gt;next;</span><br><span class="line">            slow = slow-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    *front = head;</span><br><span class="line">    *back = slow-&gt;next;</span><br><span class="line">    slow-&gt;next = NULL;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">Node</span><span class="title">* sortedMerge</span>(<span class="keyword">Node</span><span class="title">* a</span>, <span class="keyword">Node</span><span class="title">* b</span>)&#123;</span><br><span class="line">    if(a == NULL)</span><br><span class="line">        return b;</span><br><span class="line">    if(b == NULL)</span><br><span class="line">        return a;</span><br><span class="line">    <span class="keyword">Node</span><span class="title">* mergedNode</span>;</span><br><span class="line">    if(a-&gt;val <span class="tag">&lt;= b-&gt;</span>val)&#123;</span><br><span class="line">        mergedNode = new <span class="keyword">Node</span><span class="title">(a-</span>&gt;val);</span><br><span class="line">        mergedNode-&gt;next = sortedMerge(a-&gt;next, b);</span><br><span class="line">    &#125;else &#123;</span><br><span class="line">        mergedNode = new <span class="keyword">Node</span><span class="title">(b-</span>&gt;val);</span><br><span class="line">        mergedNode-&gt;next = sortedMerge(a, b-&gt;next);</span><br><span class="line">    &#125;</span><br><span class="line">    return mergedNode;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void mergeSort(<span class="keyword">Node</span><span class="title">** headRef</span>)&#123;</span><br><span class="line">    <span class="keyword">Node</span><span class="title">* head</span> = *headRef;</span><br><span class="line">    <span class="keyword">Node</span><span class="title">* a</span>;</span><br><span class="line">    <span class="keyword">Node</span><span class="title">* b</span>;</span><br><span class="line">    </span><br><span class="line">    if(head == NULL || head-&gt;next == NULL)</span><br><span class="line">        return;</span><br><span class="line">    </span><br><span class="line">    splitList(head, &amp;a, &amp;b);</span><br><span class="line">    mergeSort(&amp;a);</span><br><span class="line">    mergeSort(&amp;b);</span><br><span class="line">    </span><br><span class="line">    *headRef = sortedMerge(a, b);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1749,7 +1753,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">64</span>
+                  <span class="site-state-item-count">65</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
