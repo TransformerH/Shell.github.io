@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Java," />
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="Hey, this is Xueying.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="About">
-<meta property="og:url" content="https://transformerh.github.io/about/index.html">
+<meta name="description" content="Metacharacters special characters with special meaning Escape special characters: not interpret special characters with their special meaning, force them to be treated as ordinary Characters123String">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java-Escaping Characters">
+<meta property="og:url" content="https://transformerh.github.io/2019/05/18/Java-Escaping-Characters/index.html">
 <meta property="og:site_name" content="Serena Han&#39;s Blog">
-<meta property="og:description" content="Hey, this is Xueying.">
+<meta property="og:description" content="Metacharacters special characters with special meaning Escape special characters: not interpret special characters with their special meaning, force them to be treated as ordinary Characters123String">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-02-18T17:19:18.250Z">
+<meta property="og:updated_time" content="2019-05-18T18:14:42.032Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="About">
-<meta name="twitter:description" content="Hey, this is Xueying.">
+<meta name="twitter:title" content="Java-Escaping Characters">
+<meta name="twitter:description" content="Metacharacters special characters with special meaning Escape special characters: not interpret special characters with their special meaning, force them to be treated as ordinary Characters123String">
 
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://transformerh.github.io/about/"/>
+  <link rel="canonical" href="https://transformerh.github.io/2019/05/18/Java-Escaping-Characters/"/>
 
 
 
 
 
-  <title>About | Serena Han's Blog</title>
+  <title>Java-Escaping Characters | Serena Han's Blog</title>
   
 
 
@@ -260,38 +261,156 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/05/18/Java-Escaping-Characters/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xueying Han">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Serena Han's Blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">About</h1>
-
-
-	<div class="post-meta">
-		<div class="post-description">Hey, this is Xueying.</div>
-	</div>
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <p>Life is music and code.<br>I can’t live without them.<br>Coding makes me forget other unhappy things. =)</p>
-
+          <h1 class="post-title" itemprop="name headline">Java-Escaping Characters</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-18T13:16:44-04:00">
+                2019-05-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h3 id="Metacharacters"><a href="#Metacharacters" class="headerlink" title="Metacharacters"></a>Metacharacters</h3><ul>
+<li>special characters with special meaning</li>
+<li>Escape special characters: not interpret special characters with their special meaning, force them to be treated as ordinary Characters<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">String</span> input = <span class="string">"foof"</span>;</span><br><span class="line"><span class="keyword">String</span> regex = <span class="string">"foo."</span>;</span><br><span class="line">input.<span class="keyword">matches</span>(regex); // <span class="keyword">true</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>Here, the special meaning of dot is that it can be any character in its place.</p>
+<h3 id="Escape-special-Characters"><a href="#Escape-special-Characters" class="headerlink" title="Escape special Characters"></a>Escape special Characters</h3><ul>
+<li>Escape special characters by using double backslashes<ul>
+<li>why not single? backslash is an escape character in Java String literals as well. -&gt; double backslashes</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">String</span> input = <span class="string">"foof"</span>;</span><br><span class="line"><span class="keyword">String</span> regex = <span class="string">"foo\\."</span>;</span><br><span class="line">input.<span class="keyword">matches</span>(regex); // <span class="keyword">false</span></span><br></pre></td></tr></table></figure>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/16/How-to-Shuffle-an-array/" rel="next" title="How to Shuffle an array">
+                <i class="fa fa-chevron-left"></i> How to Shuffle an array
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -324,8 +443,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -385,6 +513,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Metacharacters"><span class="nav-number">1.</span> <span class="nav-text">Metacharacters</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Escape-special-Characters"><span class="nav-number">2.</span> <span class="nav-text">Escape special Characters</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
