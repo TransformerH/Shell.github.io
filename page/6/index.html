@@ -269,6 +269,135 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/11/14/Prime-number/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xueying Han">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Serena Han's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/14/Prime-number/" itemprop="url">Prime number</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-14T14:47:59-05:00">
+                2018-11-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="How-to-check-whether-a-number-is-prime-or-not"><a href="#How-to-check-whether-a-number-is-prime-or-not" class="headerlink" title="How to check whether a number is prime or not?"></a>How to check whether a number is prime or not?</h2><h3 id="Method-1"><a href="#Method-1" class="headerlink" title="Method 1:"></a>Method 1:</h3><p>Assume a integer n which is larger than 1. </p>
+<ul>
+<li>Iterate integer i from 2 to n-1.<ul>
+<li>check if i divides n</li>
+<li>if i divides n return false</li>
+</ul>
+</li>
+</ul>
+<h3 id="Method-2"><a href="#Method-2" class="headerlink" title="Method 2:"></a>Method 2:</h3><p>Iterate integer i from 2 to square(n)</p>
+<h3 id="Method-3"><a href="#Method-3" class="headerlink" title="Method 3:"></a>Method 3:</h3><p>lc 204  <a href="https://leetcode.com/problems/count-primes/description/" target="_blank" rel="noopener">https://leetcode.com/problems/count-primes/description/</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">First we assume all the integers which are smaller than n but larger than 2 are prime number, what we need to do is check every integer whether can divide other numbers or not. If the other number can be divided, then this number is not a prime number, we set it as non-prime number.</span><br><span class="line">*/</span><br><span class="line">int countPrimes(int n) &#123;</span><br><span class="line">int count = 0;</span><br><span class="line">vector&lt;bool&gt; isPrime(n, true);</span><br><span class="line">for(int i = 2; i &lt; n; i++)&#123;</span><br><span class="line">if(isPrime[i])&#123;</span><br><span class="line">count++;</span><br><span class="line">for(int j = 2; j * i &lt; n; j++)&#123;</span><br><span class="line">isPrime[i*j] = false;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">return count;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/11/14/GCD/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1574,140 +1703,6 @@ if s == 0 the gcd is b
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/05/20/hash-map-in-C-unordered-map/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xueying Han">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Serena Han's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/20/hash-map-in-C-unordered-map/" itemprop="url">hash map in C++: unordered_map</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-20T16:01:34-04:00">
-                2018-05-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ul>
-<li>The differences between unordered_map and map</li>
-</ul>
-<ol>
-<li>the order of keys: map is increasing order(default), unordered_map is no ordering</li>
-<li>implementation: map is built by self-balanced BST, unordered_map is built by hash table</li>
-<li>search time: map uses log(n), unordered_map uses O(1) in average, O(n) in worst case.</li>
-<li>insertion time / deletion time: map uses log(n) + rebalance</li>
-</ol>
-<ul>
-<li>LC</li>
-</ul>
-<ol>
-<li><a href="https://leetcode.com/problems/top-k-frequent-elements/discuss/81624/C++-O(n-log(n-k" target="_blank" rel="noopener">347.Top K Frequent Elements</a>)-unordered_map-and-priority_queue(maxheap)-solution)</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1758,7 +1753,7 @@ if s == 0 the gcd is b
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">65</span>
+                  <span class="site-state-item-count">66</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

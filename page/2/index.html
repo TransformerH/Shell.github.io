@@ -269,6 +269,126 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/02/14/LC743-Network-Delay-Time/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xueying Han">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Serena Han's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/14/LC743-Network-Delay-Time/" itemprop="url">LC743 Network Delay Time</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-14T00:37:26-05:00">
+                2019-02-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">networkDelayTime</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; times, <span class="keyword">int</span> N, <span class="keyword">int</span> K)</span> </span>&#123;</span><br><span class="line">       <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; nodes(N+<span class="number">1</span>, INT_MAX);</span><br><span class="line">       nodes[K] = <span class="number">0</span>;</span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)&#123;</span><br><span class="line">       <span class="keyword">for</span>(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; t : times)&#123;</span><br><span class="line">           <span class="keyword">int</span> u = t[<span class="number">0</span>];</span><br><span class="line">           <span class="keyword">int</span> v = t[<span class="number">1</span>];</span><br><span class="line">           <span class="keyword">int</span> w = t[<span class="number">2</span>];</span><br><span class="line">           <span class="keyword">if</span>(nodes[u] != INT_MAX &amp;&amp; nodes[u] + w &lt; nodes[v])</span><br><span class="line">               nodes[v] = nodes[u] + w;</span><br><span class="line">       &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">int</span> res = INT_MIN;</span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N; i++)&#123;</span><br><span class="line">           res = max(res, nodes[i]);</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> res == INT_MAX ? <span class="number">-1</span> : res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/02/13/Vector-realization/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1480,152 +1600,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/01/10/Palindrome/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xueying Han">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Serena Han's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/10/Palindrome/" itemprop="url">Palindrome</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-10T13:22:56-05:00">
-                2019-01-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Palindrome"><a href="#Palindrome" class="headerlink" title="Palindrome"></a>Palindrome</h2><h3 id="LC-564-Find-the-Closest-Palindrome"><a href="#LC-564-Find-the-Closest-Palindrome" class="headerlink" title="LC 564. Find the Closest Palindrome"></a>LC 564. Find the Closest Palindrome</h3><p>Given an integer n, find the closest integer (not including itself), which is a palindrome.</p>
-<p>The ‘closest’ is defined as absolute difference minimized between two integers.</p>
-<p>Example 1:</p>
-<p>Input: “123”<br>Output: “121”</p>
-<hr>
-<ul>
-<li>Idea: two kinds of solution<ul>
-<li>the result has the same length as the input string<ul>
-<li>get first half of the string, if the length of string is odd, then the first half should include the middle letter. -&gt; reverse the first half of the string(this time we should exclude the middle letter if the string has one). -&gt; link them</li>
-<li>example : string 23456 -&gt; first half : 234 -&gt; reverse : 32 -&gt; link 23432</li>
-</ul>
-</li>
-<li>the result has the different length with the input string<ul>
-<li>there are only 4 cases</li>
-<li>example: input 999 -&gt; len = 3 -&gt; 10^3 - 1 = 999, 10^3 + 1 = 1001, 10^2-1 = 99, 10^2 + 1 = 101</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Corner cases<ul>
-<li>length = 1: return the number - 1</li>
-<li>the result set should not include the input</li>
-</ul>
-</li>
-</ul>
-<hr>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">getOtherPalindrom</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">long</span>&gt;&amp; res, <span class="built_in">string</span> halfn, <span class="keyword">int</span> len)</span></span>&#123;</span><br><span class="line">   <span class="keyword">long</span> halfnl = stol(halfn);</span><br><span class="line">   <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; halfs = &#123;to_string(halfnl), to_string(halfnl<span class="number">-1</span>), to_string(halfnl+<span class="number">1</span>)&#125;;</span><br><span class="line">   <span class="keyword">for</span>(<span class="built_in">string</span> half : halfs)&#123;</span><br><span class="line">       <span class="built_in">string</span> h = half;</span><br><span class="line">       <span class="keyword">if</span>(len % <span class="number">2</span> != <span class="number">0</span>)</span><br><span class="line">           half.pop_back();</span><br><span class="line">       reverse(half.begin(), half.end());</span><br><span class="line">       res.push_back(stol(h+half));</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">nearestPalindromic</span><span class="params">(<span class="built_in">string</span> n)</span> </span>&#123;</span><br><span class="line">   <span class="keyword">int</span> len = (<span class="keyword">int</span>)n.length();</span><br><span class="line">   <span class="keyword">if</span>(len == <span class="number">1</span>)</span><br><span class="line">       <span class="keyword">return</span> to_string(stoi(n)<span class="number">-1</span>);</span><br><span class="line">   <span class="built_in">vector</span>&lt;<span class="keyword">long</span>&gt; res = &#123;(<span class="keyword">long</span>)(<span class="built_in">pow</span>(<span class="number">10</span>, len) - <span class="number">1</span>), (<span class="keyword">long</span>)(<span class="built_in">pow</span>(<span class="number">10</span>, len) + <span class="number">1</span>), (<span class="keyword">long</span>)(<span class="built_in">pow</span>(<span class="number">10</span>, len<span class="number">-1</span>) - <span class="number">1</span>), (<span class="keyword">long</span>)(<span class="built_in">pow</span>(<span class="number">10</span>, len<span class="number">-1</span>) + <span class="number">1</span>)&#125;;</span><br><span class="line">   <span class="keyword">int</span> halflen = (len + <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">   <span class="built_in">string</span> halfn = n.substr(<span class="number">0</span>, halflen);</span><br><span class="line">   getOtherPalindrom(res, halfn, len);</span><br><span class="line"></span><br><span class="line">   <span class="keyword">long</span> diff = INT_MAX;</span><br><span class="line">   <span class="keyword">long</span> nl = stol(n);</span><br><span class="line">   <span class="keyword">long</span> ret;</span><br><span class="line">   <span class="keyword">for</span>(<span class="keyword">long</span> r : res)&#123;</span><br><span class="line">       <span class="keyword">if</span>(r == nl)</span><br><span class="line">           <span class="keyword">continue</span>;</span><br><span class="line">       <span class="keyword">if</span>(<span class="built_in">abs</span>(r-nl) &lt; diff)&#123;</span><br><span class="line">           diff = <span class="built_in">abs</span>(r-nl);</span><br><span class="line">           ret = r;</span><br><span class="line">       &#125; <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">abs</span>(r-nl) == diff)&#123;</span><br><span class="line">           <span class="keyword">if</span>(r &lt; ret)</span><br><span class="line">               ret = r;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> to_string(ret);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1676,7 +1650,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">65</span>
+                  <span class="site-state-item-count">66</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
