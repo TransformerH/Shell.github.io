@@ -79,14 +79,17 @@
 
 
 
+<meta name="description" content="Analysis odd jump: find the smallest one but still larger than or  equal to the current one among the following values. even jump: find the largest one but still smaller than or equal to the current o">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LC 975. Odd Even Jump">
 <meta property="og:url" content="https://transformerh.github.io/2019/05/20/LC-975-Odd-Even-Jump/index.html">
 <meta property="og:site_name" content="Serena Han&#39;s Blog">
+<meta property="og:description" content="Analysis odd jump: find the smallest one but still larger than or  equal to the current one among the following values. even jump: find the largest one but still smaller than or equal to the current o">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-05-20T18:16:01.601Z">
+<meta property="og:updated_time" content="2019-05-22T05:15:05.407Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LC 975. Odd Even Jump">
+<meta name="twitter:description" content="Analysis odd jump: find the smallest one but still larger than or  equal to the current one among the following values. even jump: find the largest one but still smaller than or equal to the current o">
 
 
 
@@ -336,7 +339,26 @@
       
 
       
-        
+        <h3 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h3><ul>
+<li>odd jump: find the smallest one but still larger than or  equal to the current one among the following values.</li>
+<li>even jump: find the largest one but still smaller than or equal to the current one among the following values.</li>
+<li><p>Two points should be considered:</p>
+<ul>
+<li>need to find ceiling and floor among the following values(their index is larger than the current index) -&gt; we can get the following values by scanning the input array from end to start.</li>
+<li>the <em>start index</em> must take <em>odd jump</em>.</li>
+</ul>
+<hr>
+<h3 id="Today’s-Java"><a href="#Today’s-Java" class="headerlink" title="Today’s Java:"></a>Today’s Java:</h3><ul>
+<li>TreeMap:<ul>
+<li>ceilingEntry/floorEntry -&gt; return Map.Entry</li>
+<li>ceilingKey/floorKey -&gt; return key</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">int</span> oddEvenJumps(<span class="built_in">int</span>[] A) &#123;</span><br><span class="line">        <span class="built_in">boolean</span>[] ceilings = <span class="keyword">new</span> <span class="built_in">boolean</span>[A.length];</span><br><span class="line">        <span class="built_in">boolean</span>[] floors = <span class="keyword">new</span> <span class="built_in">boolean</span>[A.length];</span><br><span class="line">        ceilings[A.length<span class="number">-1</span>] = <span class="keyword">true</span>;</span><br><span class="line">        floors[A.length<span class="number">-1</span>] = <span class="keyword">true</span>;</span><br><span class="line"></span><br><span class="line">        TreeMap&lt;Integer, Integer&gt; <span class="built_in">map</span> = <span class="keyword">new</span> TreeMap&lt;&gt;();</span><br><span class="line">        <span class="built_in">map</span>.put(A[A.length<span class="number">-1</span>], A.length<span class="number">-1</span>);</span><br><span class="line"></span><br><span class="line">        <span class="built_in">int</span> result = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="built_in">int</span> i = A.length<span class="number">-2</span>; i &gt;= <span class="number">0</span>; i--)&#123;</span><br><span class="line">            Map.Entry ceiling = <span class="built_in">map</span>.ceilingEntry(A[i]);</span><br><span class="line">            Map.Entry <span class="built_in">floor</span> = <span class="built_in">map</span>.floorEntry(A[i]);</span><br><span class="line">            <span class="keyword">if</span>(ceiling != <span class="keyword">null</span>) ceilings[i] = floors[(<span class="built_in">int</span>)ceiling.getValue()];</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">floor</span> != <span class="keyword">null</span>) floors[i] = ceilings[(<span class="built_in">int</span>) <span class="built_in">floor</span>.getValue()];</span><br><span class="line">            <span class="keyword">if</span>(ceilings[i] == <span class="keyword">true</span>)</span><br><span class="line">                result++;</span><br><span class="line">            <span class="built_in">map</span>.put(A[i], i);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -420,8 +442,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -481,6 +512,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Analysis"><span class="nav-number">1.</span> <span class="nav-text">Analysis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Today’s-Java"><span class="nav-number">2.</span> <span class="nav-text">Today’s Java:</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
