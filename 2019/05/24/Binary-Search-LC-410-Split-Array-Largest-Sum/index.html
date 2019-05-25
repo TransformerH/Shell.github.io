@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="My LeetCode member has expired again. Just leave the code here and I will check it out later. 12345678910111213141516171819202122232425262728293031string getAbbre(string s, int i)&amp;#123;            str">
+<meta name="description" content="AnalysisFind the largest sum of all elements of a subarray among all subarrays.So the answer is between the maximum element of this array(min_result) and the sum of all elements(max_result). And that’">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LC 527 Word Abbreviation">
-<meta property="og:url" content="https://transformerh.github.io/2019/01/28/LC-527-Word-Abbreviation/index.html">
+<meta property="og:title" content="Binary Search - LC 410 Split Array Largest Sum ">
+<meta property="og:url" content="https://transformerh.github.io/2019/05/24/Binary-Search-LC-410-Split-Array-Largest-Sum/index.html">
 <meta property="og:site_name" content="Serena Han&#39;s Blog">
-<meta property="og:description" content="My LeetCode member has expired again. Just leave the code here and I will check it out later. 12345678910111213141516171819202122232425262728293031string getAbbre(string s, int i)&amp;#123;            str">
+<meta property="og:description" content="AnalysisFind the largest sum of all elements of a subarray among all subarrays.So the answer is between the maximum element of this array(min_result) and the sum of all elements(max_result). And that’">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-01-28T06:09:43.862Z">
+<meta property="og:updated_time" content="2019-05-25T05:09:54.220Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LC 527 Word Abbreviation">
-<meta name="twitter:description" content="My LeetCode member has expired again. Just leave the code here and I will check it out later. 12345678910111213141516171819202122232425262728293031string getAbbre(string s, int i)&amp;#123;            str">
+<meta name="twitter:title" content="Binary Search - LC 410 Split Array Largest Sum ">
+<meta name="twitter:description" content="AnalysisFind the largest sum of all elements of a subarray among all subarrays.So the answer is between the maximum element of this array(min_result) and the sum of all elements(max_result). And that’">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="https://transformerh.github.io/2019/01/28/LC-527-Word-Abbreviation/"/>
+  <link rel="canonical" href="https://transformerh.github.io/2019/05/24/Binary-Search-LC-410-Split-Array-Largest-Sum/"/>
 
 
 
 
 
-  <title>LC 527 Word Abbreviation | Serena Han's Blog</title>
+  <title>Binary Search - LC 410 Split Array Largest Sum  | Serena Han's Blog</title>
   
 
 
@@ -272,7 +272,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/01/28/LC-527-Word-Abbreviation/">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/05/24/Binary-Search-LC-410-Split-Array-Largest-Sum/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xueying Han">
@@ -289,7 +289,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">LC 527 Word Abbreviation</h1>
+          <h1 class="post-title" itemprop="name headline">Binary Search - LC 410 Split Array Largest Sum </h1>
         
 
         <div class="post-meta">
@@ -301,8 +301,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-28T01:06:19-05:00">
-                2019-01-28
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-24T15:19:02-04:00">
+                2019-05-24
               </time>
             
 
@@ -339,8 +339,15 @@
       
 
       
-        <p>My LeetCode member has expired again. Just leave the code here and I will check it out later.</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">getAbbre</span><span class="params">(<span class="built_in">string</span> s, <span class="keyword">int</span> i)</span></span>&#123;</span><br><span class="line">            <span class="built_in">string</span> abbre = s.substr(<span class="number">0</span>, i);</span><br><span class="line">            abbre += to_string(s.length()<span class="number">-1</span>-i);</span><br><span class="line">            abbre += s.back();</span><br><span class="line">            <span class="keyword">return</span> abbre;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; wordsAbbreviation(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; dict) &#123;</span><br><span class="line">            <span class="keyword">int</span> size = dict.size();</span><br><span class="line">            <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; prefix(size, <span class="number">1</span>);</span><br><span class="line">            <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; abbre(size, <span class="string">""</span>);</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; i++)&#123;</span><br><span class="line">                abbre[i] = getAbbre(dict[i], <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; i++)&#123;</span><br><span class="line">                <span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">                    <span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt; dupli;</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> j = i+<span class="number">1</span>; j &lt; size; j++)&#123;</span><br><span class="line">                        <span class="keyword">if</span>(abbre[j] == abbre[i])</span><br><span class="line">                            dupli.insert(j);</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">if</span>(dupli.empty())</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    dupli.insert(i);</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">auto</span> it = dupli.begin(); it != dupli.end(); it++)&#123;</span><br><span class="line">                        abbre[*it] = getAbbre(dict[*it], ++prefix[*it]);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> abbre;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+        <h3 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h3><p>Find the largest sum of all elements of a subarray among all subarrays.<br>So the answer is between the maximum element of this array(min_result) and the sum of all elements(max_result). And that’s based on the condition that elements are non-negative.</p>
+<ul>
+<li>if # of subarrays is # of elements, then the largest sum among of these elements should be the largest element of this array.</li>
+<li>if # of subarrays is 1, then there is only one answer.</li>
+</ul>
+<p>So, the problem is converted to a new problem that we need to find a proper number between min_result and max_result.</p>
+<p>Then another question is that if we try to use binary search to solve this new problem, how could we make sure that the array can be cut into m subarrays.</p>
+<p>Using binary search to find a proper maximum sum for every subarray and count the number of subarrays.<br>If the current number of subarrays is smaller than or equal to the given number m, then this maximum sum needs to be smaller.<br>If the current number of subarrays is larger than m, then this maximum sum needs to be larger.</p>
+<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">boolean</span> check(<span class="keyword">int</span>[] nums, <span class="keyword">long</span> maximum, <span class="keyword">int</span> m)&#123;</span><br><span class="line">        <span class="keyword">int</span> <span class="keyword">sum</span> = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> <span class="keyword">count</span> = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> num : nums)&#123;</span><br><span class="line">            <span class="keyword">sum</span> += num;</span><br><span class="line">            <span class="keyword">if</span>(<span class="keyword">sum</span> &gt; maximum)&#123;</span><br><span class="line">                <span class="keyword">sum</span> = num;</span><br><span class="line">                <span class="keyword">count</span>++;</span><br><span class="line">                <span class="keyword">if</span>(<span class="keyword">count</span> &gt; m)</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> splitArray(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> m) &#123;</span><br><span class="line">        <span class="keyword">int</span> max = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">sum</span> = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> num : nums)&#123;</span><br><span class="line">            max = Math.max(max, num);</span><br><span class="line">            <span class="keyword">sum</span> += num;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">long</span> left = max, right = <span class="keyword">sum</span>;</span><br><span class="line">        <span class="keyword">while</span>(left &lt;= right)&#123;</span><br><span class="line">            <span class="keyword">long</span> mid = left + (right - left) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(check(nums, mid, m))&#123;</span><br><span class="line">                right = mid - <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                left = mid + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> (<span class="keyword">int</span>)left;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -365,8 +372,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/27/Google-LC911-Online-Election/" rel="next" title="LC911. Online Election">
-                <i class="fa fa-chevron-left"></i> LC911. Online Election
+              <a href="/2019/05/23/Java-String-Operations/" rel="next" title="Java String Operations">
+                <i class="fa fa-chevron-left"></i> Java String Operations
               </a>
             
           </div>
@@ -374,10 +381,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/01/28/DP-LC-902-Numbers-At-Most-N-Given-Digit-Set/" rel="prev" title="LC 902. Numbers At Most N Given Digit Set">
-                LC 902. Numbers At Most N Given Digit Set <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -429,8 +432,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -490,6 +502,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Analysis"><span class="nav-number">1.</span> <span class="nav-text">Analysis</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
