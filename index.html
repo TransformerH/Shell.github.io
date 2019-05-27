@@ -269,6 +269,132 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/05/27/LC-843-Guess-the-word/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xueying Han">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Serena Han's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/27/LC-843-Guess-the-word/" itemprop="url">LC 843 Guess the word</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-27T15:04:51-04:00">
+                2019-05-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="The-algorithm-is"><a href="#The-algorithm-is" class="headerlink" title="The algorithm is:"></a>The algorithm is:</h4><ol>
+<li>Choose a guessed word from wordlist randomly</li>
+<li>Check the number <em>m</em> of matched letters by calling master.guess</li>
+<li>Refresh wordlist.<br>(1) get the number <em>n</em> of matched letters between the current word in the original wordlist and the guessed word.<br>(2) if n equals to m, then add the current word into the new wordlist</li>
+</ol>
+<h4 id="Why-does-this-algorithm-work"><a href="#Why-does-this-algorithm-work" class="headerlink" title="Why does this algorithm work?"></a>Why does this algorithm work?</h4><p>Think about that. If the first guessed word has 0 matched letters. That means all letters in the guessed word are not in the secret word. Then the new wordlist has all words which have 0 matched letters against the guessed word. So we can see that the accuracy of getting the answer is approved by getting the next guessed word in the new wordlist.</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">int</span> match(<span class="keyword">String</span> <span class="keyword">word</span>, <span class="keyword">String</span> guessed)&#123;</span><br><span class="line">     <span class="keyword">int</span> result = <span class="number">0</span>;</span><br><span class="line">     <span class="built_in">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">word</span>.length(); i++)&#123;</span><br><span class="line">         <span class="built_in">if</span>(<span class="keyword">word</span>.charAt(i) == guessed.charAt(i))</span><br><span class="line">             result++;</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">     <span class="built_in">return</span> result;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">public</span> <span class="keyword">void</span> findSecretWord(<span class="keyword">String</span>[] wordlist, Master master) &#123;</span><br><span class="line">     <span class="built_in">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>; i &lt; <span class="number">10</span> &amp;&amp; j &lt; <span class="number">6</span>; i++)&#123;</span><br><span class="line">         <span class="keyword">String</span> guessed = wordlist[<span class="keyword">new</span> Random().nextInt(wordlist.length)];</span><br><span class="line">         j = master.guess(guessed);</span><br><span class="line">         List&lt;<span class="keyword">String</span>&gt; newlist = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">         <span class="built_in">for</span>(<span class="keyword">String</span> <span class="keyword">word</span> : wordlist)&#123;</span><br><span class="line">             <span class="keyword">int</span> m = match(<span class="keyword">word</span>, guessed);</span><br><span class="line">             <span class="built_in">if</span>(m == j)</span><br><span class="line">                 newlist.add(<span class="keyword">word</span>);</span><br><span class="line">         &#125;</span><br><span class="line">         wordlist = newlist.toArray(<span class="keyword">new</span> <span class="keyword">String</span>[newlist.<span class="built_in">size</span>()]);</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/05/24/Binary-Search-LC-410-Split-Array-Largest-Sum/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -468,7 +594,13 @@
       
         
           
-            
+            <ul>
+<li><p>Java multithread</p>
+</li>
+<li><p>Java<br>.java -&gt; compiled by javac in JDK -&gt; .class file(understood by JVM) -&gt; JVM -&gt; binary machine code</p>
+</li>
+</ul>
+
           
         
       
@@ -1496,142 +1628,6 @@ return 0;
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/02/15/LC-87-Scramble-String/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xueying Han">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Serena Han's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/02/15/LC-87-Scramble-String/" itemprop="url">LC 87 Scramble String</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-15T01:06:39-05:00">
-                2019-02-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="LC-87-Scramble-String"><a href="#LC-87-Scramble-String" class="headerlink" title="LC 87 Scramble String"></a>LC 87 Scramble String</h3><p>Given a string s1, we may represent it as a binary tree by partitioning it to two non-empty substrings recursively.</p>
-<p>Below is one possible representation of s1 = “great”:</p>
-<pre><code>great
-</code></pre><p>   /    \<br>  gr    eat<br> / \    /  \<br>g   r  e   at<br>           / \<br>          a   t<br>To scramble the string, we may choose any non-leaf node and swap its two children.</p>
-<p>For example, if we choose the node “gr” and swap its two children, it produces a scrambled string “rgeat”.</p>
-<pre><code>rgeat
-</code></pre><p>   /    \<br>  rg    eat<br> / \    /  \<br>r   g  e   at<br>           / \<br>          a   t<br>We say that “rgeat” is a scrambled string of “great”.</p>
-<p>Similarly, if we continue to swap the children of nodes “eat” and “at”, it produces a scrambled string “rgtae”.</p>
-<pre><code>rgtae
-</code></pre><p>   /    \<br>  rg    tae<br> / \    /  \<br>r   g  ta  e<br>       / \<br>      t   a<br>We say that “rgtae” is a scrambled string of “great”.</p>
-<p>Given two strings s1 and s2 of the same length, determine if s2 is a scrambled string of s1.</p>
-<p>Example 1:</p>
-<p>Input: s1 = “great”, s2 = “rgeat”<br>Output: true<br>Example 2:</p>
-<p>Input: s1 = “abcde”, s2 = “caebd”</p>
-<h2 id="Output-false"><a href="#Output-false" class="headerlink" title="Output: false"></a>Output: false</h2><p>Tag: Enumeration, Recursion</p>
-<p>The important idea is that if the number of characters is equal between the string1 and string2, that means string2 is one of string1’s enumerations. And we all know that one enumeration can be transform to another one by swapping.</p>
-<h2 id="So-what-we-need-to-do-is-just-check-whether-the-two-strings-are-enumerations"><a href="#So-what-we-need-to-do-is-just-check-whether-the-two-strings-are-enumerations" class="headerlink" title="So, what we need to do is just check whether the two strings are enumerations."></a>So, what we need to do is just check whether the two strings are enumerations.</h2><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line"><span class="symbol">public:</span></span><br><span class="line">    <span class="keyword">bool </span>isScramble(string <span class="built_in">s1</span>, string <span class="built_in">s2</span>) &#123;</span><br><span class="line">        if(<span class="built_in">s1</span> == <span class="built_in">s2</span>)</span><br><span class="line">            return true<span class="comment">;</span></span><br><span class="line">        vector&lt;char&gt; alpha(<span class="number">26</span>, <span class="number">0</span>)<span class="comment">;</span></span><br><span class="line">        for(int i = <span class="number">0</span><span class="comment">; i &lt; s1.length(); i++)&#123;</span></span><br><span class="line">            alpha[<span class="built_in">s1</span>[i] - <span class="string">'a'</span>]++<span class="comment">;</span></span><br><span class="line">            alpha[<span class="built_in">s2</span>[i] - <span class="string">'a'</span>]--<span class="comment">;</span></span><br><span class="line">        &#125;</span><br><span class="line">        for(int i = <span class="number">0</span><span class="comment">; i &lt; 26; i++)&#123;</span></span><br><span class="line">            if(alpha[i] != <span class="number">0</span>)</span><br><span class="line">                return false<span class="comment">;</span></span><br><span class="line">        &#125;</span><br><span class="line">        for(int i = <span class="number">1</span><span class="comment">; i &lt; s1.length(); i++)&#123;</span></span><br><span class="line">            if(isScramble(<span class="built_in">s1</span>.<span class="keyword">substr(0, </span>i), <span class="built_in">s2</span>.<span class="keyword">substr(0, </span>i)) &amp;&amp; isScramble(<span class="built_in">s1</span>.<span class="keyword">substr(i), </span><span class="built_in">s2</span>.<span class="keyword">substr(i)))</span></span><br><span class="line"><span class="keyword"> </span>               return true<span class="comment">;</span></span><br><span class="line">            if(isScramble(<span class="built_in">s1</span>.<span class="keyword">substr(0, </span>i), <span class="built_in">s2</span>.<span class="keyword">substr(s1.length()-i)) </span>&amp;&amp; isScramble(<span class="built_in">s1</span>.<span class="keyword">substr(i), </span><span class="built_in">s2</span>.<span class="keyword">substr(0, </span><span class="built_in">s1</span>.length()-i)))</span><br><span class="line">                return true<span class="comment">;</span></span><br><span class="line">        &#125;</span><br><span class="line">        return false<span class="comment">;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;<span class="comment">;</span></span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1682,7 +1678,7 @@ return 0;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">68</span>
+                  <span class="site-state-item-count">69</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

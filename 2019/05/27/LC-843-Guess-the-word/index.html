@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="AnalysisFind the largest sum of all elements of a subarray among all subarrays.So the answer is between the maximum element of this array(min_result) and the sum of all elements(max_result). And that’">
+<meta name="description" content="The algorithm is: Choose a guessed word from wordlist randomly Check the number m of matched letters by calling master.guess Refresh wordlist.(1) get the number n of matched letters between the curren">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Binary Search - LC 410 Split Array Largest Sum ">
-<meta property="og:url" content="https://transformerh.github.io/2019/05/24/Binary-Search-LC-410-Split-Array-Largest-Sum/index.html">
+<meta property="og:title" content="LC 843 Guess the word">
+<meta property="og:url" content="https://transformerh.github.io/2019/05/27/LC-843-Guess-the-word/index.html">
 <meta property="og:site_name" content="Serena Han&#39;s Blog">
-<meta property="og:description" content="AnalysisFind the largest sum of all elements of a subarray among all subarrays.So the answer is between the maximum element of this array(min_result) and the sum of all elements(max_result). And that’">
+<meta property="og:description" content="The algorithm is: Choose a guessed word from wordlist randomly Check the number m of matched letters by calling master.guess Refresh wordlist.(1) get the number n of matched letters between the curren">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-05-25T05:09:54.220Z">
+<meta property="og:updated_time" content="2019-05-27T20:10:13.658Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Binary Search - LC 410 Split Array Largest Sum ">
-<meta name="twitter:description" content="AnalysisFind the largest sum of all elements of a subarray among all subarrays.So the answer is between the maximum element of this array(min_result) and the sum of all elements(max_result). And that’">
+<meta name="twitter:title" content="LC 843 Guess the word">
+<meta name="twitter:description" content="The algorithm is: Choose a guessed word from wordlist randomly Check the number m of matched letters by calling master.guess Refresh wordlist.(1) get the number n of matched letters between the curren">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="https://transformerh.github.io/2019/05/24/Binary-Search-LC-410-Split-Array-Largest-Sum/"/>
+  <link rel="canonical" href="https://transformerh.github.io/2019/05/27/LC-843-Guess-the-word/"/>
 
 
 
 
 
-  <title>Binary Search - LC 410 Split Array Largest Sum  | Serena Han's Blog</title>
+  <title>LC 843 Guess the word | Serena Han's Blog</title>
   
 
 
@@ -272,7 +272,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/05/24/Binary-Search-LC-410-Split-Array-Largest-Sum/">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/05/27/LC-843-Guess-the-word/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xueying Han">
@@ -289,7 +289,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Binary Search - LC 410 Split Array Largest Sum </h1>
+          <h1 class="post-title" itemprop="name headline">LC 843 Guess the word</h1>
         
 
         <div class="post-meta">
@@ -301,8 +301,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-24T15:19:02-04:00">
-                2019-05-24
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-27T15:04:51-04:00">
+                2019-05-27
               </time>
             
 
@@ -339,15 +339,13 @@
       
 
       
-        <h3 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h3><p>Find the largest sum of all elements of a subarray among all subarrays.<br>So the answer is between the maximum element of this array(min_result) and the sum of all elements(max_result). And that’s based on the condition that elements are non-negative.</p>
-<ul>
-<li>if # of subarrays is # of elements, then the largest sum among of these elements should be the largest element of this array.</li>
-<li>if # of subarrays is 1, then there is only one answer.</li>
-</ul>
-<p>So, the problem is converted to a new problem that we need to find a proper number between min_result and max_result.</p>
-<p>Then another question is that if we try to use binary search to solve this new problem, how could we make sure that the array can be cut into m subarrays.</p>
-<p>Using binary search to find a proper maximum sum for every subarray and count the number of subarrays.<br>If the current number of subarrays is smaller than or equal to the given number m, then this maximum sum needs to be smaller.<br>If the current number of subarrays is larger than m, then this maximum sum needs to be larger.</p>
-<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">boolean</span> check(<span class="keyword">int</span>[] nums, <span class="keyword">long</span> maximum, <span class="keyword">int</span> m)&#123;</span><br><span class="line">        <span class="keyword">int</span> <span class="keyword">sum</span> = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> <span class="keyword">count</span> = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> num : nums)&#123;</span><br><span class="line">            <span class="keyword">sum</span> += num;</span><br><span class="line">            <span class="keyword">if</span>(<span class="keyword">sum</span> &gt; maximum)&#123;</span><br><span class="line">                <span class="keyword">sum</span> = num;</span><br><span class="line">                <span class="keyword">count</span>++;</span><br><span class="line">                <span class="keyword">if</span>(<span class="keyword">count</span> &gt; m)</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> splitArray(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> m) &#123;</span><br><span class="line">        <span class="keyword">int</span> max = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">sum</span> = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> num : nums)&#123;</span><br><span class="line">            max = Math.max(max, num);</span><br><span class="line">            <span class="keyword">sum</span> += num;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">long</span> left = max, right = <span class="keyword">sum</span>;</span><br><span class="line">        <span class="keyword">while</span>(left &lt;= right)&#123;</span><br><span class="line">            <span class="keyword">long</span> mid = left + (right - left) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(check(nums, mid, m))&#123;</span><br><span class="line">                right = mid - <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                left = mid + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> (<span class="keyword">int</span>)left;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h4 id="The-algorithm-is"><a href="#The-algorithm-is" class="headerlink" title="The algorithm is:"></a>The algorithm is:</h4><ol>
+<li>Choose a guessed word from wordlist randomly</li>
+<li>Check the number <em>m</em> of matched letters by calling master.guess</li>
+<li>Refresh wordlist.<br>(1) get the number <em>n</em> of matched letters between the current word in the original wordlist and the guessed word.<br>(2) if n equals to m, then add the current word into the new wordlist</li>
+</ol>
+<h4 id="Why-does-this-algorithm-work"><a href="#Why-does-this-algorithm-work" class="headerlink" title="Why does this algorithm work?"></a>Why does this algorithm work?</h4><p>Think about that. If the first guessed word has 0 matched letters. That means all letters in the guessed word are not in the secret word. Then the new wordlist has all words which have 0 matched letters against the guessed word. So we can see that the accuracy of getting the answer is approved by getting the next guessed word in the new wordlist.</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">int</span> match(<span class="keyword">String</span> <span class="keyword">word</span>, <span class="keyword">String</span> guessed)&#123;</span><br><span class="line">     <span class="keyword">int</span> result = <span class="number">0</span>;</span><br><span class="line">     <span class="built_in">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">word</span>.length(); i++)&#123;</span><br><span class="line">         <span class="built_in">if</span>(<span class="keyword">word</span>.charAt(i) == guessed.charAt(i))</span><br><span class="line">             result++;</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">     <span class="built_in">return</span> result;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">public</span> <span class="keyword">void</span> findSecretWord(<span class="keyword">String</span>[] wordlist, Master master) &#123;</span><br><span class="line">     <span class="built_in">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>; i &lt; <span class="number">10</span> &amp;&amp; j &lt; <span class="number">6</span>; i++)&#123;</span><br><span class="line">         <span class="keyword">String</span> guessed = wordlist[<span class="keyword">new</span> Random().nextInt(wordlist.length)];</span><br><span class="line">         j = master.guess(guessed);</span><br><span class="line">         List&lt;<span class="keyword">String</span>&gt; newlist = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">         <span class="built_in">for</span>(<span class="keyword">String</span> <span class="keyword">word</span> : wordlist)&#123;</span><br><span class="line">             <span class="keyword">int</span> m = match(<span class="keyword">word</span>, guessed);</span><br><span class="line">             <span class="built_in">if</span>(m == j)</span><br><span class="line">                 newlist.add(<span class="keyword">word</span>);</span><br><span class="line">         &#125;</span><br><span class="line">         wordlist = newlist.toArray(<span class="keyword">new</span> <span class="keyword">String</span>[newlist.<span class="built_in">size</span>()]);</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -372,8 +370,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/23/Java-String-Operations/" rel="next" title="Java String Operations">
-                <i class="fa fa-chevron-left"></i> Java String Operations
+              <a href="/2019/05/24/Binary-Search-LC-410-Split-Array-Largest-Sum/" rel="next" title="Binary Search - LC 410 Split Array Largest Sum ">
+                <i class="fa fa-chevron-left"></i> Binary Search - LC 410 Split Array Largest Sum 
               </a>
             
           </div>
@@ -381,10 +379,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/05/27/LC-843-Guess-the-word/" rel="prev" title="LC 843 Guess the word">
-                LC 843 Guess the word <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -516,7 +510,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Analysis"><span class="nav-number">1.</span> <span class="nav-text">Analysis</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#The-algorithm-is"><span class="nav-number">1.</span> <span class="nav-text">The algorithm is:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Why-does-this-algorithm-work"><span class="nav-number">2.</span> <span class="nav-text">Why does this algorithm work?</span></a></li></ol></div>
             
 
           </div>
