@@ -79,17 +79,14 @@
 
 
 
-<meta name="description" content="DP-LC 72 Edit Distancedp[i][j]: the minimum steps to convert word1[0…i] to word2[0…j]i : [0… word1.length()] the length of word1, i == 0 =&amp;gt; word1 is an empty stringj: [0…word2.length()] the length">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LC 72 Edit Distance">
-<meta property="og:url" content="https://transformerh.github.io/2019/02/14/LC-72-Edit-Distance/index.html">
+<meta property="og:title" content="LC 489 Robot Room Cleaner">
+<meta property="og:url" content="https://transformerh.github.io/2019/06/01/LC-489-Robot-Room-Cleaner/index.html">
 <meta property="og:site_name" content="Serena Han&#39;s Blog">
-<meta property="og:description" content="DP-LC 72 Edit Distancedp[i][j]: the minimum steps to convert word1[0…i] to word2[0…j]i : [0… word1.length()] the length of word1, i == 0 =&amp;gt; word1 is an empty stringj: [0…word2.length()] the length">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-02-14T19:19:52.316Z">
+<meta property="og:updated_time" content="2019-06-02T06:01:45.055Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LC 72 Edit Distance">
-<meta name="twitter:description" content="DP-LC 72 Edit Distancedp[i][j]: the minimum steps to convert word1[0…i] to word2[0…j]i : [0… word1.length()] the length of word1, i == 0 =&amp;gt; word1 is an empty stringj: [0…word2.length()] the length">
+<meta name="twitter:title" content="LC 489 Robot Room Cleaner">
 
 
 
@@ -119,13 +116,13 @@
 
 
 
-  <link rel="canonical" href="https://transformerh.github.io/2019/02/14/LC-72-Edit-Distance/"/>
+  <link rel="canonical" href="https://transformerh.github.io/2019/06/01/LC-489-Robot-Room-Cleaner/"/>
 
 
 
 
 
-  <title>LC 72 Edit Distance | Serena Han's Blog</title>
+  <title>LC 489 Robot Room Cleaner | Serena Han's Blog</title>
   
 
 
@@ -272,7 +269,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/02/14/LC-72-Edit-Distance/">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/06/01/LC-489-Robot-Room-Cleaner/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xueying Han">
@@ -289,7 +286,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">LC 72 Edit Distance</h1>
+          <h1 class="post-title" itemprop="name headline">LC 489 Robot Room Cleaner</h1>
         
 
         <div class="post-meta">
@@ -301,8 +298,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-14T12:07:42-08:00">
-                2019-02-14
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-01T23:01:45-07:00">
+                2019-06-01
               </time>
             
 
@@ -339,10 +336,7 @@
       
 
       
-        <h3 id="DP-LC-72-Edit-Distance"><a href="#DP-LC-72-Edit-Distance" class="headerlink" title="DP-LC 72 Edit Distance"></a>DP-LC 72 Edit Distance</h3><p>dp[i][j]: the minimum steps to convert word1[0…i] to word2[0…j]<br>i : [0… word1.length()] the length of word1, i == 0 =&gt; word1 is an empty string<br>j: [0…word2.length()] the length of word2</p>
-<p>dynamic programming idea:<br> Assume we know the previous result dp[i-1]<a href="we know how many steps to convert word1[0... i-2](length is i-1">j-1</a> to word2<a href="length is j-1">0… j-2</a>)<br> if word1[i-1] == word2[j-1], that means we don’t need to do conversion, dp[i][j] = dp[i-1][j-1].<br> else<br> there are three options to convert the word1[i-1] to word2[j-1]<br> replace: dp[i][j] = dp[i-1][j-1] + 1;<br> delete: word1[0… i-2] == word2[0… j-1] dp[i][j] = dp[i-1][j] + 1;<br> insert: word1[0…i-1] == word2[0… j-2] dp[i][j] = dp[i][j-1] + 1</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">minDistance</span><span class="params">(<span class="built_in">string</span> word1, <span class="built_in">string</span> word2)</span> </span>&#123;</span><br><span class="line">   <span class="keyword">int</span> m = (<span class="keyword">int</span>)word1.length();</span><br><span class="line">   <span class="keyword">int</span> n = (<span class="keyword">int</span>)word2.length();</span><br><span class="line">   <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; dp(m+<span class="number">1</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(n+<span class="number">1</span>, <span class="number">0</span>));</span><br><span class="line"></span><br><span class="line">   <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= m; i++)</span><br><span class="line">       dp[i][<span class="number">0</span>] = i;</span><br><span class="line">   <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j++)</span><br><span class="line">       dp[<span class="number">0</span>][j] = j;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++)&#123;</span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j++)&#123;</span><br><span class="line">           <span class="keyword">if</span>(word1[i<span class="number">-1</span>] == word2[j<span class="number">-1</span>])</span><br><span class="line">               dp[i][j] = dp[i<span class="number">-1</span>][j<span class="number">-1</span>];</span><br><span class="line">           <span class="keyword">else</span></span><br><span class="line">               dp[i][j] = min(min(dp[i<span class="number">-1</span>][j<span class="number">-1</span>]+<span class="number">1</span>, dp[i<span class="number">-1</span>][j]+<span class="number">1</span>), dp[i][j<span class="number">-1</span>]+<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> dp[m][n];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+        
       
     </div>
     
@@ -366,8 +360,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/14/Median-of-unsorted-array/" rel="next" title="Median of unsorted array">
-                <i class="fa fa-chevron-left"></i> Median of unsorted array
+              <a href="/2019/05/27/LC-843-Guess-the-word/" rel="next" title="LC 843 Guess the word">
+                <i class="fa fa-chevron-left"></i> LC 843 Guess the word
               </a>
             
           </div>
@@ -375,10 +369,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/02/15/LC-87-Scramble-String/" rel="prev" title="LC 87 Scramble String">
-                LC 87 Scramble String <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -430,17 +420,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -500,22 +481,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#DP-LC-72-Edit-Distance"><span class="nav-number">1.</span> <span class="nav-text">DP-LC 72 Edit Distance</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
