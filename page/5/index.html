@@ -269,6 +269,268 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/12/28/PG-LC-296-Best-Meeting-Point/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xueying Han">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Serena Han's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/28/PG-LC-296-Best-Meeting-Point/" itemprop="url">PG-LC 296. Best Meeting Point</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-28T11:38:10-05:00">
+                2018-12-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>A group of two or more people wants to meet and minimize the total travel distance. You are given a 2D grid of values 0 or 1, where each 1 marks the home of someone in the group. The distance is calculated using Manhattan Distance, where distance(p1, p2) = |p2.x - p1.x| + |p2.y - p1.y|.</p>
+<p>Example:</p>
+<p>Input:</p>
+<p>1 - 0 - 0 - 0 - 1<br>|   |   |   |   |<br>0 - 0 - 0 - 0 - 0<br>|   |   |   |   |<br>0 - 0 - 1 - 0 - 0</p>
+<p>Output: 6</p>
+<hr>
+<p>Brute force method:<br><figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> minTotalDistance(<span class="keyword">vector</span>&lt;<span class="keyword">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; <span class="keyword">grid</span>) &#123;</span><br><span class="line">       <span class="keyword">vector</span>&lt;pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt; homes;</span><br><span class="line">       <span class="keyword">int</span> rows = <span class="keyword">grid</span>.<span class="keyword">size</span>();</span><br><span class="line">       <span class="keyword">int</span> cols = <span class="keyword">grid</span>[<span class="number">0</span>].<span class="keyword">size</span>();</span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; rows; i++)&#123;</span><br><span class="line">           <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; cols; j++)&#123;</span><br><span class="line">               <span class="keyword">if</span>(<span class="keyword">grid</span>[i][j] == <span class="number">1</span>)</span><br><span class="line">                   homes.push_back(make_pair(i, j));</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">int</span> res = INT_MAX;</span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; rows; i++)&#123;</span><br><span class="line">           <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; cols; j++)&#123;</span><br><span class="line">               res = <span class="keyword">min</span>(res, distance(i, j, homes));</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> res;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">int</span> distance(<span class="keyword">int</span> i, <span class="keyword">int</span> j, <span class="keyword">vector</span>&lt;pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt; homes)&#123;</span><br><span class="line">       <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">       <span class="keyword">for</span>(auto h : homes)&#123;</span><br><span class="line">           sum += (<span class="keyword">abs</span>(h.first - i) + <span class="keyword">abs</span>(h.second - j));</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> sum;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>Divide all positions into two groups, and find the middle position between them.</li>
+<li>Find x and y of the middle position.<ul>
+<li>First sort the all xs/ ys</li>
+<li>Calculate the sum of distances between all xs and the middle one =&gt; Sum(difference of two sides of X(Y) array)</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Just like there is a group of people on one side and a group of people on the other side, if the point has the least distance to everyone in both groups, we need to put the point to the middle of two groups.</span></span><br><span class="line"> <span class="keyword">int</span> minTotalDistance(<span class="keyword">vector</span>&lt;<span class="keyword">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; <span class="keyword">grid</span>) &#123;</span><br><span class="line">     <span class="keyword">vector</span>&lt;<span class="keyword">int</span>&gt; xv;</span><br><span class="line">     <span class="keyword">vector</span>&lt;<span class="keyword">int</span>&gt; yv;</span><br><span class="line">     <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">grid</span>.<span class="keyword">size</span>(); i++)&#123;</span><br><span class="line">         <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="keyword">grid</span>[i].<span class="keyword">size</span>(); j++)&#123;</span><br><span class="line">             <span class="keyword">if</span>(<span class="keyword">grid</span>[i][j] == <span class="number">1</span>)&#123;</span><br><span class="line">                 xv.push_back(i);</span><br><span class="line">                 yv.push_back(j);</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">return</span> getAve(xv) + getAve(yv);</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">int</span> getAve(<span class="keyword">vector</span>&lt;<span class="keyword">int</span>&gt; v)&#123;</span><br><span class="line">     <span class="keyword">sort</span>(v.begin(), v.end());</span><br><span class="line">     <span class="keyword">int</span> i = <span class="number">0</span>, j = v.<span class="keyword">size</span>()<span class="number">-1</span>;</span><br><span class="line">     <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">     <span class="keyword">while</span>(i &lt; j)&#123;</span><br><span class="line">         res += v[j--] - v[i++];</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">return</span> res;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/12/27/PG-Connect-n-ropes-with-minimum-cost/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xueying Han">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Serena Han's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/27/PG-Connect-n-ropes-with-minimum-cost/" itemprop="url">PG-Connect n ropes with minimum cost</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-27T23:07:15-05:00">
+                2018-12-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>There are given n ropes of different lengths, we need to connect these ropes into one rope. The cost to connect two ropes is equal to sum of their lengths. We need to connect the ropes with minimum cost.</p>
+<p>For example if we are given 4 ropes of lengths 4, 3, 2 and 6. We can connect the ropes in following ways.<br>1) First connect ropes of lengths 2 and 3. Now we have three ropes of lengths 4, 6 and 5.<br>2) Now connect ropes of lengths 4 and 5. Now we have two ropes of lengths 6 and 9.<br>3) Finally connect the two ropes and all ropes have connected.</p>
+<p>Total cost for connecting all ropes is 5 + 9 + 15 = 29.</p>
+<hr>
+<p>We can see that the results of previous picked ropes will include more than once in the whole process.<br>So we need to use greedy algorithm by picked smallest ropes every time.<br>And the result needs to be added into current array.<br>Then choose two smallest numbers again.</p>
+<p>So we need to build a min heap.</p>
+<p>The easiest way to build a min heap by C++ and java is using priority queue.</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> minCost(vector&lt;<span class="keyword">int</span>&gt;&amp; ropes)&#123;</span><br><span class="line">    priority_queue&lt;<span class="keyword">int</span>, vector&lt;<span class="keyword">int</span>&gt;, greater&lt;<span class="keyword">int</span>&gt;&gt; pq;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> r : ropes)</span><br><span class="line">        pq.<span class="keyword">push</span>(r);</span><br><span class="line">    <span class="keyword">while</span>(pq.<span class="keyword">size</span>() &gt; <span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">int</span> len1 = pq.top(); pq.<span class="keyword">pop</span>();</span><br><span class="line">        <span class="keyword">int</span> len2 = pq.top(); pq.<span class="keyword">pop</span>();</span><br><span class="line">        res += len1 + len2;</span><br><span class="line">        pq.<span class="keyword">push</span>(len1+len2);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/12/27/PG-Find-the-maxium-element-in-an-array-which-is-first-increasing-and-then-decreasing/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -300,7 +562,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-27T21:19:41-08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-27T21:19:41-05:00">
                 2018-12-27
               </time>
             
@@ -427,7 +689,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-27T16:23:18-08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-27T16:23:18-05:00">
                 2018-12-27
               </time>
             
@@ -555,7 +817,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-27T00:30:35-08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-27T00:30:35-05:00">
                 2018-12-27
               </time>
             
@@ -679,7 +941,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-26T23:09:49-08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-26T23:09:49-05:00">
                 2018-12-26
               </time>
             
@@ -810,7 +1072,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-26T18:40:11-08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-26T18:40:11-05:00">
                 2018-12-26
               </time>
             
@@ -950,7 +1212,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-26T16:58:07-08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-26T16:58:07-05:00">
                 2018-12-26
               </time>
             
@@ -1073,7 +1335,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-26T00:00:33-08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-26T00:00:33-05:00">
                 2018-12-26
               </time>
             
@@ -1203,7 +1465,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-25T21:39:02-08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-25T21:39:02-05:00">
                 2018-12-25
               </time>
             
@@ -1293,274 +1555,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/12/25/41-First-Missing-Positive/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xueying Han">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Serena Han's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/25/41-First-Missing-Positive/" itemprop="url">41.First Missing Positive</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-25T20:02:11-08:00">
-                2018-12-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Given an unsorted integer array, find the smallest missing positive integer.</p>
-<p>Input: [1,2,0]<br>Output: 3</p>
-<p>The idea is that we need to sort the array. We judge whether a number is missing or not by its index.</p>
-<p>If value != index+1, then the missing number is index+1.</p>
-<p>We first put all replaced numbers to their right index by swapping. For example, nums[i] is replaced, because the number in its right place is not equal to nums[i]. The right place should be nums[i]-1. So we need to exchange nums[nums[i]-1] with nums[i].</p>
-<p>We can’t judge the replaced number by comparing nums[i] with i+1. Because when both nums[0] and nums[1] are 1, then nums[i] != 2 and swap(nums[1], nums[nums[1]-1]) won’t change the array.</p>
-<figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> firstMissingPositive(<span class="keyword">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">    <span class="keyword">int</span> <span class="keyword">size</span> = (<span class="keyword">int</span>)nums.<span class="keyword">size</span>();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">size</span>; i++)</span><br><span class="line">        <span class="keyword">while</span>(nums[i] &gt; <span class="number">0</span> &amp;&amp; nums[i] &lt; <span class="keyword">size</span> &amp;&amp; nums[nums[i]<span class="number">-1</span>] != nums[i])</span><br><span class="line">            swap(nums[i], nums[nums[i]<span class="number">-1</span>]);</span><br><span class="line">    <span class="keyword">int</span> k = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(; k &lt; <span class="keyword">size</span>; k++)</span><br><span class="line">        <span class="keyword">if</span>(nums[k] != k+<span class="number">1</span>)</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">return</span> k+<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/12/25/Tree-366-Find-Leaves-of-Binary-Tree/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xueying Han">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Serena Han's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/25/Tree-366-Find-Leaves-of-Binary-Tree/" itemprop="url">Tree-366. Find Leaves of Binary Tree</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-25T11:09:12-08:00">
-                2018-12-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Input: [1,2,3,4,5]</p>
-<pre><code>    1
-   / \
-  2   3
- / \     
-4   5    
-</code></pre><p>Output: [ [4,5,3],[2],[1]]</p>
-<ul>
-<li>Define a level of a node by its child nodes</li>
-<li><p>The process of running a test:</p>
-<blockquote>
-<p>dfs([], node(1))<br>dfs([], node(3))<br>dfs([], node(NULL))<br>return -1 to dfs([], node(3))<br>dfs([], node(NULL))<br>dfs([], node(3)): level = 1 + max(-1, -1) = 0<br>dfs([], node(3)): [ [3]] -&gt; return 0<br>dfs([ [3]], node(2))<br>dfs([ [3]], node(5))<br>dfs([ [3]], node(NULL))<br>return -1 to dfs([ [3]], node(5))<br>dfs([ [3]], node(NULL))<br>return -1 to dfs([ [3]], node(5))<br>dfs([ [3]], node(5)) level = 1 + max(-1, -1) = 0<br>dfs([ [3]], node(5)): [ [5,3]] -&gt; return 0</p>
-</blockquote>
-</li>
-<li><p>recursion : The easiest way to thinking the process of recursion is first to test the lowermost level.</p>
-</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; res, TreeNode* node)</span></span>&#123;</span><br><span class="line">      <span class="keyword">if</span>(!node)</span><br><span class="line">          <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">      <span class="keyword">int</span> level = <span class="number">1</span> + max(dfs(res, node-&gt;right), dfs(res, node-&gt;left));</span><br><span class="line">      <span class="keyword">if</span>(res.size() &lt; level + <span class="number">1</span>)&#123;</span><br><span class="line">          <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; subres;</span><br><span class="line">          res.push_back(subres);</span><br><span class="line">      &#125;</span><br><span class="line">      res[level].push_back(node-&gt;val);</span><br><span class="line">      <span class="keyword">return</span> level;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; findLeaves(TreeNode* root) &#123;</span><br><span class="line">      <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; res;</span><br><span class="line">      dfs(res, root);</span><br><span class="line">      <span class="keyword">return</span> res;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1606,7 +1605,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">69</span>
+                  <span class="site-state-item-count">71</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

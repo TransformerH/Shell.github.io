@@ -269,6 +269,269 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/12/25/41-First-Missing-Positive/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xueying Han">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Serena Han's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/25/41-First-Missing-Positive/" itemprop="url">41.First Missing Positive</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-25T20:02:11-05:00">
+                2018-12-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Given an unsorted integer array, find the smallest missing positive integer.</p>
+<p>Input: [1,2,0]<br>Output: 3</p>
+<p>The idea is that we need to sort the array. We judge whether a number is missing or not by its index.</p>
+<p>If value != index+1, then the missing number is index+1.</p>
+<p>We first put all replaced numbers to their right index by swapping. For example, nums[i] is replaced, because the number in its right place is not equal to nums[i]. The right place should be nums[i]-1. So we need to exchange nums[nums[i]-1] with nums[i].</p>
+<p>We can’t judge the replaced number by comparing nums[i] with i+1. Because when both nums[0] and nums[1] are 1, then nums[i] != 2 and swap(nums[1], nums[nums[1]-1]) won’t change the array.</p>
+<figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> firstMissingPositive(<span class="keyword">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">    <span class="keyword">int</span> <span class="keyword">size</span> = (<span class="keyword">int</span>)nums.<span class="keyword">size</span>();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">size</span>; i++)</span><br><span class="line">        <span class="keyword">while</span>(nums[i] &gt; <span class="number">0</span> &amp;&amp; nums[i] &lt; <span class="keyword">size</span> &amp;&amp; nums[nums[i]<span class="number">-1</span>] != nums[i])</span><br><span class="line">            swap(nums[i], nums[nums[i]<span class="number">-1</span>]);</span><br><span class="line">    <span class="keyword">int</span> k = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(; k &lt; <span class="keyword">size</span>; k++)</span><br><span class="line">        <span class="keyword">if</span>(nums[k] != k+<span class="number">1</span>)</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">return</span> k+<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/12/25/Tree-366-Find-Leaves-of-Binary-Tree/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xueying Han">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Serena Han's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/25/Tree-366-Find-Leaves-of-Binary-Tree/" itemprop="url">Tree-366. Find Leaves of Binary Tree</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-25T11:09:12-05:00">
+                2018-12-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Input: [1,2,3,4,5]</p>
+<pre><code>    1
+   / \
+  2   3
+ / \     
+4   5    
+</code></pre><p>Output: [ [4,5,3],[2],[1]]</p>
+<ul>
+<li>Define a level of a node by its child nodes</li>
+<li><p>The process of running a test:</p>
+<blockquote>
+<p>dfs([], node(1))<br>dfs([], node(3))<br>dfs([], node(NULL))<br>return -1 to dfs([], node(3))<br>dfs([], node(NULL))<br>dfs([], node(3)): level = 1 + max(-1, -1) = 0<br>dfs([], node(3)): [ [3]] -&gt; return 0<br>dfs([ [3]], node(2))<br>dfs([ [3]], node(5))<br>dfs([ [3]], node(NULL))<br>return -1 to dfs([ [3]], node(5))<br>dfs([ [3]], node(NULL))<br>return -1 to dfs([ [3]], node(5))<br>dfs([ [3]], node(5)) level = 1 + max(-1, -1) = 0<br>dfs([ [3]], node(5)): [ [5,3]] -&gt; return 0</p>
+</blockquote>
+</li>
+<li><p>recursion : The easiest way to thinking the process of recursion is first to test the lowermost level.</p>
+</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; res, TreeNode* node)</span></span>&#123;</span><br><span class="line">      <span class="keyword">if</span>(!node)</span><br><span class="line">          <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">      <span class="keyword">int</span> level = <span class="number">1</span> + max(dfs(res, node-&gt;right), dfs(res, node-&gt;left));</span><br><span class="line">      <span class="keyword">if</span>(res.size() &lt; level + <span class="number">1</span>)&#123;</span><br><span class="line">          <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; subres;</span><br><span class="line">          res.push_back(subres);</span><br><span class="line">      &#125;</span><br><span class="line">      res[level].push_back(node-&gt;val);</span><br><span class="line">      <span class="keyword">return</span> level;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; findLeaves(TreeNode* root) &#123;</span><br><span class="line">      <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; res;</span><br><span class="line">      dfs(res, root);</span><br><span class="line">      <span class="keyword">return</span> res;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/12/24/75-sort-colors/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -300,7 +563,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-24T16:59:56-08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-24T16:59:56-05:00">
                 2018-12-24
               </time>
             
@@ -431,7 +694,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-24T15:14:27-08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-24T15:14:27-05:00">
                 2018-12-24
               </time>
             
@@ -571,7 +834,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-01T13:33:35-08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-01T13:33:35-05:00">
                 2018-12-01
               </time>
             
@@ -696,7 +959,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-14T14:47:59-08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-14T14:47:59-05:00">
                 2018-11-14
               </time>
             
@@ -825,7 +1088,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-14T14:27:20-08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-14T14:27:20-05:00">
                 2018-11-14
               </time>
             
@@ -953,7 +1216,7 @@ if s == 0 the gcd is b
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-30T14:00:24-07:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-30T14:00:24-04:00">
                 2018-05-30
               </time>
             
@@ -1116,7 +1379,7 @@ if s == 0 the gcd is b
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-27T17:16:11-07:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-27T17:16:11-04:00">
                 2018-05-27
               </time>
             
@@ -1242,7 +1505,7 @@ if s == 0 the gcd is b
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-25T12:55:25-07:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-25T12:55:25-04:00">
                 2018-05-25
               </time>
             
@@ -1367,360 +1630,11 @@ if s == 0 the gcd is b
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/05/24/sliding-Window-algorithm/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xueying Han">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Serena Han's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/24/sliding-Window-algorithm/" itemprop="url">sliding Window algorithm</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-24T15:33:17-07:00">
-                2018-05-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="https://www.geeksforgeeks.org/tag/sliding-window/" target="_blank" rel="noopener">resources1</a> ,<br><a href="https://medium.com/leetcode-patterns/leetcode-pattern-2-sliding-windows-for-strings-e19af105316b" target="_blank" rel="noopener">resources2</a></p>
-<ul>
-<li><p>Substring search problems</p>
-<ul>
-<li><p><a href="https://leetcode.com/problems/minimum-window-substring/" target="_blank" rel="noopener">https://leetcode.com/problems/minimum-window-substring/</a></p>
-</li>
-<li><p><a href="https://leetcode.com/problems/longest-substring-without-repeating-characters/" target="_blank" rel="noopener">https://leetcode.com/problems/longest-substring-without-repeating-characters/</a></p>
-</li>
-<li><p><a href="https://leetcode.com/problems/substring-with-concatenation-of-all-words/" target="_blank" rel="noopener">https://leetcode.com/problems/substring-with-concatenation-of-all-words/</a></p>
-</li>
-<li><p><a href="https://leetcode.com/problems/longest-substring-with-at-most-two-distinct-characters/" target="_blank" rel="noopener">https://leetcode.com/problems/longest-substring-with-at-most-two-distinct-characters/</a></p>
-</li>
-<li><p><a href="https://leetcode.com/problems/find-all-anagrams-in-a-string/" target="_blank" rel="noopener">https://leetcode.com/problems/find-all-anagrams-in-a-string/</a></p>
-</li>
-</ul>
-</li>
-<li><p>Problem Description</p>
-<ul>
-<li>The basic string/array : B</li>
-<li>The pattern string/array : P</li>
-</ul>
-</li>
-<li><p>“Intuition”</p>
-<ul>
-<li><p>The first window in B :</p>
-<ul>
-<li><p>The fixed-size window :</p>
-<blockquote>
-<p>the size of window is that of P.</p>
-</blockquote>
-</li>
-<li><p>The variable-size window :</p>
-<blockquote>
-<p>the size of the first window should be found in the B by satisfying the commands of the problem.</p>
-</blockquote>
-</li>
-</ul>
-</li>
-<li><p>The window moves by deleting the left-most element from it and adding the right-most element into it.</p>
-<ul>
-<li><p>The fixed-size window :</p>
-<blockquote>
-<p>using for loop to check the element of B one by one</p>
-</blockquote>
-</li>
-<li><p>The variable-size window:</p>
-<blockquote>
-<p>the right of the window can move when we can’t find an answer candidate in the current window.  The left of the window can move when we can find an candidate answer in the current window and we may need to do some judgements when we try to move the left.</p>
-</blockquote>
-</li>
-</ul>
-</li>
-<li><p>the size of basic elements</p>
-<ul>
-<li><p>set the elements compared to the keys of the frequency map and the values are initiated by the keys’ frequency in the P.</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">unordered_map</span>&lt;element_type, <span class="keyword">int</span>&gt; table;</span><br><span class="line"><span class="comment">// element_type can be char, int , string</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>travel the B by the basic elements, the moving step of window is the size of the basic element.</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Relative LeetCode Problems</p>
-<blockquote>
-<p>Some problems can be solved by both fixed-size window algorithm and variable-size window algorithm, the below classification bases on my personal opinion.</p>
-</blockquote>
-</li>
-</ul>
-<p>The fixed-size window :</p>
-<ul>
-<li><a href="https://leetcode.com/problems/find-all-anagrams-in-a-string/" target="_blank" rel="noopener">438. Find All Anagrams in a String</a></li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; findAnagrams(<span class="built_in">string</span> s, <span class="built_in">string</span> p) &#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; sv(<span class="number">26</span>, <span class="number">0</span>), pv(<span class="number">26</span>, <span class="number">0</span>), res;</span><br><span class="line">    <span class="keyword">if</span>(s.length() &lt; p.length())</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    <span class="comment">// the window' size  =  p.length()</span></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    the value of sv[x] is 1 represents the char which in the substring of s which is in the current window</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="keyword">int</span> plen = (<span class="keyword">int</span>)p.length();</span><br><span class="line">    <span class="comment">// the first position of window</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; plen; i++)&#123;</span><br><span class="line">        sv[s[i] - <span class="string">'a'</span>]++;</span><br><span class="line">        pv[p[i] - <span class="string">'a'</span>]++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(sv == pv)</span><br><span class="line">        res.push_back(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = plen; i &lt; s.length(); i++)&#123;</span><br><span class="line">        <span class="comment">//----------  move the window -----------//</span></span><br><span class="line">        sv[s[i] - <span class="string">'a'</span>]++;</span><br><span class="line">        sv[s[i - plen] - <span class="string">'a'</span>]--;</span><br><span class="line">        <span class="comment">//----------  move the window -----------//</span></span><br><span class="line">        <span class="keyword">if</span>(sv == pv)</span><br><span class="line">            res.push_back(i - plen + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>The variable-size window :</p>
-<ul>
-<li><a href="https://leetcode.com/problems/minimum-window-substring/" target="_blank" rel="noopener">76. Minimum Window Substring</a></li>
-</ul>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// variable-size window algorithm</span></span><br><span class="line"></span><br><span class="line">string minWindow(string s, string t) &#123;</span><br><span class="line">    string res = <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">if</span>(s.length() &lt; t.length())</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    unordered_map&lt;char, int&gt; tMap;</span><br><span class="line">    <span class="keyword">for</span>(int i = <span class="number">0</span>; i &lt; t.length(); i++)</span><br><span class="line">        tMap[t[i]]++;</span><br><span class="line">    int <span class="keyword">left</span> = <span class="number">0</span>, <span class="keyword">right</span> = <span class="number">0</span>;</span><br><span class="line">    int len = <span class="type">INT_MAX</span>;</span><br><span class="line">    int charCount = (int)tMap.size();</span><br><span class="line">    <span class="keyword">while</span>(<span class="keyword">right</span> &lt; s.length())&#123;</span><br><span class="line">        <span class="keyword">if</span>(tMap.<span class="built_in">find</span>(s[<span class="keyword">right</span>]) != tMap.end())&#123;</span><br><span class="line">            tMap[s[<span class="keyword">right</span>]]--;</span><br><span class="line">            <span class="keyword">if</span>(tMap[s[<span class="keyword">right</span>]] == <span class="number">0</span>)</span><br><span class="line">                charCount--;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(charCount == <span class="number">0</span>)&#123;</span><br><span class="line">          <span class="comment">// can find a answer candidate in the current window</span></span><br><span class="line">            <span class="keyword">if</span>(<span class="keyword">right</span> - <span class="keyword">left</span> + <span class="number">1</span> &lt; len)&#123;</span><br><span class="line">                len = <span class="keyword">right</span> - <span class="keyword">left</span> + <span class="number">1</span>;</span><br><span class="line">                res = s.substr(<span class="keyword">left</span>, len);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(tMap.<span class="built_in">find</span>(s[<span class="keyword">left</span>]) != tMap.end())&#123;</span><br><span class="line">                tMap[s[<span class="keyword">left</span>]]++;</span><br><span class="line">                <span class="keyword">if</span>(tMap[s[<span class="keyword">left</span>]] &gt; <span class="number">0</span>)</span><br><span class="line">                    charCount++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">left</span>++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// can't find an answer candidate in the current window</span></span><br><span class="line">         <span class="keyword">right</span>++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p><a href="https://leetcode.com/problems/longest-substring-without-repeating-characters/description/" target="_blank" rel="noopener">3. Longest Substring Without Repeating Characters</a></p>
-<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">// the problem can be converted to <span class="built_in">find</span> the <span class="built_in">max</span> size of a defined variable-size window</span><br><span class="line"><span class="built_in">int</span> lengthOfLongestSubstring(string s) &#123;</span><br><span class="line">    <span class="built_in">if</span>(s.length() == <span class="number">0</span>)</span><br><span class="line">        return <span class="number">0</span>;</span><br><span class="line">    unordered_map&lt;<span class="built_in">char</span>, <span class="built_in">int</span>&gt; charMap;</span><br><span class="line">    <span class="built_in">int</span> <span class="built_in">left</span> = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">int</span> <span class="built_in">right</span> = <span class="number">1</span>;</span><br><span class="line">    charMap[s[<span class="built_in">left</span>]]++;</span><br><span class="line">    <span class="built_in">int</span> <span class="built_in">len</span> = <span class="number">1</span>;</span><br><span class="line">    while(<span class="built_in">right</span> &lt; s.length())&#123;</span><br><span class="line">        while(charMap.find(s[<span class="built_in">right</span>]) != charMap.end())&#123;</span><br><span class="line">            charMap.erase(s[<span class="built_in">left</span>]);</span><br><span class="line">            <span class="built_in">left</span>++;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        charMap[s[<span class="built_in">right</span>]]++;</span><br><span class="line">        <span class="built_in">if</span>(<span class="built_in">right</span> - <span class="built_in">left</span> + <span class="number">1</span> &gt; <span class="built_in">len</span>)</span><br><span class="line">            <span class="built_in">len</span> = <span class="built_in">right</span> - <span class="built_in">left</span> + <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">right</span>++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return <span class="built_in">len</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>159.Longest Substring with At Most Two Distinct Characters</p>
-<blockquote>
-<p>Given a string, find the length of the longest substring T that contains at most 2 distinct characters.<br>For example, Given s = “eceba”,<br>T is “ece” which its length is 3.<br>&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;<br>I haven’t bought the LeetCode’s member yet, so I don’t know if the code can be accepted or not. :(</p>
-</blockquote>
-</li>
-</ul>
-<figure class="highlight vbscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> lengthOfLongestSubstringTwoDistinct(<span class="built_in">string</span> s) &#123;</span><br><span class="line">    <span class="keyword">if</span>(s.length() == <span class="number">0</span>)</span><br><span class="line">        return <span class="number">0</span>;</span><br><span class="line">    unordered_map&lt;char, <span class="built_in">int</span>&gt; charMap;</span><br><span class="line">    <span class="built_in">int</span> <span class="built_in">left</span> = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">int</span> <span class="built_in">right</span> = <span class="number">1</span>;</span><br><span class="line">    charMap[s[<span class="built_in">left</span>]]++;</span><br><span class="line">    <span class="built_in">int</span> <span class="built_in">len</span> = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">right</span> &lt; s.length())&#123;</span><br><span class="line">        <span class="keyword">while</span>(charMap.find(s[<span class="built_in">right</span>]) == charMap.<span class="keyword">end</span>() &amp;&amp; charMap.size() &gt;= <span class="number">2</span>)&#123;</span><br><span class="line">            charMap.<span class="keyword">erase</span>(s[<span class="built_in">left</span>]);</span><br><span class="line">            <span class="built_in">left</span>++;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        charMap[s[<span class="built_in">right</span>]]++;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">right</span> - <span class="built_in">left</span> + <span class="number">1</span> &gt; <span class="built_in">len</span>)</span><br><span class="line">            <span class="built_in">len</span> = <span class="built_in">right</span> - <span class="built_in">left</span> + <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">right</span>++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return <span class="built_in">len</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><a href="https://leetcode.com/problems/substring-with-concatenation-of-all-words/description/" target="_blank" rel="noopener">30. Substring with Concatenation of All Words</a></li>
-</ul>
-<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;<span class="keyword">int</span>&gt; findSubstring(<span class="keyword">string</span> s, vector&lt;<span class="keyword">string</span>&gt;&amp; words) &#123;</span><br><span class="line">    vector&lt;<span class="keyword">int</span>&gt; res;</span><br><span class="line">    <span class="built_in">if</span>(words.<span class="built_in">size</span>() == <span class="number">0</span>)</span><br><span class="line">        <span class="built_in">return</span> res;</span><br><span class="line">    <span class="keyword">int</span> wordLen = (<span class="keyword">int</span>)words[<span class="number">0</span>].<span class="built_in">size</span>();</span><br><span class="line">    <span class="keyword">int</span> windowSize = (<span class="keyword">int</span>)words.<span class="built_in">size</span>() * wordLen;</span><br><span class="line">    <span class="built_in">if</span>(s.length() &lt; windowSize)</span><br><span class="line">        <span class="built_in">return</span> res;</span><br><span class="line"></span><br><span class="line">    unordered_map&lt;<span class="keyword">string</span>, <span class="keyword">int</span>&gt; wordMap;</span><br><span class="line">    <span class="built_in">for</span>(<span class="keyword">string</span> <span class="keyword">word</span> : words)</span><br><span class="line">        wordMap[<span class="keyword">word</span>]++;</span><br><span class="line">    unordered_map&lt;<span class="keyword">string</span>, <span class="keyword">int</span>&gt; temp(wordMap);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; words[<span class="number">0</span>].<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> left = i;</span><br><span class="line">        <span class="keyword">int</span> right = i;</span><br><span class="line">        <span class="keyword">int</span> wordCount = (<span class="keyword">int</span>)wordMap.<span class="built_in">size</span>();</span><br><span class="line">        <span class="built_in">while</span>(right + wordLen - <span class="number">1</span> &lt; s.length())&#123;</span><br><span class="line">            <span class="keyword">string</span> rightWord = s.substr(right, wordLen);</span><br><span class="line">            <span class="built_in">if</span>(wordMap.<span class="built_in">find</span>(rightWord) != wordMap.<span class="built_in">end</span>())&#123;</span><br><span class="line">                wordMap[rightWord]--;</span><br><span class="line">                <span class="built_in">if</span>(wordMap[rightWord] == <span class="number">0</span>)</span><br><span class="line">                    wordCount--;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">if</span>(right + wordLen - left == windowSize)&#123;</span><br><span class="line">                <span class="comment">// the current window has an answer candidate</span></span><br><span class="line">                <span class="built_in">if</span>(wordCount == <span class="number">0</span>)&#123;</span><br><span class="line">                    res.push_back(left);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">string</span> leftWord = s.substr(left, wordLen);</span><br><span class="line">                <span class="built_in">if</span>(wordMap.<span class="built_in">find</span>(leftWord) != wordMap.<span class="built_in">end</span>())&#123;</span><br><span class="line">                    wordMap[leftWord]++;</span><br><span class="line">                    <span class="built_in">if</span>(wordMap[leftWord] &gt; <span class="number">0</span>)</span><br><span class="line">                        wordCount++;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">// move the left of the window</span></span><br><span class="line">                left += wordLen;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// the size of the window does not equal to the windowSize,</span></span><br><span class="line">            <span class="comment">// so we need to add a new word in to the window</span></span><br><span class="line">            right += wordLen;</span><br><span class="line">        &#125;</span><br><span class="line">        wordMap = temp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><a href="https://leetcode.com/problems/fruit-into-baskets/" target="_blank" rel="noopener">904. Fruit Into Baskets</a> &amp;&amp; <a href="https://leetcode.com/problems/longest-substring-with-at-most-two-distinct-characters/" target="_blank" rel="noopener">159. Longest Substring with At Most Two Distinct Characters</a><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 904 - sliding window</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">int</span> totalFruit(<span class="keyword">int</span>[] tree) &#123;</span><br><span class="line">       Map&lt;Integer, Integer&gt; fruitMap = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">       <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">       <span class="keyword">int</span> j;</span><br><span class="line">       <span class="built_in">for</span>(j = <span class="number">0</span>; j &lt; tree.length; j++)&#123;</span><br><span class="line">           fruitMap.<span class="built_in">put</span>(tree[j], fruitMap.getOrDefault(tree[j], <span class="number">0</span>)+<span class="number">1</span>);</span><br><span class="line">           <span class="built_in">if</span>(fruitMap.<span class="built_in">size</span>() &gt; <span class="number">2</span>)&#123;</span><br><span class="line">               fruitMap.<span class="built_in">put</span>(tree[i], fruitMap.<span class="built_in">get</span>(tree[i])<span class="number">-1</span>);</span><br><span class="line">               fruitMap.<span class="built_in">remove</span>(tree[i++], <span class="number">0</span>);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="built_in">return</span> j - i;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">      case 1</span></span><br><span class="line"><span class="comment">       * c == b</span></span><br><span class="line"><span class="comment">       * b_count++;</span></span><br><span class="line"><span class="comment">       * cur++;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">       case 2</span></span><br><span class="line"><span class="comment">       * c == a</span></span><br><span class="line"><span class="comment">       * cur++;</span></span><br><span class="line"><span class="comment">       * b_count = 1;</span></span><br><span class="line"><span class="comment">       * a = b, b = c;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">       case 3</span></span><br><span class="line"><span class="comment">       * c != a &amp;&amp; c != b</span></span><br><span class="line"><span class="comment">       * cur = b_count + 1;</span></span><br><span class="line"><span class="comment">       * b_count = 1;</span></span><br><span class="line"><span class="comment">       * a = b, b = c</span></span><br><span class="line"><span class="comment">       */</span></span><br><span class="line"></span><br><span class="line">public int totalFruit(int[] tree) &#123;     </span><br><span class="line">       int a = <span class="number">0</span>, <span class="keyword">b </span>= <span class="number">0</span>, res = <span class="number">0</span>, <span class="keyword">b_count </span>= <span class="number">0</span>, cur = <span class="number">0</span><span class="comment">;</span></span><br><span class="line">       for(int c : tree)&#123;</span><br><span class="line">           cur = a == c <span class="title">||</span> <span class="keyword">b </span>== c ? cur + <span class="number">1</span> : <span class="keyword">b_count </span>+ <span class="number">1</span><span class="comment">;</span></span><br><span class="line">           <span class="keyword">b_count </span>= <span class="keyword">b </span>== c ? <span class="keyword">b_count </span>+ <span class="number">1</span> : <span class="number">1</span><span class="comment">;</span></span><br><span class="line">           if(<span class="keyword">b </span>!= c)&#123;</span><br><span class="line">               a = <span class="keyword">b;</span></span><br><span class="line"><span class="keyword"> </span>              <span class="keyword">b </span>= c<span class="comment">;</span></span><br><span class="line">           &#125;</span><br><span class="line">           res = Math.max(res, cur)<span class="comment">;</span></span><br><span class="line">       &#125;</span><br><span class="line">       return res<span class="comment">;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/05/23/Backtracking/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xueying Han">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Serena Han's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/23/Backtracking/" itemprop="url">Backtracking</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-23T15:08:51-07:00">
-                2018-05-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ul>
-<li><p>Include:</p>
-<ul>
-<li><p>DFS</p>
-<figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span></span><br><span class="line">  <span class="keyword">push</span>(element)</span><br><span class="line">  recursion</span><br><span class="line">  <span class="keyword">pop</span>(element)</span><br><span class="line"><span class="keyword">end</span> <span class="keyword">for</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>permutation</p>
-<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span></span><br><span class="line">  <span class="built_in">swap</span>(current_element, fixed_element)</span><br><span class="line">  recursion</span><br><span class="line">  <span class="built_in">swap</span>(current_element, fixed_element)</span><br><span class="line"><span class="keyword">end</span> <span class="keyword">for</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1766,7 +1680,7 @@ if s == 0 the gcd is b
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">69</span>
+                  <span class="site-state-item-count">71</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

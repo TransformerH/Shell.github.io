@@ -269,6 +269,272 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/01/02/Trie/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xueying Han">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Serena Han's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/02/Trie/" itemprop="url">Trie</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-02T21:50:06-05:00">
+                2019-01-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>LC 208. Implement Trie(Prefix Tree)</p>
+<p>Not fast… But it’s bug free at the first commitment. I’m soooo happy.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">TrieNode</span> &#123;</span></span><br><span class="line">    <span class="keyword">bool</span> end = <span class="literal">false</span>;</span><br><span class="line">    <span class="built_in">vector</span>&lt;TrieNode*&gt; alpha;</span><br><span class="line">    TrieNode()&#123;</span><br><span class="line">        alpha = <span class="built_in">vector</span>&lt;TrieNode*&gt;(<span class="number">26</span>, <span class="literal">NULL</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Trie</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    TrieNode* root;</span><br><span class="line">    <span class="comment">/** Initialize your data structure here. */</span></span><br><span class="line">    Trie() &#123;</span><br><span class="line">        root = <span class="keyword">new</span> TrieNode();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Inserts a word into the trie. */</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="built_in">string</span> word)</span> </span>&#123;</span><br><span class="line">        TrieNode* temp = root;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; word.length(); i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> cind = word[i] - <span class="string">'a'</span>;</span><br><span class="line">            <span class="keyword">if</span>(!temp-&gt;alpha[cind])&#123;</span><br><span class="line">                temp-&gt;alpha[cind] = <span class="keyword">new</span> TrieNode();</span><br><span class="line">            &#125;</span><br><span class="line">            temp = temp-&gt;alpha[cind];</span><br><span class="line">        &#125;</span><br><span class="line">        temp-&gt;end = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Returns if the word is in the trie. */</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">search</span><span class="params">(<span class="built_in">string</span> word)</span> </span>&#123;</span><br><span class="line">        TrieNode* temp = root;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">char</span> c : word)&#123;</span><br><span class="line">            <span class="keyword">int</span> cind = c - <span class="string">'a'</span>;</span><br><span class="line">            <span class="keyword">if</span>(!temp-&gt;alpha[cind])</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            temp = temp-&gt;alpha[cind];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(!temp-&gt;end)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Returns if there is any word in the trie that starts with the given prefix. */</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">startsWith</span><span class="params">(<span class="built_in">string</span> prefix)</span> </span>&#123;</span><br><span class="line">        TrieNode* temp = root;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">char</span> c : prefix)&#123;</span><br><span class="line">            <span class="keyword">int</span> cind = c - <span class="string">'a'</span>;</span><br><span class="line">            <span class="keyword">if</span>(!temp-&gt;alpha[cind])</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            temp = temp-&gt;alpha[cind];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/01/01/Union-Find/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xueying Han">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Serena Han's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/01/Union-Find/" itemprop="url">Union Find</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-01T17:48:00-05:00">
+                2019-01-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="Common"><a href="#Common" class="headerlink" title="Common"></a>Common</h3><hr>
+<h3 id="LC-947-Most-Stones-Removed-with-Same-Row-or-Column"><a href="#LC-947-Most-Stones-Removed-with-Same-Row-or-Column" class="headerlink" title="LC 947. Most Stones Removed with Same Row or Column"></a>LC 947. Most Stones Removed with Same Row or Column</h3><p>On a 2D plane, we place stones at some integer coordinate points.  Each coordinate point may have at most one stone.</p>
+<p>Now, a move consists of removing a stone that shares a column or row with another stone on the grid.</p>
+<p>What is the largest possible number of moves we can make?</p>
+<p>Example 1:</p>
+<p>Input: stones = [ [0,0],[0,1],[1,0],[1,2],[2,1],[2,2]]<br>Output: 5<br>Example 2:</p>
+<p>Input: stones = [ [0,0],[0,2],[1,1],[2,0],[2,2]]<br>Output: 3<br>Example 3:</p>
+<p>Input: stones = [ [0,0]]<br>Output: 0</p>
+<hr>
+<p>If we connect all stones with same column or row as an island, then this problem wants us to remove stones until there is only one stone left in this union.<br>So in the result, #of islands = #of left stones.<br>And the result = #of all stones - #of islands.</p>
+<p>=&gt;</p>
+<p>This problem can be reversed to count the number of islands.</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">     <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">    Map&lt;<span class="keyword">String</span>, <span class="keyword">String</span>&gt; <span class="built_in">map</span> = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> removeStones(<span class="keyword">int</span>[][] stones) &#123;</span><br><span class="line">        count = stones.length;</span><br><span class="line">        <span class="built_in">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; stones.length; i++)&#123;</span><br><span class="line">            <span class="keyword">String</span> stone = stones[i][<span class="number">0</span>] + <span class="string">" "</span> + stones[i][<span class="number">1</span>];</span><br><span class="line">            <span class="built_in">map</span>.<span class="built_in">put</span>(stone, stone);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; stones.length; i++)&#123;</span><br><span class="line">            <span class="keyword">String</span> stone1 = stones[i][<span class="number">0</span>] + <span class="string">" "</span> + stones[i][<span class="number">1</span>];</span><br><span class="line">            <span class="built_in">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; stones.length; j++)&#123;</span><br><span class="line">                <span class="built_in">if</span>(stones[i][<span class="number">0</span>] == stones[j][<span class="number">0</span>] || stones[i][<span class="number">1</span>] == stones[j][<span class="number">1</span>]) &#123;</span><br><span class="line">                    <span class="keyword">String</span> stone2 = stones[j][<span class="number">0</span>] + <span class="string">" "</span> + stones[j][<span class="number">1</span>];</span><br><span class="line">                    <span class="keyword">union</span>(stone1, stone2);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> stones.length - count;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="keyword">union</span>(<span class="keyword">String</span> first, <span class="keyword">String</span> next)&#123;</span><br><span class="line">        <span class="keyword">String</span> firstR = <span class="built_in">find</span>(first);</span><br><span class="line">        <span class="keyword">String</span> nextR = <span class="built_in">find</span>(next);</span><br><span class="line">        <span class="built_in">if</span>(!firstR.equals(nextR)) &#123;</span><br><span class="line">            <span class="built_in">map</span>.<span class="built_in">put</span>(firstR, nextR);</span><br><span class="line">            count--;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">String</span> <span class="built_in">find</span>(<span class="keyword">String</span> first)&#123;</span><br><span class="line">        <span class="built_in">if</span>(!first.equals(<span class="built_in">map</span>.<span class="built_in">get</span>(first)))&#123;</span><br><span class="line">            <span class="built_in">map</span>.<span class="built_in">put</span>(first, <span class="built_in">find</span>(<span class="built_in">map</span>.<span class="built_in">get</span>(first)));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> <span class="built_in">map</span>.<span class="built_in">get</span>(first);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">removeStones</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; stones)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; stones.size(); i++)&#123;</span><br><span class="line">            uni(stones[i][<span class="number">0</span>], ~stones[i][<span class="number">1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> stones.size()-island;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; fmap;</span><br><span class="line">    <span class="keyword">int</span> island = <span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(fmap.find(x) == fmap.end())&#123;</span><br><span class="line">            fmap[x] = x;</span><br><span class="line">            island++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(fmap[x] != x)</span><br><span class="line">            fmap[x] = find(fmap[x]);</span><br><span class="line">        <span class="keyword">return</span> fmap[x];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">uni</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> xroot = find(x);</span><br><span class="line">        <span class="keyword">int</span> yroot = find(y);</span><br><span class="line">        <span class="keyword">if</span>(xroot != yroot)&#123;</span><br><span class="line">            fmap[xroot] = yroot;</span><br><span class="line">            island--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="LC-959-Regions-Cut-By-Slashes"><a href="#LC-959-Regions-Cut-By-Slashes" class="headerlink" title="LC 959. Regions Cut By Slashes"></a>LC 959. Regions Cut By Slashes</h3><p>not a typical problem but an interesting one.<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; regions;</span><br><span class="line">    <span class="keyword">int</span> islands, n;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">regionsBySlashes</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; grid)</span> </span>&#123;</span><br><span class="line">        n = grid.size();</span><br><span class="line">        islands = n*n*<span class="number">4</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n*n*<span class="number">4</span>; i++)&#123;</span><br><span class="line">            regions.push_back(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(i &gt; <span class="number">0</span>)</span><br><span class="line">                    uni(g(i<span class="number">-1</span>, j, <span class="number">2</span>), g(i, j, <span class="number">0</span>));</span><br><span class="line">                <span class="keyword">if</span>(j &gt; <span class="number">0</span>)</span><br><span class="line">                    uni(g(i, j<span class="number">-1</span>, <span class="number">1</span>), g(i, j, <span class="number">3</span>));</span><br><span class="line">                 <span class="keyword">if</span>(grid[i][j] != <span class="string">'/'</span>)&#123;</span><br><span class="line">                    uni(g(i, j, <span class="number">0</span>), g(i, j, <span class="number">1</span>));</span><br><span class="line">                    uni(g(i, j, <span class="number">2</span>), g(i, j, <span class="number">3</span>));</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(grid[i][j] != <span class="string">'\\'</span>)&#123;</span><br><span class="line">                    uni(g(i, j, <span class="number">0</span>), g(i, j, <span class="number">3</span>));</span><br><span class="line">                    uni(g(i, j, <span class="number">2</span>), g(i, j, <span class="number">1</span>));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> islands;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(x != regions[x])</span><br><span class="line">            regions[x] = find(regions[x]);</span><br><span class="line">        <span class="keyword">return</span> regions[x];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">uni</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> xroot = find(x);</span><br><span class="line">        <span class="keyword">int</span> yroot = find(y);</span><br><span class="line">        <span class="keyword">if</span>(xroot != yroot)&#123;</span><br><span class="line">            regions[xroot] = yroot;</span><br><span class="line">            islands--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">g</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j, <span class="keyword">int</span> k)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (i*n + j) * <span class="number">4</span> + k;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h3 id="323-Number-of-Connected-Components-in-an-Undirected-Graph"><a href="#323-Number-of-Connected-Components-in-an-Undirected-Graph" class="headerlink" title="323. Number of Connected Components in an Undirected Graph"></a>323. Number of Connected Components in an Undirected Graph</h3><p>Given n nodes labeled from 0 to n - 1 and a list of undirected edges (each edge is a pair of nodes), write a function to find the number of connected components in an undirected graph.</p>
+<p>Example 1:</p>
+<p>Input: n = 5 and edges = [[0, 1], [1, 2], [3, 4]]</p>
+<pre><code>0          3
+|          |
+1 --- 2    4
+</code></pre><p>Output: 2</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; roots)</span></span>&#123;</span><br><span class="line"> <span class="keyword">if</span>(x != roots[x])</span><br><span class="line">     roots[x] = find(roots[x], roots);</span><br><span class="line">  <span class="keyword">return</span> roots[x];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">countComponents</span><span class="params">(<span class="keyword">int</span> n, <span class="built_in">vector</span>&lt;pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt;&amp; edges)</span> </span>&#123;</span><br><span class="line">  <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; roots(n, <span class="number">0</span>);</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">      roots[i] = i;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">auto</span> p : edges)&#123;</span><br><span class="line">      <span class="keyword">int</span> sroot = find(p.first, roots);</span><br><span class="line">      <span class="keyword">int</span> eroot = find(p.second, roots);</span><br><span class="line">      <span class="keyword">if</span>(sroot != eroot)&#123;</span><br><span class="line">          roots[sroot] = eroot;</span><br><span class="line">          n--;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> n;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>###</p>
+<p>index group</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/01/01/Two-pointers-LC-443-String-Compression/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -300,7 +566,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-01T00:52:53-08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-01T00:52:53-05:00">
                 2019-01-01
               </time>
             
@@ -432,7 +698,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-31T22:30:20-08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-31T22:30:20-05:00">
                 2018-12-31
               </time>
             
@@ -558,7 +824,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-31T19:32:49-08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-31T19:32:49-05:00">
                 2018-12-31
               </time>
             
@@ -698,7 +964,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-29T22:06:58-08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-29T22:06:58-05:00">
                 2018-12-29
               </time>
             
@@ -817,7 +1083,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-29T00:39:00-08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-29T00:39:00-05:00">
                 2018-12-29
               </time>
             
@@ -942,7 +1208,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-29T00:02:05-08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-29T00:02:05-05:00">
                 2018-12-29
               </time>
             
@@ -1070,7 +1336,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-28T18:29:33-08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-28T18:29:33-05:00">
                 2018-12-28
               </time>
             
@@ -1196,7 +1462,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-28T14:49:30-08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-28T14:49:30-05:00">
                 2018-12-28
               </time>
             
@@ -1277,273 +1543,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/12/28/PG-LC-296-Best-Meeting-Point/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xueying Han">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Serena Han's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/28/PG-LC-296-Best-Meeting-Point/" itemprop="url">PG-LC 296. Best Meeting Point</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-28T11:38:10-08:00">
-                2018-12-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>A group of two or more people wants to meet and minimize the total travel distance. You are given a 2D grid of values 0 or 1, where each 1 marks the home of someone in the group. The distance is calculated using Manhattan Distance, where distance(p1, p2) = |p2.x - p1.x| + |p2.y - p1.y|.</p>
-<p>Example:</p>
-<p>Input:</p>
-<p>1 - 0 - 0 - 0 - 1<br>|   |   |   |   |<br>0 - 0 - 0 - 0 - 0<br>|   |   |   |   |<br>0 - 0 - 1 - 0 - 0</p>
-<p>Output: 6</p>
-<hr>
-<p>Brute force method:<br><figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> minTotalDistance(<span class="keyword">vector</span>&lt;<span class="keyword">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; <span class="keyword">grid</span>) &#123;</span><br><span class="line">       <span class="keyword">vector</span>&lt;pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt; homes;</span><br><span class="line">       <span class="keyword">int</span> rows = <span class="keyword">grid</span>.<span class="keyword">size</span>();</span><br><span class="line">       <span class="keyword">int</span> cols = <span class="keyword">grid</span>[<span class="number">0</span>].<span class="keyword">size</span>();</span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; rows; i++)&#123;</span><br><span class="line">           <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; cols; j++)&#123;</span><br><span class="line">               <span class="keyword">if</span>(<span class="keyword">grid</span>[i][j] == <span class="number">1</span>)</span><br><span class="line">                   homes.push_back(make_pair(i, j));</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">int</span> res = INT_MAX;</span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; rows; i++)&#123;</span><br><span class="line">           <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; cols; j++)&#123;</span><br><span class="line">               res = <span class="keyword">min</span>(res, distance(i, j, homes));</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> res;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">int</span> distance(<span class="keyword">int</span> i, <span class="keyword">int</span> j, <span class="keyword">vector</span>&lt;pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt; homes)&#123;</span><br><span class="line">       <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">       <span class="keyword">for</span>(auto h : homes)&#123;</span><br><span class="line">           sum += (<span class="keyword">abs</span>(h.first - i) + <span class="keyword">abs</span>(h.second - j));</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> sum;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>Divide all positions into two groups, and find the middle position between them.</li>
-<li>Find x and y of the middle position.<ul>
-<li>First sort the all xs/ ys</li>
-<li>Calculate the sum of distances between all xs and the middle one =&gt; Sum(difference of two sides of X(Y) array)</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Just like there is a group of people on one side and a group of people on the other side, if the point has the least distance to everyone in both groups, we need to put the point to the middle of two groups.</span></span><br><span class="line"> <span class="keyword">int</span> minTotalDistance(<span class="keyword">vector</span>&lt;<span class="keyword">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; <span class="keyword">grid</span>) &#123;</span><br><span class="line">     <span class="keyword">vector</span>&lt;<span class="keyword">int</span>&gt; xv;</span><br><span class="line">     <span class="keyword">vector</span>&lt;<span class="keyword">int</span>&gt; yv;</span><br><span class="line">     <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">grid</span>.<span class="keyword">size</span>(); i++)&#123;</span><br><span class="line">         <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="keyword">grid</span>[i].<span class="keyword">size</span>(); j++)&#123;</span><br><span class="line">             <span class="keyword">if</span>(<span class="keyword">grid</span>[i][j] == <span class="number">1</span>)&#123;</span><br><span class="line">                 xv.push_back(i);</span><br><span class="line">                 yv.push_back(j);</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">return</span> getAve(xv) + getAve(yv);</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">int</span> getAve(<span class="keyword">vector</span>&lt;<span class="keyword">int</span>&gt; v)&#123;</span><br><span class="line">     <span class="keyword">sort</span>(v.begin(), v.end());</span><br><span class="line">     <span class="keyword">int</span> i = <span class="number">0</span>, j = v.<span class="keyword">size</span>()<span class="number">-1</span>;</span><br><span class="line">     <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">     <span class="keyword">while</span>(i &lt; j)&#123;</span><br><span class="line">         res += v[j--] - v[i++];</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">return</span> res;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/12/27/PG-Connect-n-ropes-with-minimum-cost/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xueying Han">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Serena Han's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/27/PG-Connect-n-ropes-with-minimum-cost/" itemprop="url">PG-Connect n ropes with minimum cost</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-27T23:07:15-08:00">
-                2018-12-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>There are given n ropes of different lengths, we need to connect these ropes into one rope. The cost to connect two ropes is equal to sum of their lengths. We need to connect the ropes with minimum cost.</p>
-<p>For example if we are given 4 ropes of lengths 4, 3, 2 and 6. We can connect the ropes in following ways.<br>1) First connect ropes of lengths 2 and 3. Now we have three ropes of lengths 4, 6 and 5.<br>2) Now connect ropes of lengths 4 and 5. Now we have two ropes of lengths 6 and 9.<br>3) Finally connect the two ropes and all ropes have connected.</p>
-<p>Total cost for connecting all ropes is 5 + 9 + 15 = 29.</p>
-<hr>
-<p>We can see that the results of previous picked ropes will include more than once in the whole process.<br>So we need to use greedy algorithm by picked smallest ropes every time.<br>And the result needs to be added into current array.<br>Then choose two smallest numbers again.</p>
-<p>So we need to build a min heap.</p>
-<p>The easiest way to build a min heap by C++ and java is using priority queue.</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> minCost(vector&lt;<span class="keyword">int</span>&gt;&amp; ropes)&#123;</span><br><span class="line">    priority_queue&lt;<span class="keyword">int</span>, vector&lt;<span class="keyword">int</span>&gt;, greater&lt;<span class="keyword">int</span>&gt;&gt; pq;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> r : ropes)</span><br><span class="line">        pq.<span class="keyword">push</span>(r);</span><br><span class="line">    <span class="keyword">while</span>(pq.<span class="keyword">size</span>() &gt; <span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">int</span> len1 = pq.top(); pq.<span class="keyword">pop</span>();</span><br><span class="line">        <span class="keyword">int</span> len2 = pq.top(); pq.<span class="keyword">pop</span>();</span><br><span class="line">        res += len1 + len2;</span><br><span class="line">        pq.<span class="keyword">push</span>(len1+len2);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1589,7 +1593,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">69</span>
+                  <span class="site-state-item-count">71</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
