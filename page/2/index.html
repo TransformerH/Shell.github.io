@@ -269,6 +269,347 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/02/19/Red-black-tree/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xueying Han">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Serena Han's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/19/Red-black-tree/" itemprop="url">Red-black tree</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-19T15:17:40-08:00">
+                2019-02-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><p><a href="https://www.cs.auckland.ac.nz/software/AlgAnim/red_black.html" target="_blank" rel="noopener">https://www.cs.auckland.ac.nz/software/AlgAnim/red_black.html</a></p>
+<h3 id="Priorities"><a href="#Priorities" class="headerlink" title="Priorities"></a>Priorities</h3><ul>
+<li>the root is black node.</li>
+<li>the red node’s parent and children should be black.</li>
+<li>we assume the null nodes are black node.</li>
+<li>we assume the new inserted node is red.</li>
+</ul>
+<h3 id="Operations"><a href="#Operations" class="headerlink" title="Operations"></a>Operations</h3><ul>
+<li>search<ul>
+<li>red-black tree is a binary search tree, so…</li>
+</ul>
+</li>
+<li>rotate<ul>
+<li>left-rotate</li>
+<li>right-rote</li>
+<li>rotate steps: rotate node x and node y<ol>
+<li>exchange their children</li>
+<li>exchange their parents</li>
+<li>change their positions</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>insertion : let x(point to red node) move up.<ul>
+<li>example: <a href="https://www.cs.auckland.ac.nz/software/AlgAnim/red_black_op.html" target="_blank" rel="noopener">https://www.cs.auckland.ac.nz/software/AlgAnim/red_black_op.html</a></li>
+<li>case 1: insert node x is red, x’s parent is red, x’s uncle is red, x’s grandparent must be black.<ul>
+<li>change x’s parent color and x’s uncle color to black</li>
+<li>change x’s grandparent color to red.</li>
+<li>assign x’s grandparent to x (set the new red node)</li>
+</ul>
+</li>
+<li>case 2: insert node x is red, x’s parent is red, x’s uncle is black, x’s grandparent must be black.<ul>
+<li>assign x’s parent to x (x moves up)</li>
+<li>if original x is right child, then rotate left, otherwise rotate right.</li>
+<li>change x’s parent color to black and change x’ grandparent color to red.</li>
+<li>rotate x’s parent with x’s grandparent.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/02/18/C-review-template/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xueying Han">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Serena Han's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/18/C-review-template/" itemprop="url">C++ - review - template</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-18T00:24:11-08:00">
+                2019-02-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="class-templates"><a href="#class-templates" class="headerlink" title="class templates"></a>class templates</h3><ul>
+<li><p>template arguments</p>
+<ul>
+<li><p>one argument</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">template</span>&lt;<span class="selector-tag">class</span> <span class="selector-tag">T</span>&gt;</span><br><span class="line"><span class="selector-tag">class</span> <span class="selector-tag">ClassName</span>&#123;</span><br><span class="line"><span class="attribute">private</span>:</span><br><span class="line">  T pa;</span><br><span class="line"><span class="attribute">public</span>:</span><br><span class="line">  <span class="built_in">ClassName</span>(T a): <span class="built_in">pa</span>(a)&#123;&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>multiple arguments</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">template</span>&lt;<span class="keyword">class</span> <span class="type">T</span>, <span class="keyword">class</span> <span class="type">U</span>&gt;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="type">ClassName</span>&#123;</span></span><br><span class="line"><span class="class">private:</span></span><br><span class="line"><span class="class">  <span class="type">T</span> a;</span></span><br><span class="line"><span class="class">  <span class="type">U</span> b;</span></span><br><span class="line"><span class="class">public:</span></span><br><span class="line"><span class="class">  <span class="type">ClassName</span>(<span class="type">T</span> <span class="title">pa</span>, <span class="type">U</span> <span class="title">pb</span>): a(<span class="title">pa</span>), b(<span class="title">pb</span>)&#123;&#125;</span></span><br><span class="line"><span class="class">&#125;;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>default-type argument</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>, <span class="title">class</span> <span class="title">Alloc</span> = <span class="title">std</span>:</span>:allocator&lt;T&gt;&gt;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ClassName</span>&#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">  T a;</span><br><span class="line">  Alloc _alloc;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  ClassName(T pa): a(pa)&#123;&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>template specialization</p>
+<ul>
+<li>when specialize the function, template declaration should be <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>#include <iostream><br>using namespace std;<br>template<class t=""><br>class TemplateClass{<br>public:</class></iostream></p>
+<pre><code>static int count;
+TemplateClass(){count++;}
+void output(){
+    cout &lt;&lt; count &lt;&lt; endl;
+}
+</code></pre><p>};<br>template<class t=""><br>int TemplateClass<t>::count = 0;</t></class></p>
+<p>template&lt;&gt;<br>void TemplateClass<int>::output(){</int></p>
+<pre><code>cout &lt;&lt; &quot;template specialize int: &quot; &lt;&lt; count &lt;&lt; endl;
+</code></pre><p>}</p>
+<p>template&lt;&gt;<br>void TemplateClass<double>::output(){</double></p>
+<pre><code>cout &lt;&lt; &quot;template specialize double: &quot; &lt;&lt; count &lt;&lt; endl;
+</code></pre><p>}<br>int main(int argc, const char * argv[]) {</p>
+<pre><code>TemplateClass&lt;int&gt; tem1;
+tem1.output();
+TemplateClass&lt;int&gt; tem2;
+tem2.output();
+TemplateClass&lt;double&gt; tem3;
+tem3.output();
+TemplateClass&lt;double&gt; tem4;
+tem4.output();
+return 0;
+</code></pre><p>}</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">* template <span class="keyword">and</span> static variables</span><br><span class="line">  * initialize static class variables outside the class</span><br><span class="line">  * instances with different types will hold their own static variables</span><br><span class="line">  * instances with same<span class="built_in"> type </span>will share one static variable</span><br></pre></td></tr></table></figure>
+<p>#include <iostream><br>using namespace std;<br>template<class t=""><br>class TemplateClass{<br>public:</class></iostream></p>
+<pre><code>static int count;
+TemplateClass(){count++;}
+void output(){
+    cout &lt;&lt; count &lt;&lt; endl;
+}
+</code></pre><p>};<br>template<class t=""><br>int TemplateClass<t>::count = 0;</t></class></p>
+<p>int main(int argc, const char * argv[]) {</p>
+<pre><code>TemplateClass&lt;int&gt; tem1;
+tem1.output();
+TemplateClass&lt;int&gt; tem2;
+tem2.output();
+TemplateClass&lt;double&gt; tem3;
+tem3.output();
+TemplateClass&lt;double&gt; tem4;
+tem4.output();
+return 0;
+</code></pre><p>}<br>//output is 1 2 1 2<br><code>`</code></p>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/02/17/C-STL-string/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -300,7 +641,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-17T15:10:25-05:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-17T15:10:25-08:00">
                 2019-02-17
               </time>
             
@@ -439,7 +780,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-16T23:55:09-05:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-16T23:55:09-08:00">
                 2019-02-16
               </time>
             
@@ -561,7 +902,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-15T01:06:39-05:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-15T01:06:39-08:00">
                 2019-02-15
               </time>
             
@@ -697,7 +1038,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-14T12:07:42-05:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-14T12:07:42-08:00">
                 2019-02-14
               </time>
             
@@ -819,7 +1160,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-14T11:57:39-05:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-14T11:57:39-08:00">
                 2019-02-14
               </time>
             
@@ -940,7 +1281,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-14T00:37:26-05:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-14T00:37:26-08:00">
                 2019-02-14
               </time>
             
@@ -1060,7 +1401,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-13T22:09:58-05:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-13T22:09:58-08:00">
                 2019-02-13
               </time>
             
@@ -1207,7 +1548,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-28T22:20:21-05:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-28T22:20:21-08:00">
                 2019-01-28
               </time>
             
@@ -1253,268 +1594,6 @@
 <h4 id="Brute-force-one-TLE"><a href="#Brute-force-one-TLE" class="headerlink" title="Brute-force one- TLE"></a>Brute-force one- TLE</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">diff</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; time1, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; time2)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(time1[<span class="number">0</span>] &gt; time2[<span class="number">0</span>] || (time1[<span class="number">0</span>] == time2[<span class="number">0</span>] &amp;&amp; time1[<span class="number">1</span>] &gt; time2[<span class="number">1</span>]))&#123;</span><br><span class="line">            <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; temp = time1;</span><br><span class="line">            time1 = time2;</span><br><span class="line">            time2 = temp;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> hdiff = (time2[<span class="number">0</span>] - time1[<span class="number">0</span>]) * <span class="number">60</span>;</span><br><span class="line">        <span class="keyword">int</span> mdiff = time2[<span class="number">1</span>] - time1[<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">return</span> <span class="number">24</span> * <span class="number">60</span> - (hdiff + mdiff) &gt; hdiff + mdiff ? hdiff + mdiff : <span class="number">24</span>*<span class="number">60</span> - (hdiff + mdiff);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">comp</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; time1, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; time2)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> time1[<span class="number">0</span>] &lt; time2[<span class="number">0</span>] || (time1[<span class="number">0</span>] == time2[<span class="number">0</span>] &amp;&amp; time1[<span class="number">1</span>] &lt; time2[<span class="number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findMinDifference</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; timePoints)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; times;</span><br><span class="line">        <span class="keyword">for</span>(<span class="built_in">string</span> t : timePoints)&#123;</span><br><span class="line">            <span class="function"><span class="built_in">stringstream</span> <span class="title">ss</span><span class="params">(t)</span></span>;</span><br><span class="line">            <span class="built_in">string</span> part;</span><br><span class="line">            <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; hm;</span><br><span class="line">            <span class="keyword">while</span>(getline(ss, part, <span class="string">':'</span>))&#123;</span><br><span class="line">                hm.push_back(part);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">int</span> hour = stoi(hm[<span class="number">0</span>]);</span><br><span class="line">            <span class="keyword">int</span> min =  stoi(hm[<span class="number">1</span>]);</span><br><span class="line">            times.push_back(&#123;hour, min&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> minimum = INT_MAX;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; times.size(); i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; times.size(); j++)&#123;</span><br><span class="line">                minimum = min(minimum, diff(times[i], times[j]));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> minimum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <hr>
 <h4 id="Better-Solution-slot-fixed-length-array-is-very-useful"><a href="#Better-Solution-slot-fixed-length-array-is-very-useful" class="headerlink" title="Better Solution : slot - fixed-length array is very useful"></a>Better Solution : slot - fixed-length array is very useful</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findMinDifference</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; timePoints)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt; timeSlot(<span class="number">24</span>*<span class="number">60</span>, <span class="literal">false</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="built_in">string</span> s : timePoints)&#123;</span><br><span class="line">            <span class="function"><span class="built_in">stringstream</span> <span class="title">ss</span><span class="params">(s)</span></span>;</span><br><span class="line">            <span class="built_in">string</span> part;</span><br><span class="line">            <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; tp;</span><br><span class="line">            <span class="keyword">while</span>(getline(ss, part, <span class="string">':'</span>))&#123;</span><br><span class="line">                tp.push_back(part);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">int</span> hour = stoi(tp[<span class="number">0</span>]);</span><br><span class="line">            <span class="keyword">int</span> mini = stoi(tp[<span class="number">1</span>]);</span><br><span class="line">            <span class="keyword">if</span>(timeSlot[hour*<span class="number">60</span>+mini])</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            timeSlot[hour*<span class="number">60</span>+mini] = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> first = INT_MAX, last = INT_MIN;</span><br><span class="line">        <span class="keyword">int</span> res = INT_MAX, pre = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; timeSlot.size(); i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(timeSlot[i])&#123;</span><br><span class="line">                <span class="keyword">if</span>(first != INT_MAX)&#123;</span><br><span class="line">                    res = min(res, i - pre);</span><br><span class="line">                &#125;</span><br><span class="line">                first = min(first, i);</span><br><span class="line">                last = max(last, i);</span><br><span class="line">                pre = i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> min(res, <span class="number">24</span>*<span class="number">60</span>-last+first);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/01/28/LC-166-Fraction-to-Recurring-Decimal/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xueying Han">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Serena Han's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/28/LC-166-Fraction-to-Recurring-Decimal/" itemprop="url">LC 166. Fraction to Recurring Decimal</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-28T14:49:06-05:00">
-                2019-01-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h4><p>Given two integers representing the numerator and denominator of a fraction, return the fraction in string format.</p>
-<p>If the fractional part is repeating, enclose the repeating part in parentheses.</p>
-<p>Example 1:</p>
-<p>Input: numerator = 1, denominator = 2<br>Output: “0.5”<br>Example 2:</p>
-<p>Input: numerator = 2, denominator = 1<br>Output: “2”<br>Example 3:</p>
-<p>Input: numerator = 2, denominator = 3<br>Output: “0.(6)”</p>
-<hr>
-<p>It’s a math problem, and why is it a medium?</p>
-<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    <span class="built_in">string</span> fractionToDecimal(int numerator, int denominator) &#123;</span><br><span class="line">        <span class="built_in">map</span>&lt;int, int&gt; ndMap;</span><br><span class="line">        <span class="built_in">string</span> res = <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">if</span>(numerator &lt; <span class="number">0</span> ^ denominator &lt; <span class="number">0</span>)</span><br><span class="line">          res += <span class="string">"-"</span>;</span><br><span class="line">        <span class="keyword">if</span>(numerator == <span class="number">0</span>)</span><br><span class="line">            res = <span class="string">""</span>;</span><br><span class="line">        long <span class="built_in">num</span> = <span class="built_in">abs</span>((long)numerator);</span><br><span class="line">        long den = <span class="built_in">abs</span>((long)denominator);</span><br><span class="line">        long <span class="built_in">rem</span> = <span class="built_in">num</span> <span class="symbol">%</span> den;</span><br><span class="line">        <span class="built_in">string</span> decRes = <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">while</span>((<span class="built_in">rem</span> != <span class="number">0</span>) &amp;&amp; ndMap.find(<span class="built_in">rem</span>) == ndMap.end())&#123;</span><br><span class="line">            ndMap[<span class="built_in">rem</span>] = decRes.<span class="built_in">length</span>();</span><br><span class="line">            <span class="built_in">rem</span> *= <span class="number">10</span>;</span><br><span class="line">            decRes += to_string(<span class="built_in">rem</span> / den);</span><br><span class="line">            <span class="built_in">rem</span> <span class="symbol">%</span>= den;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; decRes &lt;&lt; endl;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">rem</span> == <span class="number">0</span>)&#123;</span><br><span class="line">            res += <span class="built_in">num</span> <span class="symbol">%</span> den == <span class="number">0</span> ?  to_string(<span class="built_in">num</span> / den) : to_string(<span class="built_in">num</span> / den) + <span class="string">"."</span> + decRes;</span><br><span class="line">        &#125;<span class="keyword">else</span></span><br><span class="line">            res += to_string(<span class="built_in">num</span> / den) + <span class="string">"."</span> + decRes.substr(<span class="number">0</span>, ndMap[<span class="built_in">rem</span>]) + <span class="string">"("</span> + decRes.substr(ndMap[<span class="built_in">rem</span>]) + <span class="string">")"</span>;</span><br><span class="line">        <span class="built_in">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<hr>
-<h4 id="Original-algorithm"><a href="#Original-algorithm" class="headerlink" title="Original algorithm"></a>Original algorithm</h4><figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span> fractionToDecimal(int numr, int denr)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">string</span> res; // Initialize result</span><br><span class="line"></span><br><span class="line">            // Create a <span class="built_in">map</span> to store already seen remainders</span><br><span class="line">            // <span class="built_in">remainder</span> <span class="built_in">is</span> used as <span class="built_in">key</span> <span class="keyword">and</span> its <span class="built_in">position</span> <span class="keyword">in</span></span><br><span class="line">            // result <span class="built_in">is</span> stored as value. Note that we need</span><br><span class="line">            // <span class="built_in">position</span> <span class="keyword">for</span> cases like <span class="number">1</span>/<span class="number">6</span>.  In this case,</span><br><span class="line">            // the recurring sequence doesn't start from <span class="built_in">first</span></span><br><span class="line">            // <span class="built_in">remainder</span>.</span><br><span class="line">            <span class="built_in">map</span>&lt;int, int&gt; mp;</span><br><span class="line">            mp.clear();</span><br><span class="line"></span><br><span class="line">            // Find <span class="built_in">first</span> <span class="built_in">remainder</span></span><br><span class="line">            int <span class="built_in">rem</span> = numr%denr;</span><br><span class="line"></span><br><span class="line">            // Keep finding <span class="built_in">remainder</span> until either <span class="built_in">remainder</span></span><br><span class="line">            // becomes <span class="number">0</span> <span class="keyword">or</span> repeats</span><br><span class="line">            <span class="keyword">while</span> ( (<span class="built_in">rem</span>!=<span class="number">0</span>) &amp;&amp; (mp.find(<span class="built_in">rem</span>) == mp.end()) )</span><br><span class="line">            &#123;</span><br><span class="line">                // Store this <span class="built_in">remainder</span></span><br><span class="line">                mp[<span class="built_in">rem</span>] = res.<span class="built_in">length</span>();</span><br><span class="line"></span><br><span class="line">                // Multiply <span class="built_in">remainder</span> with <span class="number">10</span></span><br><span class="line">                <span class="built_in">rem</span> = <span class="built_in">rem</span>*<span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">                // Append <span class="built_in">rem</span> / denr to result</span><br><span class="line">                int res_part = <span class="built_in">rem</span> / denr;</span><br><span class="line">                res += to_string(res_part);</span><br><span class="line"></span><br><span class="line">                // Update <span class="built_in">remainder</span></span><br><span class="line">                <span class="built_in">rem</span> = <span class="built_in">rem</span> <span class="symbol">%</span> denr;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="built_in">return</span> (<span class="built_in">rem</span> == <span class="number">0</span>)? <span class="string">""</span> : res.substr(mp[<span class="built_in">rem</span>]);</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/01/28/DP-LC-902-Numbers-At-Most-N-Given-Digit-Set/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xueying Han">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Serena Han's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/28/DP-LC-902-Numbers-At-Most-N-Given-Digit-Set/" itemprop="url">LC 902. Numbers At Most N Given Digit Set</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-28T11:19:16-05:00">
-                2019-01-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h4><p>We have a sorted set of digits D, a non-empty subset of {‘1’,’2’,’3’,’4’,’5’,’6’,’7’,’8’,’9’}.  (Note that ‘0’ is not included.)</p>
-<p>Now, we write numbers using these digits, using each digit as many times as we want.  For example, if D = {‘1’,’3’,’5’}, we may write numbers such as ‘13’, ‘551’, ‘1351315’.</p>
-<p>Return the number of positive integers that can be written (using the digits of D) that are less than or equal to N.</p>
-<p>Example 1:</p>
-<p>Input: D = [“1”,”3”,”5”,”7”], N = 100<br>Output: 20<br>Explanation:<br>The 20 numbers that can be written are:<br>1, 3, 5, 7, 11, 13, 15, 17, 31, 33, 35, 37, 51, 53, 55, 57, 71, 73, 75, 77.<br>Example 2:</p>
-<p>Input: D = [“1”,”4”,”9”], N = 1000000000<br>Output: 29523<br>Explanation:<br>We can write 3 one digit numbers, 9 two digit numbers, 27 three digit numbers,<br>81 four digit numbers, 243 five digit numbers, 729 six digit numbers,<br>2187 seven digit numbers, 6561 eight digit numbers, and 19683 nine digit numbers.<br>In total, this is 29523 integers that can be written using the digits of D.</p>
-<p>Note:</p>
-<p>D is a subset of digits ‘1’-‘9’ in sorted order.<br>1 &lt;= N &lt;= 10^9</p>
-<hr>
-<p>I first use DFS to solve it and obviously DFS can cause TLE. So I have no choice, this is a typical math problem.</p>
-<hr>
-<h5 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h5><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">   <span class="function"><span class="keyword">void</span> <span class="title">dfsDigit</span><span class="params">(<span class="built_in">stack</span>&lt;<span class="built_in">string</span>&gt;&amp; dstack, <span class="keyword">int</span> N, <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; D, <span class="keyword">int</span>&amp; count)</span></span>&#123;</span><br><span class="line">            <span class="keyword">while</span>(!dstack.empty())&#123;</span><br><span class="line">                <span class="built_in">string</span> top = dstack.top();</span><br><span class="line">                dstack.pop();</span><br><span class="line">                <span class="keyword">for</span>(<span class="built_in">string</span> s : D)&#123;</span><br><span class="line">                    <span class="built_in">string</span> cur = top + s;</span><br><span class="line">                    <span class="keyword">if</span>(stol(cur) &lt;= N)&#123;</span><br><span class="line">                        count++;</span><br><span class="line">                        dstack.push(cur);</span><br><span class="line">                    &#125; <span class="keyword">else</span></span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">int</span> <span class="title">atMostNGivenDigitSet</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; D, <span class="keyword">int</span> N)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">            <span class="built_in">stack</span>&lt;<span class="built_in">string</span>&gt; dstack;</span><br><span class="line">            <span class="keyword">for</span>(<span class="built_in">string</span> s : D)&#123;</span><br><span class="line">                <span class="keyword">int</span> c = stol(s);</span><br><span class="line">                <span class="keyword">if</span>(c &lt;= N)&#123;</span><br><span class="line">                    dstack.push(s);</span><br><span class="line">                    count++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            dfsDigit(dstack, N, D, count);</span><br><span class="line">            <span class="keyword">return</span> count;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h5 id="Math"><a href="#Math" class="headerlink" title="Math"></a>Math</h5><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> atMostNGivenDigitSet(vector&lt;<span class="keyword">string</span>&gt;&amp; D, <span class="keyword">int</span> N) &#123;</span><br><span class="line">       <span class="keyword">string</span> strN = to_string(N);</span><br><span class="line">       <span class="keyword">int</span> lenN = strN.length();</span><br><span class="line">       <span class="keyword">int</span> sizeD = D.<span class="built_in">size</span>();</span><br><span class="line">       <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">       <span class="built_in">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; lenN; i++)</span><br><span class="line">           count += <span class="built_in">pow</span>(sizeD, i);</span><br><span class="line">       <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">      <span class="built_in">while</span>(i &lt; lenN)&#123;</span><br><span class="line">           <span class="built_in">for</span>(<span class="keyword">string</span> c : D)&#123;</span><br><span class="line">               <span class="built_in">if</span>(*c.c_str() &lt; strN[i])&#123;</span><br><span class="line">                   count += <span class="built_in">pow</span>(sizeD, lenN - i - <span class="number">1</span>);</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="built_in">if</span>(<span class="built_in">find</span>(D.<span class="built_in">begin</span>(), D.<span class="built_in">end</span>(), <span class="keyword">string</span>(<span class="number">1</span>, strN[i])) == D.<span class="built_in">end</span>())</span><br><span class="line">               <span class="built_in">break</span>;      </span><br><span class="line">          i++;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="built_in">return</span> count += (i == lenN ? <span class="number">1</span> : <span class="number">0</span>);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
 
           
         
@@ -1600,7 +1679,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-count">73</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1659,7 +1738,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

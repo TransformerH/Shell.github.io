@@ -269,6 +269,268 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/01/28/LC-166-Fraction-to-Recurring-Decimal/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xueying Han">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Serena Han's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/28/LC-166-Fraction-to-Recurring-Decimal/" itemprop="url">LC 166. Fraction to Recurring Decimal</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-28T14:49:06-08:00">
+                2019-01-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h4><p>Given two integers representing the numerator and denominator of a fraction, return the fraction in string format.</p>
+<p>If the fractional part is repeating, enclose the repeating part in parentheses.</p>
+<p>Example 1:</p>
+<p>Input: numerator = 1, denominator = 2<br>Output: “0.5”<br>Example 2:</p>
+<p>Input: numerator = 2, denominator = 1<br>Output: “2”<br>Example 3:</p>
+<p>Input: numerator = 2, denominator = 3<br>Output: “0.(6)”</p>
+<hr>
+<p>It’s a math problem, and why is it a medium?</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    <span class="built_in">string</span> fractionToDecimal(int numerator, int denominator) &#123;</span><br><span class="line">        <span class="built_in">map</span>&lt;int, int&gt; ndMap;</span><br><span class="line">        <span class="built_in">string</span> res = <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">if</span>(numerator &lt; <span class="number">0</span> ^ denominator &lt; <span class="number">0</span>)</span><br><span class="line">          res += <span class="string">"-"</span>;</span><br><span class="line">        <span class="keyword">if</span>(numerator == <span class="number">0</span>)</span><br><span class="line">            res = <span class="string">""</span>;</span><br><span class="line">        long <span class="built_in">num</span> = <span class="built_in">abs</span>((long)numerator);</span><br><span class="line">        long den = <span class="built_in">abs</span>((long)denominator);</span><br><span class="line">        long <span class="built_in">rem</span> = <span class="built_in">num</span> <span class="symbol">%</span> den;</span><br><span class="line">        <span class="built_in">string</span> decRes = <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">while</span>((<span class="built_in">rem</span> != <span class="number">0</span>) &amp;&amp; ndMap.find(<span class="built_in">rem</span>) == ndMap.end())&#123;</span><br><span class="line">            ndMap[<span class="built_in">rem</span>] = decRes.<span class="built_in">length</span>();</span><br><span class="line">            <span class="built_in">rem</span> *= <span class="number">10</span>;</span><br><span class="line">            decRes += to_string(<span class="built_in">rem</span> / den);</span><br><span class="line">            <span class="built_in">rem</span> <span class="symbol">%</span>= den;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; decRes &lt;&lt; endl;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">rem</span> == <span class="number">0</span>)&#123;</span><br><span class="line">            res += <span class="built_in">num</span> <span class="symbol">%</span> den == <span class="number">0</span> ?  to_string(<span class="built_in">num</span> / den) : to_string(<span class="built_in">num</span> / den) + <span class="string">"."</span> + decRes;</span><br><span class="line">        &#125;<span class="keyword">else</span></span><br><span class="line">            res += to_string(<span class="built_in">num</span> / den) + <span class="string">"."</span> + decRes.substr(<span class="number">0</span>, ndMap[<span class="built_in">rem</span>]) + <span class="string">"("</span> + decRes.substr(ndMap[<span class="built_in">rem</span>]) + <span class="string">")"</span>;</span><br><span class="line">        <span class="built_in">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="Original-algorithm"><a href="#Original-algorithm" class="headerlink" title="Original algorithm"></a>Original algorithm</h4><figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span> fractionToDecimal(int numr, int denr)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">string</span> res; // Initialize result</span><br><span class="line"></span><br><span class="line">            // Create a <span class="built_in">map</span> to store already seen remainders</span><br><span class="line">            // <span class="built_in">remainder</span> <span class="built_in">is</span> used as <span class="built_in">key</span> <span class="keyword">and</span> its <span class="built_in">position</span> <span class="keyword">in</span></span><br><span class="line">            // result <span class="built_in">is</span> stored as value. Note that we need</span><br><span class="line">            // <span class="built_in">position</span> <span class="keyword">for</span> cases like <span class="number">1</span>/<span class="number">6</span>.  In this case,</span><br><span class="line">            // the recurring sequence doesn't start from <span class="built_in">first</span></span><br><span class="line">            // <span class="built_in">remainder</span>.</span><br><span class="line">            <span class="built_in">map</span>&lt;int, int&gt; mp;</span><br><span class="line">            mp.clear();</span><br><span class="line"></span><br><span class="line">            // Find <span class="built_in">first</span> <span class="built_in">remainder</span></span><br><span class="line">            int <span class="built_in">rem</span> = numr%denr;</span><br><span class="line"></span><br><span class="line">            // Keep finding <span class="built_in">remainder</span> until either <span class="built_in">remainder</span></span><br><span class="line">            // becomes <span class="number">0</span> <span class="keyword">or</span> repeats</span><br><span class="line">            <span class="keyword">while</span> ( (<span class="built_in">rem</span>!=<span class="number">0</span>) &amp;&amp; (mp.find(<span class="built_in">rem</span>) == mp.end()) )</span><br><span class="line">            &#123;</span><br><span class="line">                // Store this <span class="built_in">remainder</span></span><br><span class="line">                mp[<span class="built_in">rem</span>] = res.<span class="built_in">length</span>();</span><br><span class="line"></span><br><span class="line">                // Multiply <span class="built_in">remainder</span> with <span class="number">10</span></span><br><span class="line">                <span class="built_in">rem</span> = <span class="built_in">rem</span>*<span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">                // Append <span class="built_in">rem</span> / denr to result</span><br><span class="line">                int res_part = <span class="built_in">rem</span> / denr;</span><br><span class="line">                res += to_string(res_part);</span><br><span class="line"></span><br><span class="line">                // Update <span class="built_in">remainder</span></span><br><span class="line">                <span class="built_in">rem</span> = <span class="built_in">rem</span> <span class="symbol">%</span> denr;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="built_in">return</span> (<span class="built_in">rem</span> == <span class="number">0</span>)? <span class="string">""</span> : res.substr(mp[<span class="built_in">rem</span>]);</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/01/28/DP-LC-902-Numbers-At-Most-N-Given-Digit-Set/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xueying Han">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Serena Han's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/28/DP-LC-902-Numbers-At-Most-N-Given-Digit-Set/" itemprop="url">LC 902. Numbers At Most N Given Digit Set</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-28T11:19:16-08:00">
+                2019-01-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h4><p>We have a sorted set of digits D, a non-empty subset of {‘1’,’2’,’3’,’4’,’5’,’6’,’7’,’8’,’9’}.  (Note that ‘0’ is not included.)</p>
+<p>Now, we write numbers using these digits, using each digit as many times as we want.  For example, if D = {‘1’,’3’,’5’}, we may write numbers such as ‘13’, ‘551’, ‘1351315’.</p>
+<p>Return the number of positive integers that can be written (using the digits of D) that are less than or equal to N.</p>
+<p>Example 1:</p>
+<p>Input: D = [“1”,”3”,”5”,”7”], N = 100<br>Output: 20<br>Explanation:<br>The 20 numbers that can be written are:<br>1, 3, 5, 7, 11, 13, 15, 17, 31, 33, 35, 37, 51, 53, 55, 57, 71, 73, 75, 77.<br>Example 2:</p>
+<p>Input: D = [“1”,”4”,”9”], N = 1000000000<br>Output: 29523<br>Explanation:<br>We can write 3 one digit numbers, 9 two digit numbers, 27 three digit numbers,<br>81 four digit numbers, 243 five digit numbers, 729 six digit numbers,<br>2187 seven digit numbers, 6561 eight digit numbers, and 19683 nine digit numbers.<br>In total, this is 29523 integers that can be written using the digits of D.</p>
+<p>Note:</p>
+<p>D is a subset of digits ‘1’-‘9’ in sorted order.<br>1 &lt;= N &lt;= 10^9</p>
+<hr>
+<p>I first use DFS to solve it and obviously DFS can cause TLE. So I have no choice, this is a typical math problem.</p>
+<hr>
+<h5 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h5><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">   <span class="function"><span class="keyword">void</span> <span class="title">dfsDigit</span><span class="params">(<span class="built_in">stack</span>&lt;<span class="built_in">string</span>&gt;&amp; dstack, <span class="keyword">int</span> N, <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; D, <span class="keyword">int</span>&amp; count)</span></span>&#123;</span><br><span class="line">            <span class="keyword">while</span>(!dstack.empty())&#123;</span><br><span class="line">                <span class="built_in">string</span> top = dstack.top();</span><br><span class="line">                dstack.pop();</span><br><span class="line">                <span class="keyword">for</span>(<span class="built_in">string</span> s : D)&#123;</span><br><span class="line">                    <span class="built_in">string</span> cur = top + s;</span><br><span class="line">                    <span class="keyword">if</span>(stol(cur) &lt;= N)&#123;</span><br><span class="line">                        count++;</span><br><span class="line">                        dstack.push(cur);</span><br><span class="line">                    &#125; <span class="keyword">else</span></span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">int</span> <span class="title">atMostNGivenDigitSet</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; D, <span class="keyword">int</span> N)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">            <span class="built_in">stack</span>&lt;<span class="built_in">string</span>&gt; dstack;</span><br><span class="line">            <span class="keyword">for</span>(<span class="built_in">string</span> s : D)&#123;</span><br><span class="line">                <span class="keyword">int</span> c = stol(s);</span><br><span class="line">                <span class="keyword">if</span>(c &lt;= N)&#123;</span><br><span class="line">                    dstack.push(s);</span><br><span class="line">                    count++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            dfsDigit(dstack, N, D, count);</span><br><span class="line">            <span class="keyword">return</span> count;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h5 id="Math"><a href="#Math" class="headerlink" title="Math"></a>Math</h5><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> atMostNGivenDigitSet(vector&lt;<span class="keyword">string</span>&gt;&amp; D, <span class="keyword">int</span> N) &#123;</span><br><span class="line">       <span class="keyword">string</span> strN = to_string(N);</span><br><span class="line">       <span class="keyword">int</span> lenN = strN.length();</span><br><span class="line">       <span class="keyword">int</span> sizeD = D.<span class="built_in">size</span>();</span><br><span class="line">       <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">       <span class="built_in">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; lenN; i++)</span><br><span class="line">           count += <span class="built_in">pow</span>(sizeD, i);</span><br><span class="line">       <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">      <span class="built_in">while</span>(i &lt; lenN)&#123;</span><br><span class="line">           <span class="built_in">for</span>(<span class="keyword">string</span> c : D)&#123;</span><br><span class="line">               <span class="built_in">if</span>(*c.c_str() &lt; strN[i])&#123;</span><br><span class="line">                   count += <span class="built_in">pow</span>(sizeD, lenN - i - <span class="number">1</span>);</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="built_in">if</span>(<span class="built_in">find</span>(D.<span class="built_in">begin</span>(), D.<span class="built_in">end</span>(), <span class="keyword">string</span>(<span class="number">1</span>, strN[i])) == D.<span class="built_in">end</span>())</span><br><span class="line">               <span class="built_in">break</span>;      </span><br><span class="line">          i++;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="built_in">return</span> count += (i == lenN ? <span class="number">1</span> : <span class="number">0</span>);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/01/28/LC-527-Word-Abbreviation/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -300,7 +562,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-28T01:06:19-05:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-28T01:06:19-08:00">
                 2019-01-28
               </time>
             
@@ -421,7 +683,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-27T15:19:30-05:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-27T15:19:30-08:00">
                 2019-01-27
               </time>
             
@@ -549,7 +811,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-15T15:26:51-05:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-15T15:26:51-08:00">
                 2019-01-15
               </time>
             
@@ -669,7 +931,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-15T00:08:34-05:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-15T00:08:34-08:00">
                 2019-01-15
               </time>
             
@@ -825,7 +1087,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-14T00:32:13-05:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-14T00:32:13-08:00">
                 2019-01-14
               </time>
             
@@ -990,7 +1252,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-10T13:22:56-05:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-10T13:22:56-08:00">
                 2019-01-10
               </time>
             
@@ -1136,7 +1398,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-06T00:18:24-05:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-06T00:18:24-08:00">
                 2019-01-06
               </time>
             
@@ -1255,7 +1517,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-05T16:02:57-05:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-05T16:02:57-08:00">
                 2019-01-05
               </time>
             
@@ -1299,279 +1561,6 @@
 <p>Now, you are given positions of houses and heaters on a horizontal line, find out minimum radius of heaters so that all houses could be covered by those heaters.</p>
 <p>So, your input will be the positions of houses and heaters seperately, and your expected output will be the minimum radius standard of heaters.</p>
 <figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> findRadius(vector&lt;<span class="built_in">int</span>&gt;&amp; houses, vector&lt;<span class="built_in">int</span>&gt;&amp; heaters) &#123;</span><br><span class="line">      sort(houses.begin(), houses.<span class="keyword">end</span>());</span><br><span class="line">      sort(heaters.begin(), heaters.<span class="keyword">end</span>());</span><br><span class="line">      vector&lt;<span class="built_in">int</span>&gt; <span class="built_in">nearest</span>(houses.<span class="built_in">size</span>(), INT_MAX);</span><br><span class="line">      <span class="built_in">int</span> ho = <span class="number">0</span>, he = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">while</span>(ho &lt; houses.<span class="built_in">size</span>() &amp;&amp; he &lt; heaters.<span class="built_in">size</span>())&#123;</span><br><span class="line">          <span class="keyword">if</span>(houses[ho] &lt;= heaters[he])&#123;</span><br><span class="line">              <span class="built_in">nearest</span>[ho] = heaters[he] - houses[ho];</span><br><span class="line">              ho++;</span><br><span class="line">          &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">              he++;</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      ho = houses.<span class="built_in">size</span>()-<span class="number">1</span>;</span><br><span class="line">      he = heaters.<span class="built_in">size</span>()-<span class="number">1</span>;</span><br><span class="line">      <span class="keyword">while</span>(ho &gt;= <span class="number">0</span> &amp;&amp; he &gt;= <span class="number">0</span>)&#123;</span><br><span class="line">          <span class="keyword">if</span>(houses[ho] &gt;= heaters[he])&#123;</span><br><span class="line">              <span class="built_in">nearest</span>[ho] = <span class="built_in">min</span>(<span class="built_in">nearest</span>[ho], houses[ho] - heaters[he]);</span><br><span class="line">              ho--;</span><br><span class="line">          &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">              he--;</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> *max_element(<span class="built_in">nearest</span>.begin(), <span class="built_in">nearest</span>.<span class="keyword">end</span>());</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/01/05/Subsequence/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xueying Han">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Serena Han's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/05/Subsequence/" itemprop="url">Subsequence</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-05T13:26:06-05:00">
-                2019-01-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Subsequence problems are always also dp problems.</p>
-<h3 id="LC-392-Is-Subsequence"><a href="#LC-392-Is-Subsequence" class="headerlink" title="LC 392. Is Subsequence"></a>LC 392. Is Subsequence</h3><p>Example 1:<br>s = “abc”, t = “ahbgdc”</p>
-<p>Return true.</p>
-<p>Example 2:<br>s = “axc”, t = “ahbgdc”</p>
-<p>Return false.</p>
-<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">bool isSubsequence(<span class="built_in">string</span> s, <span class="built_in">string</span> t) &#123;</span><br><span class="line">       <span class="keyword">if</span>(s == <span class="string">""</span>)</span><br><span class="line">           <span class="built_in">return</span> <span class="literal">true</span>;</span><br><span class="line">       int <span class="literal">ind</span> = <span class="number">0</span>;</span><br><span class="line">       <span class="keyword">for</span>(int i = <span class="number">0</span>; i &lt; t.<span class="built_in">length</span>(); i++)&#123;</span><br><span class="line">           <span class="keyword">if</span>(t[i] == s[<span class="literal">ind</span>])&#123;</span><br><span class="line">               <span class="literal">ind</span>++;</span><br><span class="line">               <span class="keyword">if</span>(<span class="literal">ind</span> == s.<span class="built_in">length</span>())</span><br><span class="line">                   <span class="built_in">return</span> <span class="literal">true</span>;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="LC-727-Minimum-Window-Subsequence"><a href="#LC-727-Minimum-Window-Subsequence" class="headerlink" title="LC 727. Minimum Window Subsequence"></a>LC 727. Minimum Window Subsequence</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">minWindow</span><span class="params">(<span class="built_in">string</span> S, <span class="built_in">string</span> T)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">int</span> sl = S.length();</span><br><span class="line">       <span class="keyword">int</span> tl = T.length();</span><br><span class="line">       <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; dp(sl, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(tl, <span class="number">-1</span>));</span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; sl; i++)&#123;</span><br><span class="line">           <span class="keyword">if</span>(S[i] == T[<span class="number">0</span>])</span><br><span class="line">               dp[i][<span class="number">0</span>] = i;</span><br><span class="line">           <span class="keyword">else</span>&#123;</span><br><span class="line">               <span class="keyword">if</span>(i != <span class="number">0</span>)</span><br><span class="line">                   dp[i][<span class="number">0</span>] = dp[i<span class="number">-1</span>][<span class="number">0</span>];</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; tl; i++)&#123;</span><br><span class="line">           <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; sl; j++)&#123;</span><br><span class="line">               <span class="keyword">if</span>(S[j] == T[i])&#123;</span><br><span class="line">                   <span class="keyword">if</span>(j &gt; <span class="number">0</span>)</span><br><span class="line">                       dp[j][i] = dp[j<span class="number">-1</span>][i<span class="number">-1</span>];</span><br><span class="line">               &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                   <span class="keyword">if</span>(j &gt; <span class="number">0</span>)</span><br><span class="line">                       dp[j][i] = dp[j<span class="number">-1</span>][i];</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">int</span> len = INT_MAX;</span><br><span class="line">       <span class="built_in">string</span> res = <span class="string">""</span>;</span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; sl; i++)&#123;</span><br><span class="line">           <span class="keyword">if</span>(dp[i][tl<span class="number">-1</span>] != <span class="number">-1</span>)&#123;</span><br><span class="line">               <span class="keyword">if</span>(len &gt; i-dp[i][tl<span class="number">-1</span>]+<span class="number">1</span>)&#123;</span><br><span class="line">                   len = i-dp[i][tl<span class="number">-1</span>]+<span class="number">1</span>;</span><br><span class="line">                   res = S.substr(dp[i][tl<span class="number">-1</span>], len);</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> res;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="300-Longest-Increasing-Subsequence"><a href="#300-Longest-Increasing-Subsequence" class="headerlink" title="300. Longest Increasing Subsequence"></a>300. Longest Increasing Subsequence</h3><p>Given an unsorted array of integers, find the length of longest increasing subsequence.</p>
-<p>Example:</p>
-<p>Input: [10,9,2,5,3,7,101,18]<br>Output: 4<br>Explanation: The longest increasing subsequence is [2,3,7,101], therefore the length is 4.</p>
-<hr>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">class</span> Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /*</span><br><span class="line">    The <span class="built_in">count</span> array <span class="keyword">is</span> <span class="keyword">the</span> dp structure <span class="keyword">that</span> store <span class="keyword">the</span> <span class="built_in">number</span> <span class="keyword">of</span>  increasing subsequence starts <span class="keyword">from</span> <span class="keyword">the</span> current <span class="built_in">number</span></span><br><span class="line">    traverse all numbers <span class="keyword">behind</span> <span class="keyword">the</span> current <span class="built_in">number</span>, assume <span class="keyword">the</span> index <span class="keyword">of</span> a <span class="built_in">number</span> <span class="keyword">behind</span> <span class="keyword">the</span> current <span class="built_in">number</span> <span class="keyword">is</span> j, <span class="keyword">the</span> index <span class="keyword">of</span> <span class="keyword">the</span> current <span class="built_in">number</span> <span class="keyword">is</span> i</span><br><span class="line">    <span class="keyword">if</span> nums[i] <span class="keyword">is</span> smaller than nums[j] <span class="keyword">and</span> <span class="keyword">the</span> <span class="built_in">count</span>[j] <span class="keyword">is</span> largest <span class="keyword">in</span> <span class="keyword">the</span> numbers which are <span class="keyword">behind</span> <span class="keyword">the</span> current <span class="built_in">number</span>, <span class="keyword">then</span> <span class="built_in">count</span>[i] <span class="keyword">is</span> added <span class="keyword">by</span> <span class="keyword">the</span> <span class="built_in">count</span>[j]</span><br><span class="line">    The <span class="literal">result</span> <span class="keyword">is</span> <span class="keyword">the</span> largest one <span class="keyword">in</span> <span class="keyword">the</span> <span class="built_in">count</span> array.</span><br><span class="line">    */</span><br><span class="line"></span><br><span class="line">  int lengthOfLIS(vector&lt;int&gt;&amp; nums) &#123;</span><br><span class="line">      <span class="keyword">if</span>(nums.size() == <span class="number">0</span>)</span><br><span class="line"><span class="built_in">          return</span> <span class="number">0</span>;</span><br><span class="line">    vector&lt;int&gt; counts(nums.size(), <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(int i = (int)nums.size() - <span class="number">2</span>; i &gt;= <span class="number">0</span>; i<span class="comment">--)&#123;</span></span><br><span class="line">        int iLargest = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(int j = i + <span class="number">1</span>; j &lt; nums.size(); j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i] &lt; nums[j] &amp;&amp; iLargest &lt; counts[j])&#123;</span><br><span class="line">                iLargest = counts[j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(iLargest &gt; <span class="number">0</span>)</span><br><span class="line">            counts[i] += iLargest;</span><br><span class="line">    &#125;</span><br><span class="line">    int largest = counts[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span>(int i = <span class="number">1</span>; i &lt; counts.size(); i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(largest &lt; counts[i])</span><br><span class="line">            largest = counts[i];</span><br><span class="line">    &#125;</span><br><span class="line"><span class="built_in">    return</span> largest;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h3 id="354-Russian-Doll-Envelopes"><a href="#354-Russian-Doll-Envelopes" class="headerlink" title="354. Russian Doll Envelopes"></a>354. Russian Doll Envelopes</h3><p>You have a number of envelopes with widths and heights given as a pair of integers (w, h). One envelope can fit into another if and only if both the width and height of one envelope is greater than the width and height of the other envelope.</p>
-<p>What is the maximum number of envelopes can you Russian doll? (put one inside other)</p>
-<p>Note:<br>Rotation is not allowed.</p>
-<p>Example:</p>
-<p>Input: [[5,4],[6,4],[6,7],[2,3]]<br>Output: 3<br>Explanation: The maximum number of envelopes you can Russian doll is 3 ([2,3] =&gt; [5,4] =&gt; [6,7]).</p>
-<hr>
-<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">   <span class="keyword">static</span> bool comp(pair&lt;<span class="built_in">int</span>, <span class="built_in">int</span>&gt; e1, pair&lt;<span class="built_in">int</span>, <span class="built_in">int</span>&gt; e2)&#123;</span><br><span class="line">    <span class="keyword">if</span>(e1.first == e2.first)</span><br><span class="line">        <span class="keyword">return</span> e1.<span class="built_in">second</span> &gt; e2.<span class="built_in">second</span>;</span><br><span class="line">    <span class="keyword">return</span> e1.first &lt; e2.first;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">int</span> maxEnvelopes(vector&lt;pair&lt;<span class="built_in">int</span>, <span class="built_in">int</span>&gt;&gt;&amp; envelopes) &#123;</span><br><span class="line">    <span class="keyword">if</span>(envelopes.<span class="built_in">size</span>() == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">sort</span>(envelopes.begin(), envelopes.end(), comp);</span><br><span class="line">    vector&lt;<span class="built_in">int</span>&gt; dp(envelopes.<span class="built_in">size</span>(), <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="built_in">int</span> i = envelopes.<span class="built_in">size</span>()<span class="number">-2</span>; i &gt;= <span class="number">0</span>; i--)&#123;</span><br><span class="line">        <span class="built_in">int</span> curLargest = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="built_in">int</span> j = i+<span class="number">1</span>; j &lt; envelopes.<span class="built_in">size</span>(); j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(envelopes[j].<span class="built_in">second</span> &gt; envelopes[i].<span class="built_in">second</span> &amp;&amp; dp[j] &gt; curLargest)</span><br><span class="line">                curLargest = dp[j];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(curLargest &gt; <span class="number">0</span>)</span><br><span class="line">            dp[i] += curLargest;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">int</span> largest = dp[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="built_in">int</span> i = <span class="number">1</span>; i &lt; dp.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(dp[i] &gt; largest)</span><br><span class="line">            largest = dp[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> largest;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/01/03/Binary-Index-Tree-Range-Update-and-Range-Queries/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xueying Han">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Serena Han's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/03/Binary-Index-Tree-Range-Update-and-Range-Queries/" itemprop="url">Binary Index Tree: Range Update and Range Queries</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-03T14:03:36-05:00">
-                2019-01-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ul>
-<li>1D binary index tree</li>
-<li>2D binary index tree</li>
-</ul>
-<hr>
-<h3 id="Position-of-rightmost-set-bit"><a href="#Position-of-rightmost-set-bit" class="headerlink" title="Position of rightmost set bit"></a>Position of rightmost set bit</h3><p>Get the rightmost set bit by “and”(&amp;) x and -x.<br>Because getting -x by flipping every bit of x and plus 1.</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">position</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">   <span class="keyword">return</span> log2(x &amp; -x) + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<h3 id="Basic-Idea"><a href="#Basic-Idea" class="headerlink" title="Basic Idea"></a>Basic Idea</h3><ul>
-<li><p>update BITree: From leaf to root</p>
-</li>
-<li><p>get Sum with a arrangement: From root to leaf</p>
-</li>
-</ul>
-<hr>
-<h3 id="2D-binary-index-tree"><a href="#2D-binary-index-tree" class="headerlink" title="2D binary index tree"></a>2D binary index tree</h3><p>LC 308. Range Sum Query 2D - Mutable<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NumMatrix</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; BItree;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; nums;</span><br><span class="line">    <span class="keyword">int</span> r, c;</span><br><span class="line">    NumMatrix(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; matrix) &#123;</span><br><span class="line">        r = matrix.size();</span><br><span class="line">        <span class="keyword">if</span>(r == <span class="number">0</span> || matrix[<span class="number">0</span>].size() == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        c = matrix[<span class="number">0</span>].size();</span><br><span class="line">        BItree = <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;(r+<span class="number">1</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(c+<span class="number">1</span>, <span class="number">0</span>));</span><br><span class="line">        nums = <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;(r, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(c, <span class="number">0</span>));</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; r; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; c; j++)&#123;</span><br><span class="line">                update(i, j, matrix[i][j]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">(<span class="keyword">int</span> row, <span class="keyword">int</span> col, <span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(r == <span class="number">0</span> || c == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">int</span> delta = val - nums[row][col];</span><br><span class="line">        nums[row][col] = val;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = row+<span class="number">1</span>; i &lt;= r; i += (i &amp; -i))&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = col+<span class="number">1</span>; j &lt;= c; j += (j &amp; -j))&#123;</span><br><span class="line">                BItree[i][j] += delta;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">sumRegion</span><span class="params">(<span class="keyword">int</span> row1, <span class="keyword">int</span> col1, <span class="keyword">int</span> row2, <span class="keyword">int</span> col2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(r == <span class="number">0</span> || c == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> getSum(row2+<span class="number">1</span>, col2+<span class="number">1</span>) + getSum(row1, col1) - getSum(row1, col2+<span class="number">1</span>) - getSum(row2+<span class="number">1</span>, col1);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getSum</span><span class="params">(<span class="keyword">int</span> row, <span class="keyword">int</span> col)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = row; i &gt; <span class="number">0</span>; i -= (i &amp; -i))&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = col; j &gt; <span class="number">0</span>; j -= (j &amp; -j))&#123;</span><br><span class="line">                sum += BItree[i][j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your NumMatrix object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * NumMatrix obj = new NumMatrix(matrix);</span></span><br><span class="line"><span class="comment"> * obj.update(row,col,val);</span></span><br><span class="line"><span class="comment"> * int param_2 = obj.sumRegion(row1,col1,row2,col2);</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure></p>
 
           
         
@@ -1657,7 +1646,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-count">73</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1716,7 +1705,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

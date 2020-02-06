@@ -269,6 +269,256 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/09/16/Data-mining-algorithms/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xueying Han">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Serena Han's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/16/Data-mining-algorithms/" itemprop="url">Data mining algorithms</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-16T12:37:37-07:00">
+                2019-09-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="238-Product-of-Array-Except-Self"><a href="#238-Product-of-Array-Except-Self" class="headerlink" title="238.  Product of Array Except Self"></a>238.  Product of Array Except Self</h3><ul>
+<li><p>first solution</p>
+<figure class="highlight vbscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="built_in">int</span>[] productExceptSelf(<span class="built_in">int</span>[] nums) &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums == <span class="literal">null</span>)</span><br><span class="line">            return <span class="literal">null</span>;</span><br><span class="line">        <span class="built_in">int</span> <span class="built_in">len</span> = nums.length;</span><br><span class="line">        <span class="built_in">int</span>[] <span class="built_in">left</span> = <span class="keyword">new</span> <span class="built_in">int</span>[<span class="built_in">len</span>];</span><br><span class="line">        <span class="built_in">int</span>[] <span class="built_in">right</span> = <span class="keyword">new</span> <span class="built_in">int</span>[<span class="built_in">len</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; <span class="built_in">len</span>; i++) &#123;</span><br><span class="line">            <span class="built_in">left</span>[i] = <span class="built_in">right</span>[i] = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">1</span>; i &lt; <span class="built_in">len</span>; i++) &#123;</span><br><span class="line">            <span class="built_in">left</span>[i] = <span class="built_in">left</span>[i<span class="number">-1</span>] * nums[i<span class="number">-1</span>];</span><br><span class="line">            <span class="built_in">right</span>[<span class="built_in">len</span><span class="number">-1</span>-i] = <span class="built_in">right</span>[<span class="built_in">len</span>-i] * nums[<span class="built_in">len</span>-i];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">int</span>[] products = <span class="keyword">new</span> <span class="built_in">int</span>[<span class="built_in">len</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; <span class="built_in">len</span>; i++) &#123;</span><br><span class="line">            products[i] = <span class="built_in">left</span>[i] * <span class="built_in">right</span>[i];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        return products;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>second solution</p>
+<figure class="highlight vbscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="built_in">int</span>[] productExceptSelf(<span class="built_in">int</span>[] nums) &#123;</span><br><span class="line">        <span class="built_in">int</span> <span class="built_in">len</span> = nums.length;</span><br><span class="line">        <span class="built_in">int</span>[] products = <span class="keyword">new</span> <span class="built_in">int</span>[<span class="built_in">len</span>];</span><br><span class="line">        products[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">1</span>; i &lt; <span class="built_in">len</span>; i++) &#123;</span><br><span class="line">            products[i] = products[i<span class="number">-1</span>] * nums[i<span class="number">-1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">int</span> <span class="built_in">right</span> = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="built_in">len</span> - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            products[i] *= <span class="built_in">right</span>;</span><br><span class="line">            <span class="built_in">right</span> *= nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        return products;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/09/08/Dynamic-Programming-Analysis-for-fun/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xueying Han">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Serena Han's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/08/Dynamic-Programming-Analysis-for-fun/" itemprop="url">Dynamic Programming - Analysis for fun</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-08T14:26:30-07:00">
+                2019-09-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="When-to-use-DP"><a href="#When-to-use-DP" class="headerlink" title="When to use DP"></a>When to use DP</h3><ul>
+<li>Optimization problem can be usually solved by DP</li>
+<li></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/09/04/Algorithm-in-Data-Mining-Sampling-algorithm/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -300,7 +550,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-04T14:48:28-04:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-04T14:48:28-07:00">
                 2019-09-04
               </time>
             
@@ -433,7 +683,7 @@ return sample;
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-04T13:11:19-04:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-04T13:11:19-07:00">
                 2019-09-04
               </time>
             
@@ -553,7 +803,7 @@ return sample;
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-01T23:01:45-04:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-01T23:01:45-07:00">
                 2019-06-01
               </time>
             
@@ -672,7 +922,7 @@ return sample;
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-27T15:04:51-04:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-27T15:04:51-07:00">
                 2019-05-27
               </time>
             
@@ -798,7 +1048,7 @@ return sample;
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-24T15:19:02-04:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-24T15:19:02-07:00">
                 2019-05-24
               </time>
             
@@ -926,7 +1176,7 @@ return sample;
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-20T14:16:01-04:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-20T14:16:01-07:00">
                 2019-05-20
               </time>
             
@@ -1064,7 +1314,7 @@ return sample;
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-18T13:16:44-04:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-18T13:16:44-07:00">
                 2019-05-18
               </time>
             
@@ -1196,7 +1446,7 @@ return sample;
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-16T16:16:11-04:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-16T16:16:11-07:00">
                 2019-03-16
               </time>
             
@@ -1238,347 +1488,6 @@ return sample;
           
             <p>random + swap<br>Key is changing the arrange of random number.</p>
 <p>E.G. LC 384 Shuffle an array<br><figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">vector</span>&lt;<span class="keyword">int</span>&gt; shuffle() &#123;</span><br><span class="line">       <span class="keyword">vector</span>&lt;<span class="keyword">int</span>&gt; shu(original);</span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; shu.<span class="keyword">size</span>(); i++)&#123;</span><br><span class="line">           <span class="keyword">int</span> ind = <span class="keyword">rand</span>() % (shu.<span class="keyword">size</span>() - i);</span><br><span class="line">           swap(shu[i], shu[i+ind]);</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> shu;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/02/19/Red-black-tree/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xueying Han">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Serena Han's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/02/19/Red-black-tree/" itemprop="url">Red-black tree</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-19T15:17:40-05:00">
-                2019-02-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><p><a href="https://www.cs.auckland.ac.nz/software/AlgAnim/red_black.html" target="_blank" rel="noopener">https://www.cs.auckland.ac.nz/software/AlgAnim/red_black.html</a></p>
-<h3 id="Priorities"><a href="#Priorities" class="headerlink" title="Priorities"></a>Priorities</h3><ul>
-<li>the root is black node.</li>
-<li>the red node’s parent and children should be black.</li>
-<li>we assume the null nodes are black node.</li>
-<li>we assume the new inserted node is red.</li>
-</ul>
-<h3 id="Operations"><a href="#Operations" class="headerlink" title="Operations"></a>Operations</h3><ul>
-<li>search<ul>
-<li>red-black tree is a binary search tree, so…</li>
-</ul>
-</li>
-<li>rotate<ul>
-<li>left-rotate</li>
-<li>right-rote</li>
-<li>rotate steps: rotate node x and node y<ol>
-<li>exchange their children</li>
-<li>exchange their parents</li>
-<li>change their positions</li>
-</ol>
-</li>
-</ul>
-</li>
-<li>insertion : let x(point to red node) move up.<ul>
-<li>example: <a href="https://www.cs.auckland.ac.nz/software/AlgAnim/red_black_op.html" target="_blank" rel="noopener">https://www.cs.auckland.ac.nz/software/AlgAnim/red_black_op.html</a></li>
-<li>case 1: insert node x is red, x’s parent is red, x’s uncle is red, x’s grandparent must be black.<ul>
-<li>change x’s parent color and x’s uncle color to black</li>
-<li>change x’s grandparent color to red.</li>
-<li>assign x’s grandparent to x (set the new red node)</li>
-</ul>
-</li>
-<li>case 2: insert node x is red, x’s parent is red, x’s uncle is black, x’s grandparent must be black.<ul>
-<li>assign x’s parent to x (x moves up)</li>
-<li>if original x is right child, then rotate left, otherwise rotate right.</li>
-<li>change x’s parent color to black and change x’ grandparent color to red.</li>
-<li>rotate x’s parent with x’s grandparent.</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/02/18/C-review-template/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xueying Han">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Serena Han's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/02/18/C-review-template/" itemprop="url">C++ - review - template</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-18T00:24:11-05:00">
-                2019-02-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="class-templates"><a href="#class-templates" class="headerlink" title="class templates"></a>class templates</h3><ul>
-<li><p>template arguments</p>
-<ul>
-<li><p>one argument</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">template</span>&lt;<span class="selector-tag">class</span> <span class="selector-tag">T</span>&gt;</span><br><span class="line"><span class="selector-tag">class</span> <span class="selector-tag">ClassName</span>&#123;</span><br><span class="line"><span class="attribute">private</span>:</span><br><span class="line">  T pa;</span><br><span class="line"><span class="attribute">public</span>:</span><br><span class="line">  <span class="built_in">ClassName</span>(T a): <span class="built_in">pa</span>(a)&#123;&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>multiple arguments</p>
-<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">template</span>&lt;<span class="keyword">class</span> <span class="type">T</span>, <span class="keyword">class</span> <span class="type">U</span>&gt;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="type">ClassName</span>&#123;</span></span><br><span class="line"><span class="class">private:</span></span><br><span class="line"><span class="class">  <span class="type">T</span> a;</span></span><br><span class="line"><span class="class">  <span class="type">U</span> b;</span></span><br><span class="line"><span class="class">public:</span></span><br><span class="line"><span class="class">  <span class="type">ClassName</span>(<span class="type">T</span> <span class="title">pa</span>, <span class="type">U</span> <span class="title">pb</span>): a(<span class="title">pa</span>), b(<span class="title">pb</span>)&#123;&#125;</span></span><br><span class="line"><span class="class">&#125;;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>default-type argument</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>, <span class="title">class</span> <span class="title">Alloc</span> = <span class="title">std</span>:</span>:allocator&lt;T&gt;&gt;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ClassName</span>&#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">  T a;</span><br><span class="line">  Alloc _alloc;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  ClassName(T pa): a(pa)&#123;&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>template specialization</p>
-<ul>
-<li>when specialize the function, template declaration should be <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*</span><br></pre></td></tr></table></figure></li>
-</ul>
-<p>#include <iostream><br>using namespace std;<br>template<class t=""><br>class TemplateClass{<br>public:</class></iostream></p>
-<pre><code>static int count;
-TemplateClass(){count++;}
-void output(){
-    cout &lt;&lt; count &lt;&lt; endl;
-}
-</code></pre><p>};<br>template<class t=""><br>int TemplateClass<t>::count = 0;</t></class></p>
-<p>template&lt;&gt;<br>void TemplateClass<int>::output(){</int></p>
-<pre><code>cout &lt;&lt; &quot;template specialize int: &quot; &lt;&lt; count &lt;&lt; endl;
-</code></pre><p>}</p>
-<p>template&lt;&gt;<br>void TemplateClass<double>::output(){</double></p>
-<pre><code>cout &lt;&lt; &quot;template specialize double: &quot; &lt;&lt; count &lt;&lt; endl;
-</code></pre><p>}<br>int main(int argc, const char * argv[]) {</p>
-<pre><code>TemplateClass&lt;int&gt; tem1;
-tem1.output();
-TemplateClass&lt;int&gt; tem2;
-tem2.output();
-TemplateClass&lt;double&gt; tem3;
-tem3.output();
-TemplateClass&lt;double&gt; tem4;
-tem4.output();
-return 0;
-</code></pre><p>}</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">* template <span class="keyword">and</span> static variables</span><br><span class="line">  * initialize static class variables outside the class</span><br><span class="line">  * instances with different types will hold their own static variables</span><br><span class="line">  * instances with same<span class="built_in"> type </span>will share one static variable</span><br></pre></td></tr></table></figure>
-<p>#include <iostream><br>using namespace std;<br>template<class t=""><br>class TemplateClass{<br>public:</class></iostream></p>
-<pre><code>static int count;
-TemplateClass(){count++;}
-void output(){
-    cout &lt;&lt; count &lt;&lt; endl;
-}
-</code></pre><p>};<br>template<class t=""><br>int TemplateClass<t>::count = 0;</t></class></p>
-<p>int main(int argc, const char * argv[]) {</p>
-<pre><code>TemplateClass&lt;int&gt; tem1;
-tem1.output();
-TemplateClass&lt;int&gt; tem2;
-tem2.output();
-TemplateClass&lt;double&gt; tem3;
-tem3.output();
-TemplateClass&lt;double&gt; tem4;
-tem4.output();
-return 0;
-</code></pre><p>}<br>//output is 1 2 1 2<br><code>`</code></p>
-</li>
-</ul>
 
           
         
@@ -1664,7 +1573,7 @@ return 0;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-count">73</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1723,7 +1632,7 @@ return 0;
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
