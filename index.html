@@ -269,6 +269,153 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2020/02/14/Strobogrammatic-Number/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xueying Han">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Serena Han's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/02/14/Strobogrammatic-Number/" itemprop="url">Strobogrammatic_Number</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-14T22:38:19-08:00">
+                2020-02-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Pairs:<br>0 - 0<br>1 - 1<br>6 - 9<br>8 - 8<br>9 - 6</p>
+<h2 id="1056-Confusing-Number"><a href="#1056-Confusing-Number" class="headerlink" title="1056. Confusing Number"></a>1056. Confusing Number</h2><ul>
+<li>Don’t need to say<ul>
+<li>go through each digit</li>
+<li>check out each digit, if it’s not one of the above digits, return false directly</li>
+</ul>
+</li>
+<li>Straight way: creating the new number<ul>
+<li>the new number may be larger than MAX_VALUE</li>
+</ul>
+</li>
+<li>If don’t use straight way, then<ul>
+<li>num 619 -&gt; rotate -&gt; 619</li>
+<li>So convert the number num to String numStr<ul>
+<li>numStr[i] = 0/1/6/8/9 and numStr[length-1-i] = 0/1/9/8/6, for i &lt; length / 2, return false, else return true</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="246-Strobogrammatic-Number"><a href="#246-Strobogrammatic-Number" class="headerlink" title="246. Strobogrammatic Number"></a>246. Strobogrammatic Number</h2><h2 id="247-Strobogrammatic-Number-II"><a href="#247-Strobogrammatic-Number-II" class="headerlink" title="247. Strobogrammatic Number II"></a>247. Strobogrammatic Number II</h2><h2 id="248-Strobogrammatic-Number-III"><a href="#248-Strobogrammatic-Number-III" class="headerlink" title="248. Strobogrammatic Number III"></a>248. Strobogrammatic Number III</h2><ul>
+<li>dfs(recursion)<ul>
+<li>length of a number</li>
+<li>adding digits to the new number from sides to middle</li>
+<li>edge is one of the pairs, node is the new possible number after adding a pair</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/09/16/Data-mining-algorithms/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1402,127 +1549,6 @@ return sample;
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/03/16/How-to-Shuffle-an-array/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xueying Han">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Serena Han's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/16/How-to-Shuffle-an-array/" itemprop="url">How to Shuffle an array</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-16T16:16:11-07:00">
-                2019-03-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>random + swap<br>Key is changing the arrange of random number.</p>
-<p>E.G. LC 384 Shuffle an array<br><figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">vector</span>&lt;<span class="keyword">int</span>&gt; shuffle() &#123;</span><br><span class="line">       <span class="keyword">vector</span>&lt;<span class="keyword">int</span>&gt; shu(original);</span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; shu.<span class="keyword">size</span>(); i++)&#123;</span><br><span class="line">           <span class="keyword">int</span> ind = <span class="keyword">rand</span>() % (shu.<span class="keyword">size</span>() - i);</span><br><span class="line">           swap(shu[i], shu[i+ind]);</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> shu;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1573,7 +1599,7 @@ return sample;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">73</span>
+                  <span class="site-state-item-count">74</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
