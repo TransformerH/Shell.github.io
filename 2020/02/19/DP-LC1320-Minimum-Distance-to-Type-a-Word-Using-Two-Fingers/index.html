@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="PG," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -79,18 +79,17 @@
 
 
 
-<meta name="description" content="Problems Solutions sliding window: Two-pointers123```* prefix sum: map   `">
-<meta name="keywords" content="PG">
+<meta name="description" content="Answer Analysis: https://leetcode.com/problems/minimum-distance-to-type-a-word-using-two-fingers/discuss/477659/4%2B-DP-Solutions Top-down DP The process of solving this problem is a binary tree Root">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Subarray Sum">
-<meta property="og:url" content="https://transformerh.github.io/2018/12/29/Subarray-Sum/index.html">
+<meta property="og:title" content="DP-LC1320-Minimum-Distance-to-Type-a-Word-Using-Two-Fingers">
+<meta property="og:url" content="https://transformerh.github.io/2020/02/19/DP-LC1320-Minimum-Distance-to-Type-a-Word-Using-Two-Fingers/index.html">
 <meta property="og:site_name" content="Serena Han&#39;s Blog">
-<meta property="og:description" content="Problems Solutions sliding window: Two-pointers123```* prefix sum: map   `">
+<meta property="og:description" content="Answer Analysis: https://leetcode.com/problems/minimum-distance-to-type-a-word-using-two-fingers/discuss/477659/4%2B-DP-Solutions Top-down DP The process of solving this problem is a binary tree Root">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-12-29T05:41:29.386Z">
+<meta property="og:updated_time" content="2020-02-21T07:08:43.591Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Subarray Sum">
-<meta name="twitter:description" content="Problems Solutions sliding window: Two-pointers123```* prefix sum: map   `">
+<meta name="twitter:title" content="DP-LC1320-Minimum-Distance-to-Type-a-Word-Using-Two-Fingers">
+<meta name="twitter:description" content="Answer Analysis: https://leetcode.com/problems/minimum-distance-to-type-a-word-using-two-fingers/discuss/477659/4%2B-DP-Solutions Top-down DP The process of solving this problem is a binary tree Root">
 
 
 
@@ -120,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="https://transformerh.github.io/2018/12/29/Subarray-Sum/"/>
+  <link rel="canonical" href="https://transformerh.github.io/2020/02/19/DP-LC1320-Minimum-Distance-to-Type-a-Word-Using-Two-Fingers/"/>
 
 
 
 
 
-  <title>Subarray Sum | Serena Han's Blog</title>
+  <title>DP-LC1320-Minimum-Distance-to-Type-a-Word-Using-Two-Fingers | Serena Han's Blog</title>
   
 
 
@@ -273,7 +272,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2018/12/29/Subarray-Sum/">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2020/02/19/DP-LC1320-Minimum-Distance-to-Type-a-Word-Using-Two-Fingers/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xueying Han">
@@ -290,7 +289,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Subarray Sum</h1>
+          <h1 class="post-title" itemprop="name headline">DP-LC1320-Minimum-Distance-to-Type-a-Word-Using-Two-Fingers</h1>
         
 
         <div class="post-meta">
@@ -302,8 +301,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-29T00:39:00-08:00">
-                2018-12-29
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-19T23:31:54-08:00">
+                2020-02-19
               </time>
             
 
@@ -340,12 +339,40 @@
       
 
       
-        <h3 id="Problems"><a href="#Problems" class="headerlink" title="Problems"></a>Problems</h3><hr>
-<h3 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions"></a>Solutions</h3><ul>
-<li>sliding window: Two-pointers<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line"></span><br><span class="line">*<span class="built_in"> prefix </span>sum: map</span><br></pre></td></tr></table></figure>
+        <p>Answer Analysis: <a href="https://leetcode.com/problems/minimum-distance-to-type-a-word-using-two-fingers/discuss/477659/4%2B-DP-Solutions" target="_blank" rel="noopener">https://leetcode.com/problems/minimum-distance-to-type-a-word-using-two-fingers/discuss/477659/4%2B-DP-Solutions</a></p>
+<h3 id="Top-down-DP"><a href="#Top-down-DP" class="headerlink" title="Top-down DP"></a>Top-down DP</h3><ul>
+<li>The process of solving this problem is a binary tree<ul>
+<li>Root node: word</li>
+<li>Left branch: the finger one types the current character</li>
+<li>Right branch: the finger two types the current character</li>
+</ul>
+</li>
+<li>how to decide which finger =<br>the sum of distance if using that finger to type the current character<br>=<br>the distance between the current finger and the current character +<br>the sum of distance of typing next character based on the situation that using the current finger typing the current character</li>
+<li>So we can see there is a recursion.</li>
+</ul>
+<h3 id="Bottom-up-DP"><a href="#Bottom-up-DP" class="headerlink" title="Bottom-up DP"></a>Bottom-up DP</h3><ul>
+<li>Use the given longest length of word<ul>
+<li>For each character, go through all combinations of two fingers and calculate the sum of distance between each finger and the current character.</li>
+<li>dp[pos][i][j] = min(dp[pos + 1][to][i] + cost(j, to), dp[pos + 1][to][j] + cost(i, to));<ul>
+<li>To decide the current finger, we need to compare the two possible results:<ul>
+<li>finger 1 at position i moves to position to, so finger 2 is still at position j</li>
+<li>finger 2 at position j moves to position to, so finger 1 is still at position i</li>
+</ul>
+</li>
+<li>So we can know the design of this DP data structure is for each position pos, the previous character could be any letter i, then another finger will be at any letter j.</li>
+</ul>
 </li>
 </ul>
-<p><code>`</code></p>
+</li>
+</ul>
+<h3 id="Optimization-of-above-two-types-of-DP"><a href="#Optimization-of-above-two-types-of-DP" class="headerlink" title="Optimization of above two types of DP"></a>Optimization of above two types of DP</h3><ul>
+<li>It’s unnecessary to distinguish finger one and finger two.</li>
+<li>For the current character, there are only two choices:<ul>
+<li>using the same finger as the previous character</li>
+<li>using another one</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
@@ -361,12 +388,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/PG/" rel="tag"># PG</a>
-          
-        </div>
-      
 
       
       
@@ -376,8 +397,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/29/PG-Find-subarray-with-given-sum/" rel="next" title="PG-Find subarray with given sum">
-                <i class="fa fa-chevron-left"></i> PG-Find subarray with given sum
+              <a href="/2020/02/14/Strobogrammatic-Number/" rel="next" title="Strobogrammatic_Number">
+                <i class="fa fa-chevron-left"></i> Strobogrammatic_Number
               </a>
             
           </div>
@@ -385,10 +406,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/12/29/Two-pointers-3Sum-etc/" rel="prev" title="Two pointers-3Sum etc.">
-                Two pointers-3Sum etc. <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -520,7 +537,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Problems"><span class="nav-number">1.</span> <span class="nav-text">Problems</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Solutions"><span class="nav-number">2.</span> <span class="nav-text">Solutions</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Top-down-DP"><span class="nav-number">1.</span> <span class="nav-text">Top-down DP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bottom-up-DP"><span class="nav-number">2.</span> <span class="nav-text">Bottom-up DP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Optimization-of-above-two-types-of-DP"><span class="nav-number">3.</span> <span class="nav-text">Optimization of above two types of DP</span></a></li></ol></div>
             
 
           </div>

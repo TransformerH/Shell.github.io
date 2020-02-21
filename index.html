@@ -269,6 +269,159 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2020/02/19/DP-LC1320-Minimum-Distance-to-Type-a-Word-Using-Two-Fingers/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xueying Han">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Serena Han's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/02/19/DP-LC1320-Minimum-Distance-to-Type-a-Word-Using-Two-Fingers/" itemprop="url">DP-LC1320-Minimum-Distance-to-Type-a-Word-Using-Two-Fingers</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-19T23:31:54-08:00">
+                2020-02-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Answer Analysis: <a href="https://leetcode.com/problems/minimum-distance-to-type-a-word-using-two-fingers/discuss/477659/4%2B-DP-Solutions" target="_blank" rel="noopener">https://leetcode.com/problems/minimum-distance-to-type-a-word-using-two-fingers/discuss/477659/4%2B-DP-Solutions</a></p>
+<h3 id="Top-down-DP"><a href="#Top-down-DP" class="headerlink" title="Top-down DP"></a>Top-down DP</h3><ul>
+<li>The process of solving this problem is a binary tree<ul>
+<li>Root node: word</li>
+<li>Left branch: the finger one types the current character</li>
+<li>Right branch: the finger two types the current character</li>
+</ul>
+</li>
+<li>how to decide which finger =<br>the sum of distance if using that finger to type the current character<br>=<br>the distance between the current finger and the current character +<br>the sum of distance of typing next character based on the situation that using the current finger typing the current character</li>
+<li>So we can see there is a recursion.</li>
+</ul>
+<h3 id="Bottom-up-DP"><a href="#Bottom-up-DP" class="headerlink" title="Bottom-up DP"></a>Bottom-up DP</h3><ul>
+<li>Use the given longest length of word<ul>
+<li>For each character, go through all combinations of two fingers and calculate the sum of distance between each finger and the current character.</li>
+<li>dp[pos][i][j] = min(dp[pos + 1][to][i] + cost(j, to), dp[pos + 1][to][j] + cost(i, to));<ul>
+<li>To decide the current finger, we need to compare the two possible results:<ul>
+<li>finger 1 at position i moves to position to, so finger 2 is still at position j</li>
+<li>finger 2 at position j moves to position to, so finger 1 is still at position i</li>
+</ul>
+</li>
+<li>So we can know the design of this DP data structure is for each position pos, the previous character could be any letter i, then another finger will be at any letter j.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Optimization-of-above-two-types-of-DP"><a href="#Optimization-of-above-two-types-of-DP" class="headerlink" title="Optimization of above two types of DP"></a>Optimization of above two types of DP</h3><ul>
+<li>It’s unnecessary to distinguish finger one and finger two.</li>
+<li>For the current character, there are only two choices:<ul>
+<li>using the same finger as the previous character</li>
+<li>using another one</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2020/02/14/Strobogrammatic-Number/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1417,138 +1570,6 @@ return sample;
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://transformerh.github.io/2019/05/18/Java-Escaping-Characters/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xueying Han">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Serena Han's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/18/Java-Escaping-Characters/" itemprop="url">Java-Escaping Characters</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-18T13:16:44-07:00">
-                2019-05-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="Metacharacters"><a href="#Metacharacters" class="headerlink" title="Metacharacters"></a>Metacharacters</h3><ul>
-<li>special characters with special meaning</li>
-<li>Escape special characters: not interpret special characters with their special meaning, force them to be treated as ordinary Characters<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">String</span> input = <span class="string">"foof"</span>;</span><br><span class="line"><span class="keyword">String</span> regex = <span class="string">"foo."</span>;</span><br><span class="line">input.<span class="keyword">matches</span>(regex); // <span class="keyword">true</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>Here, the special meaning of dot is that it can be any character in its place.</p>
-<h3 id="Escape-special-Characters"><a href="#Escape-special-Characters" class="headerlink" title="Escape special Characters"></a>Escape special Characters</h3><ul>
-<li>Escape special characters by using double backslashes<ul>
-<li>why not single? backslash is an escape character in Java String literals as well. -&gt; double backslashes</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">String</span> input = <span class="string">"foof"</span>;</span><br><span class="line"><span class="keyword">String</span> regex = <span class="string">"foo\\."</span>;</span><br><span class="line">input.<span class="keyword">matches</span>(regex); // <span class="keyword">false</span></span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1599,7 +1620,7 @@ return sample;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">74</span>
+                  <span class="site-state-item-count">75</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
